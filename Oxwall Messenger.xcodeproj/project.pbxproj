@@ -28,9 +28,6 @@
 		9C39547F16A3566A00C5C8FD /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39547E16A3566A00C5C8FD /* LocationModel.m */; };
 		9C39548216A3581600C5C8FD /* OxwallFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39548116A3581600C5C8FD /* OxwallFeed.m */; };
 		E9477EFD17DF865700A16505 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EF717DF865600A16505 /* AppDelegate.m */; };
-		E9477EFE17DF865700A16505 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477EF817DF865600A16505 /* Default-568h@2x.png */; };
-		E9477EFF17DF865700A16505 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477EF917DF865600A16505 /* Default.png */; };
-		E9477F0017DF865700A16505 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477EFA17DF865700A16505 /* Default@2x.png */; };
 		E9477F0117DF865700A16505 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EFC17DF865700A16505 /* DetailViewController.m */; };
 		E9477F0717DF869600A16505 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F0217DF869600A16505 /* main.m */; };
 		E9477F0817DF869600A16505 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F0417DF869600A16505 /* MasterViewController.m */; };
@@ -39,6 +36,7 @@
 		E9477F1417DF872800A16505 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1117DF872800A16505 /* Default.png */; };
 		E9477F1517DF872800A16505 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1217DF872800A16505 /* Default@2x.png */; };
 		E9477F1917DF889600A16505 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1817DF889600A16505 /* InfoPlist.strings */; };
+		E9477F1C17DF8AF200A16505 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F1B17DF8AF200A16505 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,9 +79,6 @@
 		9C39548116A3581600C5C8FD /* OxwallFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxwallFeed.m; sourceTree = "<group>"; };
 		E9477EF617DF865600A16505 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Messenger/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		E9477EF717DF865600A16505 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Messenger/AppDelegate.m; sourceTree = SOURCE_ROOT; };
-		E9477EF817DF865600A16505 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Messenger/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
-		E9477EF917DF865600A16505 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Messenger/Default.png; sourceTree = SOURCE_ROOT; };
-		E9477EFA17DF865700A16505 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Messenger/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		E9477EFB17DF865700A16505 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = Messenger/DetailViewController.h; sourceTree = SOURCE_ROOT; };
 		E9477EFC17DF865700A16505 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = Messenger/DetailViewController.m; sourceTree = SOURCE_ROOT; };
 		E9477F0217DF869600A16505 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Messenger/main.m; sourceTree = SOURCE_ROOT; };
@@ -95,6 +90,8 @@
 		E9477F1117DF872800A16505 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Messenger/Default.png; sourceTree = SOURCE_ROOT; };
 		E9477F1217DF872800A16505 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Messenger/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		E9477F1817DF889600A16505 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Messenger/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		E9477F1A17DF8AF100A16505 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Messenger/LoginViewController.h; sourceTree = SOURCE_ROOT; };
+		E9477F1B17DF8AF200A16505 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Messenger/LoginViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,14 +111,9 @@
 		9C39540E16A34F8200C5C8FD = {
 			isa = PBXGroup;
 			children = (
-				9C39548016A3581600C5C8FD /* OxwallFeed.h */,
-				9C39548116A3581600C5C8FD /* OxwallFeed.m */,
-				9C39547D16A3566A00C5C8FD /* LocationModel.h */,
-				9C39547E16A3566A00C5C8FD /* LocationModel.m */,
-				9C39547A16A3554D00C5C8FD /* UsersModel.h */,
-				9C39547B16A3554D00C5C8FD /* UsersModel.m */,
-				9C39544E16A34FF300C5C8FD /* JSONModel */,
 				9C39544316A34FC800C5C8FD /* HUD */,
+				9C39544E16A34FF300C5C8FD /* JSONModel */,
+				E9477F1D17DF8B9E00A16505 /* Messenger Models */,
 				9C39542316A34F8200C5C8FD /* Messenger */,
 				9C39541C16A34F8200C5C8FD /* Frameworks */,
 				9C39541A16A34F8200C5C8FD /* Products */,
@@ -149,13 +141,12 @@
 		9C39542316A34F8200C5C8FD /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
+				E9477F1A17DF8AF100A16505 /* LoginViewController.h */,
+				E9477F1B17DF8AF200A16505 /* LoginViewController.m */,
 				E9477F0317DF869600A16505 /* MasterViewController.h */,
 				E9477F0417DF869600A16505 /* MasterViewController.m */,
 				E9477EF617DF865600A16505 /* AppDelegate.h */,
 				E9477EF717DF865600A16505 /* AppDelegate.m */,
-				E9477EF817DF865600A16505 /* Default-568h@2x.png */,
-				E9477EF917DF865600A16505 /* Default.png */,
-				E9477EFA17DF865700A16505 /* Default@2x.png */,
 				E9477EFB17DF865700A16505 /* DetailViewController.h */,
 				E9477EFC17DF865700A16505 /* DetailViewController.m */,
 				9C39542416A34F8200C5C8FD /* Supporting Files */,
@@ -251,6 +242,19 @@
 			path = JSONModelTransformations;
 			sourceTree = "<group>";
 		};
+		E9477F1D17DF8B9E00A16505 /* Messenger Models */ = {
+			isa = PBXGroup;
+			children = (
+				9C39548016A3581600C5C8FD /* OxwallFeed.h */,
+				9C39548116A3581600C5C8FD /* OxwallFeed.m */,
+				9C39547D16A3566A00C5C8FD /* LocationModel.h */,
+				9C39547E16A3566A00C5C8FD /* LocationModel.m */,
+				9C39547A16A3554D00C5C8FD /* UsersModel.h */,
+				9C39547B16A3554D00C5C8FD /* UsersModel.m */,
+			);
+			name = "Messenger Models";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -304,9 +308,6 @@
 			files = (
 				9C39544A16A34FC800C5C8FD /* btnCheck.png in Resources */,
 				9C39544B16A34FC800C5C8FD /* btnCheck@2x.png in Resources */,
-				E9477EFE17DF865700A16505 /* Default-568h@2x.png in Resources */,
-				E9477EFF17DF865700A16505 /* Default.png in Resources */,
-				E9477F0017DF865700A16505 /* Default@2x.png in Resources */,
 				E9477F0917DF869600A16505 /* Oxwall Messenger-Info.plist in Resources */,
 				E9477F1317DF872800A16505 /* Default-568h@2x.png in Resources */,
 				E9477F1417DF872800A16505 /* Default.png in Resources */,
@@ -341,6 +342,7 @@
 				E9477F0117DF865700A16505 /* DetailViewController.m in Sources */,
 				E9477F0717DF869600A16505 /* main.m in Sources */,
 				E9477F0817DF869600A16505 /* MasterViewController.m in Sources */,
+				E9477F1C17DF8AF200A16505 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

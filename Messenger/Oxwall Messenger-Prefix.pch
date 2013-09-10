@@ -1,6 +1,11 @@
 //
-// Prefix header for all source files of the 'JSON_HelloWorld' target in the 'JSON_HelloWorld' project
+//  Prefix header for all source files of the 'Oxwall Messenger' target in the 'Oxwall Messenger' project
+//  Oxwall Messenger
 //
+//  Created by Thomas Ochman on 2013-09-10.
+//  Copyright (c) 2013 Underplot ltd. All rights reserved.
+//
+
 
 #import <Availability.h>
 
