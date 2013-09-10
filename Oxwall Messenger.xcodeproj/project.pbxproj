@@ -38,6 +38,7 @@
 		E9477F1917DF889600A16505 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1817DF889600A16505 /* InfoPlist.strings */; };
 		E9477F1C17DF8AF200A16505 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F1B17DF8AF200A16505 /* LoginViewController.m */; };
 		E9477F2217DF8E7500A16505 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9477F2117DF8E7500A16505 /* MainStoryboard.storyboard */; };
+		E9477F2517DF931800A16505 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F2417DF931800A16505 /* LoginModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,8 @@
 		E9477F1A17DF8AF100A16505 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Messenger/LoginViewController.h; sourceTree = SOURCE_ROOT; };
 		E9477F1B17DF8AF200A16505 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Messenger/LoginViewController.m; sourceTree = SOURCE_ROOT; };
 		E9477F2117DF8E7500A16505 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
+		E9477F2317DF931800A16505 /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginModel.h; path = Messenger/LoginModel.h; sourceTree = "<group>"; };
+		E9477F2417DF931800A16505 /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginModel.m; path = Messenger/LoginModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +257,8 @@
 				9C39547E16A3566A00C5C8FD /* LocationModel.m */,
 				9C39547A16A3554D00C5C8FD /* UsersModel.h */,
 				9C39547B16A3554D00C5C8FD /* UsersModel.m */,
+				E9477F2317DF931800A16505 /* LoginModel.h */,
+				E9477F2417DF931800A16505 /* LoginModel.m */,
 			);
 			name = "Messenger Models";
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 				E9477F0717DF869600A16505 /* main.m in Sources */,
 				E9477F0817DF869600A16505 /* MasterViewController.m in Sources */,
 				E9477F1C17DF8AF200A16505 /* LoginViewController.m in Sources */,
+				E9477F2517DF931800A16505 /* LoginModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

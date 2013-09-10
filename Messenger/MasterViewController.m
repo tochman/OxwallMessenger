@@ -21,6 +21,19 @@
 
 @implementation MasterViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+
+    
+    // Title
+    self.title = @"Oxwall search";
+    
+
+}
+
+
 -(void)viewDidAppear:(BOOL)animated
 {
     //show loader view
