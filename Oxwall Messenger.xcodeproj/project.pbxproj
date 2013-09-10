@@ -37,6 +37,7 @@
 		E9477F1517DF872800A16505 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1217DF872800A16505 /* Default@2x.png */; };
 		E9477F1917DF889600A16505 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1817DF889600A16505 /* InfoPlist.strings */; };
 		E9477F1C17DF8AF200A16505 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F1B17DF8AF200A16505 /* LoginViewController.m */; };
+		E9477F2217DF8E7500A16505 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9477F2117DF8E7500A16505 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		E9477F1817DF889600A16505 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Messenger/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		E9477F1A17DF8AF100A16505 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Messenger/LoginViewController.h; sourceTree = SOURCE_ROOT; };
 		E9477F1B17DF8AF200A16505 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Messenger/LoginViewController.m; sourceTree = SOURCE_ROOT; };
+		E9477F2117DF8E7500A16505 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		9C39542316A34F8200C5C8FD /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
+				E9477F2117DF8E7500A16505 /* MainStoryboard.storyboard */,
 				E9477F1A17DF8AF100A16505 /* LoginViewController.h */,
 				E9477F1B17DF8AF200A16505 /* LoginViewController.m */,
 				E9477F0317DF869600A16505 /* MasterViewController.h */,
@@ -313,6 +316,7 @@
 				E9477F1417DF872800A16505 /* Default.png in Resources */,
 				E9477F1517DF872800A16505 /* Default@2x.png in Resources */,
 				E9477F1917DF889600A16505 /* InfoPlist.strings in Resources */,
+				E9477F2217DF8E7500A16505 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
