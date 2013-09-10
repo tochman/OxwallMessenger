@@ -14,7 +14,7 @@
 
 //@property (strong, nonatomic) NSArray<LoginModel>* posts;
 
-@property (strong, nonatomic) NSNumber* success;
+@property (strong, nonatomic) NSString* success;
 @property (strong, nonatomic) NSString* message;
 @property (strong, nonatomic) NSString* user;
 @property (strong, nonatomic) NSString* realname;
