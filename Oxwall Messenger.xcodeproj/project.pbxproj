@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9C39541E16A34F8200C5C8FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C39541D16A34F8200C5C8FD /* UIKit.framework */; };
+		9C39542016A34F8200C5C8FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C39541F16A34F8200C5C8FD /* Foundation.framework */; };
+		9C39542216A34F8200C5C8FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C39542116A34F8200C5C8FD /* CoreGraphics.framework */; };
+		9C39544A16A34FC800C5C8FD /* btnCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C39544416A34FC800C5C8FD /* btnCheck.png */; };
+		9C39544B16A34FC800C5C8FD /* btnCheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C39544516A34FC800C5C8FD /* btnCheck@2x.png */; };
+		9C39544C16A34FC800C5C8FD /* HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39544716A34FC800C5C8FD /* HUD.m */; };
+		9C39544D16A34FC800C5C8FD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39544916A34FC800C5C8FD /* MBProgressHUD.m */; };
+		9C39546816A34FF300C5C8FD /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39545116A34FF300C5C8FD /* JSONModel.m */; };
+		9C39546916A34FF300C5C8FD /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39545316A34FF300C5C8FD /* JSONModelArray.m */; };
+		9C39546A16A34FF300C5C8FD /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39545516A34FF300C5C8FD /* JSONModelClassProperty.m */; };
+		9C39546B16A34FF300C5C8FD /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39545716A34FF300C5C8FD /* JSONModelError.m */; };
+		9C39546C16A34FF300C5C8FD /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39545A16A34FF300C5C8FD /* NSArray+JSONModel.m */; };
+		9C39546D16A34FF300C5C8FD /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39545E16A34FF300C5C8FD /* JSONAPI.m */; };
+		9C39546E16A34FF300C5C8FD /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39546016A34FF300C5C8FD /* JSONHTTPClient.m */; };
+		9C39546F16A34FF300C5C8FD /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39546216A34FF300C5C8FD /* JSONModel+networking.m */; };
+		9C39547016A34FF300C5C8FD /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39546516A34FF300C5C8FD /* JSONKeyMapper.m */; };
+		9C39547116A34FF300C5C8FD /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39546716A34FF300C5C8FD /* JSONValueTransformer.m */; };
+		9C39547C16A3554D00C5C8FD /* UsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39547B16A3554D00C5C8FD /* UsersModel.m */; };
+		9C39547F16A3566A00C5C8FD /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39547E16A3566A00C5C8FD /* LocationModel.m */; };
+		9C39548216A3581600C5C8FD /* OxwallFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39548116A3581600C5C8FD /* OxwallFeed.m */; };
+		E9477EFD17DF865700A16505 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EF717DF865600A16505 /* AppDelegate.m */; };
+		E9477EFE17DF865700A16505 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477EF817DF865600A16505 /* Default-568h@2x.png */; };
+		E9477EFF17DF865700A16505 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477EF917DF865600A16505 /* Default.png */; };
+		E9477F0017DF865700A16505 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477EFA17DF865700A16505 /* Default@2x.png */; };
+		E9477F0117DF865700A16505 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EFC17DF865700A16505 /* DetailViewController.m */; };
+		E9477F0717DF869600A16505 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F0217DF869600A16505 /* main.m */; };
+		E9477F0817DF869600A16505 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F0417DF869600A16505 /* MasterViewController.m */; };
+		E9477F0917DF869600A16505 /* Oxwall Messenger-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9477F0517DF869600A16505 /* Oxwall Messenger-Info.plist */; };
+		E9477F1317DF872800A16505 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1017DF872800A16505 /* Default-568h@2x.png */; };
+		E9477F1417DF872800A16505 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1117DF872800A16505 /* Default.png */; };
+		E9477F1517DF872800A16505 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1217DF872800A16505 /* Default@2x.png */; };
+		E9477F1917DF889600A16505 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1817DF889600A16505 /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9C39541916A34F8200C5C8FD /* Oxwall Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oxwall Messenger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C39541D16A34F8200C5C8FD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9C39541F16A34F8200C5C8FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9C39542116A34F8200C5C8FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9C39544416A34FC800C5C8FD /* btnCheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnCheck.png; sourceTree = "<group>"; };
+		9C39544516A34FC800C5C8FD /* btnCheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnCheck@2x.png"; sourceTree = "<group>"; };
+		9C39544616A34FC800C5C8FD /* HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUD.h; sourceTree = "<group>"; };
+		9C39544716A34FC800C5C8FD /* HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUD.m; sourceTree = "<group>"; };
+		9C39544816A34FC800C5C8FD /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		9C39544916A34FC800C5C8FD /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		9C39545016A34FF300C5C8FD /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
+		9C39545116A34FF300C5C8FD /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
+		9C39545216A34FF300C5C8FD /* JSONModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelArray.h; sourceTree = "<group>"; };
+		9C39545316A34FF300C5C8FD /* JSONModelArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelArray.m; sourceTree = "<group>"; };
+		9C39545416A34FF300C5C8FD /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelClassProperty.h; sourceTree = "<group>"; };
+		9C39545516A34FF300C5C8FD /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelClassProperty.m; sourceTree = "<group>"; };
+		9C39545616A34FF300C5C8FD /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelError.h; sourceTree = "<group>"; };
+		9C39545716A34FF300C5C8FD /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelError.m; sourceTree = "<group>"; };
+		9C39545916A34FF300C5C8FD /* NSArray+JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JSONModel.h"; sourceTree = "<group>"; };
+		9C39545A16A34FF300C5C8FD /* NSArray+JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JSONModel.m"; sourceTree = "<group>"; };
+		9C39545B16A34FF300C5C8FD /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelLib.h; sourceTree = "<group>"; };
+		9C39545D16A34FF300C5C8FD /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPI.h; sourceTree = "<group>"; };
+		9C39545E16A34FF300C5C8FD /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONAPI.m; sourceTree = "<group>"; };
+		9C39545F16A34FF300C5C8FD /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHTTPClient.h; sourceTree = "<group>"; };
+		9C39546016A34FF300C5C8FD /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHTTPClient.m; sourceTree = "<group>"; };
+		9C39546116A34FF300C5C8FD /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+networking.h"; sourceTree = "<group>"; };
+		9C39546216A34FF300C5C8FD /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
+		9C39546416A34FF300C5C8FD /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKeyMapper.h; sourceTree = "<group>"; };
+		9C39546516A34FF300C5C8FD /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
+		9C39546616A34FF300C5C8FD /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
+		9C39546716A34FF300C5C8FD /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
+		9C39547A16A3554D00C5C8FD /* UsersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersModel.h; sourceTree = "<group>"; };
+		9C39547B16A3554D00C5C8FD /* UsersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersModel.m; sourceTree = "<group>"; };
+		9C39547D16A3566A00C5C8FD /* LocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationModel.h; sourceTree = "<group>"; };
+		9C39547E16A3566A00C5C8FD /* LocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationModel.m; sourceTree = "<group>"; };
+		9C39548016A3581600C5C8FD /* OxwallFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxwallFeed.h; sourceTree = "<group>"; };
+		9C39548116A3581600C5C8FD /* OxwallFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxwallFeed.m; sourceTree = "<group>"; };
+		E9477EF617DF865600A16505 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Messenger/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		E9477EF717DF865600A16505 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Messenger/AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		E9477EF817DF865600A16505 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Messenger/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		E9477EF917DF865600A16505 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Messenger/Default.png; sourceTree = SOURCE_ROOT; };
+		E9477EFA17DF865700A16505 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Messenger/Default@2x.png"; sourceTree = SOURCE_ROOT; };
+		E9477EFB17DF865700A16505 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = Messenger/DetailViewController.h; sourceTree = SOURCE_ROOT; };
+		E9477EFC17DF865700A16505 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = Messenger/DetailViewController.m; sourceTree = SOURCE_ROOT; };
+		E9477F0217DF869600A16505 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Messenger/main.m; sourceTree = SOURCE_ROOT; };
+		E9477F0317DF869600A16505 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = Messenger/MasterViewController.h; sourceTree = SOURCE_ROOT; };
+		E9477F0417DF869600A16505 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = Messenger/MasterViewController.m; sourceTree = SOURCE_ROOT; };
+		E9477F0517DF869600A16505 /* Oxwall Messenger-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Oxwall Messenger-Info.plist"; path = "Messenger/Oxwall Messenger-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E9477F0617DF869600A16505 /* Oxwall Messenger-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Oxwall Messenger-Prefix.pch"; path = "Messenger/Oxwall Messenger-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		E9477F1017DF872800A16505 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Messenger/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		E9477F1117DF872800A16505 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Messenger/Default.png; sourceTree = SOURCE_ROOT; };
+		E9477F1217DF872800A16505 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Messenger/Default@2x.png"; sourceTree = SOURCE_ROOT; };
+		E9477F1817DF889600A16505 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Messenger/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C39541616A34F8200C5C8FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C39541E16A34F8200C5C8FD /* UIKit.framework in Frameworks */,
+				9C39542016A34F8200C5C8FD /* Foundation.framework in Frameworks */,
+				9C39542216A34F8200C5C8FD /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9C39540E16A34F8200C5C8FD = {
+			isa = PBXGroup;
+			children = (
+				9C39548016A3581600C5C8FD /* OxwallFeed.h */,
+				9C39548116A3581600C5C8FD /* OxwallFeed.m */,
+				9C39547D16A3566A00C5C8FD /* LocationModel.h */,
+				9C39547E16A3566A00C5C8FD /* LocationModel.m */,
+				9C39547A16A3554D00C5C8FD /* UsersModel.h */,
+				9C39547B16A3554D00C5C8FD /* UsersModel.m */,
+				9C39544E16A34FF300C5C8FD /* JSONModel */,
+				9C39544316A34FC800C5C8FD /* HUD */,
+				9C39542316A34F8200C5C8FD /* Messenger */,
+				9C39541C16A34F8200C5C8FD /* Frameworks */,
+				9C39541A16A34F8200C5C8FD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9C39541A16A34F8200C5C8FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C39541916A34F8200C5C8FD /* Oxwall Messenger.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C39541C16A34F8200C5C8FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C39541D16A34F8200C5C8FD /* UIKit.framework */,
+				9C39541F16A34F8200C5C8FD /* Foundation.framework */,
+				9C39542116A34F8200C5C8FD /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C39542316A34F8200C5C8FD /* Messenger */ = {
+			isa = PBXGroup;
+			children = (
+				E9477F0317DF869600A16505 /* MasterViewController.h */,
+				E9477F0417DF869600A16505 /* MasterViewController.m */,
+				E9477EF617DF865600A16505 /* AppDelegate.h */,
+				E9477EF717DF865600A16505 /* AppDelegate.m */,
+				E9477EF817DF865600A16505 /* Default-568h@2x.png */,
+				E9477EF917DF865600A16505 /* Default.png */,
+				E9477EFA17DF865700A16505 /* Default@2x.png */,
+				E9477EFB17DF865700A16505 /* DetailViewController.h */,
+				E9477EFC17DF865700A16505 /* DetailViewController.m */,
+				9C39542416A34F8200C5C8FD /* Supporting Files */,
+			);
+			name = Messenger;
+			path = JSON_HelloWorld;
+			sourceTree = "<group>";
+		};
+		9C39542416A34F8200C5C8FD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9477F1817DF889600A16505 /* InfoPlist.strings */,
+				E9477F1017DF872800A16505 /* Default-568h@2x.png */,
+				E9477F1117DF872800A16505 /* Default.png */,
+				E9477F1217DF872800A16505 /* Default@2x.png */,
+				E9477F0217DF869600A16505 /* main.m */,
+				E9477F0517DF869600A16505 /* Oxwall Messenger-Info.plist */,
+				E9477F0617DF869600A16505 /* Oxwall Messenger-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C39544316A34FC800C5C8FD /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				9C39544416A34FC800C5C8FD /* btnCheck.png */,
+				9C39544516A34FC800C5C8FD /* btnCheck@2x.png */,
+				9C39544616A34FC800C5C8FD /* HUD.h */,
+				9C39544716A34FC800C5C8FD /* HUD.m */,
+				9C39544816A34FC800C5C8FD /* MBProgressHUD.h */,
+				9C39544916A34FC800C5C8FD /* MBProgressHUD.m */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		9C39544E16A34FF300C5C8FD /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				9C39544F16A34FF300C5C8FD /* JSONModel */,
+				9C39545816A34FF300C5C8FD /* JSONModelCategories */,
+				9C39545B16A34FF300C5C8FD /* JSONModelLib.h */,
+				9C39545C16A34FF300C5C8FD /* JSONModelNetworking */,
+				9C39546316A34FF300C5C8FD /* JSONModelTransformations */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		9C39544F16A34FF300C5C8FD /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				9C39545016A34FF300C5C8FD /* JSONModel.h */,
+				9C39545116A34FF300C5C8FD /* JSONModel.m */,
+				9C39545216A34FF300C5C8FD /* JSONModelArray.h */,
+				9C39545316A34FF300C5C8FD /* JSONModelArray.m */,
+				9C39545416A34FF300C5C8FD /* JSONModelClassProperty.h */,
+				9C39545516A34FF300C5C8FD /* JSONModelClassProperty.m */,
+				9C39545616A34FF300C5C8FD /* JSONModelError.h */,
+				9C39545716A34FF300C5C8FD /* JSONModelError.m */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		9C39545816A34FF300C5C8FD /* JSONModelCategories */ = {
+			isa = PBXGroup;
+			children = (
+				9C39545916A34FF300C5C8FD /* NSArray+JSONModel.h */,
+				9C39545A16A34FF300C5C8FD /* NSArray+JSONModel.m */,
+			);
+			path = JSONModelCategories;
+			sourceTree = "<group>";
+		};
+		9C39545C16A34FF300C5C8FD /* JSONModelNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				9C39545D16A34FF300C5C8FD /* JSONAPI.h */,
+				9C39545E16A34FF300C5C8FD /* JSONAPI.m */,
+				9C39545F16A34FF300C5C8FD /* JSONHTTPClient.h */,
+				9C39546016A34FF300C5C8FD /* JSONHTTPClient.m */,
+				9C39546116A34FF300C5C8FD /* JSONModel+networking.h */,
+				9C39546216A34FF300C5C8FD /* JSONModel+networking.m */,
+			);
+			path = JSONModelNetworking;
+			sourceTree = "<group>";
+		};
+		9C39546316A34FF300C5C8FD /* JSONModelTransformations */ = {
+			isa = PBXGroup;
+			children = (
+				9C39546416A34FF300C5C8FD /* JSONKeyMapper.h */,
+				9C39546516A34FF300C5C8FD /* JSONKeyMapper.m */,
+				9C39546616A34FF300C5C8FD /* JSONValueTransformer.h */,
+				9C39546716A34FF300C5C8FD /* JSONValueTransformer.m */,
+			);
+			path = JSONModelTransformations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C39541816A34F8200C5C8FD /* Oxwall Messenger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C39544016A34F8200C5C8FD /* Build configuration list for PBXNativeTarget "Oxwall Messenger" */;
+			buildPhases = (
+				9C39541516A34F8200C5C8FD /* Sources */,
+				9C39541616A34F8200C5C8FD /* Frameworks */,
+				9C39541716A34F8200C5C8FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Oxwall Messenger";
+			productName = JSON_HelloWorld;
+			productReference = 9C39541916A34F8200C5C8FD /* Oxwall Messenger.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C39541016A34F8200C5C8FD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Underplot ltd.";
+			};
+			buildConfigurationList = 9C39541316A34F8200C5C8FD /* Build configuration list for PBXProject "Oxwall Messenger" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9C39540E16A34F8200C5C8FD;
+			productRefGroup = 9C39541A16A34F8200C5C8FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C39541816A34F8200C5C8FD /* Oxwall Messenger */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9C39541716A34F8200C5C8FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C39544A16A34FC800C5C8FD /* btnCheck.png in Resources */,
+				9C39544B16A34FC800C5C8FD /* btnCheck@2x.png in Resources */,
+				E9477EFE17DF865700A16505 /* Default-568h@2x.png in Resources */,
+				E9477EFF17DF865700A16505 /* Default.png in Resources */,
+				E9477F0017DF865700A16505 /* Default@2x.png in Resources */,
+				E9477F0917DF869600A16505 /* Oxwall Messenger-Info.plist in Resources */,
+				E9477F1317DF872800A16505 /* Default-568h@2x.png in Resources */,
+				E9477F1417DF872800A16505 /* Default.png in Resources */,
+				E9477F1517DF872800A16505 /* Default@2x.png in Resources */,
+				E9477F1917DF889600A16505 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C39541516A34F8200C5C8FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C39544C16A34FC800C5C8FD /* HUD.m in Sources */,
+				9C39544D16A34FC800C5C8FD /* MBProgressHUD.m in Sources */,
+				9C39546816A34FF300C5C8FD /* JSONModel.m in Sources */,
+				9C39546916A34FF300C5C8FD /* JSONModelArray.m in Sources */,
+				9C39546A16A34FF300C5C8FD /* JSONModelClassProperty.m in Sources */,
+				9C39546B16A34FF300C5C8FD /* JSONModelError.m in Sources */,
+				9C39546C16A34FF300C5C8FD /* NSArray+JSONModel.m in Sources */,
+				9C39546D16A34FF300C5C8FD /* JSONAPI.m in Sources */,
+				9C39546E16A34FF300C5C8FD /* JSONHTTPClient.m in Sources */,
+				9C39546F16A34FF300C5C8FD /* JSONModel+networking.m in Sources */,
+				9C39547016A34FF300C5C8FD /* JSONKeyMapper.m in Sources */,
+				9C39547116A34FF300C5C8FD /* JSONValueTransformer.m in Sources */,
+				9C39547C16A3554D00C5C8FD /* UsersModel.m in Sources */,
+				9C39547F16A3566A00C5C8FD /* LocationModel.m in Sources */,
+				9C39548216A3581600C5C8FD /* OxwallFeed.m in Sources */,
+				E9477EFD17DF865700A16505 /* AppDelegate.m in Sources */,
+				E9477F0117DF865700A16505 /* DetailViewController.m in Sources */,
+				E9477F0717DF869600A16505 /* main.m in Sources */,
+				E9477F0817DF869600A16505 /* MasterViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9C39543E16A34F8200C5C8FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9C39543F16A34F8200C5C8FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9C39544116A34F8200C5C8FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Messenger/Oxwall Messenger-Prefix.pch";
+				INFOPLIST_FILE = "Messenger/Oxwall Messenger-Info.plist";
+				PRODUCT_NAME = "Oxwall Messenger";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9C39544216A34F8200C5C8FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Messenger/Oxwall Messenger-Prefix.pch";
+				INFOPLIST_FILE = "Messenger/Oxwall Messenger-Info.plist";
+				PRODUCT_NAME = "Oxwall Messenger";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C39541316A34F8200C5C8FD /* Build configuration list for PBXProject "Oxwall Messenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C39543E16A34F8200C5C8FD /* Debug */,
+				9C39543F16A34F8200C5C8FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C39544016A34F8200C5C8FD /* Build configuration list for PBXNativeTarget "Oxwall Messenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C39544116A34F8200C5C8FD /* Debug */,
+				9C39544216A34F8200C5C8FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C39541016A34F8200C5C8FD /* Project object */;
+}
