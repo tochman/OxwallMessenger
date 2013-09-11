@@ -84,4 +84,8 @@
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Not implemented" message:@"Got to get that code..." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alert show];
 }
+
+- (IBAction)logOut:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:@"start" sender:self];
+}
 @end

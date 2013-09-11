@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1BG-ph-btk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-60" y="-72"/>
+            <point key="canvasLocation" x="-80" y="64"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="11">
@@ -89,7 +89,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-634" y="-79"/>
+            <point key="canvasLocation" x="-656" y="64"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="USm-hR-APk">
@@ -189,18 +189,25 @@
                             <constraint firstItem="Wpv-cu-A8g" firstAttribute="baseline" secondItem="7ny-lN-UDJ" secondAttribute="baseline" type="default" id="wtN-Nr-zjB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ghW-Uh-Gxu"/>
+                    <navigationItem key="navigationItem" id="ghW-Uh-Gxu">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="cQD-4K-UUG">
+                            <connections>
+                                <action selector="logOut:" destination="mfc-GP-I8c" id="NBC-vB-HyB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="avatar" destination="UfD-qN-dRH" id="iza-N3-oOx"/>
                         <outlet property="membersinceLabel" destination="Wpv-cu-A8g" id="gnO-vZ-kv2"/>
                         <outlet property="presentationTextview" destination="f1Z-fC-p0g" id="f7l-WY-dHM"/>
                         <outlet property="sexLabel" destination="haU-g2-lHD" id="EyP-iX-NMa"/>
                         <outlet property="usernameLabel" destination="yNu-Te-6uL" id="MIP-zW-7cV"/>
+                        <segue destination="3" kind="modal" identifier="start" id="DVx-Ni-U36"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6T-c5-p1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="530" y="-634"/>
+            <point key="canvasLocation" x="446" y="-634"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="18">
@@ -244,7 +251,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="64"/>
+            <point key="canvasLocation" x="403" y="828"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="cVz-9T-uwS">
@@ -259,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOK-cv-aDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="869" y="62"/>
+            <point key="canvasLocation" x="813" y="826"/>
         </scene>
     </scenes>
     <resources>
@@ -270,6 +277,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DUViewController.h"/>
             <relationships>
                 <relationship kind="action" name="checkConversations:"/>
+                <relationship kind="action" name="logOut:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="avatar" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="membersinceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="presentationTextview" candidateClass="UITextView"/>

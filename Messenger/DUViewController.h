@@ -30,5 +30,6 @@
 
 
 - (IBAction)checkConversations:(id)sender;
+- (IBAction)logOut:(UIBarButtonItem *)sender;
 
 @end
