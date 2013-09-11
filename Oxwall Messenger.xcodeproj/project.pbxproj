@@ -48,6 +48,8 @@
 		E9477F3D17E0E4D800A16505 /* ConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F3C17E0E4D500A16505 /* ConversationsViewController.m */; };
 		E9477F4017E0E51700A16505 /* ConversationsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F3F17E0E51700A16505 /* ConversationsModel.m */; };
 		E9477F4317E0F43800A16505 /* ConversationFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4217E0F43800A16505 /* ConversationFeed.m */; };
+		E9477F4617E10B9F00A16505 /* MessageFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4517E10B9C00A16505 /* MessageFeed.m */; };
+		E9477F4917E10BC600A16505 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4817E10BC600A16505 /* MessageModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +122,10 @@
 		E9477F3F17E0E51700A16505 /* ConversationsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConversationsModel.m; path = Messenger/ConversationsModel.m; sourceTree = "<group>"; };
 		E9477F4117E0F43800A16505 /* ConversationFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConversationFeed.h; path = Messenger/ConversationFeed.h; sourceTree = "<group>"; };
 		E9477F4217E0F43800A16505 /* ConversationFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConversationFeed.m; path = Messenger/ConversationFeed.m; sourceTree = "<group>"; };
+		E9477F4417E10B9A00A16505 /* MessageFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageFeed.h; path = Messenger/MessageFeed.h; sourceTree = "<group>"; };
+		E9477F4517E10B9C00A16505 /* MessageFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageFeed.m; path = Messenger/MessageFeed.m; sourceTree = "<group>"; };
+		E9477F4717E10BC500A16505 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageModel.h; path = Messenger/MessageModel.h; sourceTree = "<group>"; };
+		E9477F4817E10BC600A16505 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageModel.m; path = Messenger/MessageModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +145,7 @@
 		9C39540E16A34F8200C5C8FD = {
 			isa = PBXGroup;
 			children = (
+				E9477F4A17E10CAA00A16505 /* UIBubbleView */,
 				E9477F2F17E071EB00A16505 /* Images */,
 				9C39544316A34FC800C5C8FD /* HUD */,
 				9C39544E16A34FF300C5C8FD /* JSONModel */,
@@ -293,6 +300,10 @@
 				E9477F3F17E0E51700A16505 /* ConversationsModel.m */,
 				E9477F4117E0F43800A16505 /* ConversationFeed.h */,
 				E9477F4217E0F43800A16505 /* ConversationFeed.m */,
+				E9477F4417E10B9A00A16505 /* MessageFeed.h */,
+				E9477F4517E10B9C00A16505 /* MessageFeed.m */,
+				E9477F4717E10BC500A16505 /* MessageModel.h */,
+				E9477F4817E10BC600A16505 /* MessageModel.m */,
 			);
 			name = "Messenger Models";
 			sourceTree = "<group>";
@@ -306,6 +317,13 @@
 				E9477F3317E0720F00A16505 /* uicheckbox_unchecked@2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		E9477F4A17E10CAA00A16505 /* UIBubbleView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UIBubbleView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +425,8 @@
 				E9477F3D17E0E4D800A16505 /* ConversationsViewController.m in Sources */,
 				E9477F4017E0E51700A16505 /* ConversationsModel.m in Sources */,
 				E9477F4317E0F43800A16505 /* ConversationFeed.m in Sources */,
+				E9477F4617E10B9F00A16505 /* MessageFeed.m in Sources */,
+				E9477F4917E10BC600A16505 /* MessageModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
