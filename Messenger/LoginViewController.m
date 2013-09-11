@@ -10,6 +10,7 @@
 #import "JSONModelLib.h"
 #import "LoginModel.h"
 #import "HUD.h"
+#import "UICheckbox.h"
 
 @interface LoginViewController () {
     LoginModel* _feed;
@@ -19,6 +20,7 @@
 @end
 
 @implementation LoginViewController
+@synthesize checkbox = _checkbox;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +37,10 @@
 
     // Title
     self.title = @"Oxwall Messenger";
+    self.checkbox.checked = TRUE;
+    self.checkbox.disabled = FALSE;
+    self.checkbox.text = @"Remember me";
+ 
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -124,4 +130,10 @@ if ([_feed.success isEqual: @"1"])
     
     
 }
+-(IBAction)testCheckbox:(id)sender {
+    NSLog(@"checked = %@", (self.checkbox.checked) ? @"YES" : @"NO");
+    //NSLog(@"checkbox.disabled = %@", (self.checkbox.disabled) ? @"YES" : @"NO");
+}
+
+
 @end

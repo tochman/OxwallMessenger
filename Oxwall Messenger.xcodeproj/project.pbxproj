@@ -40,6 +40,11 @@
 		E9477F2217DF8E7500A16505 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9477F2117DF8E7500A16505 /* MainStoryboard.storyboard */; };
 		E9477F2517DF931800A16505 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F2417DF931800A16505 /* LoginModel.m */; };
 		E9477F2E17E043E700A16505 /* DUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F2D17E043E600A16505 /* DUViewController.m */; };
+		E9477F3417E0720F00A16505 /* uicheckbox_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F3017E0720F00A16505 /* uicheckbox_checked.png */; };
+		E9477F3517E0720F00A16505 /* uicheckbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F3117E0720F00A16505 /* uicheckbox_checked@2x.png */; };
+		E9477F3617E0720F00A16505 /* uicheckbox_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F3217E0720F00A16505 /* uicheckbox_unchecked.png */; };
+		E9477F3717E0720F00A16505 /* uicheckbox_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F3317E0720F00A16505 /* uicheckbox_unchecked@2x.png */; };
+		E9477F3A17E0723000A16505 /* UICheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F3917E0722F00A16505 /* UICheckbox.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +105,12 @@
 		E9477F2417DF931800A16505 /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginModel.m; path = Messenger/LoginModel.m; sourceTree = "<group>"; };
 		E9477F2C17E043E500A16505 /* DUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DUViewController.h; path = Messenger/DUViewController.h; sourceTree = SOURCE_ROOT; };
 		E9477F2D17E043E600A16505 /* DUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DUViewController.m; path = Messenger/DUViewController.m; sourceTree = SOURCE_ROOT; };
+		E9477F3017E0720F00A16505 /* uicheckbox_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uicheckbox_checked.png; sourceTree = "<group>"; };
+		E9477F3117E0720F00A16505 /* uicheckbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uicheckbox_checked@2x.png"; sourceTree = "<group>"; };
+		E9477F3217E0720F00A16505 /* uicheckbox_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uicheckbox_unchecked.png; sourceTree = "<group>"; };
+		E9477F3317E0720F00A16505 /* uicheckbox_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uicheckbox_unchecked@2x.png"; sourceTree = "<group>"; };
+		E9477F3817E0722F00A16505 /* UICheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICheckbox.h; sourceTree = SOURCE_ROOT; };
+		E9477F3917E0722F00A16505 /* UICheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICheckbox.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +130,7 @@
 		9C39540E16A34F8200C5C8FD = {
 			isa = PBXGroup;
 			children = (
+				E9477F2F17E071EB00A16505 /* Images */,
 				9C39544316A34FC800C5C8FD /* HUD */,
 				9C39544E16A34FF300C5C8FD /* JSONModel */,
 				E9477F1D17DF8B9E00A16505 /* Messenger Models */,
@@ -169,6 +181,8 @@
 		9C39542416A34F8200C5C8FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E9477F3817E0722F00A16505 /* UICheckbox.h */,
+				E9477F3917E0722F00A16505 /* UICheckbox.m */,
 				E9477F1817DF889600A16505 /* InfoPlist.strings */,
 				E9477F1017DF872800A16505 /* Default-568h@2x.png */,
 				E9477F1117DF872800A16505 /* Default.png */,
@@ -268,6 +282,17 @@
 			name = "Messenger Models";
 			sourceTree = "<group>";
 		};
+		E9477F2F17E071EB00A16505 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E9477F3017E0720F00A16505 /* uicheckbox_checked.png */,
+				E9477F3117E0720F00A16505 /* uicheckbox_checked@2x.png */,
+				E9477F3217E0720F00A16505 /* uicheckbox_unchecked.png */,
+				E9477F3317E0720F00A16505 /* uicheckbox_unchecked@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -327,6 +352,10 @@
 				E9477F1517DF872800A16505 /* Default@2x.png in Resources */,
 				E9477F1917DF889600A16505 /* InfoPlist.strings in Resources */,
 				E9477F2217DF8E7500A16505 /* MainStoryboard.storyboard in Resources */,
+				E9477F3417E0720F00A16505 /* uicheckbox_checked.png in Resources */,
+				E9477F3517E0720F00A16505 /* uicheckbox_checked@2x.png in Resources */,
+				E9477F3617E0720F00A16505 /* uicheckbox_unchecked.png in Resources */,
+				E9477F3717E0720F00A16505 /* uicheckbox_unchecked@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +388,7 @@
 				E9477F1C17DF8AF200A16505 /* LoginViewController.m in Sources */,
 				E9477F2517DF931800A16505 /* LoginModel.m in Sources */,
 				E9477F2E17E043E700A16505 /* DUViewController.m in Sources */,
+				E9477F3A17E0723000A16505 /* UICheckbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

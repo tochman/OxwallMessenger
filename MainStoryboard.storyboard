@@ -47,6 +47,17 @@
                                     <action selector="checkCredentials" destination="bMa-nk-uoY" eventType="touchUpInside" id="gL6-Zs-Qf7"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRm-31-qPQ" customClass="UICheckbox">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="testCheckbox:" destination="bMa-nk-uoY" eventType="touchUpInside" id="9kO-Yd-2US"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Register" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YE-7E-zxB">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -54,18 +65,25 @@
                             <constraint firstItem="rEt-FR-ShS" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="6WX-L4-U5P"/>
                             <constraint firstItem="SLU-QA-5JN" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="9Vn-EZ-vLu"/>
                             <constraint firstAttribute="trailing" secondItem="HrS-Kq-0Ok" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ECN-tm-bHK"/>
+                            <constraint firstAttribute="trailing" secondItem="iRm-31-qPQ" secondAttribute="trailing" constant="206" id="GUi-l5-WNm"/>
                             <constraint firstItem="SLU-QA-5JN" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="31" id="HFh-eR-9LN"/>
                             <constraint firstItem="HrS-Kq-0Ok" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NhI-Yz-1dc"/>
                             <constraint firstItem="B9i-T5-S4u" firstAttribute="centerX" secondItem="cnS-uc-M54" secondAttribute="centerX" type="default" id="QXp-yx-qOn"/>
+                            <constraint firstItem="4YE-7E-zxB" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="241" id="Sao-3e-npS"/>
                             <constraint firstItem="HrS-Kq-0Ok" firstAttribute="top" secondItem="SLU-QA-5JN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WN0-1Q-ATY"/>
                             <constraint firstItem="rEt-FR-ShS" firstAttribute="top" secondItem="HrS-Kq-0Ok" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Wc5-qF-2vB"/>
                             <constraint firstItem="B9i-T5-S4u" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="189" id="cQW-9d-Dsd"/>
+                            <constraint firstAttribute="bottom" secondItem="iRm-31-qPQ" secondAttribute="bottom" constant="324" id="cwA-i9-X3N"/>
                             <constraint firstItem="cnS-uc-M54" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="j89-xc-xhX"/>
+                            <constraint firstItem="iRm-31-qPQ" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="99" id="nAd-u1-Mer"/>
+                            <constraint firstItem="iRm-31-qPQ" firstAttribute="top" secondItem="cnS-uc-M54" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nRi-oO-z28"/>
                             <constraint firstAttribute="trailing" secondItem="cnS-uc-M54" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ttg-3i-4uj"/>
+                            <constraint firstItem="4YE-7E-zxB" firstAttribute="centerX" secondItem="B9i-T5-S4u" secondAttribute="centerX" type="default" id="ylk-ao-20V"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="21l-gD-2V8"/>
                     <connections>
+                        <outlet property="checkbox" destination="iRm-31-qPQ" id="jxe-1B-5HZ"/>
                         <outlet property="passwordField" destination="cnS-uc-M54" id="R4a-31-yA7"/>
                         <outlet property="usernameField" destination="HrS-Kq-0Ok" id="1GZ-r3-kfA"/>
                         <segue destination="mfc-GP-I8c" kind="push" identifier="userprofile" id="rzE-mc-Sqt"/>
@@ -202,7 +220,7 @@
                         <outlet property="presentationTextview" destination="f1Z-fC-p0g" id="f7l-WY-dHM"/>
                         <outlet property="sexLabel" destination="haU-g2-lHD" id="EyP-iX-NMa"/>
                         <outlet property="usernameLabel" destination="yNu-Te-6uL" id="MIP-zW-7cV"/>
-                        <segue destination="3" kind="modal" identifier="start" id="DVx-Ni-U36"/>
+                        <segue destination="3" kind="modal" identifier="start" animates="NO" id="DVx-Ni-U36"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6T-c5-p1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -289,6 +307,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
             <relationships>
                 <relationship kind="action" name="checkCredentials"/>
+                <relationship kind="action" name="testCheckbox:"/>
+                <relationship kind="outlet" name="checkbox" candidateClass="UICheckbox"/>
                 <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>
             </relationships>
@@ -298,6 +318,9 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICheckbox" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICheckbox.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

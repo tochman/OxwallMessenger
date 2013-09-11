@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class UICheckbox;
 @interface LoginViewController : UIViewController {
     IBOutlet UITextField *usernameField;
     IBOutlet UITextField *passwordField;
 
     NSDictionary *credentialsDictionary;
 }
-
+@property(nonatomic, weak)IBOutlet UICheckbox *checkbox;
 - (IBAction)checkCredentials;
-
+- (IBAction)testCheckbox:(id)sender;
 @end

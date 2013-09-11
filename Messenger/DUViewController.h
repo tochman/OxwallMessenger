@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface DUViewController : UIViewController {
 
 
@@ -31,5 +32,6 @@
 
 - (IBAction)checkConversations:(id)sender;
 - (IBAction)logOut:(UIBarButtonItem *)sender;
+
 
 @end
