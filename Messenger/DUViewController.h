@@ -18,11 +18,17 @@
     IBOutlet UILabel *membersinceLabel;
 
     IBOutlet UITextView *presentationTextview;
+    
+    IBOutlet UIImageView *avatar;
 }
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSString *realname;
 @property (strong, nonatomic) NSString *sex;
 @property (strong, nonatomic) NSString *membersince;
 @property (strong, nonatomic) NSString *presentation;
+@property (strong, nonatomic) NSURL *avatarURL;
+
+
+- (IBAction)checkConversations:(id)sender;
 
 @end

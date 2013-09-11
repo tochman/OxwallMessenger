@@ -18,6 +18,7 @@
 @synthesize sex;
 @synthesize membersince;
 @synthesize presentation;
+@synthesize avatarURL;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,9 +30,13 @@
 
 - (void)viewDidLoad
 {
+  
     [super viewDidLoad];
     [self loadStandardUser];
     [self setLProfileLabels];
+    // Title
+    self.title = realname;
+    [self.navigationItem setHidesBackButton:YES];
     
     
 
@@ -51,6 +56,15 @@
     sex = [standardUserDefaults stringForKey:@"sex"];
     membersince = [standardUserDefaults stringForKey:@"membersince"];
     presentation = [standardUserDefaults stringForKey:@"presentation"];
+    avatarURL = [standardUserDefaults URLForKey:@"avatarURL"];
+    
+    //NSURL *imageUrlString = avatarURL;
+    //NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:imageUrlString]];
+    //avatar.image = [[UIImage alloc] initWithData:imageData];
+   
+    
+    
+  
     
 }
 
@@ -61,7 +75,13 @@
     sexLabel.text = sex;
     membersinceLabel.text = membersince;
     presentationTextview.text = presentation;
+    avatar.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:avatarURL]];
 
 }
 
+- (IBAction)checkConversations:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Not implemented" message:@"Got to get that code..." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alert show];
+}
 @end

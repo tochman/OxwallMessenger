@@ -32,10 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-   // credentialsDictionary = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObject:_feed.password, nil] forKeys:[NSArray arrayWithObjects:_feed.user, nil]];
-    
-    
+
     // Title
     self.title = @"Oxwall Messenger";
 }
@@ -65,7 +62,7 @@ if ([_feed.success isEqual: @"1"])
 } else {
   NSLog(@"Fail");
     
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Invelid credentials" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Invalid credentials" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alert show];
 
 }
@@ -90,6 +87,8 @@ if ([_feed.success isEqual: @"1"])
      setObject:_feed.member_since forKey:@"membersince"];
     [[NSUserDefaults standardUserDefaults]
      setObject:_feed.profiletext forKey:@"presentation"];
+    [[NSUserDefaults standardUserDefaults]
+     setURL:_feed.small_avatar forKey:@"avatarURL"];
     
     [standardUserDefaults synchronize];
     
