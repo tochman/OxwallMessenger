@@ -14,6 +14,7 @@
 @end
 
 @implementation DUViewController
+
 @synthesize username;
 @synthesize realname;
 @synthesize sex;
@@ -58,13 +59,7 @@
     membersince = [standardUserDefaults stringForKey:@"membersince"];
     presentation = [standardUserDefaults stringForKey:@"presentation"];
     avatarURL = [standardUserDefaults URLForKey:@"avatarURL"];
-    
 
-   
-    
-    
-  
-    
 }
 
 -(void)setLProfileLabels
@@ -79,9 +74,9 @@
 }
 
 - (IBAction)checkConversations:(id)sender {
+    [self performSegueWithIdentifier:@"conversations" sender:self];
     
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Not implemented" message:@"Got to get that code..." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-    [alert show];
+
 }
 
 - (IBAction)logOut:(UIBarButtonItem *)sender {

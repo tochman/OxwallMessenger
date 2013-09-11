@@ -13,7 +13,7 @@
 @interface LoginModel : JSONModel
 
 //@property (strong, nonatomic) NSArray<LoginModel>* posts;
-
+@property (strong, nonatomic) NSString* userid;
 @property (strong, nonatomic) NSString* success;
 @property (strong, nonatomic) NSString* message;
 @property (strong, nonatomic) NSString* user;

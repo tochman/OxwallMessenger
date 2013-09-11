@@ -87,13 +87,14 @@
 }
 
 - (void)saveDefaultUserCredentials {
+    //Lets save all gatherd user data in NSUserDefaults for later use
     
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
 
 
     
-
-
+    [[NSUserDefaults standardUserDefaults]
+     setObject:_feed.userid forKey:@"userid"];
     [[NSUserDefaults standardUserDefaults]
      setObject:_feed.user forKey:@"username"];
     [[NSUserDefaults standardUserDefaults]
