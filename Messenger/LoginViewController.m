@@ -33,6 +33,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+   // credentialsDictionary = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObject:_feed.password, nil] forKeys:[NSArray arrayWithObjects:_feed.user, nil]];
     
     
     // Title
@@ -42,22 +43,9 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     //show loader view
-    [HUD showUIBlockingIndicatorWithText:@"Getting User"];
     
-    //fetch the feed
-    _feed = [[LoginModel alloc] initFromURLWithString:@"http://cloudshare.se/webservice/login.php?username=xxx&password=xxx"
-                                           completion:^(JSONModel *model, JSONModelError *err) {
-                                               
-                                               //hide the loader view
-                                               [HUD hideUIBlockingIndicator];
-                                               
-                                               //json fetched
-                                               [self login];
-                                               NSLog(@"user: %@", _feed.realname);
-                                               
-                                              // [self.tableView reloadData];
-                                               
-                                           }];
+    
+ 
 }
 
 
@@ -78,4 +66,28 @@ if ([_feed.success isEqual: @"1"])
     return;
 }
 
+
+- (IBAction)checkCredentials {
+     [HUD showUIBlockingIndicatorWithText:@"Getting User"];
+    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/login.php?username=%@&password=%@", usernameField.text, passwordField.text];
+
+   
+    _feed = [[LoginModel alloc] initFromURLWithString:callURL
+                                                    completion:^(JSONModel *model, JSONModelError *err) {
+                                                        
+                                                        //hide the loader view
+                                                        [HUD hideUIBlockingIndicator];
+                                                      //  NSLog(@"call: %@", callURL);
+                                                        NSLog(@"call: %@", _feed);
+                                                        //json fetched
+                                                        [self login];
+                                                       
+                                                        NSLog(@"user: %@", _feed.realname);
+                                                        
+                                                        // [self.tableView reloadData];
+                                                        
+                                                    }];
+    
+    
+}
 @end
