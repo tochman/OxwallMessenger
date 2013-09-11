@@ -60,10 +60,45 @@
 if ([_feed.success isEqual: @"1"])
 {
   NSLog(@"Loginmessege: %@", _feed.message);
+    [self saveDefaultUserCredentials ];
+    [self performSegueWithIdentifier:@"userprofile" sender:self];
 } else {
   NSLog(@"Fail");
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Invelid credentials" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alert show];
+
 }
     return;
+}
+
+- (void)saveDefaultUserCredentials {
+    
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+
+
+    
+
+
+    [[NSUserDefaults standardUserDefaults]
+     setObject:_feed.user forKey:@"username"];
+    [[NSUserDefaults standardUserDefaults]
+     setObject:_feed.realname forKey:@"realname"];
+    [[NSUserDefaults standardUserDefaults]
+     setObject:_feed.sex forKey:@"sex"];
+    [[NSUserDefaults standardUserDefaults]
+     setObject:_feed.member_since forKey:@"membersince"];
+    [[NSUserDefaults standardUserDefaults]
+     setObject:_feed.profiletext forKey:@"presentation"];
+    
+    [standardUserDefaults synchronize];
+    
+    
+
+  
+
+
+
 }
 
 

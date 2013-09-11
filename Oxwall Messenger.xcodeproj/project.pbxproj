@@ -39,6 +39,7 @@
 		E9477F1C17DF8AF200A16505 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F1B17DF8AF200A16505 /* LoginViewController.m */; };
 		E9477F2217DF8E7500A16505 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9477F2117DF8E7500A16505 /* MainStoryboard.storyboard */; };
 		E9477F2517DF931800A16505 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F2417DF931800A16505 /* LoginModel.m */; };
+		E9477F2E17E043E700A16505 /* DUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F2D17E043E600A16505 /* DUViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,8 @@
 		E9477F2117DF8E7500A16505 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
 		E9477F2317DF931800A16505 /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginModel.h; path = Messenger/LoginModel.h; sourceTree = "<group>"; };
 		E9477F2417DF931800A16505 /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginModel.m; path = Messenger/LoginModel.m; sourceTree = "<group>"; };
+		E9477F2C17E043E500A16505 /* DUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DUViewController.h; path = Messenger/DUViewController.h; sourceTree = SOURCE_ROOT; };
+		E9477F2D17E043E600A16505 /* DUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DUViewController.m; path = Messenger/DUViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +159,8 @@
 				E9477EFB17DF865700A16505 /* DetailViewController.h */,
 				E9477EFC17DF865700A16505 /* DetailViewController.m */,
 				9C39542416A34F8200C5C8FD /* Supporting Files */,
+				E9477F2C17E043E500A16505 /* DUViewController.h */,
+				E9477F2D17E043E600A16505 /* DUViewController.m */,
 			);
 			name = Messenger;
 			path = JSON_HelloWorld;
@@ -353,6 +358,7 @@
 				E9477F0817DF869600A16505 /* MasterViewController.m in Sources */,
 				E9477F1C17DF8AF200A16505 /* LoginViewController.m in Sources */,
 				E9477F2517DF931800A16505 /* LoginModel.m in Sources */,
+				E9477F2E17E043E700A16505 /* DUViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
