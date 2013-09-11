@@ -37,11 +37,15 @@
 
     // Title
     self.title = @"Oxwall Messenger";
-    self.checkbox.checked = TRUE;
+    self.checkbox.checked = FALSE;
     self.checkbox.disabled = FALSE;
     self.checkbox.text = @"Remember me";
+    
+    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
+    usernameField.text = [standardUserDefaults stringForKey:@"username"];
  
 }
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -60,16 +64,23 @@
 
 - (void)login
 {
-if ([_feed.success isEqual: @"1"])
+
+    if ([_feed.success isEqual: @"1"])
 {
-  NSLog(@"Loginmessege: %@", _feed.message);
+    [HUD showUIBlockingIndicatorWithText:@"Logging in..."];
+    NSLog(@"Loginmessege: %@", _feed.message);
     [self saveDefaultUserCredentials ];
+    [HUD hideUIBlockingIndicator];
     [self performSegueWithIdentifier:@"userprofile" sender:self];
 } else {
   NSLog(@"Fail");
     
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Invalid credentials" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alert show];
+    
+    usernameField.text = @"";
+    passwordField.text = @"";
+    [usernameField becomeFirstResponder];
 
 }
     return;
@@ -108,31 +119,46 @@ if ([_feed.success isEqual: @"1"])
 
 
 - (IBAction)checkCredentials {
-     [HUD showUIBlockingIndicatorWithText:@"Getting User"];
+    
+    
+    if ([passwordField.text isEqual: @""] || [usernameField.text isEqual:@""])
+        
+    {
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must provide both a username/email and a password" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+        
+        
+        
+        
+    } else {
+    
+    
+     [HUD showUIBlockingIndicatorWithText:@"Sending data"];
     NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/login.php?username=%@&password=%@", usernameField.text, passwordField.text];
 
    
     _feed = [[LoginModel alloc] initFromURLWithString:callURL
-                                                    completion:^(JSONModel *model, JSONModelError *err) {
+     completion:^(JSONModel *model, JSONModelError *err)
+        {
                                                         
-                                                        //hide the loader view
-                                                        [HUD hideUIBlockingIndicator];
-                                                      //  NSLog(@"call: %@", callURL);
-                                                        NSLog(@"call: %@", _feed);
-                                                        //json fetched
-                                                        [self login];
-                                                       
-                                                        NSLog(@"user: %@", _feed.realname);
-                                                        
-                                                        // [self.tableView reloadData];
-                                                        
-                                                    }];
+          //hide the loader view
+           [HUD hideUIBlockingIndicator];
+           NSLog(@"call: %@", _feed);
+          //json fetched
+
+    [self login];
     
+       NSLog(@"user: %@", _feed.realname);
+   // [self.tableView reloadData];
+                                                        
+    }];
+    }
     
 }
 -(IBAction)testCheckbox:(id)sender {
     NSLog(@"checked = %@", (self.checkbox.checked) ? @"YES" : @"NO");
-    //NSLog(@"checkbox.disabled = %@", (self.checkbox.disabled) ? @"YES" : @"NO");
+ 
 }
 
 

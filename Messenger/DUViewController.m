@@ -7,6 +7,7 @@
 //
 
 #import "DUViewController.h"
+#import "HUD.h"
 
 @interface DUViewController ()
 
@@ -37,7 +38,7 @@
     // Title
     self.title = realname;
     [self.navigationItem setHidesBackButton:YES];
-    
+     
     
 
 }
@@ -58,9 +59,7 @@
     presentation = [standardUserDefaults stringForKey:@"presentation"];
     avatarURL = [standardUserDefaults URLForKey:@"avatarURL"];
     
-    //NSURL *imageUrlString = avatarURL;
-    //NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:imageUrlString]];
-    //avatar.image = [[UIImage alloc] initWithData:imageData];
+
    
     
     
@@ -86,6 +85,17 @@
 }
 
 - (IBAction)logOut:(UIBarButtonItem *)sender {
+    [HUD showUIBlockingIndicatorWithText:@"Logging out..."];
+    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
+    
+    [standardUserDefaults setObject:@"" forKey:@"username"];
+    [standardUserDefaults setObject:@"" forKey:@"realname"];
+    [standardUserDefaults setObject:@"" forKey:@"sex"];
+    [standardUserDefaults setObject:@"" forKey:@"membersince"];
+    [standardUserDefaults setObject:@"" forKey:@"presentation"];
+    [standardUserDefaults setObject:@"" forKey:@"avatarURL"];
+    [NSThread sleepForTimeInterval:0.5];
+    [HUD hideUIBlockingIndicator];
     [self performSegueWithIdentifier:@"start" sender:self];
 }
 @end
