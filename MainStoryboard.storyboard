@@ -29,7 +29,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-uc-M54">
                                 <accessibility key="accessibilityConfiguration" label="Password"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9i-T5-S4u">
                                 <constraints>
@@ -337,6 +337,67 @@
             </objects>
             <point key="canvasLocation" x="927" y="-634"/>
         </scene>
+        <!--Messages View Controller-->
+        <scene sceneID="lb7-Nc-Yb4">
+            <objects>
+                <viewController id="YOd-9q-iqi" customClass="MessagesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YmP-NT-GcF">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="znM-rt-Jch" customClass="UIBubbleTableView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="501" id="7uv-jE-ZpA"/>
+                                    <constraint firstAttribute="width" constant="318" id="RJH-eh-xwJ"/>
+                                </constraints>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VTB-q5-uWx">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="38h-Y8-vKD"/>
+                                    <constraint firstAttribute="width" constant="235" id="bg6-fZ-4Oi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kwl-tq-cfb">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="S9y-8T-qhB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Say it">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sayPressed:" destination="YOd-9q-iqi" eventType="touchUpInside" id="Ton-EZ-1Ne"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kwl-tq-cfb" firstAttribute="top" secondItem="VTB-q5-uWx" secondAttribute="top" type="default" id="0dN-hf-ves"/>
+                            <constraint firstItem="Kwl-tq-cfb" firstAttribute="centerY" secondItem="VTB-q5-uWx" secondAttribute="centerY" type="default" id="1ql-eO-PjY"/>
+                            <constraint firstItem="znM-rt-Jch" firstAttribute="leading" secondItem="YmP-NT-GcF" secondAttribute="leading" type="default" id="34d-a2-r2e"/>
+                            <constraint firstItem="Kwl-tq-cfb" firstAttribute="trailing" secondItem="znM-rt-Jch" secondAttribute="trailing" type="default" id="3bB-VZ-bdV"/>
+                            <constraint firstAttribute="bottom" secondItem="Kwl-tq-cfb" secondAttribute="bottom" constant="5" id="FHP-jk-Ooc"/>
+                            <constraint firstItem="znM-rt-Jch" firstAttribute="top" secondItem="YmP-NT-GcF" secondAttribute="top" constant="11" id="k9q-IK-glk"/>
+                            <constraint firstItem="Kwl-tq-cfb" firstAttribute="leading" secondItem="VTB-q5-uWx" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="zE8-eo-3KW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bubbleTable" destination="znM-rt-Jch" id="DRw-vE-mXh"/>
+                        <outlet property="textField" destination="VTB-q5-uWx" id="fnE-Z5-nGT"/>
+                        <outlet property="textInputView" destination="YmP-NT-GcF" id="mrU-uL-0ql"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NlI-KU-hGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1368" y="-635"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Default.png" width="320" height="480"/>
@@ -371,8 +432,23 @@
         <class className="MasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
         </class>
+        <class className="MessagesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessagesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sayPressed:"/>
+                <relationship kind="outlet" name="bubbleTable" candidateClass="UIBubbleTableView"/>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textInputView" candidateClass="UIView"/>
+            </relationships>
+        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UIBubbleTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIBubbleTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bubbleDataSource"/>
+            </relationships>
         </class>
         <class className="UICheckbox" superclassName="UIControl">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICheckbox.h"/>

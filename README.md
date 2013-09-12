@@ -7,6 +7,11 @@ This is Open Source - this means you can do what ever you want with this code!
 
 This is a work in progress, but if you want to check it out you are welcom to do so. feel free to contact me with any questions at thomas [at] nocebo.se If you'd like to contribute to this project I'll be very happy!
 
+Libraries
+========================
+This app uses (among others):
+
+JSONModel that can be found on: https://github.com/icanzilb/JSONModel
 
 License
 ========================
