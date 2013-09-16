@@ -12,6 +12,7 @@ Libraries
 This app uses (among others):
 
 JSONModel that can be found on: https://github.com/icanzilb/JSONModel
+NUI - Style iOS apps with a stylesheet, similar to CSS: https://github.com/tombenner/nui
 
 License
 ========================
