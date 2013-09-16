@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIBubbleTableViewDataSource.h"
+
+
 #import "JSONModel.h"
+#import "JSMessagesViewController.h"
 
-@interface MessagesViewController : UIViewController <UIBubbleTableViewDataSource>
+@interface MessagesViewController : JSMessagesViewController <JSMessagesViewDelegate, JSMessagesViewDataSource>
 
-@property (strong, nonatomic) NSDictionary *messages;
-@property (strong, nonatomic) NSArray *message;
+@property (strong, nonatomic) NSDictionary *JSONmessages;
+@property (strong) NSMutableArray *messages;
+@property (strong, nonatomic) NSMutableArray *timestamps;
 
 @end
