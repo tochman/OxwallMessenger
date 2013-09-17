@@ -6,17 +6,11 @@
 //  Copyright (c) 2013 Underplot ltd. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-
-#import "JSONModel.h"
 #import "JSMessagesViewController.h"
 
 @interface MessagesViewController : JSMessagesViewController <JSMessagesViewDelegate, JSMessagesViewDataSource>
 
-@property (strong, nonatomic) NSDictionary *JSONmessages;
-   
-@property (nonatomic, strong) NSMutableArray *messages;
+@property (strong, nonatomic) NSMutableArray *messages;
 @property (strong, nonatomic) NSMutableArray *timestamps;
 
 @end

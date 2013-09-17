@@ -376,6 +376,48 @@
         <image name="Default.png" width="320" height="480"/>
         <image name="btnCheck.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="ConversationsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConversationsViewController.h"/>
+        </class>
+        <class className="DUViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DUViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="checkConversations:"/>
+                <relationship kind="action" name="logOut:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="avatar" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="membersinceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="presentationTextview" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="sexLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="JSMessagesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JSMessagesViewController.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="checkCredentials"/>
+                <relationship kind="action" name="testCheckbox:"/>
+                <relationship kind="outlet" name="checkbox" candidateClass="UICheckbox"/>
+                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+        </class>
+        <class className="MessagesViewController" superclassName="JSMessagesViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessagesViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICheckbox" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICheckbox.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

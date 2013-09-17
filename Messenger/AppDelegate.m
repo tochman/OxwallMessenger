@@ -8,11 +8,14 @@
 
 
 #import "AppDelegate.h"
+#import <NewRelicAgent/NewRelicAgent.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [NewRelicAgent startWithApplicationToken:@"AAd40e0cf67623484b41b889aa53df62ba66828e9f"];
+
     [NUIAppearance init];
    
     return YES;

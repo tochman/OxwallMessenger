@@ -7,127 +7,41 @@
 //
 
 #import "MessagesViewController.h"
+#pragma mark - Initialization
 
-#import "JSONModelLib.h"
-#import "MessageFeed.h"
-#import "HUD.h"
-
-@interface MessagesViewController ()
+- (UIButton *)sendButton
 {
-    
-    MessageFeed* _feed;
-    NSMutableArray *messeges;
-    
+    // Override to use a custom send button
+    // The button's frame is set automatically for you
+    return [UIButton defaultSendButton];
 }
-
-@end
-
-@implementation MessagesViewController
-@synthesize JSONmessages;
-@synthesize messages;
 
 #pragma mark - View lifecycle
-
-- (void)awakeFromNib
-
-{
-    [self performSelector: @selector(fetchFeed:) withObject:self afterDelay: 0.0];
-    //[self fetchFeed];
-    messages = [[NSMutableArray alloc] initWithObjects:
-                @"Testing some messages here.",
-                @"Options for avatars: none, circles, or squares",
-                nil];
-    NSLog(@"test %@", JSONmessages);
-    
-    
-}
-
 - (void)viewDidLoad
 {
-
-[super viewDidLoad];
-   
-    
+    [super viewDidLoad];
     self.delegate = self;
     self.dataSource = self;
+    
     self.title = @"Messages";
     
+    self.messages = [[NSMutableArray alloc] initWithObjects:
+                     @"Testing some messages here.",
+                     @"Options for avatars: none, circles, or squares",
+                     @"This is a complete re-write and refactoring.",
+                     @"It's easy to implement. Sound effects and images included. Animations are smooth and messages can be of arbitrary size!",
+                     nil];
     
-   
-}
-
-
-
-- (void)fetchFeed
-{
+    self.timestamps = [[NSMutableArray alloc] initWithObjects:
+                       [NSDate distantPast],
+                       [NSDate distantPast],
+                       [NSDate distantPast],
+                       [NSDate date],
+                       nil];
     
-        
-    //1
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        //code executed in the background
-        //2
-        NSString *conversationid = @"55";
-        NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
-        NSData* messFeed = [NSData dataWithContentsOfURL:
-                            [NSURL URLWithString:callURL]
-                            ];
-        //3
-        
-        
-        //4
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //code executed on the main queue
-            //5
-            NSDictionary* json = nil;
-            if (messFeed) {
-                json = [NSJSONSerialization
-                        JSONObjectWithData:messFeed
-                        options:kNilOptions
-                        error:nil];
-            }
-            JSONmessages = json;
-            [self updateUIWithDictionary: JSONmessages];
-        });
-        
-    });
-
-  
-
-
-}
-
--(void)updateUIWithDictionary:(NSDictionary*)json {
-    NSLog(@"updated? %@", JSONmessages);
-    
-    @try {
-        
-        
-        NSArray* keys = [[JSONmessages valueForKey:@"messagesinconversation"] allObjects];
-        
-        int count = [keys count] ;
-        NSLog(@"count is %i", count);
-        for (int i=0; i < count; i++) {
-            NSString *message = (NSString *)[[[JSONmessages objectForKey:@"messagesinconversation"] objectAtIndex:i] objectForKey:@"message"];
-            [messages addObject:message];
-            
-        }  
-        
-    }
-    @catch (NSException *exception) {
-        [[[UIAlertView alloc] initWithTitle:@"Error"
-                                    message:@"Could not parse the JSON feed."
-                                   delegate:nil
-                          cancelButtonTitle:@"Close"
-                          otherButtonTitles: nil] show];
-        NSLog(@"Exception: %@", exception);
-    }
-NSLog(@"Parsed: %@", messages);
-NSLog(@"Parsed: %i", messages.count);
-    
-    
-
-
-
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward
+                                                                                           target:self
+                                                                                           action:@selector(buttonPressed:)];
 }
 
 - (void)buttonPressed:(UIButton*)sender
@@ -140,26 +54,23 @@ NSLog(@"Parsed: %i", messages.count);
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return messages.count;
+    return self.messages.count;
 }
 
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-    [messages addObject:text];
+    [self.messages addObject:text];
     
     [self.timestamps addObject:[NSDate date]];
     
-    if((messages.count - 1) % 2)
+    if((self.messages.count - 1) % 2)
         [JSMessageSoundEffect playMessageSentSound];
     else
         [JSMessageSoundEffect playMessageReceivedSound];
     
     [self finishSend];
 }
-
-
-
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -212,7 +123,5 @@ NSLog(@"Parsed: %i", messages.count);
 {
     return [UIImage imageNamed:@"demo-avatar-jobs"];
 }
-
-
 
 @end
