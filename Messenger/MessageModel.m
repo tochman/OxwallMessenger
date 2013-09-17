@@ -10,17 +10,10 @@
 
 @implementation MessageModel
 
-
-+(JSONKeyMapper*)keyMapper
+-(void)validate:(NSError**)err
 {
-    return [[JSONKeyMapper alloc] initWithDictionary:@{
-            @"messagesinconversation.messageid":@"messageid",
-            @"messagesinconversation.messagecreated":@"messagecreated",
-            @"messagesinconversation.sentbyIDy":@"sentbyID",
-            @"messagesinconversation.sentby":@"sentby",
-            @"messagesinconversation.title":@"title",
-            @"messagesinconversation.message":@"message",
-            }];
+    NSLog(@"Message from %@", self.sentby);
 }
+
 
 @end

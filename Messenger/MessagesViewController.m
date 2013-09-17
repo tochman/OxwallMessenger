@@ -16,78 +16,50 @@
 {
     
     MessageFeed* _feed;
+    
 }
 
 @end
 
 @implementation MessagesViewController
-//@synthesize message;
 @synthesize JSONmessages;
 @synthesize messages;
-#pragma mark - Initialization
-- (UIButton *)sendButton
-{
-    // Override to use a custom send button
-    // The button's frame is set automatically for you
-    return [UIButton defaultSendButton];
-}
 
-
+#pragma mark - View lifecycle
 - (void)viewDidLoad
 {
-
     [super viewDidLoad];
-    [self loadfeed];
-
-    NSLog (@"createD messages: %@'", messages);
-
     self.delegate = self;
     self.dataSource = self;
-    
     self.title = @"Messages";
+    [self fetchFeed];
     
+     NSLog(@"test %@", messages);
+}
+
+
+- (id)fetchFeed
+{
+    __block NSMutableArray* mess;
+    NSString *conversationid = @"55";
+    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
+    
+    
+    
+    _feed = [[MessageFeed alloc] initFromURLWithString:callURL //this method takes some time to complete and is handled on a different thread.
+                                            completion:^(JSONModel *model, JSONModelError *err)
+             {
+                 mess = [[NSMutableArray alloc]initWithObjects:[_feed.messagesinconversation valueForKey:@"message"], nil];
+                 NSLog(@"messages %@", mess); // this is called last in your code and your messages has been has been set as an iVar.
+             }];
+    // this logging is called immediately after initFromURLWithString is passed thus it will return nothing
+    messages = mess;
+    NSLog(@"messages %@", messages);
+    return messages;
 
 }
 
 
--(void)viewDidAppear:(BOOL)animated {
-
-    
-    
-    
-    
-    /*self.messages = [[NSMutableArray alloc] initWithObjects:
-                     @"Testing some messages here.",
-                     @"Options for avatars: none, circles, or squares",
-                     @"This is a complete re-write and refactoring.",
-                     @"It's easy to implement. Sound effects and images included. Animations are smooth and messages can be of arbitrary size!", nil];
-    
-    */
-
-   
-NSLog (@"self.messages: %@'", self.messages);
-    
-    //NSLog (@"messages: %@'", messages);
-    
-    self.timestamps = [[NSMutableArray alloc] initWithObjects:
-                       [NSDate distantPast],
-                       [NSDate distantPast],
-                       [NSDate distantPast],
-                       [NSDate date],
-                       nil];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward
-                                                                                           target:self
-                                                                                           action:@selector(buttonPressed:)];
-    
-    
-   
-    
-
-
-
-
-}
 
 - (void)buttonPressed:(UIButton*)sender
 {
@@ -96,69 +68,29 @@ NSLog (@"self.messages: %@'", self.messages);
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)loadfeed {
-    [HUD showUIBlockingIndicatorWithText:@"Retriving data"];
-    NSString *conversationid = @"55";
-    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
-    
-    [JSONHTTPClient getJSONFromURLWithString: callURL
-                                  completion:^(NSDictionary *json, JSONModelError *err) {
-                                      //got JSON back
-                                      [HUD hideUIBlockingIndicator];
-                                      //NSLog(@"Got JSON from web: %@", json);
-                                      JSONmessages = json;
-[self createArray];
-    
-                                      
-    }];
-    
-    
-    return;
-    
-}
-- (NSMutableArray *)createArray
-
-{
-    messages = [[NSMutableArray alloc] init];
-    NSArray* keys = [[JSONmessages valueForKey:@"messagesinconversation"] allObjects];
-    
-    int count = [keys count] ;
-    NSLog(@"count is %i", count);
-    for (int i=0; i < count; i++) {
-        NSString *message = (NSString *)[[[JSONmessages objectForKey:@"messagesinconversation"] objectAtIndex:i] objectForKey:@"message"];
-        [messages addObject:message];
-        
-    }
-    
-    
-    NSLog(@"createArray produces %@", messages);
-    return messages;
-}
-
-
-
-
-
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.messages.count;
+    return messages.count;
 }
 
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-    [self.messages addObject:text];
+    [messages addObject:text];
     
     [self.timestamps addObject:[NSDate date]];
     
-    if((self.messages.count - 1) % 2)
+    if((messages.count - 1) % 2)
         [JSMessageSoundEffect playMessageSentSound];
     else
         [JSMessageSoundEffect playMessageReceivedSound];
     
     [self finishSend];
 }
+
+
+
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -194,8 +126,7 @@ NSLog (@"self.messages: %@'", self.messages);
 #pragma mark - Messages view data source
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [messages objectAtIndex:indexPath.row];
-      
+    return [self.messages objectAtIndex:indexPath.row];
 }
 
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -214,7 +145,5 @@ NSLog (@"self.messages: %@'", self.messages);
 }
 
 
-
-    
 
 @end

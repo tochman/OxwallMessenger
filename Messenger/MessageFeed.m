@@ -10,16 +10,5 @@
 
 @implementation MessageFeed
 
-+(JSONKeyMapper*)keyMapper
-{
-    return [[JSONKeyMapper alloc] initWithDictionary:@{
-            @"messagesinconversation.messageid":@"messageid",
-            @"messagesinconversation.messagecreated":@"messagecreated",
-            @"messagesinconversation.sentbyIDy":@"sentbyID",
-            @"messagesinconversation.sentby":@"sentby",
-            @"messagesinconversation.title":@"title",
-            @"messagesinconversation.message":@"message",
-            }];
-}
 
 @end

@@ -15,7 +15,7 @@
 @interface MessagesViewController : JSMessagesViewController <JSMessagesViewDelegate, JSMessagesViewDataSource>
 
 @property (strong, nonatomic) NSDictionary *JSONmessages;
-@property (strong) NSMutableArray *messages;
+@property (strong, nonatomic) NSMutableArray *messages;
 @property (strong, nonatomic) NSMutableArray *timestamps;
 
 @end

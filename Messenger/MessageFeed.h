@@ -11,6 +11,6 @@
 
 @interface MessageFeed : JSONModel
 
-@property (strong, nonatomic) NSArray<MessageModel>* messagesinconversation;
+@property (strong, nonatomic) NSMutableArray<MessageModel>* messagesinconversation;
 
 @end

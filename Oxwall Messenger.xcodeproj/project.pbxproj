@@ -61,6 +61,7 @@
 		E9477F4317E0F43800A16505 /* ConversationFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4217E0F43800A16505 /* ConversationFeed.m */; };
 		E9477F4617E10B9F00A16505 /* MessageFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4517E10B9C00A16505 /* MessageFeed.m */; };
 		E9477F4917E10BC600A16505 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4817E10BC600A16505 /* MessageModel.m */; };
+		E94CB14F17E78AC60066A516 /* kod.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E94CB14E17E78AC60066A516 /* kod.rtf */; };
 		E988C40917E6FDEF0053296C /* NUIAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = E988C39F17E6FDEF0053296C /* NUIAppearance.m */; };
 		E988C40A17E6FDEF0053296C /* NUIConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = E988C3A117E6FDEF0053296C /* NUIConverter.m */; };
 		E988C40B17E6FDEF0053296C /* NUIFileMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = E988C3A317E6FDEF0053296C /* NUIFileMonitor.m */; };
@@ -251,6 +252,7 @@
 		E9477F4517E10B9C00A16505 /* MessageFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageFeed.m; path = Messenger/MessageFeed.m; sourceTree = "<group>"; };
 		E9477F4717E10BC500A16505 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageModel.h; path = Messenger/MessageModel.h; sourceTree = "<group>"; };
 		E9477F4817E10BC600A16505 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageModel.m; path = Messenger/MessageModel.m; sourceTree = "<group>"; };
+		E94CB14E17E78AC60066A516 /* kod.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = kod.rtf; sourceTree = SOURCE_ROOT; };
 		E988C39E17E6FDEF0053296C /* NUIAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUIAppearance.h; sourceTree = "<group>"; };
 		E988C39F17E6FDEF0053296C /* NUIAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NUIAppearance.m; sourceTree = "<group>"; };
 		E988C3A017E6FDEF0053296C /* NUIConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUIConverter.h; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 				E9477F2D17E043E600A16505 /* DUViewController.m */,
 				E909C47D17E198EB0058B75A /* MessagesViewController.h */,
 				E909C47E17E198EB0058B75A /* MessagesViewController.m */,
+				E94CB14E17E78AC60066A516 /* kod.rtf */,
 			);
 			name = Messenger;
 			path = JSON_HelloWorld;
@@ -973,6 +976,7 @@
 				E988C4A317E7160C0053296C /* send@2x.png in Resources */,
 				E988C4A417E7160C0053296C /* messageReceived.aiff in Resources */,
 				E988C4A517E7160C0053296C /* messageSent.aiff in Resources */,
+				E94CB14F17E78AC60066A516 /* kod.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
