@@ -14,6 +14,8 @@ This project uses (among others):
 - JSONModel: https://github.com/icanzilb/JSONModel
 - MessagesTableViewController: https://github.com/jessesquires/MessagesTableViewController 
 - NUI - Style iOS apps with a stylesheet, similar to CSS: https://github.com/tombenner/nui
+- NewRelics Application Performance Management & Monitoring
+
 
 License
 --------------
