@@ -16,6 +16,7 @@
 {
     
     MessageFeed* _feed;
+    NSMutableArray *messeges;
     
 }
 
@@ -27,34 +28,42 @@
 
 #pragma mark - View lifecycle
 
+- (void)awakeFromNib
 
+{
+    [self performSelector: @selector(fetchFeed:) withObject:self afterDelay: 0.0];
+    //[self fetchFeed];
+    messages = [[NSMutableArray alloc] initWithObjects:
+                @"Testing some messages here.",
+                @"Options for avatars: none, circles, or squares",
+                nil];
+    NSLog(@"test %@", JSONmessages);
+    
+    
+}
 
 - (void)viewDidLoad
 {
 
 [super viewDidLoad];
-}
-
-- (void)awakeFromNib
-
-{
-    [self fetchFeed];
-
+   
     
     self.delegate = self;
     self.dataSource = self;
     self.title = @"Messages";
- 
+    
+    
    
-     NSLog(@"test %@", messages);
 }
+
+
 
 - (void)fetchFeed
 {
     
         
     //1
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         //code executed in the background
         //2
         NSString *conversationid = @"55";
@@ -63,18 +72,19 @@
                             [NSURL URLWithString:callURL]
                             ];
         //3
-        NSDictionary* json = nil;
-        if (messFeed) {
-            json = [NSJSONSerialization
-                    JSONObjectWithData:messFeed
-                    options:kNilOptions
-                    error:nil];
-        }
+        
         
         //4
         dispatch_async(dispatch_get_main_queue(), ^{
             //code executed on the main queue
             //5
+            NSDictionary* json = nil;
+            if (messFeed) {
+                json = [NSJSONSerialization
+                        JSONObjectWithData:messFeed
+                        options:kNilOptions
+                        error:nil];
+            }
             JSONmessages = json;
             [self updateUIWithDictionary: JSONmessages];
         });
@@ -87,13 +97,10 @@
 }
 
 -(void)updateUIWithDictionary:(NSDictionary*)json {
-    
+    NSLog(@"updated? %@", JSONmessages);
     
     @try {
-        messages = [[NSMutableArray alloc] initWithObjects:
-                    @"Testing some messages here.",
-                    @"Options for avatars: none, circles, or squares",
-                    nil];
+        
         
         NSArray* keys = [[JSONmessages valueForKey:@"messagesinconversation"] allObjects];
         
@@ -116,6 +123,8 @@
     }
 NSLog(@"Parsed: %@", messages);
 NSLog(@"Parsed: %i", messages.count);
+    
+    
 
 
 
