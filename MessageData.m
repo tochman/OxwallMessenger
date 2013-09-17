@@ -7,11 +7,13 @@
 //
 
 #import "MessageData.h"
+#import "JSONModelLib.h"
+#import "MessageFeed.h"
 
 @implementation MessageData
 @synthesize JSONmessages;
 @synthesize messages;
-
+@synthesize gMesseges;
 
 - (void)fetchFeed
 {
@@ -26,6 +28,7 @@
         NSData* messFeed = [NSData dataWithContentsOfURL:
                             [NSURL URLWithString:callURL]
                             ];
+        
         //3
         
         
@@ -40,14 +43,11 @@
                         options:kNilOptions
                         error:nil];
             }
-            
+            //NSLog(@"json: %@", json);
             [self updateUIWithDictionary: json];
         });
         
     });
-    
-    
-    
 
    
     
@@ -56,22 +56,27 @@
 -(void)updateUIWithDictionary:(NSDictionary*)json {
     
     messages = [[NSMutableArray alloc] initWithObjects:
-                @"Testing some messages here.",
-                @"Options for avatars: none, circles, or squares",
-                nil];
+                     @"Testing some messages here.",
+                     @"Options for avatars: none, circles, or squares",
+                     @"This is a complete re-write and refactoring.",
+                     @"It's easy to implement. Sound effects and images included. Animations are smooth and messages can be of arbitrary size!",
+                     nil];
+    
+    [messages addObject:@"Test"];
+    
     @try {
         
         
-        NSArray* keys = [[JSONmessages valueForKey:@"messagesinconversation"] allObjects];
+        NSArray* keys = [[json valueForKey:@"messagesinconversation"] allObjects];
         
         int count = [keys count] ;
-        NSLog(@"count is %i", count);
+        //NSLog(@"Parse count is %i", count);
         for (int i=0; i < count; i++) {
-            NSString *message = (NSString *)[[[JSONmessages objectForKey:@"messagesinconversation"] objectAtIndex:i] objectForKey:@"message"];
+            NSString *message = (NSString *)[[[json objectForKey:@"messagesinconversation"] objectAtIndex:i] objectForKey:@"message"];
             [messages addObject:message];
-            
+           
         }
-        
+       
     }
     @catch (NSException *exception) {
         [[[UIAlertView alloc] initWithTitle:@"Error"
@@ -81,13 +86,16 @@
                           otherButtonTitles: nil] show];
         NSLog(@"Exception: %@", exception);
     }
-    NSLog(@"Parsed: %@", messages);
-    NSLog(@"Parsed: %i", messages.count);
+
+   // NSLog(@"Parsed: %@", messages);
+   // NSLog(@"Parsed count: %i", messages.count);
+   //[self sendArray:messages];
     
-    
-    
-    
-    
+}
+
+-(void)sendArray:(NSMutableArray*)array {
+    //gMesseges = [[NSMutableArray alloc] initWithObjects:messages, nil];
+    NSLog(@"gMesseges: %@", messages);
 }
 
 @end

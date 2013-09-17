@@ -14,7 +14,10 @@
 @property (strong, nonatomic) NSDictionary *JSONmessages;
 
 @property (nonatomic, strong) NSMutableArray *messages;
+@property (nonatomic, strong) NSMutableArray *gMesseges;
 
 -(void)fetchFeed;
+-(void)updateUIWithDictionary:(NSDictionary*)json;
+-(void)sendArray:(NSMutableArray*)array;
 
 @end

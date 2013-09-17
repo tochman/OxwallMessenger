@@ -7,7 +7,14 @@
 //
 
 #import "MessagesViewController.h"
+#import "MessageData.h"
 #pragma mark - Initialization
+
+@interface MessagesViewController () 
+@end
+
+@implementation MessagesViewController
+
 
 - (UIButton *)sendButton
 {
@@ -25,12 +32,14 @@
     
     self.title = @"Messages";
     
-    self.messages = [[NSMutableArray alloc] initWithObjects:
-                     @"Testing some messages here.",
-                     @"Options for avatars: none, circles, or squares",
-                     @"This is a complete re-write and refactoring.",
-                     @"It's easy to implement. Sound effects and images included. Animations are smooth and messages can be of arbitrary size!",
-                     nil];
+    MessageData* feed = [[MessageData alloc]init];
+    
+    [feed fetchFeed];
+    [feed updateUIWithDictionary: self.JSONmessages];
+    
+    self.messages = feed.messages;
+     NSLog(@"Messages MessVC: %@", self.messages);
+    
     
     self.timestamps = [[NSMutableArray alloc] initWithObjects:
                        [NSDate distantPast],
