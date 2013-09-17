@@ -26,40 +26,100 @@
 @synthesize messages;
 
 #pragma mark - View lifecycle
+
+
+
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+
+[super viewDidLoad];
+}
+
+- (void)awakeFromNib
+
+{
+    [self fetchFeed];
+
+    
     self.delegate = self;
     self.dataSource = self;
     self.title = @"Messages";
-    [self fetchFeed];
-    
+ 
+   
      NSLog(@"test %@", messages);
 }
 
-
-- (id)fetchFeed
+- (void)fetchFeed
 {
-    __block NSMutableArray* mess;
-    NSString *conversationid = @"55";
-    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
     
-    
-    
-    _feed = [[MessageFeed alloc] initFromURLWithString:callURL //this method takes some time to complete and is handled on a different thread.
-                                            completion:^(JSONModel *model, JSONModelError *err)
-             {
-                 mess = [[NSMutableArray alloc]initWithObjects:[_feed.messagesinconversation valueForKey:@"message"], nil];
-                 NSLog(@"messages %@", mess); // this is called last in your code and your messages has been has been set as an iVar.
-             }];
-    // this logging is called immediately after initFromURLWithString is passed thus it will return nothing
-    messages = mess;
-    NSLog(@"messages %@", messages);
-    return messages;
+        
+    //1
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //code executed in the background
+        //2
+        NSString *conversationid = @"55";
+        NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
+        NSData* messFeed = [NSData dataWithContentsOfURL:
+                            [NSURL URLWithString:callURL]
+                            ];
+        //3
+        NSDictionary* json = nil;
+        if (messFeed) {
+            json = [NSJSONSerialization
+                    JSONObjectWithData:messFeed
+                    options:kNilOptions
+                    error:nil];
+        }
+        
+        //4
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //code executed on the main queue
+            //5
+            JSONmessages = json;
+            [self updateUIWithDictionary: JSONmessages];
+        });
+        
+    });
+
+  
+
 
 }
 
+-(void)updateUIWithDictionary:(NSDictionary*)json {
+    
+    
+    @try {
+        messages = [[NSMutableArray alloc] initWithObjects:
+                    @"Testing some messages here.",
+                    @"Options for avatars: none, circles, or squares",
+                    nil];
+        
+        NSArray* keys = [[JSONmessages valueForKey:@"messagesinconversation"] allObjects];
+        
+        int count = [keys count] ;
+        NSLog(@"count is %i", count);
+        for (int i=0; i < count; i++) {
+            NSString *message = (NSString *)[[[JSONmessages objectForKey:@"messagesinconversation"] objectAtIndex:i] objectForKey:@"message"];
+            [messages addObject:message];
+            
+        }  
+        
+    }
+    @catch (NSException *exception) {
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Could not parse the JSON feed."
+                                   delegate:nil
+                          cancelButtonTitle:@"Close"
+                          otherButtonTitles: nil] show];
+        NSLog(@"Exception: %@", exception);
+    }
+NSLog(@"Parsed: %@", messages);
+NSLog(@"Parsed: %i", messages.count);
 
+
+
+}
 
 - (void)buttonPressed:(UIButton*)sender
 {
