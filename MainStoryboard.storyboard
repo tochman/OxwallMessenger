@@ -189,13 +189,47 @@
                                     <constraint firstAttribute="height" constant="80" id="f1F-Qd-kbO"/>
                                 </constraints>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aVi-zt-sak">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="302" id="3vD-aF-Jlz"/>
+                                    <constraint firstAttribute="height" constant="347" id="pIa-ar-lE9"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ConversationCell" textLabel="cbt-xg-Jve" detailTextLabel="5aG-tq-6Uv" style="IBUITableViewCellStyleSubtitle" id="kRQ-Ly-JmZ">
+                                        <rect key="frame" x="0.0" y="22" width="302" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="282" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbt-xg-Jve">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aG-tq-6Uv">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mfc-GP-I8c" id="ATf-dl-gLY"/>
+                                    <outlet property="delegate" destination="mfc-GP-I8c" id="edX-3I-76c"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yNu-Te-6uL" firstAttribute="top" secondItem="5w1-vo-HrX" secondAttribute="top" constant="53" id="6Un-za-ub5"/>
+                            <constraint firstItem="aVi-zt-sak" firstAttribute="top" secondItem="g26-nx-LCg" secondAttribute="top" type="default" id="8L1-Jc-jPV"/>
                             <constraint firstItem="7ny-lN-UDJ" firstAttribute="leading" secondItem="UfD-qN-dRH" secondAttribute="leading" type="default" id="8Oj-xA-GLI"/>
                             <constraint firstItem="g26-nx-LCg" firstAttribute="top" secondItem="5w1-vo-HrX" secondAttribute="top" constant="147" id="8Y0-i7-200"/>
-                            <constraint firstAttribute="bottom" secondItem="PMx-RC-sze" secondAttribute="bottom" constant="25" id="BeO-q6-XrV"/>
                             <constraint firstItem="yNu-Te-6uL" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" constant="117" id="FaU-DK-Scn"/>
                             <constraint firstItem="f1Z-fC-p0g" firstAttribute="top" secondItem="5w1-vo-HrX" secondAttribute="top" constant="164" id="JkT-aO-iTs"/>
                             <constraint firstItem="f1Z-fC-p0g" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" constant="7" id="MhU-Q0-QvK"/>
@@ -204,7 +238,9 @@
                             <constraint firstItem="Wpv-cu-A8g" firstAttribute="top" secondItem="7ny-lN-UDJ" secondAttribute="top" type="default" id="ZTw-Ys-oI6"/>
                             <constraint firstItem="g26-nx-LCg" firstAttribute="leading" secondItem="7ny-lN-UDJ" secondAttribute="leading" type="default" id="aa8-fr-J7C"/>
                             <constraint firstItem="UfD-qN-dRH" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" constant="15" id="bWc-Ky-j11"/>
+                            <constraint firstAttribute="bottom" secondItem="PMx-RC-sze" secondAttribute="bottom" constant="25" id="c86-oc-ABA"/>
                             <constraint firstItem="haU-g2-lHD" firstAttribute="bottom" secondItem="UfD-qN-dRH" secondAttribute="bottom" type="default" id="eOK-Vq-mLF"/>
+                            <constraint firstItem="aVi-zt-sak" firstAttribute="centerX" secondItem="5w1-vo-HrX" secondAttribute="centerX" type="default" id="f7W-Zv-yLS"/>
                             <constraint firstItem="haU-g2-lHD" firstAttribute="leading" secondItem="yNu-Te-6uL" secondAttribute="leading" type="default" id="k6M-B5-14W"/>
                             <constraint firstItem="7ny-lN-UDJ" firstAttribute="top" secondItem="5w1-vo-HrX" secondAttribute="top" constant="110" id="l8C-ml-iry"/>
                             <constraint firstItem="Wpv-cu-A8g" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" constant="99" id="w9R-eX-iSx"/>
@@ -223,9 +259,11 @@
                         <outlet property="membersinceLabel" destination="Wpv-cu-A8g" id="gnO-vZ-kv2"/>
                         <outlet property="presentationTextview" destination="f1Z-fC-p0g" id="f7l-WY-dHM"/>
                         <outlet property="sexLabel" destination="haU-g2-lHD" id="EyP-iX-NMa"/>
+                        <outlet property="tableView" destination="aVi-zt-sak" id="Qwz-Nv-EVZ"/>
                         <outlet property="usernameLabel" destination="yNu-Te-6uL" id="MIP-zW-7cV"/>
                         <segue destination="3" kind="modal" identifier="start" animates="NO" id="DVx-Ni-U36"/>
                         <segue destination="RNm-XT-xq2" kind="push" identifier="conversations" id="uxJ-YS-0yR"/>
+                        <segue destination="YOd-9q-iqi" kind="push" identifier="getmessage" id="1Ax-z6-hPl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6T-c5-p1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -342,7 +380,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="riO-iN-cb4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023" y="-634"/>
+            <point key="canvasLocation" x="547" y="-1494"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DiC-Eo-zam">
@@ -357,7 +395,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyP-2I-Uy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1284" y="-1482"/>
+            <point key="canvasLocation" x="915" y="-1586"/>
         </scene>
         <!--Messages View Controller-->
         <scene sceneID="lb7-Nc-Yb4">
@@ -392,6 +430,7 @@
                 <relationship kind="outlet" name="membersinceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="presentationTextview" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="sexLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -427,6 +466,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YIx-3d-Mdu"/>
+        <segue reference="1Ax-z6-hPl"/>
     </inferredMetricsTieBreakers>
 </document>

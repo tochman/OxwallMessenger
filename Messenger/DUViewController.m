@@ -8,8 +8,13 @@
 
 #import "DUViewController.h"
 #import "HUD.h"
+#import "JSONModelLib.h"
+#import "ConversationFeed.h"
 
-@interface DUViewController ()
+@interface DUViewController (){
+    ConversationFeed* _feed;
+}
+
 
 @end
 
@@ -21,12 +26,13 @@
 @synthesize membersince;
 @synthesize presentation;
 @synthesize avatarURL;
+@synthesize tableView = _tableView;
+@synthesize userid;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-    }
+           }
     return self;
 }
 
@@ -39,9 +45,37 @@
     // Title
     self.title = realname;
     [self.navigationItem setHidesBackButton:YES];
-     
     
+     
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    userid = [standardUserDefaults stringForKey:@"userid"];
+    // Title
+    self.title = @"My conversations";
 
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    //show loader view
+    [HUD showUIBlockingIndicatorWithText:@"Getting Conversations"];
+    //Set the identifier
+    
+    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_conversations.php?user=%@", userid];
+    
+    //fetch the feed
+    _feed = [[ConversationFeed alloc] initFromURLWithString:callURL
+                                                 completion:^(JSONModel *model, JSONModelError *err) {
+                                                     
+                                                     //hide the loader view
+                                                     [HUD hideUIBlockingIndicator];
+                                                     
+                                                     //json fetched
+                                                     
+                                                     NSLog(@"Loaded %@", _feed.conversations);
+                                                     NSLog(@"Userid %@", userid);
+                                                     [self.tableView reloadData];
+                                                     
+                                                 }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,4 +127,41 @@
     [HUD hideUIBlockingIndicator];
     [self performSegueWithIdentifier:@"start" sender:self];
 }
+
+
+#pragma mark - UITableViewDataSource Methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _feed.conversations.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ConversationsModel* conversation = _feed.conversations[indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConversationCell" forIndexPath:indexPath];
+    cell.textLabel.text = conversation.title;
+    cell.detailTextLabel.text = conversation.startedby;
+    return cell;
+}
+
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [self performSegueWithIdentifier:@"getmessage" sender:self];
+    
+}
+
+
+
 @end

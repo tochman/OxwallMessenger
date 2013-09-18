@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface DUViewController : UIViewController {
+@interface DUViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 
 
     IBOutlet UILabel *usernameLabel;
@@ -21,6 +21,8 @@
     IBOutlet UITextView *presentationTextview;
     
     IBOutlet UIImageView *avatar;
+    
+    IBOutlet UITableView *tableView;
 }
 
 @property (strong, nonatomic) NSString *username;
@@ -29,6 +31,8 @@
 @property (strong, nonatomic) NSString *membersince;
 @property (strong, nonatomic) NSString *presentation;
 @property (strong, nonatomic) NSURL *avatarURL;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSString *userid;
 
 
 - (IBAction)checkConversations:(id)sender;
