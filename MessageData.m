@@ -25,6 +25,9 @@
         //code executed in the background
         //2
         NSString *conversationid = @"55";
+        messages = [[NSMutableArray alloc] init];
+        [messages addObject:[NSString stringWithFormat:@"Conversation id %@", conversationid]];
+        [messages addObject:@"Added before the for loop."];
         NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
         NSData* messFeed = [NSData dataWithContentsOfURL:
                             [NSURL URLWithString:callURL]
@@ -63,9 +66,8 @@
     
     @try {
         
-        messages = [[NSMutableArray alloc] init];
-       // [messages addObject:@"Added before the for loop."];
-        [messages addObject:@"Added to MV before the for loop."];
+        
+        
         
         NSArray* keys = [[JSONmessages valueForKey:@"messagesinconversation"] allObjects];
         
@@ -78,8 +80,7 @@
            
         }
         
-        //[messages addObject:@"Added after the for loop. Why?"];
-        [messages addObject:@"Added to MV after the for loop. Why?"];
+        [messages addObject:@"Added after the for loop. Why?"];
     }
     @catch (NSException *exception) {
         [[[UIAlertView alloc] initWithTitle:@"Error"
@@ -99,6 +100,7 @@
    
     
 }
+
 
 
 @end

@@ -39,7 +39,13 @@
     [feed updateUIWithDictionary:feed.JSONmessages];
         
 
-    self.messages = feed.messages;
+   self.messages = feed.messages;
+    
+    
+  
+
+
+    
 
     if (!self.messages){
         NSLog(@"Messages empty");
@@ -48,15 +54,6 @@
         
     }
             
-        
-   
-    
-
-    
-    
-    
-    
-
     
     self.timestamps = [[NSMutableArray alloc] initWithObjects:
                        [NSDate distantPast],
@@ -160,7 +157,7 @@
     //Refresh code - for now it is just for show, not fully implemented
     double delayInSeconds = 1.0;
     MessageData* feed = [[MessageData alloc]init];
-    //[feed fetchFeed];
+    [feed fetchFeed];
     [feed updateUIWithDictionary:feed.JSONmessages];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
