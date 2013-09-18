@@ -15,6 +15,7 @@
 @end
 
 @implementation MessagesViewController
+@synthesize messages;
 
 
 - (UIButton *)sendButton
@@ -157,8 +158,10 @@
 - (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
 {
     //Refresh code - for now it is just for show, not fully implemented
-    double delayInSeconds = 3.0;
-    [self viewDidLoad];
+    double delayInSeconds = 1.0;
+    MessageData* feed = [[MessageData alloc]init];
+    //[feed fetchFeed];
+    [feed updateUIWithDictionary:feed.JSONmessages];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [refreshControl endRefreshing];

@@ -47,7 +47,6 @@
 		E9477F0117DF865700A16505 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EFC17DF865700A16505 /* DetailViewController.m */; };
 		E9477F0717DF869600A16505 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F0217DF869600A16505 /* main.m */; };
 		E9477F0817DF869600A16505 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F0417DF869600A16505 /* MasterViewController.m */; };
-		E9477F0917DF869600A16505 /* Oxwall Messenger-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9477F0517DF869600A16505 /* Oxwall Messenger-Info.plist */; };
 		E9477F1317DF872800A16505 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1017DF872800A16505 /* Default-568h@2x.png */; };
 		E9477F1417DF872800A16505 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1117DF872800A16505 /* Default.png */; };
 		E9477F1517DF872800A16505 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1217DF872800A16505 /* Default@2x.png */; };
@@ -921,7 +920,7 @@
 		9C39541016A34F8200C5C8FD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Underplot ltd.";
 			};
 			buildConfigurationList = 9C39541316A34F8200C5C8FD /* Build configuration list for PBXProject "Oxwall Messenger" */;
@@ -948,7 +947,6 @@
 			files = (
 				9C39544A16A34FC800C5C8FD /* btnCheck.png in Resources */,
 				9C39544B16A34FC800C5C8FD /* btnCheck@2x.png in Resources */,
-				E9477F0917DF869600A16505 /* Oxwall Messenger-Info.plist in Resources */,
 				E9477F1317DF872800A16505 /* Default-568h@2x.png in Resources */,
 				E9477F1417DF872800A16505 /* Default.png in Resources */,
 				E9477F1517DF872800A16505 /* Default@2x.png in Resources */,

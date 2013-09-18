@@ -58,12 +58,14 @@
 }
 
 -(void)updateUIWithDictionary:(NSDictionary*)json {
-
+    
+    
     
     @try {
         
         messages = [[NSMutableArray alloc] init];
-        [messages addObject:@"Added before the for loop."];
+       // [messages addObject:@"Added before the for loop."];
+        [messages addObject:@"Added to MV before the for loop."];
         
         NSArray* keys = [[JSONmessages valueForKey:@"messagesinconversation"] allObjects];
         
@@ -76,7 +78,8 @@
            
         }
         
-        [messages addObject:@"Added after the for loop. Why?"];
+        //[messages addObject:@"Added after the for loop. Why?"];
+        [messages addObject:@"Added to MV after the for loop. Why?"];
     }
     @catch (NSException *exception) {
         [[[UIAlertView alloc] initWithTitle:@"Error"
@@ -90,7 +93,7 @@
     @finally {
        
         NSLog(@"Final: %@", messages);
-    }
+           }
 
 
    
