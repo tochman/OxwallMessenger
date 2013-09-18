@@ -16,7 +16,7 @@
 {
     [NewRelicAgent startWithApplicationToken:@"AAd40e0cf67623484b41b889aa53df62ba66828e9f"];
 
-    [NUIAppearance init];
+   // [NUIAppearance init];
    
     return YES;
 }

@@ -145,7 +145,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ConversationsModel* conversation = _feed.conversations[indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConversationCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"ConversationCell" forIndexPath:indexPath];
     cell.textLabel.text = conversation.title;
     cell.detailTextLabel.text = conversation.startedby;
     return cell;

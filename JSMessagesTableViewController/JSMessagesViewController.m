@@ -39,7 +39,7 @@
 #import "UIColor+JSMessagesView.h"
 #import "JSDismissiveTextView.h"
 
-#define INPUT_HEIGHT 40.0f
+#define INPUT_HEIGHT 35.0f
 
 @interface JSMessagesViewController () <JSDismissiveTextViewDelegate>
 
@@ -101,7 +101,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self scrollToBottomAnimated:NO];
+    [self scrollToBottomAnimated:YES];
     
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(handleWillShowKeyboard:)

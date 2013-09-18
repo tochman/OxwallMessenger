@@ -34,26 +34,29 @@
     
     self.title = @"Messages";
  
+
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    
     MessageData* feed = [[MessageData alloc]init];
     [feed fetchFeed];
     [feed updateUIWithDictionary:feed.JSONmessages];
-        
-
-   self.messages = feed.messages;
     
     
-  
-
-
+    self.messages = [[NSMutableArray alloc]init];
+    self.messages = feed.messages;
     
-
+    
+    
     if (!self.messages){
         NSLog(@"Messages empty");
     } else {
         NSLog(@"Messages in MessVC: %@", self.messages);
         
     }
-            
+    
     
     self.timestamps = [[NSMutableArray alloc] initWithObjects:
                        [NSDate distantPast],
@@ -65,9 +68,10 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward
                                                                                            target:self
                                                                                            action:@selector(buttonPressed:)];
-//Refresh  code
+    //Refresh  code
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
+    
 }
 
 - (void)buttonPressed:(UIButton*)sender
@@ -133,12 +137,12 @@
 #pragma mark - Messages view data source
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self.messages objectAtIndex:indexPath.row];
+    return (self.messages)[indexPath.row];
 }
 
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self.timestamps objectAtIndex:indexPath.row];
+    return (self.timestamps)[indexPath.row];
 }
 
 - (UIImage *)avatarImageForIncomingMessage

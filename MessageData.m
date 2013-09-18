@@ -98,7 +98,7 @@
         NSLog(@"Parse count is %i", count);
         for (int i=0; i < count; i++) {
             
-            NSString *message = (NSString *)[[[JSONmessages objectForKey:@"messagesinconversation"] objectAtIndex:i] objectForKey:@"message"];
+            NSString *message = (NSString *)JSONmessages[@"messagesinconversation"][i][@"message"];
             [messages addObject:message];
            
         }
@@ -116,7 +116,7 @@
     
     @finally {
        
-        NSLog(@"Final: %@", messages);
+        //NSLog(@"Final: %@", messages);
            }
 
 
