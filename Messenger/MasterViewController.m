@@ -82,21 +82,7 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"profile" sender:self];
     
-    // This is not used
-    /*
-    UsersModel* loan = _feed.posts[indexPath.row];
-    
-    
-     NSString* message = [NSString stringWithFormat:@"User: %@ has a Realname of: %@ and his email is: %@",
-                         loan.username, loan.realname, loan.email
-                         ];*/
-    
 
-    
-    
-    
-    
-    //[HUD showAlertWithTitle:@"User details" text:message];
 }
 
 

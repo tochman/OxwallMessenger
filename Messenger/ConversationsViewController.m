@@ -87,9 +87,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    //Navigation
-    //[self performSegueWithIdentifier:@"profile" sender:self];
+
+[self performSegueWithIdentifier:@"getmessage" sender:self];
     
 }
 
