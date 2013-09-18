@@ -169,6 +169,7 @@
 		E98E28A017E8E270006A4B8D /* UIColor+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = E98E287317E8E270006A4B8D /* UIColor+JSMessagesView.m */; };
 		E98E28A117E8E270006A4B8D /* UIImage+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = E98E287517E8E270006A4B8D /* UIImage+JSMessagesView.m */; };
 		E98E28A217E8E270006A4B8D /* UIView+AnimationOptionsForCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = E98E287717E8E270006A4B8D /* UIView+AnimationOptionsForCurve.m */; };
+		E98E28AA17E98432006A4B8D /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E98E28A917E98432006A4B8D /* ODRefreshControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -424,6 +425,8 @@
 		E98E287517E8E270006A4B8D /* UIImage+JSMessagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JSMessagesView.m"; sourceTree = "<group>"; };
 		E98E287617E8E270006A4B8D /* UIView+AnimationOptionsForCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationOptionsForCurve.h"; sourceTree = "<group>"; };
 		E98E287717E8E270006A4B8D /* UIView+AnimationOptionsForCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationOptionsForCurve.m"; sourceTree = "<group>"; };
+		E98E28A817E98432006A4B8D /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
+		E98E28A917E98432006A4B8D /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,6 +453,7 @@
 		9C39540E16A34F8200C5C8FD = {
 			isa = PBXGroup;
 			children = (
+				E98E28A717E98432006A4B8D /* ODRefreshControl */,
 				E98E283E17E8E270006A4B8D /* JSMessagesTableViewController */,
 				E988C39C17E6FDEF0053296C /* NUI */,
 				E9477F2F17E071EB00A16505 /* Images */,
@@ -882,6 +886,15 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		E98E28A717E98432006A4B8D /* ODRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				E98E28A817E98432006A4B8D /* ODRefreshControl.h */,
+				E98E28A917E98432006A4B8D /* ODRefreshControl.m */,
+			);
+			path = ODRefreshControl;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1095,6 +1108,7 @@
 				E98E28A017E8E270006A4B8D /* UIColor+JSMessagesView.m in Sources */,
 				E98E28A117E8E270006A4B8D /* UIImage+JSMessagesView.m in Sources */,
 				E98E28A217E8E270006A4B8D /* UIView+AnimationOptionsForCurve.m in Sources */,
+				E98E28AA17E98432006A4B8D /* ODRefreshControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

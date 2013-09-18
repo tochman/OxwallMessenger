@@ -10,7 +10,9 @@
 #import "MessageData.h"
 #pragma mark - Initialization
 
-@interface MessagesViewController () 
+@interface MessagesViewController () {
+    MessageData* mess ;
+}
 @end
 
 @implementation MessagesViewController
@@ -32,13 +34,29 @@
     
     self.title = @"Messages";
     
-    MessageData* feed = [[MessageData alloc]init];
     
-    [feed fetchFeed];
-    [feed updateUIWithDictionary: self.JSONmessages];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+        MessageData* feed = [[MessageData alloc]init];
+       [feed fetchFeed];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // code that updates UI goes here
+            NSLog(@"Messages in MessVC: %@", mess.gMesseges);
+        });
+    }); 
     
-    self.messages = feed.messages;
-     NSLog(@"Messages MessVC: %@", self.messages);
+    
+    
+    
+    
+    
+//
+//    MessageData* feed = [[MessageData alloc]init];
+//    [feed fetchFeed];
+//   // [feed updateUIWithDictionary:feed.JSONmessages];
+//    
+//    //self.messages = feed.gMesseges;
+//     NSLog(@"Messages MessVC: %@", mess.gMesseges);
     
     
     self.timestamps = [[NSMutableArray alloc] initWithObjects:
@@ -63,17 +81,17 @@
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.messages.count;
+    return mess.gMesseges.count;
 }
 
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-    [self.messages addObject:text];
+    [mess.gMesseges addObject:text];
     
     [self.timestamps addObject:[NSDate date]];
     
-    if((self.messages.count - 1) % 2)
+    if((mess.gMesseges.count - 1) % 2)
         [JSMessageSoundEffect playMessageSentSound];
     else
         [JSMessageSoundEffect playMessageReceivedSound];
@@ -115,7 +133,7 @@
 #pragma mark - Messages view data source
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self.messages objectAtIndex:indexPath.row];
+    return [mess.gMesseges objectAtIndex:indexPath.row];
 }
 
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath

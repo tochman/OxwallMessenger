@@ -18,6 +18,6 @@
 
 -(void)fetchFeed;
 -(void)updateUIWithDictionary:(NSDictionary*)json;
--(void)sendArray:(NSMutableArray*)array;
+- (NSMutableArray*)messeges;
 
 @end

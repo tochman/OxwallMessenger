@@ -11,6 +11,7 @@
 #import "MessageFeed.h"
 
 @implementation MessageData
+
 @synthesize JSONmessages;
 @synthesize messages;
 @synthesize gMesseges;
@@ -43,7 +44,7 @@
                         options:kNilOptions
                         error:nil];
             }
-            //NSLog(@"json: %@", json);
+           // NSLog(@"json: %@", json);
             [self updateUIWithDictionary: json];
         });
         
@@ -57,9 +58,7 @@
     
     messages = [[NSMutableArray alloc] initWithObjects:
                      @"Testing some messages here.",
-                     @"Options for avatars: none, circles, or squares",
-                     @"This is a complete re-write and refactoring.",
-                     @"It's easy to implement. Sound effects and images included. Animations are smooth and messages can be of arbitrary size!",
+
                      nil];
     
     [messages addObject:@"Test"];
@@ -89,13 +88,13 @@
 
    // NSLog(@"Parsed: %@", messages);
    // NSLog(@"Parsed count: %i", messages.count);
-   //[self sendArray:messages];
+   [self sendArray:messages];
     
 }
 
 -(void)sendArray:(NSMutableArray*)array {
-    //gMesseges = [[NSMutableArray alloc] initWithObjects:messages, nil];
-    NSLog(@"gMesseges: %@", messages);
+    gMesseges = [[NSMutableArray alloc] initWithObjects:messages, nil];
+    NSLog(@"gMesseges: %@", gMesseges);
 }
 
 @end
