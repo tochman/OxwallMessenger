@@ -7,6 +7,7 @@
 //
 
 #import "MessagesViewController.h"
+#import "ODRefreshControl.h"
 #import "MessageData.h"
 #pragma mark - Initialization
 
@@ -69,6 +70,9 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward
                                                                                            target:self
                                                                                            action:@selector(buttonPressed:)];
+//Refresh  code
+    ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
+    [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)buttonPressed:(UIButton*)sender
@@ -149,6 +153,17 @@
 - (UIImage *)avatarImageForOutgoingMessage
 {
     return [UIImage imageNamed:@"demo-avatar-jobs"];
+}
+
+#pragma mark - ODRefreshControl
+- (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
+{
+    //Refresh code - for now it is just for show, not fully implemented
+    double delayInSeconds = 3.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [refreshControl endRefreshing];
+    });
 }
 
 @end
