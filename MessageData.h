@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MessageData : NSObject
-
+@interface MessageData : NSObject 
 
 @property (strong, nonatomic) NSDictionary *JSONmessages;
 

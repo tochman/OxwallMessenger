@@ -10,6 +10,11 @@
 #import "MessagesViewController.h"
 #import "JSONModelLib.h"
 #import "MessageFeed.h"
+@interface MessageData () {
+    MessageFeed* _feed;
+}
+
+@end
 
 @implementation MessageData
 
@@ -19,7 +24,25 @@
 - (void)fetchFeed
 {
     
-    
+//    
+//    //One way to get the feed - this one is using the JSONModel
+//    NSString *conversationid = @"55";
+//    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
+//    _feed = [[MessageFeed alloc] initFromURLWithString:callURL
+//                                                 completion:^(JSONModel *model, JSONModelError *err) {
+//                                                     
+//                                                     
+//                                                     
+//                                                     //json fetched
+//                                                     
+//                                                     NSLog(@"Loaded %@", _feed.messagesinconversation);
+//                                                     //This is simply wrong
+//                                                     JSONmessages = _feed.messagesinconversation;
+//                                                     
+//                                                 }];
+
+    // Another way of getting the feed. This works better but will still not update he self.messages in MessageViewController
+
     //1
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         //code executed in the background
@@ -62,7 +85,7 @@
 
 -(void)updateUIWithDictionary:(NSDictionary*)json {
     
-    
+
     
     @try {
         
