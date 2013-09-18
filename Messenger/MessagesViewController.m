@@ -11,9 +11,7 @@
 #import "MessageData.h"
 #pragma mark - Initialization
 
-@interface MessagesViewController () {
-    MessageData* mess ;
-}
+@interface MessagesViewController ()
 @end
 
 @implementation MessagesViewController
@@ -30,35 +28,34 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.delegate = self;
-    self.dataSource = self;
+   self.delegate = self;
+   self.dataSource = self;
     
     self.title = @"Messages";
-    
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
-        MessageData* feed = [[MessageData alloc]init];
-       [feed fetchFeed];
+ 
+    MessageData* feed = [[MessageData alloc]init];
+    [feed fetchFeed];
+    [feed updateUIWithDictionary:feed.JSONmessages];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // code that updates UI goes here
-            NSLog(@"Messages in MessVC: %@", mess.gMesseges);
-        });
-    }); 
+
+    self.messages = feed.messages;
+
+    if (!self.messages){
+        NSLog(@"Messages empty");
+    } else {
+        NSLog(@"Messages in MessVC: %@", self.messages);
+        
+    }
+            
+        
+   
+    
+
     
     
     
     
-    
-    
-//
-//    MessageData* feed = [[MessageData alloc]init];
-//    [feed fetchFeed];
-//   // [feed updateUIWithDictionary:feed.JSONmessages];
-//    
-//    //self.messages = feed.gMesseges;
-//     NSLog(@"Messages MessVC: %@", mess.gMesseges);
-    
+
     
     self.timestamps = [[NSMutableArray alloc] initWithObjects:
                        [NSDate distantPast],
@@ -85,17 +82,18 @@
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return mess.gMesseges.count;
+    return self.messages.count;
+    NSLog(@"Messages count: %i", self.messages.count);
 }
 
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-    [mess.gMesseges addObject:text];
+    [self.messages addObject:text];
     
     [self.timestamps addObject:[NSDate date]];
     
-    if((mess.gMesseges.count - 1) % 2)
+    if((self.messages.count - 1) % 2)
         [JSMessageSoundEffect playMessageSentSound];
     else
         [JSMessageSoundEffect playMessageReceivedSound];
@@ -137,7 +135,7 @@
 #pragma mark - Messages view data source
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [mess.gMesseges objectAtIndex:indexPath.row];
+    return [self.messages objectAtIndex:indexPath.row];
 }
 
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -160,6 +158,7 @@
 {
     //Refresh code - for now it is just for show, not fully implemented
     double delayInSeconds = 3.0;
+    [self viewDidLoad];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [refreshControl endRefreshing];

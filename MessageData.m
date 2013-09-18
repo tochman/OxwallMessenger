@@ -7,6 +7,7 @@
 //
 
 #import "MessageData.h"
+#import "MessagesViewController.h"
 #import "JSONModelLib.h"
 #import "MessageFeed.h"
 
@@ -14,7 +15,6 @@
 
 @synthesize JSONmessages;
 @synthesize messages;
-@synthesize gMesseges;
 
 - (void)fetchFeed
 {
@@ -44,8 +44,8 @@
                         options:kNilOptions
                         error:nil];
             }
-           // NSLog(@"json: %@", json);
-            [self updateUIWithDictionary: json];
+
+            
         });
         
     });
@@ -55,16 +55,12 @@
 }
 
 -(void)updateUIWithDictionary:(NSDictionary*)json {
-    
-    messages = [[NSMutableArray alloc] initWithObjects:
-                     @"Testing some messages here.",
 
-                     nil];
-    
-    [messages addObject:@"Test"];
     
     @try {
         
+        messages = [[NSMutableArray alloc] init];
+        [messages addObject:@"Added before the for loop."];
         
         NSArray* keys = [[json valueForKey:@"messagesinconversation"] allObjects];
         
@@ -75,7 +71,8 @@
             [messages addObject:message];
            
         }
-       
+        
+        [messages addObject:@"Added after the for loop. Why?"];
     }
     @catch (NSException *exception) {
         [[[UIAlertView alloc] initWithTitle:@"Error"
@@ -85,16 +82,15 @@
                           otherButtonTitles: nil] show];
         NSLog(@"Exception: %@", exception);
     }
+    
+    @finally {
+       
+    }
 
-   // NSLog(@"Parsed: %@", messages);
-   // NSLog(@"Parsed count: %i", messages.count);
-   [self sendArray:messages];
+
+   
     
 }
 
--(void)sendArray:(NSMutableArray*)array {
-    gMesseges = [[NSMutableArray alloc] initWithObjects:messages, nil];
-    NSLog(@"gMesseges: %@", gMesseges);
-}
 
 @end
