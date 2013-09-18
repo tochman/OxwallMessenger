@@ -39,10 +39,13 @@
             //5
             NSDictionary* json = nil;
             if (messFeed) {
+                
                 json = [NSJSONSerialization
                         JSONObjectWithData:messFeed
                         options:kNilOptions
                         error:nil];
+                JSONmessages = json;
+                [self updateUIWithDictionary:JSONmessages];
             }
 
             
@@ -62,12 +65,13 @@
         messages = [[NSMutableArray alloc] init];
         [messages addObject:@"Added before the for loop."];
         
-        NSArray* keys = [[json valueForKey:@"messagesinconversation"] allObjects];
+        NSArray* keys = [[JSONmessages valueForKey:@"messagesinconversation"] allObjects];
         
         int count = [keys count] ;
-        //NSLog(@"Parse count is %i", count);
+        NSLog(@"Parse count is %i", count);
         for (int i=0; i < count; i++) {
-            NSString *message = (NSString *)[[[json objectForKey:@"messagesinconversation"] objectAtIndex:i] objectForKey:@"message"];
+            
+            NSString *message = (NSString *)[[[JSONmessages objectForKey:@"messagesinconversation"] objectAtIndex:i] objectForKey:@"message"];
             [messages addObject:message];
            
         }
@@ -85,6 +89,7 @@
     
     @finally {
        
+        NSLog(@"Final: %@", messages);
     }
 
 
