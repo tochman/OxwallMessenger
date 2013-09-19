@@ -15,7 +15,8 @@
 
 @property (strong, nonatomic) NSMutableArray *messages;
 @property (strong, nonatomic) NSMutableArray *timestamps;
-
 @property (strong, nonatomic) NSDictionary *json;
+
++ (void)conversationIdMthd : (NSString *)conversationIdStr;
 
 @end

@@ -14,9 +14,10 @@
 @interface MessagesViewController ()
 @end
 
-@implementation MessagesViewController 
+@implementation MessagesViewController
 @synthesize messages, json;
 
+static NSString *conversationid;
 
 - (UIButton *)sendButton
 {
@@ -25,42 +26,40 @@
     return [UIButton defaultSendButton];
 }
 
++ (void)conversationIdMthd : (NSString *)conversationIdStr {
+    conversationid = conversationIdStr;
+}
+
 #pragma mark - View lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   self.delegate = self;
-   self.dataSource = self;
-
-    
+    self.delegate = self;
+    self.dataSource = self;
     self.title = @"Messages";
-
-
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-
-        NSString *conversationid = @"58";
-        NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
-        NSData* messFeed = [NSData dataWithContentsOfURL:
-                            [NSURL URLWithString:callURL]
-                            ];
     
-            if (messFeed) {
-                
-                json = [NSJSONSerialization
-                        JSONObjectWithData:messFeed
-                        options:kNilOptions
-                        error:nil];
+    NSLog(@"conversationid :%@",conversationid);
+    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
+    NSData* messFeed = [NSData dataWithContentsOfURL:
+                        [NSURL URLWithString:callURL]
+                        ];
+    
+    if (messFeed) {
         
-         
-            }
-            
+        json = [NSJSONSerialization
+                JSONObjectWithData:messFeed
+                options:kNilOptions
+                error:nil];
+    }
+    
     [self setArrays];
     
     
-
+    
     //Refresh  code
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
@@ -83,7 +82,7 @@
     self.timestamps = [[NSMutableArray alloc] init];
     NSString* messagecreated =@"messagecreated";
     [self.timestamps addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:messagecreated]];
-
+    
 }
 
 - (void)buttonPressed:(UIButton*)sender

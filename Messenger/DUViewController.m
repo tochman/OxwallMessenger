@@ -10,6 +10,7 @@
 #import "HUD.h"
 #import "JSONModelLib.h"
 #import "ConversationFeed.h"
+#import "MessagesViewController.h"
 
 @interface DUViewController (){
     ConversationFeed* _feed;
@@ -32,13 +33,13 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-           }
+    }
     return self;
 }
 
 - (void)viewDidLoad
 {
-  
+    
     [super viewDidLoad];
     [self loadStandardUser];
     [self setLProfileLabels];
@@ -46,12 +47,12 @@
     self.title = realname;
     [self.navigationItem setHidesBackButton:YES];
     
-     
+    
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     userid = [standardUserDefaults stringForKey:@"userid"];
     // Title
     self.title = @"My conversations";
-
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -93,24 +94,22 @@
     membersince = [standardUserDefaults stringForKey:@"membersince"];
     presentation = [standardUserDefaults stringForKey:@"presentation"];
     avatarURL = [standardUserDefaults URLForKey:@"avatarURL"];
-
+    
 }
 
 -(void)setLProfileLabels
 {
-
+    
     usernameLabel.text = realname;
     sexLabel.text = sex;
     membersinceLabel.text = membersince;
     presentationTextview.text = presentation;
     avatar.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:avatarURL]];
-
+    
 }
 
 - (IBAction)checkConversations:(id)sender {
     [self performSegueWithIdentifier:@"conversations" sender:self];
-    
-
 }
 
 - (IBAction)logOut:(UIBarButtonItem *)sender {
@@ -133,7 +132,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
     return 1;
 }
 
@@ -156,8 +154,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ConversationsModel* conversation = _feed.conversations[indexPath.row];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    [MessagesViewController conversationIdMthd:conversation.conversationid];
     [self performSegueWithIdentifier:@"getmessage" sender:self];
     
 }
