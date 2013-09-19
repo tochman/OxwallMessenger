@@ -73,7 +73,7 @@
                         error:nil];
                 JSONmessages = json;
 
-                [self updateUIWithDictionary:json];
+               // [self updateUIWithDictionary:json];
             }
 
             
@@ -117,8 +117,8 @@
     }
     
     @finally {
-        NSString* key =@"messagecreated";
-        [messages addObjectsFromArray:[[JSONmessages objectForKey:@"messagesinconversation"]valueForKey:[key stringByReplacingOccurrencesOfString:@"\n" withString:@""]]];
+      //  NSString* key =@"messagecreated";
+      //  [messages addObjectsFromArray:[[JSONmessages objectForKey:@"messagesinconversation"]valueForKey:[key stringByReplacingOccurrencesOfString:@"\n" withString:@""]]];
         
         [messages addObject:@"Added after the call."];
         

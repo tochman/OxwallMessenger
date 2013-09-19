@@ -8,17 +8,14 @@
 
 #import "MessagesViewController.h"
 #import "ODRefreshControl.h"
-#import "MessageData.h"
+
 #pragma mark - Initialization
 
-@interface MessagesViewController (){
-    MessageData* _feed;
-}
-
+@interface MessagesViewController ()
 @end
 
 @implementation MessagesViewController 
-@synthesize messages;
+@synthesize messages, json;
 
 
 - (UIButton *)sendButton
@@ -34,7 +31,7 @@
     [super viewDidLoad];
    self.delegate = self;
    self.dataSource = self;
-    _feed = [[MessageData alloc]init];
+
     
     self.title = @"Messages";
 
@@ -43,15 +40,38 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+
+        NSString *conversationid = @"58";
+        NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
+        NSData* messFeed = [NSData dataWithContentsOfURL:
+                            [NSURL URLWithString:callURL]
+                            ];
+    
+            if (messFeed) {
+                
+                json = [NSJSONSerialization
+                        JSONObjectWithData:messFeed
+                        options:kNilOptions
+                        error:nil];
+        
+         
+            }
+            
+    [self setArrays];
     
     
 
-    [_feed fetchFeed];
-    [_feed updateUIWithDictionary:_feed.JSONmessages];
+    //Refresh  code
+    ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
+    [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     
+}
+
+- (void)setArrays {
     self.messages = [[NSMutableArray alloc]init];
-
-    [self.messages addObjectsFromArray:_feed.messages];
+    
+    NSString* key =@"message";
+    [self.messages addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:[key stringByReplacingOccurrencesOfString:@"\n" withString:@""]]];
     
     if (!self.messages){
         NSLog(@"Messages empty");
@@ -60,21 +80,10 @@
         
     }
     
-    
-    self.timestamps = [[NSMutableArray alloc] initWithObjects:
-                       [NSDate distantPast],
-                       [NSDate distantPast],
-                       [NSDate distantPast],
-                       [NSDate date],
-                       nil];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward
-                                                                                           target:self
-                                                                                           action:@selector(buttonPressed:)];
-    //Refresh  code
-    ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
-    [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
-    
+    self.timestamps = [[NSMutableArray alloc] init];
+    NSString* messagecreated =@"messagecreated";
+    [self.timestamps addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:messagecreated]];
+
 }
 
 - (void)buttonPressed:(UIButton*)sender
@@ -96,7 +105,7 @@
 {
     [self.messages addObject:text];
     
-    [self.timestamps addObject:[NSDate date]];
+    [self.timestamps addObject:text];
     
     if((self.messages.count - 1) % 2)
         [JSMessageSoundEffect playMessageSentSound];
@@ -163,9 +172,9 @@
 {
     //Refresh code - for now it is just for show, not fully implemented
     double delayInSeconds = 1.0;
+    [self.messages addObject:@"Added @ MessVC."];
     
-    [_feed fetchFeed];
-    [_feed updateUIWithDictionary:_feed.JSONmessages];
+    [self setArrays];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [refreshControl endRefreshing];
