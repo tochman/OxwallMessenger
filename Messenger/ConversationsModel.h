@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString* conversationid;
 @property (strong, nonatomic) NSString* startedbyid;
 @property (strong, nonatomic) NSString* startedby;
+@property (strong, nonatomic) NSString* sentto;
 @property (strong, nonatomic) NSString* title;
 @property (strong, nonatomic) NSURL* messages;
 
