@@ -39,7 +39,9 @@
 @interface JSMessageInputView : UIImageView
 
 @property (strong, nonatomic) JSDismissiveTextView *textView;
+@property (nonatomic, retain) UIImageView* inputFieldBack;
 @property (strong, nonatomic) UIButton *sendButton;
+@property (strong, nonatomic) UIButton* leftAccessoryButton;
 
 #pragma mark - Initialization
 - (id)initWithFrame:(CGRect)frame

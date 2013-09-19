@@ -50,15 +50,27 @@ typedef enum {
              bubbleStyle:(JSBubbleMessageStyle)bubbleStyle
              avatarStyle:(JSAvatarStyle)avatarStyle
             hasTimestamp:(BOOL)hasTimestamp
+			 hasSubtitle:(BOOL)hasSubtitle
          reuseIdentifier:(NSString *)reuseIdentifier;
 
 #pragma mark - Message cell
 - (void)setMessage:(NSString *)msg;
+- (void)setContentView:(UIView*)view;
+- (void)setSubtitle:(NSString *)subtitle;
+- (void)setMessageColor:(UIColor *)textColor;
 - (void)setTimestamp:(NSDate *)date;
 - (void)setAvatarImage:(UIImage *)image;
+- (void)setBubbleImage:(UIImage*)bubbleImage
+andSelectedBubbleImage:(UIImage*)selectedBubbleImage;
 
 + (CGFloat)neededHeightForText:(NSString *)bubbleViewText
                      timestamp:(BOOL)hasTimestamp
+					  subtitle:(BOOL)hasSubtitle
+                        avatar:(BOOL)hasAvatar;
+
++ (CGFloat)neededHeightForView:(UIView *)view
+                     timestamp:(BOOL)hasTimestamp
+                      subtitle:(BOOL)hasSubtitle
                         avatar:(BOOL)hasAvatar;
 
 @end

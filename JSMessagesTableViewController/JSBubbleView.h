@@ -46,7 +46,8 @@ typedef enum {
 typedef enum {
     JSBubbleMessageStyleDefault = 0,
     JSBubbleMessageStyleSquare,
-    JSBubbleMessageStyleDefaultGreen
+    JSBubbleMessageStyleDefaultGreen,
+    JSBubbleMessageStyleCustom
 } JSBubbleMessageStyle;
 
 
@@ -56,6 +57,11 @@ typedef enum {
 @property (assign, nonatomic) JSBubbleMessageStyle style;
 @property (copy, nonatomic) NSString *text;
 @property (assign, nonatomic) BOOL selectedToShowCopyMenu;
+@property (retain, nonatomic) UIColor* textColor;
+@property (retain, nonatomic) UIView* contentView;
+
+- (void)setBubbleImage:(UIImage*)bubbleImage
+andSelectedBubbleImage:(UIImage*)selectedBubbleImage;
 
 #pragma mark - Initialization
 - (id)initWithFrame:(CGRect)rect
@@ -64,18 +70,12 @@ typedef enum {
 
 #pragma mark - Drawing
 - (CGRect)bubbleFrame;
-- (UIImage *)bubbleImage;
-- (UIImage *)bubbleImageHighlighted;
 
 #pragma mark - Bubble view
-+ (UIImage *)bubbleImageForType:(JSBubbleMessageType)aType
-                          style:(JSBubbleMessageStyle)aStyle;
++ (UIFont*) font;
 
-+ (UIFont *)font;
-
-+ (CGSize)textSizeForText:(NSString *)txt;
-+ (CGSize)bubbleSizeForText:(NSString *)txt;
 + (CGFloat)cellHeightForText:(NSString *)txt;
++ (CGFloat)cellHeightForView:(UIView*)view;
 
 + (int)maxCharactersPerLine;
 + (int)numberOfLinesForMessage:(NSString *)txt;
