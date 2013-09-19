@@ -131,7 +131,7 @@ static NSString *conversationid;
 
 - (JSMessagesViewAvatarPolicy)avatarPolicy
 {
-    return JSMessagesViewAvatarPolicyBoth;
+    return JSMessagesViewAvatarPolicyNone;
 }
 
 - (JSAvatarStyle)avatarStyle
