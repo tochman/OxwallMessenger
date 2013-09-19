@@ -1,6 +1,11 @@
 Oxwall Messenger
 ========================
 
+**[OxwallMessenger](http://tochman.github.io/OxwallMessenger/)** connects to a Oxwall powered site and provides the user with messaging functionality.
+
+**Oxwall** is a social networking software platform written in PHP/MySQL. Oxwall is used for a wide range of projects starting from family sites and custom social networks to collaboration tools and enterprise community solutions. **You can find more info about Oxwall at: [www.oxwall.org/](http://www.oxwall.org/).** 
+
+
 Demo app to show how to connect to Oxwall DB using a set of webservices. Hopefully some day this will turn into a product that admins of Oxwall powered social sites can use. 
 
 This is Open Source - this means you can do what ever you want with this code! 
@@ -21,7 +26,6 @@ This project uses (among others):
 License
 --------------
 This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/
-
 
 
 
