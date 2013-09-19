@@ -12,6 +12,7 @@
 #import "MessageFeed.h"
 @interface MessageData () {
     MessageFeed* _feed;
+    MessagesViewController* _messviev;
 }
 
 @end
@@ -50,14 +51,14 @@
         NSString *conversationid = @"55";
         messages = [[NSMutableArray alloc] init];
         [messages addObject:[NSString stringWithFormat:@"Conversation id %@", conversationid]];
-        [messages addObject:@"Added before the for loop."];
+        [messages addObject:@"Added before the call."];
         NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
         NSData* messFeed = [NSData dataWithContentsOfURL:
                             [NSURL URLWithString:callURL]
                             ];
         
         //3
-        
+
         
         //4
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -71,7 +72,8 @@
                         options:kNilOptions
                         error:nil];
                 JSONmessages = json;
-                [self updateUIWithDictionary:JSONmessages];
+
+                [self updateUIWithDictionary:json];
             }
 
             
@@ -85,25 +87,25 @@
 
 -(void)updateUIWithDictionary:(NSDictionary*)json {
     
-
+   
     
     @try {
         
         
-        
-        
-        NSArray* keys = [[JSONmessages valueForKey:@"messagesinconversation"] allObjects];
-        
-        int count = [keys count] ;
-        NSLog(@"Parse count is %i", count);
-        for (int i=0; i < count; i++) {
-            
-            NSString *message = (NSString *)JSONmessages[@"messagesinconversation"][i][@"message"];
-            [messages addObject:message];
-           
-        }
-        
-        [messages addObject:@"Added after the for loop. Why?"];
+         NSLog(@"test hmmm %@", messages);
+//        
+//        NSArray* keys = [[JSONmessages valueForKey:@"messagesinconversation"] allObjects];
+//        
+//        int count = [keys count] ;
+//        NSLog(@"Parse count is %i", count);
+//        for (int i=0; i < count; i++) {
+//            
+//            NSString *message = (NSString *)JSONmessages[@"messagesinconversation"][i][@"message"];
+//            [messages addObject:message];
+//           
+//        }
+//        
+//        [messages addObject:@"Added after the for loop. Why?"];
     }
     @catch (NSException *exception) {
         [[[UIAlertView alloc] initWithTitle:@"Error"
@@ -115,8 +117,12 @@
     }
     
     @finally {
-       
-        //NSLog(@"Final: %@", messages);
+        NSString* key =@"messagecreated";
+        [messages addObjectsFromArray:[[JSONmessages objectForKey:@"messagesinconversation"]valueForKey:[key stringByReplacingOccurrencesOfString:@"\n" withString:@""]]];
+        
+        [messages addObject:@"Added after the call."];
+        
+        NSLog(@"Final: %@", messages);
            }
 
 

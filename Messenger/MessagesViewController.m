@@ -11,10 +11,13 @@
 #import "MessageData.h"
 #pragma mark - Initialization
 
-@interface MessagesViewController ()
+@interface MessagesViewController (){
+    MessageData* _feed;
+}
+
 @end
 
-@implementation MessagesViewController
+@implementation MessagesViewController 
 @synthesize messages;
 
 
@@ -31,24 +34,24 @@
     [super viewDidLoad];
    self.delegate = self;
    self.dataSource = self;
+    _feed = [[MessageData alloc]init];
     
     self.title = @"Messages";
- 
+
 
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     
-    MessageData* feed = [[MessageData alloc]init];
-    [feed fetchFeed];
-    [feed updateUIWithDictionary:feed.JSONmessages];
     
+
+    [_feed fetchFeed];
+    [_feed updateUIWithDictionary:_feed.JSONmessages];
     
     self.messages = [[NSMutableArray alloc]init];
-    self.messages = feed.messages;
-    
-    
+
+    [self.messages addObjectsFromArray:_feed.messages];
     
     if (!self.messages){
         NSLog(@"Messages empty");
@@ -160,9 +163,9 @@
 {
     //Refresh code - for now it is just for show, not fully implemented
     double delayInSeconds = 1.0;
-    MessageData* feed = [[MessageData alloc]init];
-    [feed fetchFeed];
-    [feed updateUIWithDictionary:feed.JSONmessages];
+    
+    [_feed fetchFeed];
+    [_feed updateUIWithDictionary:_feed.JSONmessages];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [refreshControl endRefreshing];
