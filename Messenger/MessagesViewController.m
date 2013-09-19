@@ -18,6 +18,7 @@
 @synthesize messages, json;
 
 static NSString *conversationid;
+ODRefreshControl *refreshControl1;
 
 - (UIButton *)sendButton
 {
@@ -61,9 +62,22 @@ static NSString *conversationid;
     
     
     //Refresh  code
-    ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
+    ODRefreshControl* refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
+    timer1 = [NSTimer scheduledTimerWithTimeInterval: 30.0 target: self
+                                            selector: @selector(dropViewDidBeginRefreshingTime:) userInfo: nil repeats: YES];
+    timer2 = [NSTimer scheduledTimerWithTimeInterval: 35.0 target: refreshControl
+                                            selector: @selector(beginRefreshing) userInfo: nil repeats: YES];
+    timer3 = [NSTimer scheduledTimerWithTimeInterval: 40.0 target: refreshControl
+                                            selector: @selector(endRefreshing) userInfo: nil repeats: YES];
     
+}
+
+-(void) viewWillDisappear:(BOOL)animated  {
+    [super viewWillDisappear:animated];
+    [timer1 invalidate];
+    [timer2 invalidate];
+    [timer3 invalidate];
 }
 
 - (void)setArrays {
@@ -126,12 +140,12 @@ static NSString *conversationid;
 
 - (JSMessagesViewTimestampPolicy)timestampPolicy
 {
-    return JSMessagesViewTimestampPolicyEveryThree;
+    return JSMessagesViewTimestampPolicyAll;
 }
 
 - (JSMessagesViewAvatarPolicy)avatarPolicy
 {
-    return JSMessagesViewAvatarPolicyNone;
+    return JSMessagesViewAvatarPolicyIncomingOnly;
 }
 
 - (JSAvatarStyle)avatarStyle
@@ -158,16 +172,16 @@ static NSString *conversationid;
 
 - (UIImage *)avatarImageForIncomingMessage
 {
-    return [UIImage imageNamed:@"demo-avatar-woz"];
+    return [UIImage imageNamed:@"missingAvatar"];
 }
 
 - (UIImage *)avatarImageForOutgoingMessage
 {
-    return [UIImage imageNamed:@"demo-avatar-jobs"];
+    return [UIImage imageNamed:@"missingAvatar"];
 }
 
 #pragma mark - ODRefreshControl
-- (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
+- (void)dropViewDidBeginRefreshing: (ODRefreshControl *)refreshControl
 {
     //Refresh code - for now it is just for show, not fully implemented
     double delayInSeconds = 1.0;
@@ -176,8 +190,28 @@ static NSString *conversationid;
     [self setArrays];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [refreshControl endRefreshing];
+        [refreshControl endRefreshing ];
     });
 }
+
+- (void)dropViewDidBeginRefreshingTime: (ODRefreshControl *)refreshControl
+{
+    double delayInSeconds = 1.0;
+    [self.messages addObject:@"Added @ MessVC."];
+    
+    [self setArrays];
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+       
+    });
+}
+
+- (void)endRefresh:(NSTimer *)timer
+{
+    ODRefreshControl* refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
+    refreshControl = (ODRefreshControl *)timer;
+    [refreshControl endRefreshing];
+}
+
 
 @end

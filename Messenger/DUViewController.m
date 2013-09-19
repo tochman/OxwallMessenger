@@ -77,6 +77,35 @@
                                                      [self.tableView reloadData];
                                                      
                                                  }];
+    
+    timer1 = [NSTimer scheduledTimerWithTimeInterval: 30.0 target: self
+                                            selector: @selector(fireUpdate) userInfo: nil repeats: YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated  {
+    [super viewWillDisappear:animated];
+    [timer1 invalidate];
+}
+
+-(void)fireUpdate  {
+    
+    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_conversations.php?user=%@", userid];
+    
+    //fetch the feed
+    _feed = [[ConversationFeed alloc] initFromURLWithString:callURL
+                                                 completion:^(JSONModel *model, JSONModelError *err) {
+                                                     
+                                                     //hide the loader view
+                                                     [HUD hideUIBlockingIndicator];
+                                                     
+                                                     //json fetched
+                                                     
+                                                     NSLog(@"Loaded %@", _feed.conversations);
+                                                     NSLog(@"Userid %@", userid);
+                                                     [self.tableView reloadData];
+                                                     
+                                                 }];
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,19 +10,21 @@
 
 
 @interface DUViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-
-
+    
+    
     IBOutlet UILabel *usernameLabel;
-
+    
     IBOutlet UILabel *sexLabel;
-
+    
     IBOutlet UILabel *membersinceLabel;
-
+    
     IBOutlet UITextView *presentationTextview;
     
     IBOutlet UIImageView *avatar;
     
     IBOutlet UITableView *tableView;
+    
+    NSTimer *timer1;
 }
 
 @property (strong, nonatomic) NSString *username;

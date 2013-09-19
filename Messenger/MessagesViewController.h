@@ -7,9 +7,12 @@
 //
 
 #import "JSMessagesViewController.h"
+#import "ODRefreshControl.h"
 
-
-@interface MessagesViewController : JSMessagesViewController <JSMessagesViewDelegate, JSMessagesViewDataSource>
+@interface MessagesViewController : JSMessagesViewController <JSMessagesViewDelegate, JSMessagesViewDataSource>  {
+    ODRefreshControl * refreshControl1;
+    NSTimer *timer1,*timer2,*timer3;
+}
 
 
 
