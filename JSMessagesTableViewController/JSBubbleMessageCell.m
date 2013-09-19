@@ -39,19 +39,12 @@
 
 #define TIMESTAMP_LABEL_HEIGHT 14.5f
 
-#define SUBTITLE_LABEL_HEIGHT 16.0f
-#define SUBTITLE_LABEL_SIDE_OFFSET 15.0f
-
-#define TABLE_LEFT_GUTTER 20
-#define TABLE_RIGHT_GUTTER 20
-
 @interface JSBubbleMessageCell()
 
 @property (strong, nonatomic) JSBubbleView *bubbleView;
 @property (strong, nonatomic) UILabel *timestampLabel;
 @property (strong, nonatomic) UIImageView *avatarImageView;
 @property (assign, nonatomic) JSAvatarStyle avatarImageStyle;
-@property (strong, nonatomic) UILabel *subtitleLabel;
 
 - (void)setup;
 - (void)configureTimestampLabel;
@@ -59,7 +52,6 @@
 - (void)configureWithType:(JSBubbleMessageType)type
               bubbleStyle:(JSBubbleMessageStyle)bubbleStyle
               avatarStyle:(JSAvatarStyle)avatarStyle
-				 subtitle:(BOOL)hasSubtitle
                 timestamp:(BOOL)hasTimestamp;
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)longPress;
@@ -68,7 +60,7 @@
 
 @end
 
-NSString* const JSMessageTapNotification = @"JSMessageTapNotification";
+
 
 @implementation JSBubbleMessageCell
 
@@ -91,10 +83,6 @@ NSString* const JSMessageTapNotification = @"JSMessageTapNotification";
                                                                                              action:@selector(handleLongPress:)];
     [recognizer setMinimumPressDuration:0.4];
     [self addGestureRecognizer:recognizer];
-    
-    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                          action:@selector(handleTap:)];
-    [self addGestureRecognizer:tap];
 }
 
 - (void)configureTimestampLabel
@@ -118,11 +106,10 @@ NSString* const JSMessageTapNotification = @"JSMessageTapNotification";
 - (void)configureWithType:(JSBubbleMessageType)type
               bubbleStyle:(JSBubbleMessageStyle)bubbleStyle
               avatarStyle:(JSAvatarStyle)avatarStyle
-				 subtitle:(BOOL)hasSubtitle
                 timestamp:(BOOL)hasTimestamp
 {
     CGFloat bubbleY = 0.0f;
-    CGFloat bubbleX = TABLE_LEFT_GUTTER;
+    CGFloat bubbleX = 0.0f;
     
     if(hasTimestamp) {
         [self configureTimestampLabel];
@@ -148,48 +135,20 @@ NSString* const JSMessageTapNotification = @"JSMessageTapNotification";
         self.avatarImageView.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin
                                                  | UIViewAutoresizingFlexibleLeftMargin
                                                  | UIViewAutoresizingFlexibleRightMargin);
-		
         [self.contentView addSubview:self.avatarImageView];
     }
     
     CGRect frame = CGRectMake(bubbleX - offsetX,
                               bubbleY,
-                              self.contentView.frame.size.width - bubbleX - TABLE_RIGHT_GUTTER,
+                              self.contentView.frame.size.width - bubbleX,
                               self.contentView.frame.size.height - self.timestampLabel.frame.size.height);
     
     self.bubbleView = [[JSBubbleView alloc] initWithFrame:frame
                                                bubbleType:type
                                               bubbleStyle:bubbleStyle];
-	
-	if(hasSubtitle) {
-		self.subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(TABLE_LEFT_GUTTER + SUBTITLE_LABEL_SIDE_OFFSET,
-																	   bubbleY + frame.size.height - SUBTITLE_LABEL_HEIGHT,
-																	   frame.size.width - bubbleX - SUBTITLE_LABEL_SIDE_OFFSET * 2 - TABLE_RIGHT_GUTTER - TABLE_LEFT_GUTTER,
-																	   SUBTITLE_LABEL_HEIGHT)];
-		self.subtitleLabel.font = [UIFont systemFontOfSize:13.0f];
-		self.subtitleLabel.backgroundColor = [UIColor clearColor];
-		self.subtitleLabel.textColor = [UIColor grayColor];
-		
-		if(type == JSBubbleMessageTypeOutgoing) {
-			self.subtitleLabel.textAlignment = NSTextAlignmentRight;
-		}
-		
-		self.subtitleLabel.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin
-											   | UIViewAutoresizingFlexibleWidth);
-
-		[self.contentView addSubview:self.subtitleLabel];
-	}
-	
-    self.bubbleView.autoresizingMask = (UIViewAutoresizingFlexibleWidth
-										| UIViewAutoresizingFlexibleHeight
-										| UIViewAutoresizingFlexibleBottomMargin);
     
     [self.contentView addSubview:self.bubbleView];
     [self.contentView sendSubviewToBack:self.bubbleView];
-}
-
-- (void)setSubtitle:(NSString *)sub {
-	self.subtitleLabel.text = sub;
 }
 
 #pragma mark - Initialization
@@ -197,7 +156,6 @@ NSString* const JSMessageTapNotification = @"JSMessageTapNotification";
              bubbleStyle:(JSBubbleMessageStyle)bubbleStyle
              avatarStyle:(JSAvatarStyle)avatarStyle
             hasTimestamp:(BOOL)hasTimestamp
-			 hasSubtitle:(BOOL)hasSubtitle
          reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
@@ -207,7 +165,6 @@ NSString* const JSMessageTapNotification = @"JSMessageTapNotification";
         [self configureWithType:type
                     bubbleStyle:bubbleStyle
                     avatarStyle:avatarStyle
-					   subtitle:hasSubtitle
                       timestamp:hasTimestamp];
     }
     return self;
@@ -235,26 +192,11 @@ NSString* const JSMessageTapNotification = @"JSMessageTapNotification";
     self.bubbleView.text = msg;
 }
 
-- (void)setMessageColor:(UIColor *)textColor
-{
-    self.bubbleView.textColor = textColor;
-}
-
-- (void)setContentView:(UIView*)view
-{
-    self.bubbleView.contentView = view;
-}
-
 - (void)setTimestamp:(NSDate *)date
 {
     self.timestampLabel.text = [NSDateFormatter localizedStringFromDate:date
                                                               dateStyle:NSDateFormatterMediumStyle
                                                               timeStyle:NSDateFormatterShortStyle];
-}
-- (void)setBubbleImage:(UIImage*)bubbleImage
-andSelectedBubbleImage:(UIImage*)selectedBubbleImage;
-{
-    [self.bubbleView setBubbleImage:bubbleImage andSelectedBubbleImage:selectedBubbleImage];
 }
 
 - (void)setAvatarImage:(UIImage *)image
@@ -277,20 +219,11 @@ andSelectedBubbleImage:(UIImage*)selectedBubbleImage;
     self.avatarImageView.image = styledImg;
 }
 
-+ (CGFloat)neededHeightForText:(NSString *)bubbleViewText timestamp:(BOOL)hasTimestamp subtitle:(BOOL)hasSubtitle avatar:(BOOL)hasAvatar
++ (CGFloat)neededHeightForText:(NSString *)bubbleViewText timestamp:(BOOL)hasTimestamp avatar:(BOOL)hasAvatar
 {
     CGFloat timestampHeight = (hasTimestamp) ? TIMESTAMP_LABEL_HEIGHT : 0.0f;
     CGFloat avatarHeight = (hasAvatar) ? kJSAvatarSize : 0.0f;
-	CGFloat subtitleHeight = hasSubtitle ? SUBTITLE_LABEL_HEIGHT : 0.0f;
-    return MAX(avatarHeight, [JSBubbleView cellHeightForText:bubbleViewText]) + timestampHeight + subtitleHeight;
-}
-
-+ (CGFloat)neededHeightForView:(UIView *)view timestamp:(BOOL)hasTimestamp subtitle:(BOOL)hasSubtitle avatar:(BOOL)hasAvatar
-{
-    CGFloat timestampHeight = (hasTimestamp) ? TIMESTAMP_LABEL_HEIGHT : 0.0f;
-    CGFloat avatarHeight = (hasAvatar) ? kJSAvatarSize : 0.0f;
-	CGFloat subtitleHeight = hasSubtitle ? SUBTITLE_LABEL_HEIGHT : 0.0f;
-    return MAX(avatarHeight, [JSBubbleView cellHeightForView:view]) + timestampHeight + subtitleHeight;
+    return MAX(avatarHeight, [JSBubbleView cellHeightForText:bubbleViewText]) + timestampHeight;
 }
 
 #pragma mark - Copying
@@ -348,11 +281,6 @@ andSelectedBubbleImage:(UIImage*)selectedBubbleImage;
                                                  name:UIMenuControllerWillShowMenuNotification
                                                object:nil];
     [menu setMenuVisible:YES animated:YES];
-}
-
-- (void)handleTap:(UITapGestureRecognizer*)tap
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:JSMessageTapNotification object:self];
 }
 
 #pragma mark - Notification

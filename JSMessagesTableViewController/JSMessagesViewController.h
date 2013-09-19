@@ -51,8 +51,7 @@ typedef enum {
 typedef enum {
     JSMessagesViewAvatarPolicyIncomingOnly = 0,
     JSMessagesViewAvatarPolicyBoth,
-    JSMessagesViewAvatarPolicyNone,
-    JSMessagesViewAvatarPolicyOutgoingOnly
+    JSMessagesViewAvatarPolicyNone
 } JSMessagesViewAvatarPolicy;
 
 
@@ -62,16 +61,11 @@ typedef enum {
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (JSBubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (JSMessagesViewTimestampPolicy)timestampPolicy;
-
-@optional
-- (void)messageTappedAtIndexPath:(NSIndexPath*)indexPath;
-- (BOOL)hasSubtitleForRowAtIndexPath:(NSIndexPath *)indexPath;
-
 - (JSMessagesViewAvatarPolicy)avatarPolicy;
 - (JSAvatarStyle)avatarStyle;
 
+@optional
 - (BOOL)hasTimestampForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)messageDoneSending;
 
 @end
 
@@ -80,21 +74,9 @@ typedef enum {
 @protocol JSMessagesViewDataSource <NSObject>
 @required
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (UIView*) viewForRowAtIndexPath:(NSIndexPath*)indexPath;
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath;
-
-@optional
-- (NSString *)subtitleForRowAtIndexPath:(NSIndexPath*)indexPath;
-
-- (UIImage *)avatarImageForIncomingMessageAtIndexPath:(NSIndexPath*)indexPath;
-- (UIImage *)avatarImageForOutgoingMessageAtIndexPath:(NSIndexPath*)indexPath;
-
-- (UIImage *)avatarImageForIncomingMessage __attribute__ ((deprecated));
-- (UIImage *)avatarImageForOutgoingMessage __attribute__ ((deprecated));
-
-- (UIImage*) bubbleImageForIncomingMessageAtIndexPath:(NSIndexPath*)path withSelection:(BOOL)selected;
-- (UIImage*) bubbleImageForOutgoingMessageAtIndexPath:(NSIndexPath*)path withSelection:(BOOL)selected;
-- (UIColor*) textColorForMessageAtIndexPath:(NSIndexPath*)path;
+- (UIImage *)avatarImageForIncomingMessage;
+- (UIImage *)avatarImageForOutgoingMessage;
 @end
 
 
@@ -103,15 +85,12 @@ typedef enum {
 
 @property (weak, nonatomic) id<JSMessagesViewDelegate> delegate;
 @property (weak, nonatomic) id<JSMessagesViewDataSource> dataSource;
-@property BOOL preventScrollToBottomWhileUserScrolling;
-
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) JSMessageInputView *inputToolBarView;
 @property (assign, nonatomic) CGFloat previousTextViewContentHeight;
 
 #pragma mark - Initialization
 - (UIButton *)sendButton;
-- (UIButton *)leftAccessoryButton;
 
 #pragma mark - Actions
 - (void)sendPressed:(UIButton *)sender;
@@ -127,10 +106,5 @@ typedef enum {
 - (void)handleWillShowKeyboard:(NSNotification *)notification;
 - (void)handleWillHideKeyboard:(NSNotification *)notification;
 - (void)keyboardWillShowHide:(NSNotification *)notification;
-
-#pragma mark - Scroll while respecting user interaction
-- (void)scrollToRowAtIndexPath:(NSIndexPath *)indexPath
-			  atScrollPosition:(UITableViewScrollPosition)position
-					  animated:(BOOL)animated;
 
 @end

@@ -38,19 +38,16 @@
 #import "UIView+AnimationOptionsForCurve.h"
 #import "UIColor+JSMessagesView.h"
 #import "JSDismissiveTextView.h"
-#import "UIImage+JSMessagesView.h"
 
 #define INPUT_HEIGHT 40.0f
 
 @interface JSMessagesViewController () <JSDismissiveTextViewDelegate>
 
 - (void)setup;
-@property BOOL isUserScrolling;
-- (UIImage *)bubbleImageForIncomingRowAtIndexPath:(NSIndexPath*)indexPath withStyle:(JSBubbleMessageStyle)style andSelection:(BOOL)selected;
-- (UIImage *)bubbleImageForOutgoingRowAtIndexPath:(NSIndexPath*)indexPath withStyle:(JSBubbleMessageStyle)style andSelection:(BOOL)selected;
+
 @end
 
-extern NSString* const JSMessageTapNotification;
+
 
 @implementation JSMessagesViewController
 
@@ -61,9 +58,6 @@ extern NSString* const JSMessageTapNotification;
         // fix for ipad modal form presentations
         ((UIScrollView *)self.view).scrollEnabled = NO;
     }
-	
-	self.preventScrollToBottomWhileUserScrolling = NO;
-	self.isUserScrolling = NO;
     
     CGSize size = self.view.frame.size;
 	
@@ -82,7 +76,7 @@ extern NSString* const JSMessageTapNotification;
     // TODO: refactor
     self.inputToolBarView.textView.dismissivePanGestureRecognizer = self.tableView.panGestureRecognizer;
     self.inputToolBarView.textView.keyboardDelegate = self;
-	
+
     UIButton *sendButton = [self sendButton];
     sendButton.enabled = NO;
     sendButton.frame = CGRectMake(self.inputToolBarView.frame.size.width - 65.0f, 8.0f, 59.0f, 26.0f);
@@ -90,24 +84,7 @@ extern NSString* const JSMessageTapNotification;
                    action:@selector(sendPressed:)
          forControlEvents:UIControlEventTouchUpInside];
     [self.inputToolBarView setSendButton:sendButton];
-    
-    UIButton* left = [self leftAccessoryButton];
-    if(left) {
-        left.frame = CGRectMake(8,8, left.frame.size.width, left.frame.size.height);
-        [self.inputToolBarView setLeftAccessoryButton:left];
-    }
-    
     [self.view addSubview:self.inputToolBarView];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleMessageTapped:)
-                                                 name:JSMessageTapNotification
-                                               object:nil];
-}
-
-- (UIButton *)leftAccessoryButton
-{
-    return nil;
 }
 
 - (UIButton *)sendButton
@@ -140,18 +117,12 @@ extern NSString* const JSMessageTapNotification;
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
     [self.inputToolBarView resignFirstResponder];
     [self setEditing:NO animated:YES];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -192,13 +163,6 @@ extern NSString* const JSMessageTapNotification;
                       withText:[self.inputToolBarView.textView.text trimWhitespace]];
 }
 
-- (void)handleMessageTapped:(NSNotification*)note
-{
-    NSIndexPath* path = [self.tableView indexPathForCell:note.object];
-    if([self.delegate respondsToSelector:@selector(messageTappedAtIndexPath:)])
-        [self.delegate messageTappedAtIndexPath:path];
-}
-
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -210,191 +174,54 @@ extern NSString* const JSMessageTapNotification;
     return 0;
 }
 
-- (UIView*) contentViewForIndexPath:(NSIndexPath*)indexPath
-{
-    UIView* view = nil;
-    if([self.dataSource respondsToSelector:@selector(viewForRowAtIndexPath:)])
-    {
-        view = [self.dataSource viewForRowAtIndexPath:indexPath];
-    }
-
-    return view;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     JSBubbleMessageType type = [self.delegate messageTypeForRowAtIndexPath:indexPath];
     JSBubbleMessageStyle bubbleStyle = [self.delegate messageStyleForRowAtIndexPath:indexPath];
-    JSAvatarStyle avatarStyle = JSAvatarStyleNone;
-	if([self.delegate respondsToSelector:@selector(avatarStyle)])
-		avatarStyle = [self.delegate avatarStyle];
+    JSAvatarStyle avatarStyle = [self.delegate avatarStyle];
     
     BOOL hasTimestamp = [self shouldHaveTimestampForRowAtIndexPath:indexPath];
     BOOL hasAvatar = [self shouldHaveAvatarForRowAtIndexPath:indexPath];
-	
-	BOOL hasSubtitle = NO;
-	if([self.delegate respondsToSelector:@selector(hasSubtitleForRowAtIndexPath:)])
-		hasSubtitle = [self.delegate hasSubtitleForRowAtIndexPath:indexPath];
     
-    NSString *CellID = [NSString stringWithFormat:@"MessageCell_%d_%d_%d_%d_%d", type, bubbleStyle, hasTimestamp, hasAvatar, hasSubtitle];
+    NSString *CellID = [NSString stringWithFormat:@"MessageCell_%d_%d_%d_%d", type, bubbleStyle, hasTimestamp, hasAvatar];
     JSBubbleMessageCell *cell = (JSBubbleMessageCell *)[tableView dequeueReusableCellWithIdentifier:CellID];
     
-    if(!cell) {                
+    if(!cell)
         cell = [[JSBubbleMessageCell alloc] initWithBubbleType:type
                                                    bubbleStyle:bubbleStyle
                                                    avatarStyle:(hasAvatar) ? avatarStyle : JSAvatarStyleNone
                                                   hasTimestamp:hasTimestamp
-												   hasSubtitle:hasSubtitle
                                                reuseIdentifier:CellID];
-
-    }
+    
     if(hasTimestamp)
         [cell setTimestamp:[self.dataSource timestampForRowAtIndexPath:indexPath]];
-	
-	if(hasSubtitle)
-		[cell setSubtitle:[self.dataSource subtitleForRowAtIndexPath:indexPath]];
     
     if(hasAvatar) {
         switch (type) {
             case JSBubbleMessageTypeIncoming:
-				if([self.dataSource respondsToSelector:@selector(avatarImageForIncomingMessageAtIndexPath:)]) {
-					[cell setAvatarImage:[self.dataSource avatarImageForIncomingMessageAtIndexPath:indexPath]];
-				}
-				else if([self.dataSource respondsToSelector:@selector(avatarImageForIncomingMessage)]) {
-					[cell setAvatarImage:[self.dataSource performSelector:@selector(avatarImageForIncomingMessage)]];
-				}
-				
+                [cell setAvatarImage:[self.dataSource avatarImageForIncomingMessage]];
                 break;
                 
             case JSBubbleMessageTypeOutgoing:
-				if([self.dataSource respondsToSelector:@selector(avatarImageForOutgoingMessageAtIndexPath:)]) {
-					[cell setAvatarImage:[self.dataSource avatarImageForOutgoingMessageAtIndexPath:indexPath]];
-				}
-				else if([self.dataSource respondsToSelector:@selector(avatarImageForOutgoingMessage)]) {
-					[cell setAvatarImage:[self.dataSource performSelector:@selector(avatarImageForOutgoingMessage)]];
-				}
-				
+                [cell setAvatarImage:[self.dataSource avatarImageForOutgoingMessage]];
                 break;
         }
     }
-        
+    
+    [cell setMessage:[self.dataSource textForRowAtIndexPath:indexPath]];
     [cell setBackgroundColor:tableView.backgroundColor];
-    
-    UIImage* bubbleImage, *selectedBubbleImage;
-    
-    if(type == JSBubbleMessageTypeIncoming) {
-        bubbleImage = [self bubbleImageForIncomingRowAtIndexPath:indexPath withStyle:bubbleStyle andSelection:FALSE];
-        selectedBubbleImage = [self bubbleImageForIncomingRowAtIndexPath:indexPath withStyle:bubbleStyle andSelection:TRUE];
-    }
-    else {
-        bubbleImage = [self bubbleImageForOutgoingRowAtIndexPath:indexPath withStyle:bubbleStyle andSelection:FALSE];
-        selectedBubbleImage = [self bubbleImageForOutgoingRowAtIndexPath:indexPath withStyle:bubbleStyle andSelection:TRUE];
-    }
-
-    [cell setBubbleImage:bubbleImage andSelectedBubbleImage:selectedBubbleImage];
-    
-    UIColor* color = [UIColor blackColor];
-    if([self.dataSource respondsToSelector:@selector(textColorForMessageAtIndexPath:)])
-    {
-        color = [self.dataSource textColorForMessageAtIndexPath:indexPath];
-    }
-    
-    [cell setMessageColor:color];    
-    
-    UIView* view = [self contentViewForIndexPath:indexPath];
-    if(view) {
-        [cell setContentView:view];
-    }
-    else {
-        [cell setMessage:[self.dataSource textForRowAtIndexPath:indexPath]];
-    }
-
     return cell;
 }
 
 #pragma mark - Table view delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	BOOL hasSubtitle = NO;
-	if([self.delegate respondsToSelector:@selector(hasSubtitleForRowAtIndexPath:)]) {
-		hasSubtitle = [self.delegate hasSubtitleForRowAtIndexPath:indexPath];
-	}
-	
-    UIView* view = [self contentViewForIndexPath:indexPath];
-    if(view)
-    {
-        return [JSBubbleMessageCell neededHeightForView:view
-                                              timestamp:[self shouldHaveTimestampForRowAtIndexPath:indexPath]
-                                               subtitle:hasSubtitle
-                                                 avatar:[self shouldHaveAvatarForRowAtIndexPath:indexPath]];
-    }
-    else {
-        return [JSBubbleMessageCell neededHeightForText:[self.dataSource textForRowAtIndexPath:indexPath]
-                                              timestamp:[self shouldHaveTimestampForRowAtIndexPath:indexPath]
-                                               subtitle:hasSubtitle
-                                                 avatar:[self shouldHaveAvatarForRowAtIndexPath:indexPath]];
-    }
+    return [JSBubbleMessageCell neededHeightForText:[self.dataSource textForRowAtIndexPath:indexPath]
+                                          timestamp:[self shouldHaveTimestampForRowAtIndexPath:indexPath]
+                                             avatar:[self shouldHaveAvatarForRowAtIndexPath:indexPath]];
 }
 
 #pragma mark - Messages view controller
-- (UIImage *)bubbleImageForIncomingRowAtIndexPath:(NSIndexPath*)indexPath withStyle:(JSBubbleMessageStyle)style andSelection:(BOOL)selected
-{
-    switch (style) {
-        case JSBubbleMessageStyleDefault:
-            if(!selected)
-                return [UIImage bubbleDefaultIncoming];
-            else
-                return [UIImage bubbleDefaultIncomingSelected];
-            
-        case JSBubbleMessageStyleSquare:
-            if(!selected)
-                return [UIImage bubbleSquareIncoming];
-            else
-                return [UIImage bubbleSquareIncomingSelected];
-            
-        case JSBubbleMessageStyleDefaultGreen:
-            if(!selected)
-                return [UIImage bubbleDefaultIncomingGreen];
-            else
-                return [UIImage bubbleDefaultIncomingSelected];
-            
-        case JSBubbleMessageStyleCustom:
-            return [self.dataSource bubbleImageForIncomingMessageAtIndexPath:indexPath withSelection:selected];
-            
-        default:
-            return nil;
-    }
-}
-
-- (UIImage *)bubbleImageForOutgoingRowAtIndexPath:(NSIndexPath*)indexPath withStyle:(JSBubbleMessageStyle)style andSelection:(BOOL)selected
-{
-    switch (style) {
-        case JSBubbleMessageStyleDefault:
-            if(!selected)
-                return [UIImage bubbleDefaultOutgoing];
-            else
-                return [UIImage bubbleDefaultOutgoingSelected];
-            
-        case JSBubbleMessageStyleSquare:
-            if(!selected)
-                return [UIImage bubbleSquareOutgoing];
-            else
-                return [UIImage bubbleSquareOutgoingSelected];
-            
-        case JSBubbleMessageStyleDefaultGreen:
-            if(!selected)
-                return [UIImage bubbleDefaultOutgoingGreen];
-            else
-                return [UIImage bubbleDefaultOutgoingSelected];
-            
-        case JSBubbleMessageStyleCustom:
-            return [self.dataSource bubbleImageForOutgoingMessageAtIndexPath:indexPath withSelection:selected];
-            
-        default:
-            return nil;
-    }
-}
-
 - (BOOL)shouldHaveTimestampForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch ([self.delegate timestampPolicy]) {
@@ -421,16 +248,9 @@ extern NSString* const JSMessageTapNotification;
 
 - (BOOL)shouldHaveAvatarForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if(![self.delegate respondsToSelector:@selector(avatarPolicy)]) {
-		return NO;
-	}
-	
     switch ([self.delegate avatarPolicy]) {
         case JSMessagesViewAvatarPolicyIncomingOnly:
             return [self.delegate messageTypeForRowAtIndexPath:indexPath] == JSBubbleMessageTypeIncoming;
-			
-		case JSMessagesViewAvatarPolicyOutgoingOnly:
-			return [self.delegate messageTypeForRowAtIndexPath:indexPath] == JSBubbleMessageTypeOutgoing;
             
         case JSMessagesViewAvatarPolicyBoth:
             return YES;
@@ -445,14 +265,8 @@ extern NSString* const JSMessageTapNotification;
 {
     [self.inputToolBarView.textView setText:nil];
     [self textViewDidChange:self.inputToolBarView.textView];
-	
-	if([self.delegate respondsToSelector:@selector(messageDoneSending)]) {
-		[self.delegate messageDoneSending];
-	}
-	else {
-		[self.tableView reloadData];
-		[self scrollToBottomAnimated:YES];
-	}
+    [self.tableView reloadData];
+    [self scrollToBottomAnimated:YES];
 }
 
 - (void)setBackgroundColor:(UIColor *)color
@@ -464,8 +278,6 @@ extern NSString* const JSMessageTapNotification;
 
 - (void)scrollToBottomAnimated:(BOOL)animated
 {
-	if(self.isUserScrolling && self.preventScrollToBottomWhileUserScrolling) return;
-	
     NSInteger rows = [self.tableView numberOfRowsInSection:0];
     
     if(rows > 0) {
@@ -473,24 +285,6 @@ extern NSString* const JSMessageTapNotification;
                               atScrollPosition:UITableViewScrollPositionBottom
                                       animated:animated];
     }
-}
-
-- (void)scrollToRowAtIndexPath:(NSIndexPath *)indexPath
-			  atScrollPosition:(UITableViewScrollPosition)position
-					  animated:(BOOL)animated{
-	if(self.isUserScrolling && self.preventScrollToBottomWhileUserScrolling) return;
-	
-	[self.tableView scrollToRowAtIndexPath:indexPath
-						  atScrollPosition:position
-								  animated:animated];
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-	self.isUserScrolling = NO;
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-	self.isUserScrolling = YES;
 }
 
 #pragma mark - Text view delegate
@@ -585,11 +379,11 @@ extern NSString* const JSMessageTapNotification;
                          CGFloat messageViewFrameBottom = self.view.frame.size.height - INPUT_HEIGHT;
                          if(inputViewFrameY > messageViewFrameBottom)
                              inputViewFrameY = messageViewFrameBottom;
-						 
+
                          self.inputToolBarView.frame = CGRectMake(inputViewFrame.origin.x,
-																  inputViewFrameY,
-																  inputViewFrame.size.width,
-																  inputViewFrame.size.height);
+                                                           inputViewFrameY,
+                                                           inputViewFrame.size.width,
+                                                           inputViewFrame.size.height);
                          
                          UIEdgeInsets insets = UIEdgeInsetsMake(0.0f,
                                                                 0.0f,

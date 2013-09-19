@@ -52,7 +52,6 @@
 @implementation JSMessageInputView
 
 @synthesize sendButton;
-@synthesize leftAccessoryButton;
 
 #pragma mark - Initialization
 - (id)initWithFrame:(CGRect)frame
@@ -90,7 +89,10 @@
 
 - (void)setupTextView
 {
-    self.textView = [[JSDismissiveTextView  alloc] init];
+    CGFloat width = self.frame.size.width - SEND_BUTTON_WIDTH;
+    CGFloat height = [JSMessageInputView textViewLineHeight];
+    
+    self.textView = [[JSDismissiveTextView  alloc] initWithFrame:CGRectMake(6.0f, 3.0f, width, height)];
     self.textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.textView.backgroundColor = [UIColor whiteColor];
     self.textView.scrollIndicatorInsets = UIEdgeInsetsMake(10.0f, 0.0f, 10.0f, 8.0f);
@@ -106,30 +108,14 @@
     self.textView.returnKeyType = UIReturnKeyDefault;
     [self addSubview:self.textView];
 	
-    self.inputFieldBack = [[UIImageView alloc] init];
-    self.inputFieldBack.image = [UIImage inputField];
-    self.inputFieldBack.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-    self.inputFieldBack.backgroundColor = [UIColor clearColor];
-    [self addSubview:self.inputFieldBack];
-    
-    [self resizeInputView];
-}
-
-- (void)resizeInputView
-{
-    int leftAccessoryWidth = 0;
-    if(leftAccessoryButton) {
-        leftAccessoryWidth = leftAccessoryButton.frame.size.width + 10; // gutter
-    }
-
-    CGFloat width = self.frame.size.width - SEND_BUTTON_WIDTH - leftAccessoryWidth;
-    CGFloat height = [JSMessageInputView textViewLineHeight];                                     
-    self.textView.frame = CGRectMake(6.0f + leftAccessoryWidth, 3.0f, width, height);
-
-    self.inputFieldBack.frame = CGRectMake(self.textView.frame.origin.x - 1.0f,
-                                           0.0f,
-                                           self.textView.frame.size.width + 2.0f,
-                                           self.frame.size.height);
+    UIImageView *inputFieldBack = [[UIImageView alloc] initWithFrame:CGRectMake(self.textView.frame.origin.x - 1.0f,
+                                                                                0.0f,
+                                                                                self.textView.frame.size.width + 2.0f,
+                                                                                self.frame.size.height)];
+    inputFieldBack.image = [UIImage inputField];
+    inputFieldBack.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    inputFieldBack.backgroundColor = [UIColor clearColor];
+    [self addSubview:inputFieldBack];
 }
 
 #pragma mark - Setters
@@ -140,17 +126,6 @@
     
     sendButton = btn;
     [self addSubview:self.sendButton];
-}
-
-- (void)setLeftAccessoryButton:(UIButton *)btn
-{
-    if(leftAccessoryButton)
-        [leftAccessoryButton removeFromSuperview];
-    
-    leftAccessoryButton = btn;
-        
-    [self resizeInputView];
-    [self addSubview:self.leftAccessoryButton];
 }
 
 #pragma mark - Message input view
