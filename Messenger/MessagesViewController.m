@@ -20,6 +20,7 @@
 @synthesize messages, json;
 
 static NSString *conversationid;
+static NSString *receiver;
 static NSString *getId;
 ODRefreshControl *refreshControl1;
 
@@ -33,6 +34,11 @@ ODRefreshControl *refreshControl1;
 + (void)conversationIdMthd : (NSString *)conversationIdStr {
     conversationid = conversationIdStr;
 }
+
++ (void)receiverIdMthd : (NSString *)receiverIdStr; {
+    receiver = receiverIdStr;
+}
+
 + (void)getIdMthd : (NSString *)getIdStr {
     getId = getIdStr;
 }
@@ -89,7 +95,9 @@ ODRefreshControl *refreshControl1;
     self.messages = [[NSMutableArray alloc]init];
     
     NSString* key =@"message";
-    [self.messages addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:[key stringByReplacingOccurrencesOfString:@"\n" withString:@""]]];
+    [self.messages addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:key]];
+    
+    [self cleanArray];
     
     if (!self.messages){
         NSLog(@"Messages empty");
@@ -138,11 +146,14 @@ ODRefreshControl *refreshControl1;
     
     [self.timestamps addObject:text];
     
+    self.newmessage = text;
+    
     if((self.messages.count - 1) % 2)
         [JSMessageSoundEffect playMessageSentSound];
     else
         [JSMessageSoundEffect playMessageReceivedSound];
     
+    [self sendMessage:self];
     [self finishSend];
 }
 
@@ -229,6 +240,72 @@ ODRefreshControl *refreshControl1;
     ODRefreshControl* refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     refreshControl = (ODRefreshControl *)timer;
     [refreshControl endRefreshing];
+}
+
+- (IBAction)sendMessage:(id)sender{
+    
+    [self doPOST];
+    //Display button for tha sake of testing what's going on
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Pressed" message:@"Button pressed" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alert show];
+    
+}
+
+
+- (void)doPOST {
+    //Prepering for POST request
+    int timestamp = [[NSDate date] timeIntervalSince1970];
+    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
+    self.sender = [standardUserDefaults stringForKey:@"userid"];
+    
+    NSMutableURLRequest *request =
+    [[NSMutableURLRequest alloc] initWithURL:
+     [NSURL URLWithString:@"http://cloudshare.se/webservice/inbox_addmessage.php"]];
+    
+    [request setHTTPMethod:@"POST"];
+    NSString *postString =[NSString stringWithFormat:@"conversationId=%@&timeStamp=%d&senderId=%@&recipientId=%@&text=%@&",
+                           conversationid,
+                           timestamp,
+                           self.sender,
+                           self.receiver,
+                           self.newmessage];
+    
+    [request setValue:[NSString
+                       stringWithFormat:@"%d", [postString length]]
+   forHTTPHeaderField:@"Content-length"];
+    
+    [request setHTTPBody:[postString
+                          dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    NSLog(@"POST data %@", [NSString stringWithFormat:@"conversationId=%@&timeStamp=%d&senderId=%@&recipientId=%@&text=%@&",
+                            conversationid,
+                            timestamp,
+                            self.sender,
+                            receiver,
+                            self.newmessage]);
+    
+}
+
+-(void)cleanArray
+{
+    //clean up array
+    
+    NSMutableArray *arra = [[NSMutableArray alloc] init];
+    NSString *str = [[NSString alloc]init];
+    
+    for(str in self.messages){
+        str = [str stringByReplacingOccurrencesOfString:@"&nbsp;"
+                                             withString:@""];
+        
+        
+        [arra addObject:str];
+    }
+    [self.messages removeAllObjects];
+    [self.messages addObjectsFromArray:arra ];
+    NSLog(@"Now your Activity array =%@",self.messages );
+    
 }
 
 @end

@@ -20,9 +20,18 @@
 @property (strong, nonatomic) NSMutableArray *messages;
 @property (strong, nonatomic) NSMutableArray *timestamps;
 @property (strong, nonatomic) NSDictionary *json;
+@property (strong, nonatomic) NSString *newmessage;
+@property (strong, nonatomic) NSString *sender;
+@property (strong, nonatomic) NSString *receiver;
+@property (strong, nonatomic) NSString *str;
 
 + (void)conversationIdMthd : (NSString *)conversationIdStr;
 + (void)getIdMthd : (NSString *)getIdStr;
 - (UIImage *)avatarImageForIncomingMessage;
++ (void)receiverIdMthd : (NSString *)receiverIdStr;
+- (IBAction)sendMessage:(id)sender;
 
 @end
+
+
+

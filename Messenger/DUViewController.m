@@ -232,6 +232,7 @@
     }
     if ([userid isEqualToString: conversation.sentto ]) {
         NSLog(@"sentbyid :%@ - %@",conversation.startedbyid,conversation.title);
+        [MessagesViewController receiverIdMthd:conversation.sentto];
         [MessagesViewController getIdMthd:conversation.startedbyid];
     }
     [self performSegueWithIdentifier:@"getmessage" sender:self];
