@@ -8,6 +8,7 @@
 
 #import "MessagesViewController.h"
 #import "ODRefreshControl.h"
+#import "Model.h"
 
 #pragma mark - Initialization
 
@@ -15,28 +16,25 @@
 @end
 
 @implementation MessagesViewController
+
 @synthesize messages, json;
 
 static NSString *conversationid;
-static NSString *receiver;
-
+static NSString *getId;
 ODRefreshControl *refreshControl1;
 
 - (UIButton *)sendButton
 {
     // Override to use a custom send button
     // The button's frame is set automatically for you
-
     return [UIButton defaultSendButton];
-    
 }
 
 + (void)conversationIdMthd : (NSString *)conversationIdStr {
     conversationid = conversationIdStr;
 }
-
-+ (void)receiverIdMthd : (NSString *)receiverIdStr; {
-    receiver = receiverIdStr;    
++ (void)getIdMthd : (NSString *)getIdStr {
+    getId = getIdStr;
 }
 
 #pragma mark - View lifecycle
@@ -50,7 +48,7 @@ ODRefreshControl *refreshControl1;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+    [self getImgUrl:getId];
     NSLog(@"conversationid :%@",conversationid);
     NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
     NSData* messFeed = [NSData dataWithContentsOfURL:
@@ -65,9 +63,6 @@ ODRefreshControl *refreshControl1;
                 error:nil];
     }
     
-    [self setArrays];
-    
-    
     
     //Refresh  code
     ODRefreshControl* refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
@@ -79,6 +74,8 @@ ODRefreshControl *refreshControl1;
     timer3 = [NSTimer scheduledTimerWithTimeInterval: 40.0 target: refreshControl
                                             selector: @selector(endRefreshing) userInfo: nil repeats: YES];
     
+    
+    [self setArrays];
 }
 
 -(void) viewWillDisappear:(BOOL)animated  {
@@ -92,10 +89,8 @@ ODRefreshControl *refreshControl1;
     self.messages = [[NSMutableArray alloc]init];
     
     NSString* key =@"message";
-
-    [self.messages addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:key]];
+    [self.messages addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:[key stringByReplacingOccurrencesOfString:@"\n" withString:@""]]];
     
-    [self cleanArray];
     if (!self.messages){
         NSLog(@"Messages empty");
     } else {
@@ -106,17 +101,27 @@ ODRefreshControl *refreshControl1;
     self.timestamps = [[NSMutableArray alloc] init];
     NSString* messagecreated =@"messagecreated";
     [self.timestamps addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:messagecreated]];
-    
-
 }
-
+-(void) getImgUrl:(NSString *)getIdStr {
+    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/user.php?user=%@", getIdStr];
+    NSLog(@"%@",getIdStr);
+    Model *model_Obj = [[Model alloc]init];
+    [model_Obj loadUrl:callURL connec_identific:nil];
+    model_Obj.delegate = self;
+}
+-(void) didReceiveResponse:(id)response connection_tag:(int)tagvalue_idnt;
+{
+    NSLog(@"%@",response);
+    NSURL* url=[NSURL URLWithString:[NSString stringWithFormat:@"%@",[response valueForKey:@"small_avatar"] ]];
+    // NSURLRequest *req=[NSURLRequest requestWithURL:url];
+    NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+    incommingImg = [[UIImage alloc] initWithData:data];
+}
 - (void)buttonPressed:(UIButton*)sender
 {
     // Testing pushing/popping messages view
-   // MessagesViewController *vc = [[MessagesViewController alloc] initWithNibName:nil bundle:nil];
-   // [self.navigationController pushViewController:vc animated:YES];
-
-    
+    MessagesViewController *vc = [[MessagesViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -133,14 +138,11 @@ ODRefreshControl *refreshControl1;
     
     [self.timestamps addObject:text];
     
-    self.newmessage = text;
-    
-    
     if((self.messages.count - 1) % 2)
         [JSMessageSoundEffect playMessageSentSound];
     else
         [JSMessageSoundEffect playMessageReceivedSound];
-    [self sendMessage:self];
+    
     [self finishSend];
 }
 
@@ -156,7 +158,7 @@ ODRefreshControl *refreshControl1;
 
 - (JSMessagesViewTimestampPolicy)timestampPolicy
 {
-    return JSMessagesViewTimestampPolicyAll;
+    return JSMessagesViewTimestampPolicyEveryThree;
 }
 
 - (JSMessagesViewAvatarPolicy)avatarPolicy
@@ -188,12 +190,13 @@ ODRefreshControl *refreshControl1;
 
 - (UIImage *)avatarImageForIncomingMessage
 {
-    return [UIImage imageNamed:@"missingAvatar"];
+    return incommingImg;
 }
 
 - (UIImage *)avatarImageForOutgoingMessage
 {
-    return [UIImage imageNamed:@"missingAvatar"];
+    return [UIImage imageNamed:@"demo-avatar-woz"];
+
 }
 
 #pragma mark - ODRefreshControl
@@ -212,14 +215,13 @@ ODRefreshControl *refreshControl1;
 
 - (void)dropViewDidBeginRefreshingTime: (ODRefreshControl *)refreshControl
 {
-    double delayInSeconds = 1.0;
+        double delayInSeconds = 1.0;
     [self.messages addObject:@"Added @ MessVC."];
     
     [self setArrays];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-       
-    });
+          });
 }
 
 - (void)endRefresh:(NSTimer *)timer
@@ -228,72 +230,5 @@ ODRefreshControl *refreshControl1;
     refreshControl = (ODRefreshControl *)timer;
     [refreshControl endRefreshing];
 }
-
-- (IBAction)sendMessage:(id)sender{
-    
-    [self doPOST];
-    //Display button for tha sake of testing what's going on
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Pressed" message:@"Button pressed" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-    [alert show];
-    
-}
-
-
-- (void)doPOST {
-    //Prepering for POST request
-    int timestamp = [[NSDate date] timeIntervalSince1970];
-    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
-    self.sender = [standardUserDefaults stringForKey:@"userid"];
-    
-    NSMutableURLRequest *request =
-    [[NSMutableURLRequest alloc] initWithURL:
-     [NSURL URLWithString:@"http://cloudshare.se/webservice/inbox_addmessage.php"]];
-    
-    [request setHTTPMethod:@"POST"];
-    NSString *postString =[NSString stringWithFormat:@"conversationId=%@&timeStamp=%d&senderId=%@&recipientId=%@&text=%@&",
-                                                    conversationid,
-                                                    timestamp,
-                                                    self.sender,
-                                                    self.receiver,
-                                                    self.newmessage];
-    
-    [request setValue:[NSString
-                       stringWithFormat:@"%d", [postString length]]
-   forHTTPHeaderField:@"Content-length"];
-    
-    [request setHTTPBody:[postString
-                          dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    NSLog(@"POST data %@", [NSString stringWithFormat:@"conversationId=%@&timeStamp=%d&senderId=%@&recipientId=%@&text=%@&",
-                            conversationid,
-                            timestamp,
-                            self.sender,
-                            receiver,
-                            self.newmessage]);
-    
-}
-
--(void)cleanArray
-{
-    //clean up array
-    
-    NSMutableArray *arra = [[NSMutableArray alloc] init];
-    NSString *str = [[NSString alloc]init];
-    
-    for(str in self.messages){
-        str = [str stringByReplacingOccurrencesOfString:@"&nbsp;"
-                                             withString:@""];
-        
-        
-        [arra addObject:str];
-    }
-    [self.messages removeAllObjects];
-    [self.messages addObjectsFromArray:arra ];
-    NSLog(@"Now your Activity array =%@",self.messages );
-
-}
-
 
 @end
