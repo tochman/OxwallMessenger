@@ -92,8 +92,10 @@ ODRefreshControl *refreshControl1;
     self.messages = [[NSMutableArray alloc]init];
     
     NSString* key =@"message";
-    [self.messages addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:[key stringByReplacingOccurrencesOfString:@"\n" withString:@""]]];
+
+    [self.messages addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:key]];
     
+    [self cleanArray];
     if (!self.messages){
         NSLog(@"Messages empty");
     } else {
@@ -271,6 +273,26 @@ ODRefreshControl *refreshControl1;
                             receiver,
                             self.newmessage]);
     
+}
+
+-(void)cleanArray
+{
+    //clean up array
+    
+    NSMutableArray *arra = [[NSMutableArray alloc] init];
+    NSString *str = [[NSString alloc]init];
+    
+    for(str in self.messages){
+        str = [str stringByReplacingOccurrencesOfString:@"&nbsp;"
+                                             withString:@""];
+        
+        
+        [arra addObject:str];
+    }
+    [self.messages removeAllObjects];
+    [self.messages addObjectsFromArray:arra ];
+    NSLog(@"Now your Activity array =%@",self.messages );
+
 }
 
 

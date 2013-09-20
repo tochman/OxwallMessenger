@@ -22,6 +22,11 @@
 @property (strong, nonatomic) NSString *newmessage;
 @property (strong, nonatomic) NSString *sender;
 @property (strong, nonatomic) NSString *receiver;
+@property (strong, nonatomic) NSString *str;
+
+
+
+
 
 + (void)conversationIdMthd : (NSString *)conversationIdStr;
 + (void)receiverIdMthd : (NSString *)receiverIdStr;
