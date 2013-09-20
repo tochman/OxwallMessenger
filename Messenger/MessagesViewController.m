@@ -18,17 +18,25 @@
 @synthesize messages, json;
 
 static NSString *conversationid;
+static NSString *receiver;
+
 ODRefreshControl *refreshControl1;
 
 - (UIButton *)sendButton
 {
     // Override to use a custom send button
     // The button's frame is set automatically for you
+
     return [UIButton defaultSendButton];
+    
 }
 
 + (void)conversationIdMthd : (NSString *)conversationIdStr {
     conversationid = conversationIdStr;
+}
+
++ (void)receiverIdMthd : (NSString *)receiverIdStr; {
+    receiver = receiverIdStr;    
 }
 
 #pragma mark - View lifecycle
@@ -97,13 +105,16 @@ ODRefreshControl *refreshControl1;
     NSString* messagecreated =@"messagecreated";
     [self.timestamps addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:messagecreated]];
     
+
 }
 
 - (void)buttonPressed:(UIButton*)sender
 {
     // Testing pushing/popping messages view
-    MessagesViewController *vc = [[MessagesViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:vc animated:YES];
+   // MessagesViewController *vc = [[MessagesViewController alloc] initWithNibName:nil bundle:nil];
+   // [self.navigationController pushViewController:vc animated:YES];
+
+    
 }
 
 #pragma mark - Table view data source
@@ -120,11 +131,14 @@ ODRefreshControl *refreshControl1;
     
     [self.timestamps addObject:text];
     
+    self.newmessage = text;
+    
+    
     if((self.messages.count - 1) % 2)
         [JSMessageSoundEffect playMessageSentSound];
     else
         [JSMessageSoundEffect playMessageReceivedSound];
-    
+    [self sendMessage:self];
     [self finishSend];
 }
 
@@ -150,7 +164,7 @@ ODRefreshControl *refreshControl1;
 
 - (JSAvatarStyle)avatarStyle
 {
-    return JSAvatarStyleSquare;
+    return JSAvatarStyleCircle;
 }
 
 //  Optional delegate method
@@ -211,6 +225,52 @@ ODRefreshControl *refreshControl1;
     ODRefreshControl* refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     refreshControl = (ODRefreshControl *)timer;
     [refreshControl endRefreshing];
+}
+
+- (IBAction)sendMessage:(id)sender{
+    
+    [self doPOST];
+    //Display button for tha sake of testing what's going on
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Pressed" message:@"Button pressed" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alert show];
+    
+}
+
+
+- (void)doPOST {
+    //Prepering for POST request
+    int timestamp = [[NSDate date] timeIntervalSince1970];
+    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
+    self.sender = [standardUserDefaults stringForKey:@"userid"];
+    
+    NSMutableURLRequest *request =
+    [[NSMutableURLRequest alloc] initWithURL:
+     [NSURL URLWithString:@"http://cloudshare.se/webservice/inbox_addmessage.php"]];
+    
+    [request setHTTPMethod:@"POST"];
+    NSString *postString =[NSString stringWithFormat:@"conversationId=%@&timeStamp=%d&senderId=%@&recipientId=%@&text=%@&",
+                                                    conversationid,
+                                                    timestamp,
+                                                    self.sender,
+                                                    self.receiver,
+                                                    self.newmessage];
+    
+    [request setValue:[NSString
+                       stringWithFormat:@"%d", [postString length]]
+   forHTTPHeaderField:@"Content-length"];
+    
+    [request setHTTPBody:[postString
+                          dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    NSLog(@"POST data %@", [NSString stringWithFormat:@"conversationId=%@&timeStamp=%d&senderId=%@&recipientId=%@&text=%@&",
+                            conversationid,
+                            timestamp,
+                            self.sender,
+                            receiver,
+                            self.newmessage]);
+    
 }
 
 

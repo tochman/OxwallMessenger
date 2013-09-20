@@ -186,7 +186,7 @@
     ConversationsModel* conversation = _feed.conversations[indexPath.row];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     [MessagesViewController conversationIdMthd:conversation.conversationid];
-    
+    [MessagesViewController receiverIdMthd:conversation.sentto];
     [self performSegueWithIdentifier:@"getmessage" sender:self];
     
 }
