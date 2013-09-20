@@ -26,6 +26,6 @@
 @property (strong, nonatomic) NSURL* small_avatar;
 @property (strong, nonatomic) NSString* profiletext;
 
-//@property (strong, nonatomic) NSString* password;
+
 
 @end
