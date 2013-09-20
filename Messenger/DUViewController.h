@@ -18,13 +18,16 @@
     
     IBOutlet UILabel *membersinceLabel;
     
-    IBOutlet UITextView *presentationTextview;
+    //IBOutlet UITextView *presentationTextview;
     
     IBOutlet UIImageView *avatar;
     
     IBOutlet UITableView *tableView;
     
     NSTimer *timer1;
+    
+    NSMutableArray *avatarImageUrls;
+    NSURL *finalImgUrl;
 }
 
 @property (strong, nonatomic) NSString *username;
@@ -37,7 +40,7 @@
 @property (strong, nonatomic) NSString *userid;
 
 
-- (IBAction)checkConversations:(id)sender;
+//- (IBAction)checkConversations:(id)sender;
 - (IBAction)logOut:(UIBarButtonItem *)sender;
 
 
