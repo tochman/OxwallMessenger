@@ -11,9 +11,13 @@
 #import "JSONModelLib.h"
 #import "ConversationFeed.h"
 #import "MessagesViewController.h"
+#import "ImageFeed.h"
+#import "Model.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface DUViewController (){
     ConversationFeed* _feed;
+    ImageFeed * _imgFeed;
 }
 
 
@@ -60,26 +64,10 @@
     //show loader view
     [HUD showUIBlockingIndicatorWithText:@"Getting Conversations"];
     //Set the identifier
-    
-    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_conversations.php?user=%@", userid];
-    
-    //fetch the feed
-    _feed = [[ConversationFeed alloc] initFromURLWithString:callURL
-                                                 completion:^(JSONModel *model, JSONModelError *err) {
-                                                     
-                                                     //hide the loader view
-                                                     [HUD hideUIBlockingIndicator];
-                                                     
-                                                     //json fetched
-                                                     
-                                                     NSLog(@"Loaded %@", _feed.conversations);
-                                                     NSLog(@"Userid %@", userid);
-                                                     [self.tableView reloadData];
-                                                     
-                                                 }];
-    
+    [self fireUpdate];
     timer1 = [NSTimer scheduledTimerWithTimeInterval: 30.0 target: self
                                             selector: @selector(fireUpdate) userInfo: nil repeats: YES];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated  {
@@ -106,7 +94,39 @@
                                                      
                                                  }];
     
+    
 }
+
+//////////////////////////////////////getting avatar image urls ///////////////////////////////
+
+-(void) getImgUrls:(NSString *)getId
+{
+    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/user.php?user=%@", getId];
+    
+    //fetch the feed
+    _imgFeed = [[ImageFeed alloc] initFromURLWithString:callURL
+                                             completion:^(JSONModel *model, JSONModelError *err) {
+                                                 //json fetched
+                                                 
+                                                 NSLog(@"Loaded %@", _imgFeed.images);
+                                                 [self.tableView reloadData];
+                                                 
+                                             }];
+    
+    
+    //    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/user.php?user=%@", getId];
+    //      NSLog(@"%@",getId);
+    //      Model *model_Obj = [[Model alloc]init];
+    //      [model_Obj loadUrl:callURL connec_identific:nil];
+    //      model_Obj.delegate = self;
+}
+
+-(void)didReceiveResponse:(id)response connection_tag:(int)tagvalue_idnt;
+{
+    NSLog(@"%@",response);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 - (void)didReceiveMemoryWarning
 {
@@ -132,7 +152,7 @@
     usernameLabel.text = realname;
     sexLabel.text = sex;
     membersinceLabel.text = membersince;
-    presentationTextview.text = presentation;
+    //presentationTextview.text = presentation;
     avatar.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:avatarURL]];
     
 }
@@ -171,10 +191,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSURL *url;
     ConversationsModel* conversation = _feed.conversations[indexPath.row];
+    ImageModel* iModel = _imgFeed.images[indexPath.row];
+    if ([userid isEqualToString:conversation.startedbyid]) {
+        //[self getImgUrls:conversation.sentto];
+        //        //        NSLog(@"sentto : %@ - %@",conversation.sentto,conversation.title);
+        url=[NSURL URLWithString:@"http://seconddate.se//ow_userfiles//plugins//base//avatars//avatar_1_1364328533.jpg"];
+    }
+    if ([userid isEqualToString: conversation.sentto ]) {
+        //[self getImgUrls:conversation.startedbyid];
+        url=[NSURL URLWithString:@"http://seconddate.se//ow_userfiles//plugins//base//avatars//avatar_10343414_1372318667.jpg"];
+        //        //        NSLog(@"sentbyid :%@ - %@",conversation.startedbyid,conversation.title);
+    }
     UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"ConversationCell" forIndexPath:indexPath];
     cell.textLabel.text = conversation.title;
     cell.detailTextLabel.text = conversation.startedby;
+    NSURLRequest *req=[NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *err) {
+        cell.imageView.layer.cornerRadius = 10.0;
+        cell.imageView.layer.borderColor = [UIColor blackColor].CGColor;
+        cell.imageView.layer.borderWidth = 1.2;
+        cell.imageView.clipsToBounds = YES;
+        cell.imageView.image=[UIImage imageWithData:data];
+    }];
     return cell;
 }
 
@@ -186,7 +226,14 @@
     ConversationsModel* conversation = _feed.conversations[indexPath.row];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     [MessagesViewController conversationIdMthd:conversation.conversationid];
-    [MessagesViewController receiverIdMthd:conversation.sentto];
+    if ([userid isEqualToString:conversation.startedbyid]) {
+        NSLog(@"sentto : %@ - %@",conversation.sentto,conversation.title);
+        [MessagesViewController getIdMthd:conversation.sentto];
+    }
+    if ([userid isEqualToString: conversation.sentto ]) {
+        NSLog(@"sentbyid :%@ - %@",conversation.startedbyid,conversation.title);
+        [MessagesViewController getIdMthd:conversation.startedbyid];
+    }
     [self performSegueWithIdentifier:@"getmessage" sender:self];
     
 }
