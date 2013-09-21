@@ -304,7 +304,7 @@ ODRefreshControl *refreshControl1;
     }
     [self.messages removeAllObjects];
     [self.messages addObjectsFromArray:arra ];
-    NSLog(@"Now your Activity array =%@",self.messages );
+    
     
 }
 
