@@ -12,8 +12,8 @@
 #import "ConversationFeed.h"
 #import "MessagesViewController.h"
 #import "ImageFeed.h"
-#import "Model.h"
 #import <QuartzCore/QuartzCore.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface DUViewController (){
     ConversationFeed* _feed;
@@ -41,6 +41,8 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     
@@ -54,14 +56,14 @@
     
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     userid = [standardUserDefaults stringForKey:@"userid"];
-
+    
     
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     //show loader view
-    [HUD showUIBlockingIndicatorWithText:@"Getting Conversations"];
+    
     //Set the identifier
     [self fireUpdate];
     //timer1 = [NSTimer scheduledTimerWithTimeInterval: 30.0 target: self
@@ -75,7 +77,7 @@
 }
 
 -(void)fireUpdate  {
-    
+    [HUD showUIBlockingIndicatorWithText:@"Getting Conversations"];
     NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_conversations.php?user=%@", userid];
     
     //fetch the feed
@@ -88,7 +90,7 @@
                                                      //json fetched
                                                      
                                                      //NSLog(@"Loaded %@", _feed.conversations);
-                                                     //NSLog(@"Userid %@", userid);
+                                                     NSLog(@"Fired!!!!");
                                                      [self.tableView reloadData];
                                                      
                                                  }];
@@ -96,19 +98,7 @@
     
 }
 
-//////////////////////////////////////getting avatar image urls ///////////////////////////////
 
--(void) getImgUrls:(NSString *)getId
-{
-
-}
-
--(void)didReceiveResponse:(id)response connection_tag:(int)tagvalue_idnt;
-{
-    NSLog(@"%@",response);
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////
 
 - (void)didReceiveMemoryWarning
 {
@@ -139,9 +129,6 @@
     
 }
 
-- (IBAction)checkConversations:(id)sender {
-    [self performSegueWithIdentifier:@"conversations" sender:self];
-}
 
 - (IBAction)logOut:(UIBarButtonItem *)sender {
     [HUD showUIBlockingIndicatorWithText:@"Logging out..."];
@@ -154,6 +141,7 @@
     [standardUserDefaults setObject:@"" forKey:@"presentation"];
     [standardUserDefaults setObject:@"" forKey:@"avatarURL"];
     [NSThread sleepForTimeInterval:0.5];
+    [standardUserDefaults synchronize];
     [HUD hideUIBlockingIndicator];
     [self performSegueWithIdentifier:@"start" sender:self];
 }
@@ -174,10 +162,51 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ConversationsModel* conversation = _feed.conversations[indexPath.row];
-    UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"ConversationCell" forIndexPath:indexPath];
+    static NSString *identifier = @"ConversationCell";
+    UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:identifier];
+    }
+    
+    // Here we use the new provided setImageWithURL: method to load the web image
+    [cell.imageView setImageWithURL:conversation.avatar
+                   placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
+    
+    
+    
     cell.textLabel.text = conversation.title;
     cell.detailTextLabel.text = conversation.startedby;
-    cell.imageView.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:conversation.avatar]];
+    //[self webFileExists:conversation.avatar];
+    
+//    NSURLRequest* request = [NSURLRequest requestWithURL:conversation.avatar cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:1.0];
+//    NSHTTPURLResponse* response = nil;
+//    NSError* error = nil;
+//    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//    NSLog(@"statusCode = %d", response.statusCode);
+//    if (response.statusCode == 404) {
+//        // code for 404
+//        cell.imageView.image=[UIImage imageNamed:@"missingAvatar"];
+//    } else  {
+//        // code if no error
+//        cell.imageView.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:conversation.avatar]];
+//    }
+
+    
+    
+    
+    
+ 
+    
+   
+    
+    
+    
+    
+    
+    
     return cell;
 }
 
@@ -202,6 +231,24 @@
     //[MessagesViewController getIdMthd:conversation.startedbyid];
     [self performSegueWithIdentifier:@"getmessage" sender:self];
     
+}
+
+
+#pragma mark - methods
+-(BOOL) webFileExists:(NSURL*)avUrl {
+    
+    NSURL *url = avUrl;
+    
+    NSURLRequest* request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
+    NSHTTPURLResponse* response = nil;
+    NSError* error = nil;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSLog(@"statusCode = %d", [response statusCode]);
+    
+    if ([response statusCode] == 404)
+        return NO;
+    else
+        return YES;
 }
 
 

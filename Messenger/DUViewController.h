@@ -41,7 +41,7 @@
 @property (strong, nonatomic) NSString *userid;
 
 
-//- (IBAction)checkConversations:(id)sender;
+
 - (IBAction)logOut:(UIBarButtonItem *)sender;
 
 

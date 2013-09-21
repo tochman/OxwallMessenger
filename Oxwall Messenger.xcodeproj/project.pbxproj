@@ -58,6 +58,8 @@
 		E9477F4617E10B9F00A16505 /* MessageFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4517E10B9C00A16505 /* MessageFeed.m */; };
 		E9477F4917E10BC600A16505 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4817E10BC600A16505 /* MessageModel.m */; };
 		E94CB14F17E78AC60066A516 /* kod.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E94CB14E17E78AC60066A516 /* kod.rtf */; };
+		E9814E7517EE495F00043A59 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9814E7417EE495F00043A59 /* ImageIO.framework */; };
+		E9814E7817EE4B6F00043A59 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9814E7717EE4B6F00043A59 /* SDWebImage.framework */; };
 		E988C40917E6FDEF0053296C /* NUIAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = E988C39F17E6FDEF0053296C /* NUIAppearance.m */; };
 		E988C40A17E6FDEF0053296C /* NUIConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = E988C3A117E6FDEF0053296C /* NUIConverter.m */; };
 		E988C40B17E6FDEF0053296C /* NUIFileMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = E988C3A317E6FDEF0053296C /* NUIFileMonitor.m */; };
@@ -161,12 +163,6 @@
 		E9CF5F5A17EB00A100B929EB /* UIColor+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F2D17EB00A100B929EB /* UIColor+JSMessagesView.m */; };
 		E9CF5F5B17EB00A100B929EB /* UIImage+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F2F17EB00A100B929EB /* UIImage+JSMessagesView.m */; };
 		E9CF5F5C17EB00A100B929EB /* UIView+AnimationOptionsForCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F3117EB00A100B929EB /* UIView+AnimationOptionsForCurve.m */; };
-		E9CF5F6B17EC888B00B929EB /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F6017EC888B00B929EB /* Model.m */; };
-		E9CF5F6C17EC888B00B929EB /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F6217EC888B00B929EB /* NSObject+SBJSON.m */; };
-		E9CF5F6D17EC888B00B929EB /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F6417EC888B00B929EB /* NSString+SBJSON.m */; };
-		E9CF5F6E17EC888B00B929EB /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F6617EC888B00B929EB /* SBJsonBase.m */; };
-		E9CF5F6F17EC888B00B929EB /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F6817EC888B00B929EB /* SBJsonParser.m */; };
-		E9CF5F7017EC888B00B929EB /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F6A17EC888B00B929EB /* SBJsonWriter.m */; };
 		E9CF5F7517EC892900B929EB /* ImageFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F7217EC892900B929EB /* ImageFeed.m */; };
 		E9CF5F7617EC892900B929EB /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F7417EC892900B929EB /* ImageModel.m */; };
 /* End PBXBuildFile section */
@@ -256,6 +252,8 @@
 		E9477F4717E10BC500A16505 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageModel.h; path = Messenger/MessageModel.h; sourceTree = "<group>"; };
 		E9477F4817E10BC600A16505 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageModel.m; path = Messenger/MessageModel.m; sourceTree = "<group>"; };
 		E94CB14E17E78AC60066A516 /* kod.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = kod.rtf; sourceTree = SOURCE_ROOT; };
+		E9814E7417EE495F00043A59 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		E9814E7717EE4B6F00043A59 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = ../Downloads/SDWebImage.framework; sourceTree = "<group>"; };
 		E988C39E17E6FDEF0053296C /* NUIAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUIAppearance.h; sourceTree = "<group>"; };
 		E988C39F17E6FDEF0053296C /* NUIAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NUIAppearance.m; sourceTree = "<group>"; };
 		E988C3A017E6FDEF0053296C /* NUIConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUIConverter.h; sourceTree = "<group>"; };
@@ -418,19 +416,6 @@
 		E9CF5F2F17EB00A100B929EB /* UIImage+JSMessagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JSMessagesView.m"; sourceTree = "<group>"; };
 		E9CF5F3017EB00A100B929EB /* UIView+AnimationOptionsForCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationOptionsForCurve.h"; sourceTree = "<group>"; };
 		E9CF5F3117EB00A100B929EB /* UIView+AnimationOptionsForCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationOptionsForCurve.m"; sourceTree = "<group>"; };
-		E9CF5F5E17EC888B00B929EB /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		E9CF5F5F17EC888B00B929EB /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
-		E9CF5F6017EC888B00B929EB /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
-		E9CF5F6117EC888B00B929EB /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		E9CF5F6217EC888B00B929EB /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
-		E9CF5F6317EC888B00B929EB /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
-		E9CF5F6417EC888B00B929EB /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
-		E9CF5F6517EC888B00B929EB /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
-		E9CF5F6617EC888B00B929EB /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
-		E9CF5F6717EC888B00B929EB /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		E9CF5F6817EC888B00B929EB /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
-		E9CF5F6917EC888B00B929EB /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		E9CF5F6A17EC888B00B929EB /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		E9CF5F7117EC892900B929EB /* ImageFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFeed.h; sourceTree = "<group>"; };
 		E9CF5F7217EC892900B929EB /* ImageFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFeed.m; sourceTree = "<group>"; };
 		E9CF5F7317EC892900B929EB /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
@@ -442,9 +427,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9814E7517EE495F00043A59 /* ImageIO.framework in Frameworks */,
 				E92C601717E88EAA00B98C63 /* libz.dylib in Frameworks */,
 				E92C601517E88E9B00B98C63 /* SystemConfiguration.framework in Frameworks */,
 				E92C601317E88E8E00B98C63 /* CoreTelephony.framework in Frameworks */,
+				E9814E7817EE4B6F00043A59 /* SDWebImage.framework in Frameworks */,
 				E988C4AB17E716E60053296C /* AudioToolbox.framework in Frameworks */,
 				E988C44417E6FE7E0053296C /* QuartzCore.framework in Frameworks */,
 				E988C44217E6FE6F0053296C /* CoreImage.framework in Frameworks */,
@@ -461,7 +448,6 @@
 		9C39540E16A34F8200C5C8FD = {
 			isa = PBXGroup;
 			children = (
-				E9CF5F5D17EC888B00B929EB /* Model */,
 				E9CF5EF817EB00A100B929EB /* JSMessagesTableViewController */,
 				9C39542416A34F8200C5C8FD /* Supporting Files */,
 				E98E28A717E98432006A4B8D /* ODRefreshControl */,
@@ -487,6 +473,8 @@
 		9C39541C16A34F8200C5C8FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9814E7717EE4B6F00043A59 /* SDWebImage.framework */,
+				E9814E7417EE495F00043A59 /* ImageIO.framework */,
 				E92C601617E88EAA00B98C63 /* libz.dylib */,
 				E92C601417E88E9B00B98C63 /* SystemConfiguration.framework */,
 				E92C601217E88E8E00B98C63 /* CoreTelephony.framework */,
@@ -901,26 +889,6 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
-		E9CF5F5D17EC888B00B929EB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E9CF5F5E17EC888B00B929EB /* JSON.h */,
-				E9CF5F5F17EC888B00B929EB /* Model.h */,
-				E9CF5F6017EC888B00B929EB /* Model.m */,
-				E9CF5F6117EC888B00B929EB /* NSObject+SBJSON.h */,
-				E9CF5F6217EC888B00B929EB /* NSObject+SBJSON.m */,
-				E9CF5F6317EC888B00B929EB /* NSString+SBJSON.h */,
-				E9CF5F6417EC888B00B929EB /* NSString+SBJSON.m */,
-				E9CF5F6517EC888B00B929EB /* SBJsonBase.h */,
-				E9CF5F6617EC888B00B929EB /* SBJsonBase.m */,
-				E9CF5F6717EC888B00B929EB /* SBJsonParser.h */,
-				E9CF5F6817EC888B00B929EB /* SBJsonParser.m */,
-				E9CF5F6917EC888B00B929EB /* SBJsonWriter.h */,
-				E9CF5F6A17EC888B00B929EB /* SBJsonWriter.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1046,10 +1014,8 @@
 				9C39546B16A34FF300C5C8FD /* JSONModelError.m in Sources */,
 				9C39546C16A34FF300C5C8FD /* NSArray+JSONModel.m in Sources */,
 				E9CF5F3617EB00A100B929EB /* JSMessageSoundEffect.m in Sources */,
-				E9CF5F6F17EC888B00B929EB /* SBJsonParser.m in Sources */,
 				9C39546D16A34FF300C5C8FD /* JSONAPI.m in Sources */,
 				9C39546E16A34FF300C5C8FD /* JSONHTTPClient.m in Sources */,
-				E9CF5F6C17EC888B00B929EB /* NSObject+SBJSON.m in Sources */,
 				9C39546F16A34FF300C5C8FD /* JSONModel+networking.m in Sources */,
 				9C39547016A34FF300C5C8FD /* JSONKeyMapper.m in Sources */,
 				9C39547116A34FF300C5C8FD /* JSONValueTransformer.m in Sources */,
@@ -1063,7 +1029,6 @@
 				E9477F0817DF869600A16505 /* MasterViewController.m in Sources */,
 				E9477F1C17DF8AF200A16505 /* LoginViewController.m in Sources */,
 				E9477F2517DF931800A16505 /* LoginModel.m in Sources */,
-				E9CF5F7017EC888B00B929EB /* SBJsonWriter.m in Sources */,
 				E9477F2E17E043E700A16505 /* DUViewController.m in Sources */,
 				E9477F3A17E0723000A16505 /* UICheckbox.m in Sources */,
 				E9477F3D17E0E4D800A16505 /* ConversationsViewController.m in Sources */,
@@ -1079,7 +1044,6 @@
 				E988C40C17E6FDEF0053296C /* NUIGraphics.m in Sources */,
 				E9CF5F5A17EB00A100B929EB /* UIColor+JSMessagesView.m in Sources */,
 				E988C40D17E6FDEF0053296C /* NUIRenderer.m in Sources */,
-				E9CF5F6B17EC888B00B929EB /* Model.m in Sources */,
 				E9CF5F3717EB00A100B929EB /* JSMessagesViewController.m in Sources */,
 				E9CF5F3817EB00A100B929EB /* NSString+JSMessagesView.m in Sources */,
 				E988C40E17E6FDEF0053296C /* NUISettings.m in Sources */,
@@ -1093,7 +1057,6 @@
 				E988C41617E6FDEF0053296C /* NUINavigationBarRenderer.m in Sources */,
 				E988C41717E6FDEF0053296C /* NUINavigationItemRenderer.m in Sources */,
 				E9CF5F3317EB00A100B929EB /* JSBubbleView.m in Sources */,
-				E9CF5F6D17EC888B00B929EB /* NSString+SBJSON.m in Sources */,
 				E988C41817E6FDEF0053296C /* NUIProgressViewRenderer.m in Sources */,
 				E988C41917E6FDEF0053296C /* NUISearchBarRenderer.m in Sources */,
 				E988C41A17E6FDEF0053296C /* NUISegmentedControlRenderer.m in Sources */,
@@ -1105,7 +1068,6 @@
 				E9CF5F7617EC892900B929EB /* ImageModel.m in Sources */,
 				E9CF5F5C17EB00A100B929EB /* UIView+AnimationOptionsForCurve.m in Sources */,
 				E988C41F17E6FDEF0053296C /* NUITableViewCellRenderer.m in Sources */,
-				E9CF5F6E17EC888B00B929EB /* SBJsonBase.m in Sources */,
 				E988C42017E6FDEF0053296C /* NUITableViewRenderer.m in Sources */,
 				E988C42117E6FDEF0053296C /* NUITextFieldRenderer.m in Sources */,
 				E988C42217E6FDEF0053296C /* NUIToolbarRenderer.m in Sources */,
@@ -1195,11 +1157,13 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					/Users/thomas/Downloads,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Messenger/Oxwall Messenger-Prefix.pch";
 				INFOPLIST_FILE = "Messenger/Oxwall Messenger-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "Oxwall Messenger";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1210,11 +1174,13 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					/Users/thomas/Downloads,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Messenger/Oxwall Messenger-Prefix.pch";
 				INFOPLIST_FILE = "Messenger/Oxwall Messenger-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "Oxwall Messenger";
 				WRAPPER_EXTENSION = app;
 			};
