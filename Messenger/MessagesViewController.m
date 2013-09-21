@@ -8,7 +8,7 @@
 
 #import "MessagesViewController.h"
 #import "ODRefreshControl.h"
-#import "Model.h"
+
 
 #pragma mark - Initialization
 
@@ -113,9 +113,9 @@ ODRefreshControl *refreshControl1;
 -(void) getImgUrl:(NSString *)getIdStr {
     NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/user.php?user=%@", getIdStr];
     NSLog(@"%@",getIdStr);
-    Model *model_Obj = [[Model alloc]init];
-    [model_Obj loadUrl:callURL connec_identific:nil];
-    model_Obj.delegate = self;
+    //    Model *model_Obj = [[Model alloc]init];
+    //    [model_Obj loadUrl:callURL connec_identific:nil];
+    //    model_Obj.delegate = self;
 }
 -(void) didReceiveResponse:(id)response connection_tag:(int)tagvalue_idnt;
 {
@@ -207,7 +207,7 @@ ODRefreshControl *refreshControl1;
 - (UIImage *)avatarImageForOutgoingMessage
 {
     return [UIImage imageNamed:@"demo-avatar-woz"];
-
+    
 }
 
 #pragma mark - ODRefreshControl
@@ -226,13 +226,13 @@ ODRefreshControl *refreshControl1;
 
 - (void)dropViewDidBeginRefreshingTime: (ODRefreshControl *)refreshControl
 {
-        double delayInSeconds = 1.0;
+    double delayInSeconds = 1.0;
     [self.messages addObject:@"Added @ MessVC."];
     
     [self setArrays];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-          });
+    });
 }
 
 - (void)endRefresh:(NSTimer *)timer
