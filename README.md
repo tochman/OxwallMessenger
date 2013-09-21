@@ -22,6 +22,7 @@ This project uses (among others):
 - MessagesTableViewController: https://github.com/jessesquires/MessagesTableViewController 
 - NUI - Style iOS apps with a stylesheet, similar to CSS: https://github.com/tombenner/nui
 - ODRefreshControl: https://github.com/Sephiroth87/ODRefreshControl
+- SDWebImage Asynchronous image downloader with cache support: https://github.com/rs/SDWebImage
 - NewRelics Application Performance Management & Monitoring
 
 
