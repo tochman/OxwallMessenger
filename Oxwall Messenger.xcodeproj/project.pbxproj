@@ -28,16 +28,8 @@
 		9C39547F16A3566A00C5C8FD /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39547E16A3566A00C5C8FD /* LocationModel.m */; };
 		9C39548216A3581600C5C8FD /* OxwallFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39548116A3581600C5C8FD /* OxwallFeed.m */; };
 		E909C47F17E198EB0058B75A /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E909C47E17E198EB0058B75A /* MessagesViewController.m */; };
-		E909C49A17E19B5B0058B75A /* bubbleMine.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49017E19B5B0058B75A /* bubbleMine.png */; };
-		E909C49B17E19B5B0058B75A /* bubbleMine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49117E19B5B0058B75A /* bubbleMine@2x.png */; };
-		E909C49C17E19B5B0058B75A /* bubbleSomeone.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49217E19B5B0058B75A /* bubbleSomeone.png */; };
-		E909C49D17E19B5B0058B75A /* bubbleSomeone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49317E19B5B0058B75A /* bubbleSomeone@2x.png */; };
 		E909C49E17E19B5B0058B75A /* missingAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49417E19B5B0058B75A /* missingAvatar.png */; };
 		E909C49F17E19B5B0058B75A /* missingAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49517E19B5B0058B75A /* missingAvatar@2x.png */; };
-		E909C4A017E19B5B0058B75A /* typingMine.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49617E19B5B0058B75A /* typingMine.png */; };
-		E909C4A117E19B5B0058B75A /* typingMine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49717E19B5B0058B75A /* typingMine@2x.png */; };
-		E909C4A217E19B5B0058B75A /* typingSomeone.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49817E19B5B0058B75A /* typingSomeone.png */; };
-		E909C4A317E19B5B0058B75A /* typingSomeone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49917E19B5B0058B75A /* typingSomeone@2x.png */; };
 		E92C601117E88E6000B98C63 /* NewRelicAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92C601017E88E6000B98C63 /* NewRelicAgent.framework */; };
 		E92C601317E88E8E00B98C63 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92C601217E88E8E00B98C63 /* CoreTelephony.framework */; };
 		E92C601517E88E9B00B98C63 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92C601417E88E9B00B98C63 /* SystemConfiguration.framework */; };
@@ -219,16 +211,8 @@
 		9C39548116A3581600C5C8FD /* OxwallFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxwallFeed.m; sourceTree = "<group>"; };
 		E909C47D17E198EB0058B75A /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesViewController.h; path = Messenger/MessagesViewController.h; sourceTree = SOURCE_ROOT; };
 		E909C47E17E198EB0058B75A /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesViewController.m; path = Messenger/MessagesViewController.m; sourceTree = SOURCE_ROOT; };
-		E909C49017E19B5B0058B75A /* bubbleMine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubbleMine.png; sourceTree = "<group>"; };
-		E909C49117E19B5B0058B75A /* bubbleMine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubbleMine@2x.png"; sourceTree = "<group>"; };
-		E909C49217E19B5B0058B75A /* bubbleSomeone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubbleSomeone.png; sourceTree = "<group>"; };
-		E909C49317E19B5B0058B75A /* bubbleSomeone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubbleSomeone@2x.png"; sourceTree = "<group>"; };
 		E909C49417E19B5B0058B75A /* missingAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missingAvatar.png; sourceTree = "<group>"; };
 		E909C49517E19B5B0058B75A /* missingAvatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "missingAvatar@2x.png"; sourceTree = "<group>"; };
-		E909C49617E19B5B0058B75A /* typingMine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = typingMine.png; sourceTree = "<group>"; };
-		E909C49717E19B5B0058B75A /* typingMine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "typingMine@2x.png"; sourceTree = "<group>"; };
-		E909C49817E19B5B0058B75A /* typingSomeone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = typingSomeone.png; sourceTree = "<group>"; };
-		E909C49917E19B5B0058B75A /* typingSomeone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "typingSomeone@2x.png"; sourceTree = "<group>"; };
 		E92C601017E88E6000B98C63 /* NewRelicAgent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NewRelicAgent.framework; sourceTree = "<group>"; };
 		E92C601217E88E8E00B98C63 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E92C601417E88E9B00B98C63 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -663,16 +647,8 @@
 		E9477F2F17E071EB00A16505 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				E909C49017E19B5B0058B75A /* bubbleMine.png */,
-				E909C49117E19B5B0058B75A /* bubbleMine@2x.png */,
-				E909C49217E19B5B0058B75A /* bubbleSomeone.png */,
-				E909C49317E19B5B0058B75A /* bubbleSomeone@2x.png */,
 				E909C49417E19B5B0058B75A /* missingAvatar.png */,
 				E909C49517E19B5B0058B75A /* missingAvatar@2x.png */,
-				E909C49617E19B5B0058B75A /* typingMine.png */,
-				E909C49717E19B5B0058B75A /* typingMine@2x.png */,
-				E909C49817E19B5B0058B75A /* typingSomeone.png */,
-				E909C49917E19B5B0058B75A /* typingSomeone@2x.png */,
 				E9477F3017E0720F00A16505 /* uicheckbox_checked.png */,
 				E9477F3117E0720F00A16505 /* uicheckbox_checked@2x.png */,
 				E9477F3217E0720F00A16505 /* uicheckbox_unchecked.png */,
@@ -1017,27 +993,19 @@
 				E9CF5F4B17EB00A100B929EB /* bubble-square-outgoing.png in Resources */,
 				E9477F3717E0720F00A16505 /* uicheckbox_unchecked@2x.png in Resources */,
 				E9CF5F5817EB00A100B929EB /* messageSent.aiff in Resources */,
-				E909C49A17E19B5B0058B75A /* bubbleMine.png in Resources */,
 				E9CF5F3F17EB00A100B929EB /* bubble-default-outgoing-green.png in Resources */,
-				E909C49B17E19B5B0058B75A /* bubbleMine@2x.png in Resources */,
-				E909C49C17E19B5B0058B75A /* bubbleSomeone.png in Resources */,
-				E909C49D17E19B5B0058B75A /* bubbleSomeone@2x.png in Resources */,
 				E909C49E17E19B5B0058B75A /* missingAvatar.png in Resources */,
 				E909C49F17E19B5B0058B75A /* missingAvatar@2x.png in Resources */,
 				E9CF5F3A17EB00A100B929EB /* bubble-default-incoming-green@2x.png in Resources */,
 				E9CF5F4117EB00A100B929EB /* bubble-default-outgoing-selected.png in Resources */,
-				E909C4A017E19B5B0058B75A /* typingMine.png in Resources */,
 				E9CF5F5417EB00A100B929EB /* send-highlighted@2x.png in Resources */,
 				E9CF5F5117EB00A100B929EB /* input-field.png in Resources */,
 				E9CF5F4917EB00A100B929EB /* bubble-square-outgoing-selected.png in Resources */,
-				E909C4A117E19B5B0058B75A /* typingMine@2x.png in Resources */,
 				E9CF5F3D17EB00A100B929EB /* bubble-default-incoming.png in Resources */,
 				E9CF5F3917EB00A100B929EB /* bubble-default-incoming-green.png in Resources */,
 				E9CF5F4E17EB00A100B929EB /* bubble-typing@2x.png in Resources */,
-				E909C4A217E19B5B0058B75A /* typingSomeone.png in Resources */,
 				E9CF5F4417EB00A100B929EB /* bubble-default-outgoing@2x.png in Resources */,
 				E9CF5F4217EB00A100B929EB /* bubble-default-outgoing-selected@2x.png in Resources */,
-				E909C4A317E19B5B0058B75A /* typingSomeone@2x.png in Resources */,
 				E988C42517E6FDEF0053296C /* NUIStyle.nss in Resources */,
 				E9CF5F5517EB00A100B929EB /* send.png in Resources */,
 				E9CF5F4017EB00A100B929EB /* bubble-default-outgoing-green@2x.png in Resources */,
