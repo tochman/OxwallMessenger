@@ -1,6 +1,8 @@
 Oxwall Messenger
 ========================
 
+  <script id='fbrd7vq'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=tochman&button=compact&url=http%3A%2F%2Ftochman.github.io%2FOxwallMessenger%2F';f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbrd7vq');</script>
+
 **[OxwallMessenger](http://tochman.github.io/OxwallMessenger/)** connects to a Oxwall powered site and provides the user with messaging functionality.
 
 **Oxwall** is a social networking software platform written in PHP/MySQL. Oxwall is used for a wide range of projects starting from family sites and custom social networks to collaboration tools and enterprise community solutions. **You can find more info about Oxwall at: [www.oxwall.org/](http://www.oxwall.org/).** 
@@ -28,5 +30,6 @@ License
 This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/
 
 
+  <script id='fbrd7vq'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=tochman&button=compact&url=http%3A%2F%2Ftochman.github.io%2FOxwallMessenger%2F';f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbrd7vq');</script>
 
 
