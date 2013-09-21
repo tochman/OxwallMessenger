@@ -18,4 +18,5 @@
 @property(nonatomic, weak)IBOutlet UICheckbox *checkbox;
 - (IBAction)checkCredentials;
 - (IBAction)testCheckbox:(id)sender;
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
 @end

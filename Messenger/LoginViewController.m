@@ -162,5 +162,10 @@
  
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self checkCredentials];
+    return YES;
+}
+
 
 @end
