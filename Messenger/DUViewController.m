@@ -62,18 +62,17 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    //show loader view
     
     //Set the identifier
     [self fireUpdate];
-    //timer1 = [NSTimer scheduledTimerWithTimeInterval: 30.0 target: self
-    //                                        selector: @selector(fireUpdate) userInfo: nil repeats: YES];
+    timer1 = [NSTimer scheduledTimerWithTimeInterval: 30.0 target: self
+                                            selector: @selector(fireUpdate) userInfo: nil repeats: YES];
     
 }
 
 -(void)viewWillDisappear:(BOOL)animated  {
     [super viewWillDisappear:animated];
-    //[timer1 invalidate];
+    [timer1 invalidate];
 }
 
 -(void)fireUpdate  {
@@ -179,33 +178,7 @@
     
     cell.textLabel.text = conversation.title;
     cell.detailTextLabel.text = conversation.startedby;
-    //[self webFileExists:conversation.avatar];
-    
-//    NSURLRequest* request = [NSURLRequest requestWithURL:conversation.avatar cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:1.0];
-//    NSHTTPURLResponse* response = nil;
-//    NSError* error = nil;
-//    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-//    NSLog(@"statusCode = %d", response.statusCode);
-//    if (response.statusCode == 404) {
-//        // code for 404
-//        cell.imageView.image=[UIImage imageNamed:@"missingAvatar"];
-//    } else  {
-//        // code if no error
-//        cell.imageView.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:conversation.avatar]];
-//    }
 
-    
-    
-    
-    
- 
-    
-   
-    
-    
-    
-    
-    
     
     return cell;
 }
@@ -233,23 +206,6 @@
     
 }
 
-
-#pragma mark - methods
--(BOOL) webFileExists:(NSURL*)avUrl {
-    
-    NSURL *url = avUrl;
-    
-    NSURLRequest* request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
-    NSHTTPURLResponse* response = nil;
-    NSError* error = nil;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSLog(@"statusCode = %d", [response statusCode]);
-    
-    if ([response statusCode] == 404)
-        return NO;
-    else
-        return YES;
-}
 
 
 

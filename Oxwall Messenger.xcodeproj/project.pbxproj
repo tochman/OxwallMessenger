@@ -1163,6 +1163,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Messenger/Oxwall Messenger-Prefix.pch";
 				INFOPLIST_FILE = "Messenger/Oxwall Messenger-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "Oxwall Messenger";
 				WRAPPER_EXTENSION = app;
@@ -1180,6 +1181,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Messenger/Oxwall Messenger-Prefix.pch";
 				INFOPLIST_FILE = "Messenger/Oxwall Messenger-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "Oxwall Messenger";
 				WRAPPER_EXTENSION = app;
