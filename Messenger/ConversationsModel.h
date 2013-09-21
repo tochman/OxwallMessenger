@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSString* sentto;
 @property (strong, nonatomic) NSString* title;
 @property (strong, nonatomic) NSURL* messages;
-
+@property (strong, nonatomic) NSURL* avatar;
 
 
 

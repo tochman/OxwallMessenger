@@ -17,7 +17,6 @@
 
 @interface DUViewController (){
     ConversationFeed* _feed;
-    ImageFeed * _imgFeed;
 }
 
 
@@ -31,6 +30,7 @@
 @synthesize membersince;
 @synthesize presentation;
 @synthesize avatarURL;
+@synthesize convAvatar;
 @synthesize tableView = _tableView;
 @synthesize userid;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -54,8 +54,7 @@
     
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     userid = [standardUserDefaults stringForKey:@"userid"];
-    // Title
-    self.title = @"My conversations";
+
     
 }
 
@@ -65,14 +64,14 @@
     [HUD showUIBlockingIndicatorWithText:@"Getting Conversations"];
     //Set the identifier
     [self fireUpdate];
-    timer1 = [NSTimer scheduledTimerWithTimeInterval: 30.0 target: self
-                                            selector: @selector(fireUpdate) userInfo: nil repeats: YES];
+    //timer1 = [NSTimer scheduledTimerWithTimeInterval: 30.0 target: self
+    //                                        selector: @selector(fireUpdate) userInfo: nil repeats: YES];
     
 }
 
 -(void)viewWillDisappear:(BOOL)animated  {
     [super viewWillDisappear:animated];
-    [timer1 invalidate];
+    //[timer1 invalidate];
 }
 
 -(void)fireUpdate  {
@@ -88,8 +87,8 @@
                                                      
                                                      //json fetched
                                                      
-                                                     NSLog(@"Loaded %@", _feed.conversations);
-                                                     NSLog(@"Userid %@", userid);
+                                                     //NSLog(@"Loaded %@", _feed.conversations);
+                                                     //NSLog(@"Userid %@", userid);
                                                      [self.tableView reloadData];
                                                      
                                                  }];
@@ -101,24 +100,7 @@
 
 -(void) getImgUrls:(NSString *)getId
 {
-    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/user.php?user=%@", getId];
-    
-    //fetch the feed
-    _imgFeed = [[ImageFeed alloc] initFromURLWithString:callURL
-                                             completion:^(JSONModel *model, JSONModelError *err) {
-                                                 //json fetched
-                                                 
-                                                 NSLog(@"Loaded %@", _imgFeed.images);
-                                                 [self.tableView reloadData];
-                                                 
-                                             }];
-    
-    
-    //    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/user.php?user=%@", getId];
-    //      NSLog(@"%@",getId);
-    //      Model *model_Obj = [[Model alloc]init];
-    //      [model_Obj loadUrl:callURL connec_identific:nil];
-    //      model_Obj.delegate = self;
+
 }
 
 -(void)didReceiveResponse:(id)response connection_tag:(int)tagvalue_idnt;
@@ -191,30 +173,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSURL *url;
     ConversationsModel* conversation = _feed.conversations[indexPath.row];
-    ImageModel* iModel = _imgFeed.images[indexPath.row];
-    if ([userid isEqualToString:conversation.startedbyid]) {
-        //[self getImgUrls:conversation.sentto];
-        //        //        NSLog(@"sentto : %@ - %@",conversation.sentto,conversation.title);
-        url=[NSURL URLWithString:@"http://seconddate.se//ow_userfiles//plugins//base//avatars//avatar_1_1364328533.jpg"];
-    }
-    if ([userid isEqualToString: conversation.sentto ]) {
-        //[self getImgUrls:conversation.startedbyid];
-        url=[NSURL URLWithString:@"http://seconddate.se//ow_userfiles//plugins//base//avatars//avatar_10343414_1372318667.jpg"];
-        //        //        NSLog(@"sentbyid :%@ - %@",conversation.startedbyid,conversation.title);
-    }
     UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"ConversationCell" forIndexPath:indexPath];
     cell.textLabel.text = conversation.title;
     cell.detailTextLabel.text = conversation.startedby;
-    NSURLRequest *req=[NSURLRequest requestWithURL:url];
-    [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *err) {
-        cell.imageView.layer.cornerRadius = 10.0;
-        cell.imageView.layer.borderColor = [UIColor blackColor].CGColor;
-        cell.imageView.layer.borderWidth = 1.2;
-        cell.imageView.clipsToBounds = YES;
-        cell.imageView.image=[UIImage imageWithData:data];
-    }];
+    cell.imageView.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:conversation.avatar]];
     return cell;
 }
 
@@ -232,9 +195,11 @@
     }
     if ([userid isEqualToString: conversation.sentto ]) {
         NSLog(@"sentbyid :%@ - %@",conversation.startedbyid,conversation.title);
-        [MessagesViewController receiverIdMthd:conversation.sentto];
         [MessagesViewController getIdMthd:conversation.startedbyid];
     }
+    
+    [MessagesViewController receiverIdMthd:conversation.sentto];
+    //[MessagesViewController getIdMthd:conversation.startedbyid];
     [self performSegueWithIdentifier:@"getmessage" sender:self];
     
 }

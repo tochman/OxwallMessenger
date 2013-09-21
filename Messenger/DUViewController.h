@@ -36,6 +36,7 @@
 @property (strong, nonatomic) NSString *membersince;
 @property (strong, nonatomic) NSString *presentation;
 @property (strong, nonatomic) NSURL *avatarURL;
+@property (strong, nonatomic) IBOutlet UIImageView *convAvatar;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSString *userid;
 
