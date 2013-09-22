@@ -51,6 +51,7 @@
     [super viewDidLoad];
     [self loadStandardUser];
     [self setLProfileLabels];
+    
     // Title
     self.title = realname;
     [self.navigationItem setHidesBackButton:YES];
@@ -90,8 +91,7 @@
                                                      
                                                      //json fetched
                                                      
-                                                     //NSLog(@"Loaded %@", _feed.conversations);
-                                                     NSLog(@"Fired!!!!");
+                                                     
                                                      [self.tableView reloadData];
                                                      
                                                  }];
@@ -125,7 +125,6 @@
     usernameLabel.text = realname;
     sexLabel.text = sex;
     membersinceLabel.text = membersince;
-    //presentationTextview.text = presentation;
     avatar.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:avatarURL]];
     
 }
@@ -162,7 +161,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    senderAvatar = nil;
     ConversationsModel* conversation = _feed.conversations[indexPath.row];
     static NSString *identifier = @"ConversationCell";
     UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
@@ -176,13 +174,11 @@
     // Here we use the new provided setImageWithURL: method to load the web image
     [cell.imageView setImageWithURL:conversation.avatar
                    placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
-
-    senderAvatar = cell.imageView.image;
+    
+ 
     cell.textLabel.text = conversation.title;
     cell.detailTextLabel.text = conversation.startedby;
-
-    
-    
+   
     return cell;
     
 }
@@ -194,15 +190,14 @@
 {
     ConversationsModel* conversation = _feed.conversations[indexPath.row];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // Here we are passing values to MessageVC. Can this be done in a better way?
     [MessagesViewController conversationIdMthd:conversation.conversationid];
     [MessagesViewController receiverIdMthd:conversation.sentto];
-    [MessagesViewController senderAvatarMthd:senderAvatar];
-    NSLog(@"senderAvatar DUVC%@", senderAvatar);
+    [MessagesViewController senderAvatarMthd:conversation.avatar];
     [self performSegueWithIdentifier:@"getmessage" sender:self];
     
 }
-
-
 
 
 @end

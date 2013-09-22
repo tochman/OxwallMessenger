@@ -19,11 +19,12 @@
 @implementation MessagesViewController
 
 @synthesize messages, json;
-@synthesize imageView = _imageView;
+
 static NSString *conversationid;
 static NSString *receiver;
-//static NSURL *senderAvatarURL;
+static NSURL *senderAvatarURL;
 static UIImage *senderAvatar;
+
 ODRefreshControl *refreshControl1;
 
 - (UIButton *)sendButton
@@ -41,12 +42,10 @@ ODRefreshControl *refreshControl1;
     receiver = receiverIdStr;
 }
 
-+ (void)senderAvatarMthd : (UIImage *)senderAvatarPassed {
++ (void)senderAvatarMthd : (NSURL *)senderAvatarPassed {
 
-    senderAvatar = senderAvatarPassed;
-    return;
-    
-    
+    senderAvatarURL = senderAvatarPassed;
+    return; //??
 }
 
 #pragma mark - View lifecycle
@@ -62,7 +61,7 @@ ODRefreshControl *refreshControl1;
 {
    
     NSLog(@"conversationid :%@",conversationid);
-    NSLog(@"%@", senderAvatar);
+    NSLog(@"%@", senderAvatarURL);
     NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
     NSData* messFeed = [NSData dataWithContentsOfURL:
                         [NSURL URLWithString:callURL]
@@ -89,6 +88,7 @@ ODRefreshControl *refreshControl1;
     
     
     [self setArrays];
+    [self getAvatar];
 }
 
 -(void) viewWillDisappear:(BOOL)animated  {
@@ -118,10 +118,17 @@ ODRefreshControl *refreshControl1;
     [self.timestamps addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:messagecreated]];
 }
 
+- (void)getAvatar {
+    
+    senderAvatar = [[UIImage alloc]init];
+    senderAvatar = [UIImage imageWithData:[NSData dataWithContentsOfURL:senderAvatarURL]];
+    
+}
+
 
 - (void)buttonPressed:(UIButton*)sender
 {
-    // Testing pushing/popping messages view
+    // Testing pushing/popping messages view ???? Where did this code come from?? Do we need this?
     MessagesViewController *vc = [[MessagesViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -130,7 +137,7 @@ ODRefreshControl *refreshControl1;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.messages.count;
-    NSLog(@"Messages count: %i", self.messages.count);
+    
 }
 
 #pragma mark - Messages view delegate
@@ -153,6 +160,7 @@ ODRefreshControl *refreshControl1;
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // TODO: Create custom method to display separate incoming from outgoing messages.
     return (indexPath.row % 2) ? JSBubbleMessageTypeIncoming : JSBubbleMessageTypeOutgoing;
 }
 
@@ -163,6 +171,7 @@ ODRefreshControl *refreshControl1;
 
 - (JSMessagesViewTimestampPolicy)timestampPolicy
 {
+    //TODO: No timestamps are showing.
     return JSMessagesViewTimestampPolicyEveryThree;
 }
 
@@ -204,6 +213,10 @@ ODRefreshControl *refreshControl1;
 }
 
 #pragma mark - ODRefreshControl
+
+
+// Why two methods????
+
 - (void)dropViewDidBeginRefreshing: (ODRefreshControl *)refreshControl
 {
     //Refresh code - for now it is just for show, not fully implemented
@@ -238,9 +251,6 @@ ODRefreshControl *refreshControl1;
 - (IBAction)sendMessage:(id)sender{
     
     [self doPOST];
-    //Display button for tha sake of testing what's going on
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Pressed" message:@"Button pressed" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-    [alert show];
     
 }
 
