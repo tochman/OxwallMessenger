@@ -41,11 +41,10 @@ ODRefreshControl *refreshControl1;
     receiver = receiverIdStr;
 }
 
-+ (void)getSenderAvatarIdMthd : (UIImage *)senderAvatarPassed {
-   senderAvatar = [[UIImage alloc]init];
-    //senderAvatar = [[UIImage alloc]init];
++ (void)senderAvatarMthd : (UIImage *)senderAvatarPassed {
+
     senderAvatar = senderAvatarPassed;
-    //return senderAvatar;
+    return;
     
     
 }
@@ -201,7 +200,7 @@ ODRefreshControl *refreshControl1;
 
 - (UIImage *)avatarImageForOutgoingMessage
 {
-   // return senderAvatar;
+   return senderAvatar;
 }
 
 #pragma mark - ODRefreshControl

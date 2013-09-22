@@ -28,7 +28,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 + (void)conversationIdMthd : (NSString *)conversationIdStr;
-+ (void)getSenderAvatarIdMthd : (UIImage *)senderAvatar;
++ (void)senderAvatarMthd : (UIImage *)senderAvatar;
 //- (UIImage *)avatarImageForIncomingMessage;
 + (void)receiverIdMthd : (NSString *)receiverIdStr;
 - (IBAction)sendMessage:(id)sender;

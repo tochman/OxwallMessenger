@@ -196,7 +196,7 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     [MessagesViewController conversationIdMthd:conversation.conversationid];
     [MessagesViewController receiverIdMthd:conversation.sentto];
-    [MessagesViewController getSenderAvatarIdMthd:senderAvatar];
+    [MessagesViewController senderAvatarMthd:senderAvatar];
     NSLog(@"senderAvatar DUVC%@", senderAvatar);
     [self performSegueWithIdentifier:@"getmessage" sender:self];
     
