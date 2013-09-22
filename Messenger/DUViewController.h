@@ -39,6 +39,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *convAvatar;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSString *userid;
+@property (strong, nonatomic) UIImage *senderAvatar;
 
 
 

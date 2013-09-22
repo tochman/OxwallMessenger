@@ -24,10 +24,12 @@
 @property (strong, nonatomic) NSString *sender;
 @property (strong, nonatomic) NSString *receiver;
 @property (strong, nonatomic) NSString *str;
+@property (strong, nonatomic) UIImage* senderAvatar;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 + (void)conversationIdMthd : (NSString *)conversationIdStr;
-+ (void)getIdMthd : (NSString *)getIdStr;
-- (UIImage *)avatarImageForIncomingMessage;
++ (void)getSenderAvatarIdMthd : (UIImage *)senderAvatar;
+//- (UIImage *)avatarImageForIncomingMessage;
 + (void)receiverIdMthd : (NSString *)receiverIdStr;
 - (IBAction)sendMessage:(id)sender;
 

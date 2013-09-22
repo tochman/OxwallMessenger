@@ -5,9 +5,10 @@
 //  Created by Thomas Ochman on 2013-09-12.
 //  Copyright (c) 2013 Underplot ltd. All rights reserved.
 //
-
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "MessagesViewController.h"
 #import "ODRefreshControl.h"
+
 
 
 #pragma mark - Initialization
@@ -18,10 +19,11 @@
 @implementation MessagesViewController
 
 @synthesize messages, json;
-
+@synthesize imageView = _imageView;
 static NSString *conversationid;
 static NSString *receiver;
-static NSString *getId;
+//static NSURL *senderAvatarURL;
+static UIImage *senderAvatar;
 ODRefreshControl *refreshControl1;
 
 - (UIButton *)sendButton
@@ -39,8 +41,13 @@ ODRefreshControl *refreshControl1;
     receiver = receiverIdStr;
 }
 
-+ (void)getIdMthd : (NSString *)getIdStr {
-    getId = getIdStr;
++ (void)getSenderAvatarIdMthd : (UIImage *)senderAvatarPassed {
+   senderAvatar = [[UIImage alloc]init];
+    //senderAvatar = [[UIImage alloc]init];
+    senderAvatar = senderAvatarPassed;
+    //return senderAvatar;
+    
+    
 }
 
 #pragma mark - View lifecycle
@@ -54,8 +61,9 @@ ODRefreshControl *refreshControl1;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self getImgUrl:getId];
+   
     NSLog(@"conversationid :%@",conversationid);
+    NSLog(@"%@", senderAvatar);
     NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
     NSData* messFeed = [NSData dataWithContentsOfURL:
                         [NSURL URLWithString:callURL]
@@ -110,21 +118,8 @@ ODRefreshControl *refreshControl1;
     NSString* messagecreated =@"messagecreated";
     [self.timestamps addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:messagecreated]];
 }
--(void) getImgUrl:(NSString *)getIdStr {
-    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/user.php?user=%@", getIdStr];
-    NSLog(@"%@",getIdStr);
-    //    Model *model_Obj = [[Model alloc]init];
-    //    [model_Obj loadUrl:callURL connec_identific:nil];
-    //    model_Obj.delegate = self;
-}
--(void) didReceiveResponse:(id)response connection_tag:(int)tagvalue_idnt;
-{
-    NSLog(@"%@",response);
-    NSURL* url=[NSURL URLWithString:[NSString stringWithFormat:@"%@",[response valueForKey:@"small_avatar"] ]];
-    // NSURLRequest *req=[NSURLRequest requestWithURL:url];
-    NSData *data = [[NSData alloc] initWithContentsOfURL:url];
-    incommingImg = [[UIImage alloc] initWithData:data];
-}
+
+
 - (void)buttonPressed:(UIButton*)sender
 {
     // Testing pushing/popping messages view
@@ -201,13 +196,12 @@ ODRefreshControl *refreshControl1;
 
 - (UIImage *)avatarImageForIncomingMessage
 {
-    return incommingImg;
+    return senderAvatar;
 }
 
 - (UIImage *)avatarImageForOutgoingMessage
 {
-    return [UIImage imageNamed:@"demo-avatar-woz"];
-    
+   // return senderAvatar;
 }
 
 #pragma mark - ODRefreshControl

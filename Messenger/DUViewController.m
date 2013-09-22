@@ -33,6 +33,8 @@
 @synthesize convAvatar;
 @synthesize tableView = _tableView;
 @synthesize userid;
+@synthesize senderAvatar;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -160,6 +162,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    senderAvatar = nil;
     ConversationsModel* conversation = _feed.conversations[indexPath.row];
     static NSString *identifier = @"ConversationCell";
     UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
@@ -173,14 +176,15 @@
     // Here we use the new provided setImageWithURL: method to load the web image
     [cell.imageView setImageWithURL:conversation.avatar
                    placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
-    
-    
-    
+
+    senderAvatar = cell.imageView.image;
     cell.textLabel.text = conversation.title;
     cell.detailTextLabel.text = conversation.startedby;
 
     
+    
     return cell;
+    
 }
 
 
@@ -191,17 +195,9 @@
     ConversationsModel* conversation = _feed.conversations[indexPath.row];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     [MessagesViewController conversationIdMthd:conversation.conversationid];
-    if ([userid isEqualToString:conversation.startedbyid]) {
-        NSLog(@"sentto : %@ - %@",conversation.sentto,conversation.title);
-        [MessagesViewController getIdMthd:conversation.sentto];
-    }
-    if ([userid isEqualToString: conversation.sentto ]) {
-        NSLog(@"sentbyid :%@ - %@",conversation.startedbyid,conversation.title);
-        [MessagesViewController getIdMthd:conversation.startedbyid];
-    }
-    
     [MessagesViewController receiverIdMthd:conversation.sentto];
-    //[MessagesViewController getIdMthd:conversation.startedbyid];
+    [MessagesViewController getSenderAvatarIdMthd:senderAvatar];
+    NSLog(@"senderAvatar DUVC%@", senderAvatar);
     [self performSegueWithIdentifier:@"getmessage" sender:self];
     
 }
