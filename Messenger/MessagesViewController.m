@@ -62,6 +62,8 @@ ODRefreshControl *refreshControl1;
    
     NSLog(@"conversationid :%@",conversationid);
     NSLog(@"%@", senderAvatarURL);
+    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
+    self.sender = [standardUserDefaults stringForKey:@"userid"];
     NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
     NSData* messFeed = [NSData dataWithContentsOfURL:
                         [NSURL URLWithString:callURL]
@@ -76,6 +78,7 @@ ODRefreshControl *refreshControl1;
     }
     
     
+    
     //Refresh  code
     ODRefreshControl* refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
@@ -86,8 +89,8 @@ ODRefreshControl *refreshControl1;
     timer3 = [NSTimer scheduledTimerWithTimeInterval: 40.0 target: refreshControl
                                             selector: @selector(endRefreshing) userInfo: nil repeats: YES];
     
-    
-    [self setArrays];
+   // [self cleanArray];
+    //[self setArrays];
     [self getAvatar];
 }
 
@@ -136,7 +139,9 @@ ODRefreshControl *refreshControl1;
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.messages.count;
+    NSUInteger keyCountForObject = [[[json objectForKey:@"messagesinconversation"]allObjects ] count];
+    return keyCountForObject;
+    //return self.messages.count;
     
 }
 
@@ -161,7 +166,11 @@ ODRefreshControl *refreshControl1;
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // TODO: Create custom method to display separate incoming from outgoing messages.
-    return (indexPath.row % 2) ? JSBubbleMessageTypeIncoming : JSBubbleMessageTypeOutgoing;
+    if ([[[json objectForKey:@"messagesinconversation"]valueForKey:@"sentbyID"][indexPath.row] isEqual:self.sender]) {
+        return (indexPath.row) ? JSBubbleMessageTypeOutgoing : JSBubbleMessageTypeOutgoing;
+    }
+
+    return (indexPath.row) ? JSBubbleMessageTypeIncoming : JSBubbleMessageTypeIncoming;
 }
 
 - (JSBubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -172,7 +181,7 @@ ODRefreshControl *refreshControl1;
 - (JSMessagesViewTimestampPolicy)timestampPolicy
 {
     //TODO: No timestamps are showing.
-    return JSMessagesViewTimestampPolicyEveryThree;
+    return JSMessagesViewTimestampPolicyAll;
 }
 
 - (JSMessagesViewAvatarPolicy)avatarPolicy
@@ -194,12 +203,14 @@ ODRefreshControl *refreshControl1;
 #pragma mark - Messages view data source
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return (self.messages)[indexPath.row];
+    return ([[json objectForKey:@"messagesinconversation"]valueForKey:@"message"]) [indexPath.row];
+    //return (self.messages)[indexPath.row];
 }
 
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return (self.timestamps)[indexPath.row];
+    return ([[json objectForKey:@"messagesinconversation"]valueForKey:@"messagecreated"]) [indexPath.row];
+    //return (self.timestamps)[indexPath.row];
 }
 
 - (UIImage *)avatarImageForIncomingMessage
@@ -258,8 +269,7 @@ ODRefreshControl *refreshControl1;
 - (void)doPOST {
     //Prepering for POST request
     int timestamp = [[NSDate date] timeIntervalSince1970];
-    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
-    self.sender = [standardUserDefaults stringForKey:@"userid"];
+
     
     NSMutableURLRequest *request =
     [[NSMutableURLRequest alloc] initWithURL:
@@ -295,18 +305,28 @@ ODRefreshControl *refreshControl1;
 {
     //clean up array
     
-    NSMutableArray *arra = [[NSMutableArray alloc] init];
-    NSString *str = [[NSString alloc]init];
+    //NSDictionary *dict = [[NSDictionary alloc]init];
+    NSString *newstr = [[NSString alloc]init];
     
-    for(str in self.messages){
-        str = [str stringByReplacingOccurrencesOfString:@"&nbsp;"
+    for (newstr in [[json objectForKey:@"messagesinconversation"]valueForKey:@"message"]){
+        newstr = [newstr stringByReplacingOccurrencesOfString:@"&nbsp;"
                                              withString:@""];
-        
-        
-        [arra addObject:str];
+        [json setValue:newstr forKey:@"message"];
     }
-    [self.messages removeAllObjects];
-    [self.messages addObjectsFromArray:arra ];
+    
+    
+//    NSMutableArray *arra = [[NSMutableArray alloc] init];
+//    NSString *str = [[NSString alloc]init];
+//    
+//    for(str in self.messages){
+//        str = [str stringByReplacingOccurrencesOfString:@"&nbsp;"
+//                                             withString:@""];
+//        
+//        
+//        [arra addObject:str];
+//    }
+//    [self.messages removeAllObjects];
+//    [self.messages addObjectsFromArray:arra ];
     
     
 }
