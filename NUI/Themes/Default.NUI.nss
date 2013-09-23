@@ -24,7 +24,7 @@ BarButton {
     font-name: @secondaryFontNameBold;
     font-color: @primaryFontColor;
     font-color-disabled: @secondaryFontColor;
-    font-size: 13;
+    font-size: 12;
     text-shadow-color: clear;
 }
 Button {
@@ -35,10 +35,10 @@ Button {
     font-color: @primaryFontColor;
     font-color-highlighted: @secondaryFontColor;
     font-name: @secondaryFontName;
-    font-size: 18;
-    height: 37;
-    corner-radius: 7;
-    exclude-views: UIAlertButton;
+    font-size: 14;
+    height: 24;
+    corner-radius: 5;
+    exclude-views: UIAlertButton, UICheckbox, UIcontrol;
     exclude-subviews: UITableViewCell,UITextField;
 }
 LargeButton {
@@ -47,14 +47,15 @@ LargeButton {
     corner-radius: 10;
 }
 SmallButton {
-    height: 24;
-    font-size: 14;
+    height: 22;
+    font-size: 12;
     corner-radius: 5;
 }
 Label {
     font-name: @secondaryFontName;
     font-color: @primaryFontColor;
     text-auto-fit: true;
+    exclude-views: UICheckbox;
 }
 LargeLabel {
     font-size: 24;
@@ -112,16 +113,19 @@ TableCellDetail {
     font-color: @secondaryFontColor;
 }
 TextField {
-    height: 37;
-    font-name: @inputFontName;
-    font-size: 18;
-    border-style: rounded;
+    height: 20;
+    font-color: @primaryFontColor;
+    font-name: @primaryFontName;
+    font-size: 14;
+    background-color: #FFFFFF;
+    border-style: none;
+    border-color: @primaryBorderColor;
+    border-width: 1;
+    corner-radius: 5;
+    padding: 10;
     vertical-align: center;
-}
-LargeTextField {
-    height: 50;
-    font-size: 28;
-}
+    exclude-views: UICheckbox;
+    }
 View {
     background-color: @primaryBackgroundColor;
     background-image: NUIViewBackground.png;

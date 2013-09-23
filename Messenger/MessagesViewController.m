@@ -133,10 +133,12 @@ ODRefreshControl *refreshControl1;
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-    // Rewrite this method
-    [self.messages addObject:text];
+
     
-    [self.timestamps addObject:text];
+    
+    //[self.messages addObject:text];
+    
+    //[self.timestamps addObject:text];
     
     self.newmessage = text;
     
@@ -180,23 +182,19 @@ ODRefreshControl *refreshControl1;
     return JSAvatarStyleCircle;
 }
 
-//  Optional delegate method
-//  Required if using `JSMessagesViewTimestampPolicyCustom`
-//
-//  - (BOOL)hasTimestampForRowAtIndexPath:(NSIndexPath *)indexPath
-//
+
 
 #pragma mark - Messages view data source
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return ([[json objectForKey:@"messagesinconversation"]valueForKey:@"message"]) [indexPath.row];
-    //return (self.messages)[indexPath.row];
+
 }
 
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return ([[json objectForKey:@"messagesinconversation"]valueForKey:@"messagecreated"]) [indexPath.row];
-    //return (self.timestamps)[indexPath.row];
+
 }
 
 - (UIImage *)avatarImageForIncomingMessage
@@ -278,7 +276,14 @@ ODRefreshControl *refreshControl1;
     
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
+    double delayInSeconds = 1.0;
+    //[self.messages addObject:@"Added @ MessVC."];
+    [self loadJson];
     
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    });
+   
     
 }
 
@@ -310,6 +315,7 @@ ODRefreshControl *refreshControl1;
     }
     
     NSLog(@"json %@", json);
+     [self.tableView reloadData];
     
 }
 
@@ -329,7 +335,7 @@ ODRefreshControl *refreshControl1;
     }
 
     [self cleanArray];
-    
+   
 }
 
 @end

@@ -35,7 +35,6 @@ Button {
     font-color: @primaryFontColor;
     font-color-highlighted: @secondaryFontColor;
     font-name: @secondaryFontName;
-    font-size: 18;
     height: 37;
     corner-radius: 7;
     exclude-views: UIAlertButton;
