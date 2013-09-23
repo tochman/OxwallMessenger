@@ -11,11 +11,37 @@
 
 #import "AppDelegate.h"
 
+
+
+/*
+ *  System Versioning Preprocessor Macros
+ */
+
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+
+
+
+
+
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        //[NUISettings init];
-        //[NUISettings setGlobalExclusions:@[@"checkbox", @"UICheckbox"]];
+        
+        
+        if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"6.1")) {
+            [NUISettings init];
+            [NUISettings setGlobalExclusions:@[@"checkbox", @"UICheckbox"]];
+        }
+        
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7")) {
+//Do some stuff for iOS 7.0
+        }
+
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

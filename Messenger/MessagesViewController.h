@@ -19,7 +19,8 @@
 
 @property (strong, nonatomic) NSMutableArray *messages;
 @property (strong, nonatomic) NSMutableArray *timestamps;
-@property (strong, nonatomic) NSDictionary *json;
+@property (strong, nonatomic) NSMutableDictionary *json;
+@property (strong, nonatomic) NSMutableDictionary *jsonDict;
 @property (strong, nonatomic) NSString *newmessage;
 @property (strong, nonatomic) NSString *sender;
 @property (strong, nonatomic) NSString *receiver;

@@ -18,7 +18,7 @@
 
 @implementation MessagesViewController
 
-@synthesize messages, json;
+@synthesize messages, json, jsonDict;
 
 static NSString *conversationid;
 static NSString *receiver;
@@ -43,7 +43,7 @@ ODRefreshControl *refreshControl1;
 }
 
 + (void)senderAvatarMthd : (NSURL *)senderAvatarPassed {
-
+    
     senderAvatarURL = senderAvatarPassed;
     return; //??
 }
@@ -59,22 +59,26 @@ ODRefreshControl *refreshControl1;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-   
+    
+    json =[[NSMutableDictionary alloc]init];
     NSLog(@"conversationid :%@",conversationid);
     NSLog(@"%@", senderAvatarURL);
     NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
     self.sender = [standardUserDefaults stringForKey:@"userid"];
+    
+    
+    
     NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
     NSData* messFeed = [NSData dataWithContentsOfURL:
                         [NSURL URLWithString:callURL]
                         ];
     
     if (messFeed) {
-        
-        json = [NSJSONSerialization
+        // Make sure json is truly mutable
+        json = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization
                 JSONObjectWithData:messFeed
                 options:kNilOptions
-                error:nil];
+                error:nil]];
     }
     
     
@@ -89,8 +93,8 @@ ODRefreshControl *refreshControl1;
     timer3 = [NSTimer scheduledTimerWithTimeInterval: 40.0 target: refreshControl
                                             selector: @selector(endRefreshing) userInfo: nil repeats: YES];
     
-   // [self cleanArray];
-    //[self setArrays];
+    [self cleanArray];
+    
     [self getAvatar];
 }
 
@@ -101,25 +105,6 @@ ODRefreshControl *refreshControl1;
     [timer3 invalidate];
 }
 
-- (void)setArrays {
-    self.messages = [[NSMutableArray alloc]init];
-    
-    NSString* key =@"message";
-    [self.messages addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:key]];
-    
-    [self cleanArray];
-    
-    if (!self.messages){
-        NSLog(@"Messages empty");
-    } else {
-        NSLog(@"Messages in MessVC: %@", self.messages);
-        
-    }
-    
-    self.timestamps = [[NSMutableArray alloc] init];
-    NSString* messagecreated =@"messagecreated";
-    [self.timestamps addObjectsFromArray:[[json objectForKey:@"messagesinconversation"]valueForKey:messagecreated]];
-}
 
 - (void)getAvatar {
     
@@ -148,6 +133,7 @@ ODRefreshControl *refreshControl1;
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
+    // Rewrite this method
     [self.messages addObject:text];
     
     [self.timestamps addObject:text];
@@ -169,7 +155,7 @@ ODRefreshControl *refreshControl1;
     if ([[[json objectForKey:@"messagesinconversation"]valueForKey:@"sentbyID"][indexPath.row] isEqual:self.sender]) {
         return (indexPath.row) ? JSBubbleMessageTypeOutgoing : JSBubbleMessageTypeOutgoing;
     }
-
+    
     return (indexPath.row) ? JSBubbleMessageTypeIncoming : JSBubbleMessageTypeIncoming;
 }
 
@@ -220,7 +206,7 @@ ODRefreshControl *refreshControl1;
 
 - (UIImage *)avatarImageForOutgoingMessage
 {
-   return senderAvatar;
+    return senderAvatar;
 }
 
 #pragma mark - ODRefreshControl
@@ -232,9 +218,9 @@ ODRefreshControl *refreshControl1;
 {
     //Refresh code - for now it is just for show, not fully implemented
     double delayInSeconds = 1.0;
-    [self.messages addObject:@"Added @ MessVC."];
+    //[self.messages addObject:@"Added @ MessVC."];
     
-    [self setArrays];
+    
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [refreshControl endRefreshing ];
@@ -244,9 +230,9 @@ ODRefreshControl *refreshControl1;
 - (void)dropViewDidBeginRefreshingTime: (ODRefreshControl *)refreshControl
 {
     double delayInSeconds = 1.0;
-    [self.messages addObject:@"Added @ MessVC."];
+    //[self.messages addObject:@"Added @ MessVC."];
+    [self loadJson];
     
-    [self setArrays];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
     });
@@ -269,7 +255,7 @@ ODRefreshControl *refreshControl1;
 - (void)doPOST {
     //Prepering for POST request
     int timestamp = [[NSDate date] timeIntervalSince1970];
-
+    
     
     NSMutableURLRequest *request =
     [[NSMutableURLRequest alloc] initWithURL:
@@ -292,42 +278,57 @@ ODRefreshControl *refreshControl1;
     
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
-    NSLog(@"POST data %@", [NSString stringWithFormat:@"conversationId=%@&timeStamp=%d&senderId=%@&recipientId=%@&text=%@&",
-                            conversationid,
-                            timestamp,
-                            self.sender,
-                            receiver,
-                            self.newmessage]);
+    
     
 }
 
 -(void)cleanArray
 {
     //clean up array
+    //First get the array of message dictionaries:
     
-    //NSDictionary *dict = [[NSDictionary alloc]init];
-    NSString *newstr = [[NSString alloc]init];
+    NSArray * mess = [json objectForKey:@"messagesinconversation"];
     
-    for (newstr in [[json objectForKey:@"messagesinconversation"]valueForKey:@"message"]){
-        newstr = [newstr stringByReplacingOccurrencesOfString:@"&nbsp;"
-                                             withString:@""];
-        [json setValue:newstr forKey:@"message"];
+    //create new array for new messages
+    NSMutableArray * newMessages = [NSMutableArray arrayWithCapacity:mess.count];
+    
+    //then iterate over all messages (they seem to be dictionaries)
+    for (NSDictionary * dict in mess)
+    {
+        //create new mutable dictionary
+        jsonDict = [NSMutableDictionary dictionaryWithDictionary:dict];
+        //get the original text
+        NSString * msg = [dict objectForKey:@"message"];
+        msg = [msg stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
+        msg = [msg stringByReplacingOccurrencesOfString:@"- sent with OxwallMessenger" withString:@""];
+        [jsonDict setObject:msg forKey:@"message"];
+        //store the new dict in new array
+        [newMessages addObject:jsonDict];
+        //Now we update the json object
+        [json setObject:newMessages forKey:@"messagesinconversation"];
+        
     }
     
+    NSLog(@"json %@", json);
     
-//    NSMutableArray *arra = [[NSMutableArray alloc] init];
-//    NSString *str = [[NSString alloc]init];
-//    
-//    for(str in self.messages){
-//        str = [str stringByReplacingOccurrencesOfString:@"&nbsp;"
-//                                             withString:@""];
-//        
-//        
-//        [arra addObject:str];
-//    }
-//    [self.messages removeAllObjects];
-//    [self.messages addObjectsFromArray:arra ];
+}
+
+- (void) loadJson {
     
+    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
+    NSData* messFeed = [NSData dataWithContentsOfURL:
+                        [NSURL URLWithString:callURL]
+                        ];
+    
+    if (messFeed) {
+        // Make sure json is truly mutable
+        json = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization
+                                                              JSONObjectWithData:messFeed
+                                                              options:kNilOptions
+                                                              error:nil]];
+    }
+
+    [self cleanArray];
     
 }
 
