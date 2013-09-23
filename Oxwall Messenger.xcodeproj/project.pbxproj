@@ -165,6 +165,7 @@
 		E9CF5F5C17EB00A100B929EB /* UIView+AnimationOptionsForCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F3117EB00A100B929EB /* UIView+AnimationOptionsForCurve.m */; };
 		E9CF5F7517EC892900B929EB /* ImageFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F7217EC892900B929EB /* ImageFeed.m */; };
 		E9CF5F7617EC892900B929EB /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F7417EC892900B929EB /* ImageModel.m */; };
+		E9EBCE1C17F0D2D800629DB0 /* SearchUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EBCE1B17F0D2D800629DB0 /* SearchUsersViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -420,6 +421,8 @@
 		E9CF5F7217EC892900B929EB /* ImageFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFeed.m; sourceTree = "<group>"; };
 		E9CF5F7317EC892900B929EB /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
 		E9CF5F7417EC892900B929EB /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
+		E9EBCE1A17F0D2D800629DB0 /* SearchUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchUsersViewController.h; path = Messenger/SearchUsersViewController.h; sourceTree = SOURCE_ROOT; };
+		E9EBCE1B17F0D2D800629DB0 /* SearchUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchUsersViewController.m; path = Messenger/SearchUsersViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -508,6 +511,8 @@
 				E909C47D17E198EB0058B75A /* MessagesViewController.h */,
 				E909C47E17E198EB0058B75A /* MessagesViewController.m */,
 				E94CB14E17E78AC60066A516 /* kod.rtf */,
+				E9EBCE1A17F0D2D800629DB0 /* SearchUsersViewController.h */,
+				E9EBCE1B17F0D2D800629DB0 /* SearchUsersViewController.m */,
 			);
 			name = Messenger;
 			path = JSON_HelloWorld;
@@ -1074,6 +1079,7 @@
 				E988C42317E6FDEF0053296C /* NUIViewRenderer.m in Sources */,
 				E988C42417E6FDEF0053296C /* NUIWindowRenderer.m in Sources */,
 				E988C42E17E6FDEF0053296C /* UIBarButtonItem+NUI.m in Sources */,
+				E9EBCE1C17F0D2D800629DB0 /* SearchUsersViewController.m in Sources */,
 				E988C42F17E6FDEF0053296C /* UIButton+NUI.m in Sources */,
 				E988C43017E6FDEF0053296C /* UIControl+NUI.m in Sources */,
 				E988C43117E6FDEF0053296C /* UILabel+NUI.m in Sources */,

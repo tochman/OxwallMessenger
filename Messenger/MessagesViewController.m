@@ -76,9 +76,9 @@ ODRefreshControl *refreshControl1;
     if (messFeed) {
         // Make sure json is truly mutable
         json = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization
-                JSONObjectWithData:messFeed
-                options:kNilOptions
-                error:nil]];
+                                                              JSONObjectWithData:messFeed
+                                                              options:kNilOptions
+                                                              error:nil]];
     }
     
     
@@ -93,8 +93,10 @@ ODRefreshControl *refreshControl1;
     timer3 = [NSTimer scheduledTimerWithTimeInterval: 40.0 target: refreshControl
                                             selector: @selector(endRefreshing) userInfo: nil repeats: YES];
     
+    //Make all unwanted characters disappear
     [self cleanArray];
     
+    //Load the avatar of sender - we are not implementing avatars for outgoing messages
     [self getAvatar];
 }
 
@@ -133,7 +135,7 @@ ODRefreshControl *refreshControl1;
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-
+    
     
     
     //[self.messages addObject:text];
@@ -188,13 +190,13 @@ ODRefreshControl *refreshControl1;
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return ([[json objectForKey:@"messagesinconversation"]valueForKey:@"message"]) [indexPath.row];
-
+    
 }
 
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return ([[json objectForKey:@"messagesinconversation"]valueForKey:@"messagecreated"]) [indexPath.row];
-
+    
 }
 
 - (UIImage *)avatarImageForIncomingMessage
@@ -283,21 +285,20 @@ ODRefreshControl *refreshControl1;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
     });
-   
+    
     
 }
 
 -(void)cleanArray
 {
     //clean up array
-    //First get the array of message dictionaries:
-    
+    //get the array of message dictionaries:
     NSArray * mess = [json objectForKey:@"messagesinconversation"];
     
     //create new array for new messages
     NSMutableArray * newMessages = [NSMutableArray arrayWithCapacity:mess.count];
     
-    //then iterate over all messages (they seem to be dictionaries)
+    //then iterate over all messages
     for (NSDictionary * dict in mess)
     {
         //create new mutable dictionary
@@ -313,9 +314,10 @@ ODRefreshControl *refreshControl1;
         [json setObject:newMessages forKey:@"messagesinconversation"];
         
     }
-    
+    //check output
     NSLog(@"json %@", json);
-     [self.tableView reloadData];
+    //reload everything
+    [self.tableView reloadData];
     
 }
 
@@ -333,9 +335,9 @@ ODRefreshControl *refreshControl1;
                                                               options:kNilOptions
                                                               error:nil]];
     }
-
+    
     [self cleanArray];
-   
+    
 }
 
 @end
