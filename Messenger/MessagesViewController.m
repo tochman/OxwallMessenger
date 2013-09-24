@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Underplot ltd. All rights reserved.
 //
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "Constants.h"
 #import "MessagesViewController.h"
 #import "ODRefreshControl.h"
 
@@ -68,7 +69,7 @@ ODRefreshControl *refreshControl1;
     
     
     
-    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
+    NSString *callURL = [NSString stringWithFormat:@"%@/inbox_messages.php?conversation=%@", BASE_URL, conversationid];
     NSData* messFeed = [NSData dataWithContentsOfURL:
                         [NSURL URLWithString:callURL]
                         ];
@@ -219,11 +220,12 @@ ODRefreshControl *refreshControl1;
     //Refresh code - for now it is just for show, not fully implemented
     double delayInSeconds = 1.0;
     //[self.messages addObject:@"Added @ MessVC."];
-    
+    [self loadJson];
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [refreshControl endRefreshing ];
+       
+    [refreshControl endRefreshing ];
     });
 }
 
@@ -259,7 +261,7 @@ ODRefreshControl *refreshControl1;
     
     NSMutableURLRequest *request =
     [[NSMutableURLRequest alloc] initWithURL:
-     [NSURL URLWithString:@"http://cloudshare.se/webservice/inbox_addmessage.php"]];
+     [NSURL URLWithString:[NSString stringWithFormat:@"%@/inbox_addmessage.php", BASE_URL]]];
     
     [request setHTTPMethod:@"POST"];
     NSString *postString =[NSString stringWithFormat:@"conversationId=%@&timeStamp=%d&senderId=%@&recipientId=%@&text=%@&",
@@ -280,10 +282,11 @@ ODRefreshControl *refreshControl1;
     
     double delayInSeconds = 1.0;
     //[self.messages addObject:@"Added @ MessVC."];
-    [self loadJson];
+    
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self loadJson];
     });
     
     
@@ -323,7 +326,7 @@ ODRefreshControl *refreshControl1;
 
 - (void) loadJson {
     
-    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_messages.php?conversation=%@", conversationid];
+    NSString *callURL = [NSString stringWithFormat:@"%@/inbox_messages.php?conversation=%@", BASE_URL, conversationid];
     NSData* messFeed = [NSData dataWithContentsOfURL:
                         [NSURL URLWithString:callURL]
                         ];
@@ -337,7 +340,7 @@ ODRefreshControl *refreshControl1;
     }
     
     [self cleanArray];
-    
+    [self.tableView reloadData];
 }
 
 @end

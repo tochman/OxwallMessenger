@@ -7,6 +7,7 @@
 //
 
 #import "DUViewController.h"
+#import "Constants.h"
 #import "HUD.h"
 #import "JSONModelLib.h"
 #import "ConversationFeed.h"
@@ -78,7 +79,7 @@
 
 -(void)fireUpdate  {
     [HUD showUIBlockingIndicatorWithText:@"Getting Conversations"];
-    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_conversations.php?user=%@", userid];
+    NSString *callURL = [NSString stringWithFormat:@"%@/inbox_conversations.php?user=%@", BASE_URL, userid];
     
     //fetch the feed
     _feed = [[ConversationFeed alloc] initFromURLWithString:callURL
@@ -197,8 +198,14 @@
     
 }
 
-- (IBAction)newConversation;{
+- (IBAction)newConversation{
     [self performSegueWithIdentifier:@"newConversation" sender:self];
+    
+}
+
+- (IBAction)cancel {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

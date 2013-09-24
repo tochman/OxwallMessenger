@@ -7,7 +7,7 @@
 //
 
 #import "ConversationsViewController.h"
-
+#import "Constants.h"
 #import "JSONModelLib.h"
 #import "ConversationFeed.h"
 #import "HUD.h"
@@ -38,7 +38,7 @@
     [HUD showUIBlockingIndicatorWithText:@"Getting Conversations"];
     //Set the identifier
 
-    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/inbox_conversations.php?user=%@", userid];
+    NSString *callURL = [NSString stringWithFormat:@"%@/inbox_conversations.php?user=%@", BASE_URL, userid];
 
     //fetch the feed
     _feed = [[ConversationFeed alloc] initFromURLWithString:callURL

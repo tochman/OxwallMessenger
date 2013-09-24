@@ -16,5 +16,5 @@
 @property (nonatomic, strong) NSString *userName;
 
 
-
+- (IBAction)cancel;
 @end

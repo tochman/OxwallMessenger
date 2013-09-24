@@ -7,6 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import "Constants.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MasterViewController.h"
 #import "DetailViewController.h"
@@ -46,7 +47,6 @@
     
     // Title
     self.title = @"Oxwall search";
-    [self.navigationItem setHidesBackButton:YES];
     
     [self getFeed:@"t"];
 }
@@ -58,6 +58,13 @@
     
 }
 
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        // back button was pressed.  We know this is true because self is no longer
+        // in the navigation stack.
+    }
+    [super viewWillDisappear:animated];
+}
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
@@ -89,7 +96,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
     
     //make HTTP call
-    NSString* searchCall = [NSString stringWithFormat:@"http://cloudshare.se/webservice/members.php?search=%@", term];
+    NSString* searchCall = [NSString stringWithFormat:@"%@/members.php?search=%@", BASE_URL, term];
     
     [JSONHTTPClient getJSONFromURLWithString: searchCall
                                   completion:^(NSDictionary *json, JSONModelError *err) {
@@ -216,7 +223,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 -(IBAction)cancel {
     
-    [self performSegueWithIdentifier: @"getBack" sender: self];
+   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

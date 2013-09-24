@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "Constants.h"
 #import "JSONModelLib.h"
 #import "LoginModel.h"
 #import "HUD.h"
@@ -136,7 +137,7 @@
     
     
      [HUD showUIBlockingIndicatorWithText:@"Sending data"];
-    NSString *callURL = [NSString stringWithFormat:@"http://cloudshare.se/webservice/login.php?username=%@&password=%@", usernameField.text, passwordField.text];
+    NSString *callURL = [NSString stringWithFormat:@"%@/login.php?username=%@&password=%@", BASE_URL, usernameField.text, passwordField.text];
 
    
     _feed = [[LoginModel alloc] initFromURLWithString:callURL

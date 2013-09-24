@@ -32,6 +32,7 @@
 {
     [super viewDidLoad];
 	// Set the Label text with the selected recipe
+    self.title = @"New Conversation";
     userLabel.text = userName;
 }
 
@@ -44,6 +45,11 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction)cancel {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

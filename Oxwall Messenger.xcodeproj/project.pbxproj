@@ -120,6 +120,8 @@
 		E988C44417E6FE7E0053296C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E988C44317E6FE7E0053296C /* QuartzCore.framework */; };
 		E988C4AB17E716E60053296C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E988C4AA17E716E60053296C /* AudioToolbox.framework */; };
 		E98E28AA17E98432006A4B8D /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E98E28A917E98432006A4B8D /* ODRefreshControl.m */; };
+		E9A84F4917F1EF1F001A24C3 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A84F4817F1EF1E001A24C3 /* SDWebImage.framework */; };
+		E9A84F4F17F21928001A24C3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A84F4E17F21928001A24C3 /* Constants.m */; };
 		E9CF5F3217EB00A100B929EB /* JSBubbleMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5EFA17EB00A100B929EB /* JSBubbleMessageCell.m */; };
 		E9CF5F3317EB00A100B929EB /* JSBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5EFC17EB00A100B929EB /* JSBubbleView.m */; };
 		E9CF5F3417EB00A100B929EB /* JSDismissiveTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5EFE17EB00A100B929EB /* JSDismissiveTextView.m */; };
@@ -363,6 +365,9 @@
 		E988C4AA17E716E60053296C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E98E28A817E98432006A4B8D /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		E98E28A917E98432006A4B8D /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
+		E9A84F4817F1EF1E001A24C3 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
+		E9A84F4D17F21928001A24C3 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Messenger/Constants.h; sourceTree = "<group>"; };
+		E9A84F4E17F21928001A24C3 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Messenger/Constants.m; sourceTree = "<group>"; };
 		E9CF5EF917EB00A100B929EB /* JSBubbleMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBubbleMessageCell.h; sourceTree = "<group>"; };
 		E9CF5EFA17EB00A100B929EB /* JSBubbleMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBubbleMessageCell.m; sourceTree = "<group>"; };
 		E9CF5EFB17EB00A100B929EB /* JSBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBubbleView.h; sourceTree = "<group>"; };
@@ -439,6 +444,7 @@
 				E988C44417E6FE7E0053296C /* QuartzCore.framework in Frameworks */,
 				E988C44217E6FE6F0053296C /* CoreImage.framework in Frameworks */,
 				9C39541E16A34F8200C5C8FD /* UIKit.framework in Frameworks */,
+				E9A84F4917F1EF1F001A24C3 /* SDWebImage.framework in Frameworks */,
 				9C39542016A34F8200C5C8FD /* Foundation.framework in Frameworks */,
 				9C39542216A34F8200C5C8FD /* CoreGraphics.framework in Frameworks */,
 				E92C601117E88E6000B98C63 /* NewRelicAgent.framework in Frameworks */,
@@ -451,6 +457,8 @@
 		9C39540E16A34F8200C5C8FD = {
 			isa = PBXGroup;
 			children = (
+				E9A84F4D17F21928001A24C3 /* Constants.h */,
+				E9A84F4E17F21928001A24C3 /* Constants.m */,
 				E9CF5EF817EB00A100B929EB /* JSMessagesTableViewController */,
 				9C39542416A34F8200C5C8FD /* Supporting Files */,
 				E98E28A717E98432006A4B8D /* ODRefreshControl */,
@@ -476,6 +484,7 @@
 		9C39541C16A34F8200C5C8FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9A84F4817F1EF1E001A24C3 /* SDWebImage.framework */,
 				E9814E7717EE4B6F00043A59 /* SDWebImage.framework */,
 				E9814E7417EE495F00043A59 /* ImageIO.framework */,
 				E92C601617E88EAA00B98C63 /* libz.dylib */,
@@ -1045,6 +1054,7 @@
 				E988C40917E6FDEF0053296C /* NUIAppearance.m in Sources */,
 				E988C40A17E6FDEF0053296C /* NUIConverter.m in Sources */,
 				E9CF5F3417EB00A100B929EB /* JSDismissiveTextView.m in Sources */,
+				E9A84F4F17F21928001A24C3 /* Constants.m in Sources */,
 				E988C40B17E6FDEF0053296C /* NUIFileMonitor.m in Sources */,
 				E988C40C17E6FDEF0053296C /* NUIGraphics.m in Sources */,
 				E9CF5F5A17EB00A100B929EB /* UIColor+JSMessagesView.m in Sources */,
@@ -1165,6 +1175,7 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					/Users/thomas/Downloads,
+					/Users/thomas/OxwallMessenger,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Messenger/Oxwall Messenger-Prefix.pch";
@@ -1183,6 +1194,7 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					/Users/thomas/Downloads,
+					/Users/thomas/OxwallMessenger,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Messenger/Oxwall Messenger-Prefix.pch";
