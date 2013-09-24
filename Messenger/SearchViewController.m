@@ -9,8 +9,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Constants.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "MasterViewController.h"
-#import "DetailViewController.h"
+#import "SearchViewController.h"
+#import "NewConversationViewController.h"
 #import "DUViewController.h"
 
 #import "JSONModelLib.h"
@@ -18,7 +18,7 @@
 //#import "OxwallFeed.h"
 #import "HUD.h"
 
-@interface MasterViewController () {
+@interface SearchViewController () {
     UsersFeed* _feed;
     UsersModel* usersModel;
     NSArray* usersArr;
@@ -27,7 +27,7 @@
 
 @end
 
-@implementation MasterViewController {
+@implementation SearchViewController {
     
     UsersFeed * _feed;
     NSArray *searchResults;
@@ -203,7 +203,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"setUserDetail"]) {
-        DetailViewController *destViewController = segue.destinationViewController;
+        NewConversationViewController *destViewController = segue.destinationViewController;
         
         NSIndexPath *indexPath = nil;
         

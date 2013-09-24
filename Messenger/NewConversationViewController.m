@@ -7,13 +7,13 @@
 //
 
 
-#import "DetailViewController.h"
+#import "NewConversationViewController.h"
 
-@interface DetailViewController ()
+@interface NewConversationViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation NewConversationViewController
 
 @synthesize userName;
 @synthesize userLabel;

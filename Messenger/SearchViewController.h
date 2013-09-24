@@ -1,5 +1,5 @@
 //
-//  MasterViewController.h
+//  SearchViewController.h
 //  Oxwall Messenger
 //
 //  Created by Thomas Ochman on 2013-09-10.
@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JSONModelArray.h"
-@interface MasterViewController : UITableViewController
+@interface SearchViewController : UITableViewController
 @property JSONModelArray *users;
 @property (strong, nonatomic) NSArray* usersArr;
 @property (strong, nonatomic) NSDictionary *json;

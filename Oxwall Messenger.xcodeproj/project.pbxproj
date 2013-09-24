@@ -36,9 +36,9 @@
 		E92C601717E88EAA00B98C63 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E92C601617E88EAA00B98C63 /* libz.dylib */; };
 		E92C601A17E8A65600B98C63 /* MessageData.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C601917E8A65600B98C63 /* MessageData.m */; };
 		E9477EFD17DF865700A16505 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EF717DF865600A16505 /* AppDelegate.m */; };
-		E9477F0117DF865700A16505 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EFC17DF865700A16505 /* DetailViewController.m */; };
+		E9477F0117DF865700A16505 /* NewConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EFC17DF865700A16505 /* NewConversationViewController.m */; };
 		E9477F0717DF869600A16505 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F0217DF869600A16505 /* main.m */; };
-		E9477F0817DF869600A16505 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F0417DF869600A16505 /* MasterViewController.m */; };
+		E9477F0817DF869600A16505 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F0417DF869600A16505 /* SearchViewController.m */; };
 		E9477F1317DF872800A16505 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1017DF872800A16505 /* Default-568h@2x.png */; };
 		E9477F1417DF872800A16505 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1117DF872800A16505 /* Default.png */; };
 		E9477F1517DF872800A16505 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F1217DF872800A16505 /* Default@2x.png */; };
@@ -220,11 +220,11 @@
 		E92C601917E8A65600B98C63 /* MessageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageData.m; sourceTree = "<group>"; };
 		E9477EF617DF865600A16505 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Messenger/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		E9477EF717DF865600A16505 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Messenger/AppDelegate.m; sourceTree = SOURCE_ROOT; };
-		E9477EFB17DF865700A16505 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = Messenger/DetailViewController.h; sourceTree = SOURCE_ROOT; };
-		E9477EFC17DF865700A16505 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = Messenger/DetailViewController.m; sourceTree = SOURCE_ROOT; };
+		E9477EFB17DF865700A16505 /* NewConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewConversationViewController.h; path = Messenger/NewConversationViewController.h; sourceTree = SOURCE_ROOT; };
+		E9477EFC17DF865700A16505 /* NewConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewConversationViewController.m; path = Messenger/NewConversationViewController.m; sourceTree = SOURCE_ROOT; };
 		E9477F0217DF869600A16505 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Messenger/main.m; sourceTree = SOURCE_ROOT; };
-		E9477F0317DF869600A16505 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = Messenger/MasterViewController.h; sourceTree = SOURCE_ROOT; };
-		E9477F0417DF869600A16505 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = Messenger/MasterViewController.m; sourceTree = SOURCE_ROOT; };
+		E9477F0317DF869600A16505 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = Messenger/SearchViewController.h; sourceTree = SOURCE_ROOT; };
+		E9477F0417DF869600A16505 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Messenger/SearchViewController.m; sourceTree = SOURCE_ROOT; };
 		E9477F0517DF869600A16505 /* Oxwall Messenger-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Oxwall Messenger-Info.plist"; path = "Messenger/Oxwall Messenger-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E9477F0617DF869600A16505 /* Oxwall Messenger-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Oxwall Messenger-Prefix.pch"; path = "Messenger/Oxwall Messenger-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		E9477F1017DF872800A16505 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Messenger/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -509,12 +509,12 @@
 				E9477F3C17E0E4D500A16505 /* ConversationsViewController.m */,
 				E9477F1A17DF8AF100A16505 /* LoginViewController.h */,
 				E9477F1B17DF8AF200A16505 /* LoginViewController.m */,
-				E9477F0317DF869600A16505 /* MasterViewController.h */,
-				E9477F0417DF869600A16505 /* MasterViewController.m */,
+				E9477F0317DF869600A16505 /* SearchViewController.h */,
+				E9477F0417DF869600A16505 /* SearchViewController.m */,
 				E9477EF617DF865600A16505 /* AppDelegate.h */,
 				E9477EF717DF865600A16505 /* AppDelegate.m */,
-				E9477EFB17DF865700A16505 /* DetailViewController.h */,
-				E9477EFC17DF865700A16505 /* DetailViewController.m */,
+				E9477EFB17DF865700A16505 /* NewConversationViewController.h */,
+				E9477EFC17DF865700A16505 /* NewConversationViewController.m */,
 				E9477F2C17E043E500A16505 /* DUViewController.h */,
 				E9477F2D17E043E600A16505 /* DUViewController.m */,
 				E909C47D17E198EB0058B75A /* MessagesViewController.h */,
@@ -1038,9 +1038,9 @@
 				9C39548216A3581600C5C8FD /* OxwallFeed.m in Sources */,
 				E9CF5F5917EB00A100B929EB /* UIButton+JSMessagesView.m in Sources */,
 				E9477EFD17DF865700A16505 /* AppDelegate.m in Sources */,
-				E9477F0117DF865700A16505 /* DetailViewController.m in Sources */,
+				E9477F0117DF865700A16505 /* NewConversationViewController.m in Sources */,
 				E9477F0717DF869600A16505 /* main.m in Sources */,
-				E9477F0817DF869600A16505 /* MasterViewController.m in Sources */,
+				E9477F0817DF869600A16505 /* SearchViewController.m in Sources */,
 				E9477F1C17DF8AF200A16505 /* LoginViewController.m in Sources */,
 				E9477F2517DF931800A16505 /* LoginModel.m in Sources */,
 				E9477F2E17E043E700A16505 /* DUViewController.m in Sources */,

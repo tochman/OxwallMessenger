@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@interface NewConversationViewController : UIViewController
 
 
 @property (nonatomic, strong) IBOutlet UILabel *userLabel;
