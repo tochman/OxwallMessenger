@@ -165,7 +165,7 @@
 		E9CF5F5C17EB00A100B929EB /* UIView+AnimationOptionsForCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F3117EB00A100B929EB /* UIView+AnimationOptionsForCurve.m */; };
 		E9CF5F7517EC892900B929EB /* ImageFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F7217EC892900B929EB /* ImageFeed.m */; };
 		E9CF5F7617EC892900B929EB /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F7417EC892900B929EB /* ImageModel.m */; };
-		E9EBCE1C17F0D2D800629DB0 /* SearchUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EBCE1B17F0D2D800629DB0 /* SearchUsersViewController.m */; };
+		E9EBCE1F17F16EC900629DB0 /* UsersFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EBCE1E17F16EC900629DB0 /* UsersFeed.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -421,8 +421,8 @@
 		E9CF5F7217EC892900B929EB /* ImageFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFeed.m; sourceTree = "<group>"; };
 		E9CF5F7317EC892900B929EB /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
 		E9CF5F7417EC892900B929EB /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
-		E9EBCE1A17F0D2D800629DB0 /* SearchUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchUsersViewController.h; path = Messenger/SearchUsersViewController.h; sourceTree = SOURCE_ROOT; };
-		E9EBCE1B17F0D2D800629DB0 /* SearchUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchUsersViewController.m; path = Messenger/SearchUsersViewController.m; sourceTree = SOURCE_ROOT; };
+		E9EBCE1D17F16EC900629DB0 /* UsersFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UsersFeed.h; path = Messenger/UsersFeed.h; sourceTree = "<group>"; };
+		E9EBCE1E17F16EC900629DB0 /* UsersFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsersFeed.m; path = Messenger/UsersFeed.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -511,8 +511,6 @@
 				E909C47D17E198EB0058B75A /* MessagesViewController.h */,
 				E909C47E17E198EB0058B75A /* MessagesViewController.m */,
 				E94CB14E17E78AC60066A516 /* kod.rtf */,
-				E9EBCE1A17F0D2D800629DB0 /* SearchUsersViewController.h */,
-				E9EBCE1B17F0D2D800629DB0 /* SearchUsersViewController.m */,
 			);
 			name = Messenger;
 			path = JSON_HelloWorld;
@@ -626,6 +624,8 @@
 				E9477F3E17E0E51700A16505 /* ConversationsModel.h */,
 				E9477F3F17E0E51700A16505 /* ConversationsModel.m */,
 				E9477F4117E0F43800A16505 /* ConversationFeed.h */,
+				E9EBCE1D17F16EC900629DB0 /* UsersFeed.h */,
+				E9EBCE1E17F16EC900629DB0 /* UsersFeed.m */,
 				E9477F4217E0F43800A16505 /* ConversationFeed.m */,
 				E9477F4417E10B9A00A16505 /* MessageFeed.h */,
 				E9477F4517E10B9C00A16505 /* MessageFeed.m */,
@@ -1053,6 +1053,7 @@
 				E9CF5F3817EB00A100B929EB /* NSString+JSMessagesView.m in Sources */,
 				E988C40E17E6FDEF0053296C /* NUISettings.m in Sources */,
 				E988C40F17E6FDEF0053296C /* NUIStyleParser.m in Sources */,
+				E9EBCE1F17F16EC900629DB0 /* UsersFeed.m in Sources */,
 				E988C41017E6FDEF0053296C /* NUISwizzler.m in Sources */,
 				E988C41117E6FDEF0053296C /* NUIUtilities.m in Sources */,
 				E988C41217E6FDEF0053296C /* NUIBarButtonItemRenderer.m in Sources */,
@@ -1079,7 +1080,6 @@
 				E988C42317E6FDEF0053296C /* NUIViewRenderer.m in Sources */,
 				E988C42417E6FDEF0053296C /* NUIWindowRenderer.m in Sources */,
 				E988C42E17E6FDEF0053296C /* UIBarButtonItem+NUI.m in Sources */,
-				E9EBCE1C17F0D2D800629DB0 /* SearchUsersViewController.m in Sources */,
 				E988C42F17E6FDEF0053296C /* UIButton+NUI.m in Sources */,
 				E988C43017E6FDEF0053296C /* UIControl+NUI.m in Sources */,
 				E988C43117E6FDEF0053296C /* UILabel+NUI.m in Sources */,

@@ -8,7 +8,6 @@
 
 
 #import "JSONModel.h"
-#import "LocationModel.h"
 
 @protocol UsersModel @end
 
@@ -17,8 +16,12 @@
 @property (strong, nonatomic) NSString* username;
 @property (strong, nonatomic) NSString* realname;
 @property (strong, nonatomic) NSString* email;
-@property (strong, nonatomic) NSURL* big_avatar;
-@property (strong, nonatomic) NSURL* small_avatar;
+@property (strong, nonatomic) NSURL* avatar;
+
+
+
+
+
 
 
 

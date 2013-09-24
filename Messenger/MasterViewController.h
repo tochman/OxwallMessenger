@@ -8,7 +8,10 @@
 
 
 #import <UIKit/UIKit.h>
-
+#import "JSONModelArray.h"
 @interface MasterViewController : UITableViewController
+@property JSONModelArray *users;
+@property (strong, nonatomic) NSArray* usersArr;
+@property (strong, nonatomic) NSDictionary *json;
 
 @end

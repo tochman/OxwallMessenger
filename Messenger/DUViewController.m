@@ -11,7 +11,6 @@
 #import "JSONModelLib.h"
 #import "ConversationFeed.h"
 #import "MessagesViewController.h"
-#import "ImageFeed.h"
 #import <QuartzCore/QuartzCore.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
