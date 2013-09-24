@@ -14,4 +14,6 @@
 @property (strong, nonatomic) NSArray* usersArr;
 @property (strong, nonatomic) NSDictionary *json;
 
+-(IBAction)cancel;
+
 @end

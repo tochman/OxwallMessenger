@@ -44,6 +44,6 @@
 
 
 - (IBAction)logOut:(UIBarButtonItem *)sender;
-
+- (IBAction)newConversation;
 
 @end

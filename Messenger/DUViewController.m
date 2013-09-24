@@ -55,7 +55,6 @@
     self.title = realname;
     [self.navigationItem setHidesBackButton:YES];
     
-    
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     userid = [standardUserDefaults stringForKey:@"userid"];
     
@@ -196,6 +195,10 @@
     [MessagesViewController senderAvatarMthd:conversation.avatar];
     [self performSegueWithIdentifier:@"getmessage" sender:self];
     
+}
+
+- (IBAction)newConversation;{
+    [self performSegueWithIdentifier:@"newConversation" sender:self];
 }
 
 

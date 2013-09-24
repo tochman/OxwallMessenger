@@ -10,6 +10,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "DUViewController.h"
 
 #import "JSONModelLib.h"
 #import "UsersFeed.h"
@@ -26,6 +27,7 @@
 @end
 
 @implementation MasterViewController {
+    
     UsersFeed * _feed;
     NSArray *searchResults;
     NSArray *searchResultsAvatar;
@@ -44,6 +46,7 @@
     
     // Title
     self.title = @"Oxwall search";
+    [self.navigationItem setHidesBackButton:YES];
     
     [self getFeed:@"t"];
 }
@@ -179,16 +182,41 @@ shouldReloadTableForSearchString:(NSString *)searchString
 }
 
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Implement method for selecting users
     
     // [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // [self performSegueWithIdentifier:@"profile" sender:self];
-    
+    [self performSegueWithIdentifier:@"setUserDetail" sender:self];
+//    if (tableView == self.searchDisplayController.searchResultsTableView) {
+//        [self performSegueWithIdentifier: @"setUserDetail" sender: self];
+//    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"setUserDetail"]) {
+        DetailViewController *destViewController = segue.destinationViewController;
+        
+        NSIndexPath *indexPath = nil;
+        
+        if ([self.searchDisplayController isActive]) {
+            indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            destViewController.userName = [searchResults objectAtIndex:indexPath.row];
+            
+        } else {
+            indexPath = [self.tableView indexPathForSelectedRow];
+            destViewController.userName = [[usersArr valueForKey:@"realname"] objectAtIndex:indexPath.row];
+        }
+    } else if ([segue.identifier isEqualToString:@"getBack"]) {
+        [self performSegueWithIdentifier: @"getBack" sender: self];
+    }
     
 }
 
-
+-(IBAction)cancel {
+    
+    [self performSegueWithIdentifier: @"getBack" sender: self];
+}
 
 @end

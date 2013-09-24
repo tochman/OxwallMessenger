@@ -11,7 +11,10 @@
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
-@property(weak, nonatomic) NSObject* dataModel;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+@property (nonatomic, strong) IBOutlet UILabel *userLabel;
+@property (nonatomic, strong) NSString *userName;
+
+
+
 @end
