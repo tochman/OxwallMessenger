@@ -128,7 +128,7 @@ LargeTextField {
 }
 View {
     background-color: @primaryBackgroundColor;
-    background-image: NUIViewBackground.png;
+    background-image: OM_background.png;
 }
 Checkbox {
 exclude-views: UICheckbox;

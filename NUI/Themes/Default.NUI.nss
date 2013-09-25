@@ -128,7 +128,7 @@ TextField {
     }
 View {
     background-color: @primaryBackgroundColor;
-    background-image: NUIViewBackground.png;
+    background-image: OM_background.png;
 }
 UICheckbox {
 exclude-views: UIcontrol;

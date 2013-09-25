@@ -71,6 +71,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="6ea-iw-iVP">
+                                <rect key="frame" x="116" y="0.0" width="88" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="IpR-Vs-E2Q"/>
+                                    <constraint firstAttribute="height" constant="46" id="PLg-tE-wgR"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -81,11 +89,13 @@
                             <constraint firstItem="rEt-FR-ShS" firstAttribute="leading" secondItem="HrS-Kq-0Ok" secondAttribute="leading" type="default" id="QSw-FZ-MQk"/>
                             <constraint firstItem="cnS-uc-M54" firstAttribute="top" secondItem="rEt-FR-ShS" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="UsT-ij-4it"/>
                             <constraint firstItem="B9i-T5-S4u" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="55" type="default" id="VBf-Mr-p9Y"/>
-                            <constraint firstItem="cnS-uc-M54" firstAttribute="centerX" secondItem="kdS-Ng-ue1" secondAttribute="centerX" type="default" id="Xs7-Kr-dSs"/>
                             <constraint firstAttribute="trailing" secondItem="B9i-T5-S4u" secondAttribute="trailing" constant="72" type="default" id="ax4-yx-r5d"/>
                             <constraint firstItem="cnS-uc-M54" firstAttribute="leading" secondItem="rEt-FR-ShS" secondAttribute="leading" type="default" id="ejI-5w-08B"/>
+                            <constraint firstItem="6ea-iw-iVP" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" type="default" id="fkw-qk-ls9"/>
                             <constraint firstItem="4YE-7E-zxB" firstAttribute="centerX" secondItem="cnS-uc-M54" secondAttribute="centerX" type="default" id="gl0-Wp-fpx"/>
                             <constraint firstItem="B9i-T5-S4u" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="238" id="gtZ-bH-SVL"/>
+                            <constraint firstItem="6ea-iw-iVP" firstAttribute="centerX" secondItem="kdS-Ng-ue1" secondAttribute="centerX" type="default" id="hER-SJ-eIN"/>
+                            <constraint firstItem="6ea-iw-iVP" firstAttribute="centerX" secondItem="HrS-Kq-0Ok" secondAttribute="centerX" type="default" id="kXy-tS-aS8"/>
                             <constraint firstAttribute="trailing" secondItem="iRm-31-qPQ" secondAttribute="trailing" constant="205" type="default" id="p8Y-mA-qNc"/>
                             <constraint firstItem="SLU-QA-5JN" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="pCB-61-Shg"/>
                             <constraint firstItem="HrS-Kq-0Ok" firstAttribute="top" secondItem="SLU-QA-5JN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pjg-A2-Gj3"/>
@@ -491,8 +501,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default.png" width="320" height="480"/>
+        <image name="Default.png" width="454" height="681"/>
         <image name="btnCheck.png" width="32" height="32"/>
+        <image name="powered-by-oxwall.png" width="97" height="13"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -501,6 +512,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="6fg-Ux-aGr"/>
-        <segue reference="Dfj-Em-gpP"/>
+        <segue reference="rzE-mc-Sqt"/>
     </inferredMetricsTieBreakers>
 </document>
