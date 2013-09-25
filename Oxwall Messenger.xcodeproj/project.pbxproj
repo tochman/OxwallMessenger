@@ -366,8 +366,8 @@
 		E98E28A817E98432006A4B8D /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		E98E28A917E98432006A4B8D /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
 		E9A84F4817F1EF1E001A24C3 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
-		E9A84F4D17F21928001A24C3 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Messenger/Constants.h; sourceTree = "<group>"; };
-		E9A84F4E17F21928001A24C3 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Messenger/Constants.m; sourceTree = "<group>"; };
+		E9A84F4D17F21928001A24C3 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Messenger/Constants.h; sourceTree = "<group>"; };
+		E9A84F4E17F21928001A24C3 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = ../Messenger/Constants.m; sourceTree = "<group>"; };
 		E9A84F5817F2B96C001A24C3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Messenger/Default.png; sourceTree = "<group>"; };
 		E9A84F5917F2B96C001A24C3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Messenger/Default@2x.png"; sourceTree = "<group>"; };
 		E9A84F5C17F2B9E6001A24C3 /* OM_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OM_background.png; sourceTree = "<group>"; };
@@ -461,19 +461,10 @@
 		9C39540E16A34F8200C5C8FD = {
 			isa = PBXGroup;
 			children = (
-				E9A84F5E17F2C3F0001A24C3 /* powered-by-oxwall.png */,
-				E9A84F5C17F2B9E6001A24C3 /* OM_background.png */,
-				E9A84F5817F2B96C001A24C3 /* Default.png */,
-				E9A84F5917F2B96C001A24C3 /* Default@2x.png */,
-				E9A84F4D17F21928001A24C3 /* Constants.h */,
-				E9A84F4E17F21928001A24C3 /* Constants.m */,
-				E9CF5EF817EB00A100B929EB /* JSMessagesTableViewController */,
+				E9F371C817F31554003A4055 /* Supporting libraries */,
 				9C39542416A34F8200C5C8FD /* Supporting Files */,
-				E98E28A717E98432006A4B8D /* ODRefreshControl */,
 				E988C39C17E6FDEF0053296C /* NUI */,
 				E9477F2F17E071EB00A16505 /* Images */,
-				9C39544316A34FC800C5C8FD /* HUD */,
-				9C39544E16A34FF300C5C8FD /* JSONModel */,
 				E9477F1D17DF8B9E00A16505 /* Messenger Models */,
 				9C39542316A34F8200C5C8FD /* Messenger */,
 				9C39541C16A34F8200C5C8FD /* Frameworks */,
@@ -536,6 +527,8 @@
 		9C39542416A34F8200C5C8FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E9A84F4E17F21928001A24C3 /* Constants.m */,
+				E9A84F4D17F21928001A24C3 /* Constants.h */,
 				E9477F3817E0722F00A16505 /* UICheckbox.h */,
 				E9477F3917E0722F00A16505 /* UICheckbox.m */,
 				E9477F1817DF889600A16505 /* InfoPlist.strings */,
@@ -655,6 +648,10 @@
 		E9477F2F17E071EB00A16505 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E9A84F5E17F2C3F0001A24C3 /* powered-by-oxwall.png */,
+				E9A84F5C17F2B9E6001A24C3 /* OM_background.png */,
+				E9A84F5817F2B96C001A24C3 /* Default.png */,
+				E9A84F5917F2B96C001A24C3 /* Default@2x.png */,
 				E909C49417E19B5B0058B75A /* missingAvatar.png */,
 				E909C49517E19B5B0058B75A /* missingAvatar@2x.png */,
 				E9477F3017E0720F00A16505 /* uicheckbox_checked.png */,
@@ -907,6 +904,17 @@
 				E9CF5F2917EB00A100B929EB /* messageSent.aiff */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		E9F371C817F31554003A4055 /* Supporting libraries */ = {
+			isa = PBXGroup;
+			children = (
+				9C39544E16A34FF300C5C8FD /* JSONModel */,
+				9C39544316A34FC800C5C8FD /* HUD */,
+				E98E28A717E98432006A4B8D /* ODRefreshControl */,
+				E9CF5EF817EB00A100B929EB /* JSMessagesTableViewController */,
+			);
+			name = "Supporting libraries";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

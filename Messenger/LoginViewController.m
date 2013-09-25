@@ -148,12 +148,19 @@
            [HUD hideUIBlockingIndicator];
            NSLog(@"call: %@", _feed);
           //json fetched
-
+            if (err) {
+                [[[UIAlertView alloc] initWithTitle:@"Error"
+                                            message:[err localizedDescription]
+                                           delegate:nil
+                                  cancelButtonTitle:@"Close"
+                                  otherButtonTitles: nil] show];
+                return;
+            }
     [self login];
     
        NSLog(@"user: %@", _feed.realname);
    // [self.tableView reloadData];
-                                                        
+            
     }];
     }
     
