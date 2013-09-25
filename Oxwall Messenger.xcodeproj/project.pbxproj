@@ -167,8 +167,6 @@
 		E9CF5F5A17EB00A100B929EB /* UIColor+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F2D17EB00A100B929EB /* UIColor+JSMessagesView.m */; };
 		E9CF5F5B17EB00A100B929EB /* UIImage+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F2F17EB00A100B929EB /* UIImage+JSMessagesView.m */; };
 		E9CF5F5C17EB00A100B929EB /* UIView+AnimationOptionsForCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F3117EB00A100B929EB /* UIView+AnimationOptionsForCurve.m */; };
-		E9CF5F7517EC892900B929EB /* ImageFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F7217EC892900B929EB /* ImageFeed.m */; };
-		E9CF5F7617EC892900B929EB /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CF5F7417EC892900B929EB /* ImageModel.m */; };
 		E9EBCE1F17F16EC900629DB0 /* UsersFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EBCE1E17F16EC900629DB0 /* UsersFeed.m */; };
 /* End PBXBuildFile section */
 
@@ -366,8 +364,8 @@
 		E98E28A817E98432006A4B8D /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		E98E28A917E98432006A4B8D /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
 		E9A84F4817F1EF1E001A24C3 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
-		E9A84F4D17F21928001A24C3 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Messenger/Constants.h; sourceTree = "<group>"; };
-		E9A84F4E17F21928001A24C3 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = ../Messenger/Constants.m; sourceTree = "<group>"; };
+		E9A84F4D17F21928001A24C3 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Messenger/Constants.h; sourceTree = "<group>"; };
+		E9A84F4E17F21928001A24C3 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Messenger/Constants.m; sourceTree = "<group>"; };
 		E9A84F5817F2B96C001A24C3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Messenger/Default.png; sourceTree = "<group>"; };
 		E9A84F5917F2B96C001A24C3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Messenger/Default@2x.png"; sourceTree = "<group>"; };
 		E9A84F5C17F2B9E6001A24C3 /* OM_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OM_background.png; sourceTree = "<group>"; };
@@ -426,10 +424,6 @@
 		E9CF5F2F17EB00A100B929EB /* UIImage+JSMessagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JSMessagesView.m"; sourceTree = "<group>"; };
 		E9CF5F3017EB00A100B929EB /* UIView+AnimationOptionsForCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationOptionsForCurve.h"; sourceTree = "<group>"; };
 		E9CF5F3117EB00A100B929EB /* UIView+AnimationOptionsForCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationOptionsForCurve.m"; sourceTree = "<group>"; };
-		E9CF5F7117EC892900B929EB /* ImageFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFeed.h; sourceTree = "<group>"; };
-		E9CF5F7217EC892900B929EB /* ImageFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFeed.m; sourceTree = "<group>"; };
-		E9CF5F7317EC892900B929EB /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
-		E9CF5F7417EC892900B929EB /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
 		E9EBCE1D17F16EC900629DB0 /* UsersFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UsersFeed.h; path = Messenger/UsersFeed.h; sourceTree = "<group>"; };
 		E9EBCE1E17F16EC900629DB0 /* UsersFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsersFeed.m; path = Messenger/UsersFeed.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -461,6 +455,8 @@
 		9C39540E16A34F8200C5C8FD = {
 			isa = PBXGroup;
 			children = (
+				E9A84F4E17F21928001A24C3 /* Constants.m */,
+				E9A84F4D17F21928001A24C3 /* Constants.h */,
 				E9F371C817F31554003A4055 /* Supporting libraries */,
 				9C39542416A34F8200C5C8FD /* Supporting Files */,
 				E988C39C17E6FDEF0053296C /* NUI */,
@@ -527,8 +523,6 @@
 		9C39542416A34F8200C5C8FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E9A84F4E17F21928001A24C3 /* Constants.m */,
-				E9A84F4D17F21928001A24C3 /* Constants.h */,
 				E9477F3817E0722F00A16505 /* UICheckbox.h */,
 				E9477F3917E0722F00A16505 /* UICheckbox.m */,
 				E9477F1817DF889600A16505 /* InfoPlist.strings */,
@@ -617,10 +611,6 @@
 		E9477F1D17DF8B9E00A16505 /* Messenger Models */ = {
 			isa = PBXGroup;
 			children = (
-				E9CF5F7117EC892900B929EB /* ImageFeed.h */,
-				E9CF5F7217EC892900B929EB /* ImageFeed.m */,
-				E9CF5F7317EC892900B929EB /* ImageModel.h */,
-				E9CF5F7417EC892900B929EB /* ImageModel.m */,
 				9C39548016A3581600C5C8FD /* OxwallFeed.h */,
 				9C39548116A3581600C5C8FD /* OxwallFeed.m */,
 				9C39547D16A3566A00C5C8FD /* LocationModel.h */,
@@ -1093,11 +1083,9 @@
 				E988C41917E6FDEF0053296C /* NUISearchBarRenderer.m in Sources */,
 				E988C41A17E6FDEF0053296C /* NUISegmentedControlRenderer.m in Sources */,
 				E988C41B17E6FDEF0053296C /* NUISliderRenderer.m in Sources */,
-				E9CF5F7517EC892900B929EB /* ImageFeed.m in Sources */,
 				E988C41C17E6FDEF0053296C /* NUISwitchRenderer.m in Sources */,
 				E988C41D17E6FDEF0053296C /* NUITabBarItemRenderer.m in Sources */,
 				E988C41E17E6FDEF0053296C /* NUITabBarRenderer.m in Sources */,
-				E9CF5F7617EC892900B929EB /* ImageModel.m in Sources */,
 				E9CF5F5C17EB00A100B929EB /* UIView+AnimationOptionsForCurve.m in Sources */,
 				E988C41F17E6FDEF0053296C /* NUITableViewCellRenderer.m in Sources */,
 				E988C42017E6FDEF0053296C /* NUITableViewRenderer.m in Sources */,
