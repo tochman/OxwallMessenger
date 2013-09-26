@@ -169,7 +169,7 @@ ODRefreshControl *refreshControl1;
 
 - (JSBubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return JSBubbleMessageStyleSquare;
+    return JSBubbleMessageStyleFlat;
 }
 
 - (JSMessagesViewTimestampPolicy)timestampPolicy
