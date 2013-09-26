@@ -106,6 +106,9 @@ ODRefreshControl *refreshControl1;
     [timer1 invalidate];
     [timer2 invalidate];
     [timer3 invalidate];
+    
+    [json removeAllObjects];
+    
 }
 
 

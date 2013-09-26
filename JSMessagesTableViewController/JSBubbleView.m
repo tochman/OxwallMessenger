@@ -139,7 +139,10 @@ CGFloat const kJSAvatarSize = 50.0f;
             
         case JSBubbleMessageStyleSquare:
             return (self.type == JSBubbleMessageTypeIncoming) ? [UIImage bubbleSquareIncomingSelected] : [UIImage bubbleSquareOutgoingSelected];
-            
+        
+      case JSBubbleMessageStyleFlat:
+        return (self.type == JSBubbleMessageTypeIncoming) ? [UIImage bubbleFlatIncomingSelected] : [UIImage bubbleFlatOutgoingSelected];
+        
         default:
             return nil;
     }
@@ -162,11 +165,66 @@ CGFloat const kJSAvatarSize = 50.0f;
                                   kPaddingTop + kMarginTop,
                                   textSize.width,
                                   textSize.height);
-    
-	[self.text drawInRect:textFrame
-                 withFont:[JSBubbleView font]
-            lineBreakMode:NSLineBreakByWordWrapping
-                alignment:NSTextAlignmentLeft];
+
+    // for flat outgoing messages change the text color to grey or white.  Otherwise leave them black.
+    if (self.style == JSBubbleMessageStyleFlat && self.type == JSBubbleMessageTypeOutgoing)
+    {
+        UIColor* textColor = [UIColor whiteColor];
+        if (self.selectedToShowCopyMenu)
+            textColor = [UIColor lightTextColor];
+        
+        if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending)
+        {
+            NSMutableParagraphStyle* paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+            [paragraphStyle setAlignment:NSTextAlignmentLeft];
+            [paragraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
+
+            NSDictionary* attributes = @{NSFontAttributeName: [JSBubbleView font],
+                                         NSParagraphStyleAttributeName: paragraphStyle};
+
+            // change the color attribute if we are flat
+            if ([JSMessageInputView inputBarStyle] == JSInputBarStyleFlat)
+            {
+                NSMutableDictionary* dict = [attributes mutableCopy];
+                [dict setObject:textColor forKey:NSForegroundColorAttributeName];
+                attributes = [NSDictionary dictionaryWithDictionary:dict];
+            }
+            
+            [self.text drawInRect:textFrame
+                   withAttributes:attributes];
+        }
+        else
+        {
+            CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), textColor.CGColor);
+            [self.text drawInRect:textFrame
+                         withFont:[JSBubbleView font]
+                    lineBreakMode:NSLineBreakByWordWrapping
+                        alignment:NSTextAlignmentLeft];
+            CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), [UIColor blackColor].CGColor);
+        }
+    }
+    else
+    {
+        if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending)
+        {
+            NSMutableParagraphStyle* paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+            [paragraphStyle setAlignment:NSTextAlignmentLeft];
+            [paragraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
+            
+            NSDictionary* attributes = @{NSFontAttributeName: [JSBubbleView font],
+                                         NSParagraphStyleAttributeName: paragraphStyle};
+            
+            [self.text drawInRect:textFrame
+                   withAttributes:attributes];
+        }
+        else
+        {
+            [self.text drawInRect:textFrame
+                         withFont:[JSBubbleView font]
+                    lineBreakMode:NSLineBreakByWordWrapping
+                        alignment:NSTextAlignmentLeft];
+        }
+    }
 }
 
 #pragma mark - Bubble view
@@ -195,7 +253,10 @@ CGFloat const kJSAvatarSize = 50.0f;
             
         case JSBubbleMessageStyleDefaultGreen:
             return [UIImage bubbleDefaultIncomingGreen];
-            
+        
+      case JSBubbleMessageStyleFlat:
+        return [UIImage bubbleFlatIncoming];
+        
         default:
             return nil;
     }
@@ -212,7 +273,10 @@ CGFloat const kJSAvatarSize = 50.0f;
             
         case JSBubbleMessageStyleDefaultGreen:
             return [UIImage bubbleDefaultOutgoingGreen];
-            
+        
+      case JSBubbleMessageStyleFlat:
+        return [UIImage bubbleFlatOutgoing];
+        
         default:
             return nil;
     }

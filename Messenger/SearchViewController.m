@@ -59,11 +59,15 @@
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
+    
+    usersArr = nil;
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
         // back button was pressed.  We know this is true because self is no longer
         // in the navigation stack.
     }
     [super viewWillDisappear:animated];
+    
+   
 }
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
