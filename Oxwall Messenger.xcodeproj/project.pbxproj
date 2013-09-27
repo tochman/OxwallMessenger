@@ -30,6 +30,7 @@
 		E909C47F17E198EB0058B75A /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E909C47E17E198EB0058B75A /* MessagesViewController.m */; };
 		E909C49E17E19B5B0058B75A /* missingAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49417E19B5B0058B75A /* missingAvatar.png */; };
 		E909C49F17E19B5B0058B75A /* missingAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49517E19B5B0058B75A /* missingAvatar@2x.png */; };
+		E92198FB17F57B000052EFA6 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92198FA17F57B000052EFA6 /* StartViewController.m */; };
 		E92C601117E88E6000B98C63 /* NewRelicAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92C601017E88E6000B98C63 /* NewRelicAgent.framework */; };
 		E92C601317E88E8E00B98C63 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92C601217E88E8E00B98C63 /* CoreTelephony.framework */; };
 		E92C601517E88E9B00B98C63 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92C601417E88E9B00B98C63 /* SystemConfiguration.framework */; };
@@ -224,6 +225,8 @@
 		E909C47E17E198EB0058B75A /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesViewController.m; path = Messenger/MessagesViewController.m; sourceTree = SOURCE_ROOT; };
 		E909C49417E19B5B0058B75A /* missingAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missingAvatar.png; sourceTree = "<group>"; };
 		E909C49517E19B5B0058B75A /* missingAvatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "missingAvatar@2x.png"; sourceTree = "<group>"; };
+		E92198F917F57B000052EFA6 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartViewController.h; path = Messenger/StartViewController.h; sourceTree = SOURCE_ROOT; };
+		E92198FA17F57B000052EFA6 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartViewController.m; path = Messenger/StartViewController.m; sourceTree = SOURCE_ROOT; };
 		E92C601017E88E6000B98C63 /* NewRelicAgent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NewRelicAgent.framework; sourceTree = "<group>"; };
 		E92C601217E88E8E00B98C63 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E92C601417E88E9B00B98C63 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -539,6 +542,8 @@
 				E909C47D17E198EB0058B75A /* MessagesViewController.h */,
 				E909C47E17E198EB0058B75A /* MessagesViewController.m */,
 				E94CB14E17E78AC60066A516 /* kod.rtf */,
+				E92198F917F57B000052EFA6 /* StartViewController.h */,
+				E92198FA17F57B000052EFA6 /* StartViewController.m */,
 			);
 			name = Messenger;
 			path = JSON_HelloWorld;
@@ -1082,6 +1087,7 @@
 				9C39546C16A34FF300C5C8FD /* NSArray+JSONModel.m in Sources */,
 				9C39546D16A34FF300C5C8FD /* JSONAPI.m in Sources */,
 				9C39546E16A34FF300C5C8FD /* JSONHTTPClient.m in Sources */,
+				E92198FB17F57B000052EFA6 /* StartViewController.m in Sources */,
 				9C39546F16A34FF300C5C8FD /* JSONModel+networking.m in Sources */,
 				9C39547016A34FF300C5C8FD /* JSONKeyMapper.m in Sources */,
 				E92FD9FE17F41A7C0062D24E /* JSMessagesViewController.m in Sources */,

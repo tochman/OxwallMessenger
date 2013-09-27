@@ -108,6 +108,10 @@ ODRefreshControl *refreshControl1;
     [timer3 invalidate];
     
     [json removeAllObjects];
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        // back button was pressed.  We know this is true because self is no longer
+        // in the navigation stack.
+    }
     
 }
 
