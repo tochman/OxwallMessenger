@@ -482,8 +482,8 @@
 		9C39540E16A34F8200C5C8FD = {
 			isa = PBXGroup;
 			children = (
-				E9A84F4E17F21928001A24C3 /* Constants.m */,
 				E9A84F4D17F21928001A24C3 /* Constants.h */,
+				E9A84F4E17F21928001A24C3 /* Constants.m */,
 				E9F371C817F31554003A4055 /* Supporting libraries */,
 				9C39542416A34F8200C5C8FD /* Supporting Files */,
 				E988C39C17E6FDEF0053296C /* NUI */,

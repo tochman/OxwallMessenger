@@ -49,7 +49,7 @@
     // Title
     self.title = @"Oxwall search";
     
-    [self getFeed:@"t"];
+    [self getFeed:@""];
 }
 
 
@@ -60,17 +60,17 @@
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
-     [super viewWillDisappear:animated];
+    [super viewWillDisappear:animated];
     usersArr = nil;
     json = nil;
-   
+    
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
         // back button was pressed.  We know this is true because self is no longer
         // in the navigation stack.
     }
-   
     
-   
+    
+    
 }
 
 
@@ -81,9 +81,10 @@
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@",searchText];
     
     
-   
+    
     searchResults = [[usersArr valueForKey:@"realname"] filteredArrayUsingPredicate:resultPredicate];
-   // searchResultsAvatar = [usersArr valueForKey:@"avatar"];
+   //We can´t implement this this way.
+    //searchResultsAvatar = [usersArr valueForKey:@"avatar"];
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller
@@ -161,9 +162,9 @@ shouldReloadTableForSearchString:(NSString *)searchString
 {
     //UsersModel* user = usersArr[indexPath.row];
     //user = _feed.posts[indexPath.row];
-    static NSString *simpleTableIdentifier = @"SearchCell";
+    static NSString *cellIdentifier = @"SearchCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     
     // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
@@ -182,11 +183,11 @@ shouldReloadTableForSearchString:(NSString *)searchString
         cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
         //[cell.imageView setImageWithURL:[[searchResults objectAtIndex:indexPath.row] valueForKey:@"avatar" ]
         //               placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
-
+        
     } else {
         cell.textLabel.text = [[usersArr objectAtIndex:indexPath.row] valueForKey:@"realname"];
-        //[cell.imageView setImageWithURL:[[usersArr objectAtIndex:indexPath.row] valueForKey:@"avatar"]
-        //               placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
+        [cell.imageView setImageWithURL:[[usersArr objectAtIndex:indexPath.row] valueForKey:@"avatar"]
+                       placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
     }
     
     
@@ -204,9 +205,9 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
     // [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"setUserDetail" sender:self];
-//    if (tableView == self.searchDisplayController.searchResultsTableView) {
-//        [self performSegueWithIdentifier: @"setUserDetail" sender: self];
-//    }
+    //    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    //        [self performSegueWithIdentifier: @"setUserDetail" sender: self];
+    //    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -231,7 +232,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 -(IBAction)cancel {
     
-   [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
