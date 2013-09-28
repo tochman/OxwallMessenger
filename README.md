@@ -12,11 +12,16 @@ Demo app to show how to connect to Oxwall DB using a set of webservices. Hopeful
 
 This is Open Source - this means you can do what ever you want with this code! 
 
-This is a work in progress, but if you want to check it out you are welcome to do so. feel free to contact me with any questions at thomas [at] nocebo.se If you'd like to contribute to this project I'll be very happy! This project is based on open source projects. It's a quick n' dirty personal project that will improve over time.
+This is a work in progress, but if you want to check it out you are welcome to do so. feel free to contact me with any questions at thomas [at] nocebo.se If you'd like to contribute to this project I'll be very happy! 
+
+<a href="mailto:thomas@nocebo.se" title="Pair program with me!">
+  <img  src="http://pairprogramwith.me/badge.png"
+        alt="Pair program with me!" />
+</a>
 
 Libraries
 --------------
-This project uses (among others):
+This project is based on open source projects and uses (among others):
 
 - JSONModel: https://github.com/icanzilb/JSONModel
 - MessagesTableViewController: https://github.com/jessesquires/MessagesTableViewController 
