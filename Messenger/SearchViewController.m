@@ -36,7 +36,7 @@
     NSDictionary* json;
     
 }
-@synthesize usersArr, json;
+@synthesize usersArr, json, sender, receiver, subject;
 
 - (void)viewDidLoad
 {
@@ -204,12 +204,54 @@ shouldReloadTableForSearchString:(NSString *)searchString
     //Implement method for selecting users
     
     // [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:@"setUserDetail" sender:self];
+    //[self performSegueWithIdentifier:@"setUserDetail" sender:self];
+    receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
+    sender = @"1";
+
+    [self showMessage:self];
     //    if (tableView == self.searchDisplayController.searchResultsTableView) {
     //        [self performSegueWithIdentifier: @"setUserDetail" sender: self];
     //    }
 }
 
+
+- (void)showMessage:(id)sender {
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter subject"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Continue", nil];
+    
+    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [message show];
+    
+}
+
+- (void)alertView:(UIAlertView *)message clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        NSLog(@"Clicked button index 0");
+        // Add the action here
+    } else {
+        NSLog(@"Clicked button index other than 0");
+        // Add another action here
+        NSLog(@"subject: %@", subject);
+        [self performSegueWithIdentifier:@"setUserDetail" sender:self];
+    }
+}
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
+{
+    NSString *inputText = [[alertView textFieldAtIndex:0] text];
+    if( [inputText length] >= 3 )
+    {
+        subject = [[alertView textFieldAtIndex:0] text];
+        return YES;
+    }
+    else
+    {
+        
+        return NO;
+    }
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"setUserDetail"]) {
         NewConversationViewController *destViewController = segue.destinationViewController;
@@ -223,12 +265,53 @@ shouldReloadTableForSearchString:(NSString *)searchString
         } else {
             indexPath = [self.tableView indexPathForSelectedRow];
             destViewController.userName = [[usersArr valueForKey:@"realname"] objectAtIndex:indexPath.row];
+            [self doPOST];
+           
         }
     } else if ([segue.identifier isEqualToString:@"getBack"]) {
         [self performSegueWithIdentifier: @"getBack" sender: self];
     }
     
 }
+
+- (void)doPOST {
+    //Prepering for POST request
+    int timestamp = [[NSDate date] timeIntervalSince1970];
+
+    
+    
+    NSMutableURLRequest *request =
+    [[NSMutableURLRequest alloc] initWithURL:
+     [NSURL URLWithString:[NSString stringWithFormat:@"%@/inbox_addconversation.php", BASE_URL]]];
+    
+    [request setHTTPMethod:@"POST"];
+    NSString *postString =[NSString stringWithFormat:@"timeStamp=%d&senderId=%@&recipientId=%@&subject=%@&",
+                           timestamp,
+                           sender,
+                           receiver,
+                           subject];
+    
+    [request setValue:[NSString
+                       stringWithFormat:@"%d", [postString length]]
+   forHTTPHeaderField:@"Content-length"];
+    
+    [request setHTTPBody:[postString
+                          dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    
+    NSLog(@"Sender? %@", sender);
+    NSLog(@"Reciver? %@", receiver);
+    NSLog(@"Subject? %@", subject);
+    
+
+    
+
+    
+    
+}
+
 
 -(IBAction)cancel {
     

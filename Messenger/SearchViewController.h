@@ -13,6 +13,9 @@
 @property JSONModelArray *users;
 @property (strong, nonatomic) NSArray* usersArr;
 @property (strong, nonatomic) NSDictionary *json;
+@property (strong, nonatomic) NSString *subject;
+@property (strong, nonatomic) NSString *sender;
+@property (strong, nonatomic) NSString *receiver;
 
 -(IBAction)cancel;
 

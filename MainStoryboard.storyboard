@@ -573,6 +573,7 @@
     </scenes>
     <resources>
         <image name="Default.png" width="454" height="681"/>
+        <image name="Default.png" width="454" height="681"/>
         <image name="btnCheck.png" width="32" height="32"/>
         <image name="powered-by-oxwall.png" width="97" height="13"/>
     </resources>

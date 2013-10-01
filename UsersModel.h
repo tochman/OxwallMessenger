@@ -13,6 +13,7 @@
 
 @interface UsersModel : JSONModel
 
+@property (strong, nonatomic) NSString* id;
 @property (strong, nonatomic) NSString* username;
 @property (strong, nonatomic) NSString* realname;
 @property (strong, nonatomic) NSString* email;
