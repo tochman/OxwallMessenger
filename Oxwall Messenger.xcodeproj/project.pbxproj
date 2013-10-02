@@ -25,7 +25,6 @@
 		9C39547016A34FF300C5C8FD /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39546516A34FF300C5C8FD /* JSONKeyMapper.m */; };
 		9C39547116A34FF300C5C8FD /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39546716A34FF300C5C8FD /* JSONValueTransformer.m */; };
 		9C39547C16A3554D00C5C8FD /* UsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39547B16A3554D00C5C8FD /* UsersModel.m */; };
-		9C39547F16A3566A00C5C8FD /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39547E16A3566A00C5C8FD /* LocationModel.m */; };
 		9C39548216A3581600C5C8FD /* OxwallFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39548116A3581600C5C8FD /* OxwallFeed.m */; };
 		E909C47F17E198EB0058B75A /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E909C47E17E198EB0058B75A /* MessagesViewController.m */; };
 		E909C49E17E19B5B0058B75A /* missingAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49417E19B5B0058B75A /* missingAvatar.png */; };
@@ -217,8 +216,6 @@
 		9C39546716A34FF300C5C8FD /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
 		9C39547A16A3554D00C5C8FD /* UsersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersModel.h; sourceTree = "<group>"; };
 		9C39547B16A3554D00C5C8FD /* UsersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersModel.m; sourceTree = "<group>"; };
-		9C39547D16A3566A00C5C8FD /* LocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationModel.h; sourceTree = "<group>"; };
-		9C39547E16A3566A00C5C8FD /* LocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationModel.m; sourceTree = "<group>"; };
 		9C39548016A3581600C5C8FD /* OxwallFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxwallFeed.h; sourceTree = "<group>"; };
 		9C39548116A3581600C5C8FD /* OxwallFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxwallFeed.m; sourceTree = "<group>"; };
 		E909C47D17E198EB0058B75A /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesViewController.h; path = Messenger/MessagesViewController.h; sourceTree = SOURCE_ROOT; };
@@ -739,8 +736,6 @@
 			children = (
 				9C39548016A3581600C5C8FD /* OxwallFeed.h */,
 				9C39548116A3581600C5C8FD /* OxwallFeed.m */,
-				9C39547D16A3566A00C5C8FD /* LocationModel.h */,
-				9C39547E16A3566A00C5C8FD /* LocationModel.m */,
 				9C39547A16A3554D00C5C8FD /* UsersModel.h */,
 				9C39547B16A3554D00C5C8FD /* UsersModel.m */,
 				E9477F2317DF931800A16505 /* LoginModel.h */,
@@ -1093,7 +1088,6 @@
 				E92FD9FE17F41A7C0062D24E /* JSMessagesViewController.m in Sources */,
 				9C39547116A34FF300C5C8FD /* JSONValueTransformer.m in Sources */,
 				9C39547C16A3554D00C5C8FD /* UsersModel.m in Sources */,
-				9C39547F16A3566A00C5C8FD /* LocationModel.m in Sources */,
 				9C39548216A3581600C5C8FD /* OxwallFeed.m in Sources */,
 				E9477EFD17DF865700A16505 /* AppDelegate.m in Sources */,
 				E9477F0117DF865700A16505 /* NewConversationViewController.m in Sources */,

@@ -34,6 +34,7 @@
     NSArray *searchResultsAvatar;
     // NSArray* usersArr;
     NSDictionary* json;
+    UINavigationController *navController;
     
 }
 @synthesize usersArr, json, sender, receiver, subject;
@@ -64,7 +65,7 @@
     usersArr = nil;
     json = nil;
     
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+    if ([navController.viewControllers indexOfObject:self]==NSNotFound) {
         // back button was pressed.  We know this is true because self is no longer
         // in the navigation stack.
     }
