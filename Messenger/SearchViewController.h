@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString *subject;
 @property (strong, nonatomic) NSString *sender;
 @property (strong, nonatomic) NSString *receiver;
+@property (strong, nonatomic) NSString *conversationId;
 
 -(IBAction)cancel;
 

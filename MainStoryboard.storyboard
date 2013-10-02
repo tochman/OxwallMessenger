@@ -439,6 +439,7 @@
                         <outlet property="view" destination="13" id="iz7-u4-2nI"/>
                         <segue destination="Qn3-9b-ypi" kind="modal" identifier="setUserDetail" id="Ihy-vM-T4X"/>
                         <segue destination="mfc-GP-I8c" kind="push" identifier="getBack" id="Dfj-Em-gpP"/>
+                        <segue destination="YOd-9q-iqi" kind="push" identifier="message" id="p8L-nl-tWI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -560,7 +561,7 @@
             <objects>
                 <viewController id="YOd-9q-iqi" customClass="MessagesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YmP-NT-GcF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -582,8 +583,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rzE-mc-Sqt"/>
         <segue reference="vJf-AJ-AST"/>
         <segue reference="6fg-Ux-aGr"/>
+        <segue reference="Dfj-Em-gpP"/>
+        <segue reference="p8L-nl-tWI"/>
     </inferredMetricsTieBreakers>
 </document>

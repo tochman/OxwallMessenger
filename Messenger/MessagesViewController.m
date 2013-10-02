@@ -62,14 +62,15 @@ ODRefreshControl *refreshControl1;
 {
     
     json =[[NSMutableDictionary alloc]init];
-    NSLog(@"conversationid :%@",conversationid);
-    NSLog(@"%@", senderAvatarURL);
+    NSLog(@"MVC conversationid :%@",conversationid);
+    NSLog(@"MVC sender avatar %@", senderAvatarURL);
+    NSLog(@"MVC reciever %@", receiver);
     NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
     self.sender = [standardUserDefaults stringForKey:@"userid"];
     
     
     
-    NSString *callURL = [NSString stringWithFormat:@"%@/inbox_messages.php?conversation=%@", BASE_URL, conversationid];
+    NSString *callURL = [NSString stringWithFormat:@"%@/inbox_messages.php?conversationId=%@", BASE_URL, conversationid];
     NSData* messFeed = [NSData dataWithContentsOfURL:
                         [NSURL URLWithString:callURL]
                         ];
@@ -240,10 +241,11 @@ ODRefreshControl *refreshControl1;
 {
     double delayInSeconds = 1.0;
     //[self.messages addObject:@"Added @ MessVC."];
-    [self loadJson];
+   
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self loadJson];
     });
 }
 
@@ -293,9 +295,12 @@ ODRefreshControl *refreshControl1;
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self loadJson];
+       
     });
-    
+    //reload everything
+    [self dropViewDidBeginRefreshingTime:nil];
+    [self.tableView reloadData];
+    return;
     
 }
 
@@ -324,16 +329,13 @@ ODRefreshControl *refreshControl1;
         [json setObject:newMessages forKey:@"messagesinconversation"];
         
     }
-    //check output
-    NSLog(@"json %@", json);
-    //reload everything
-    [self.tableView reloadData];
+
     
 }
 
 - (void) loadJson {
-    
-    NSString *callURL = [NSString stringWithFormat:@"%@/inbox_messages.php?conversation=%@", BASE_URL, conversationid];
+     NSLog(@"conversationID %@", conversationid);
+    NSString *callURL = [NSString stringWithFormat:@"%@/inbox_messages.php?conversationId=%@", BASE_URL, conversationid];
     NSData* messFeed = [NSData dataWithContentsOfURL:
                         [NSURL URLWithString:callURL]
                         ];
@@ -344,10 +346,10 @@ ODRefreshControl *refreshControl1;
                                                               JSONObjectWithData:messFeed
                                                               options:kNilOptions
                                                               error:nil]];
+        [self cleanArray];
+        [self.tableView reloadData];
     }
-    
-    [self cleanArray];
-    [self.tableView reloadData];
+
 }
 
 @end

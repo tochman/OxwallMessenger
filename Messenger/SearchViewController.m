@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SearchViewController.h"
+#import "MessagesViewController.h"
 #import "NewConversationViewController.h"
 #import "DUViewController.h"
 
@@ -37,7 +38,7 @@
     UINavigationController *navController;
     
 }
-@synthesize usersArr, json, sender, receiver, subject;
+@synthesize usersArr, json, sender, receiver, subject, conversationId;
 
 - (void)viewDidLoad
 {
@@ -48,9 +49,9 @@
     
     
     // Title
-    self.title = @"Oxwall search";
+    self.title = @"New message";
     
-    [self getFeed:@""];
+    [self getFeed:@"Th"];
 }
 
 
@@ -127,7 +128,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
                                       usersArr = [UsersModel arrayOfModelsFromDictionaries:
                                                   json[@"posts"]
                                                   ];
-                                      NSLog(@"videos: %@", usersArr);
+                                      
                                       if (usersArr) NSLog(@"Loaded successfully models");
                                       [self.tableView reloadData];
                                       
@@ -191,7 +192,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
                        placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
     }
     
-    
+    receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
     
     
     
@@ -206,8 +207,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
     // [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     //[self performSegueWithIdentifier:@"setUserDetail" sender:self];
-    receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
-    sender = @"1";
+    //receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
+    sender = @"1"; //Implement
 
     [self showMessage:self];
     //    if (tableView == self.searchDisplayController.searchResultsTableView) {
@@ -236,7 +237,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
         NSLog(@"Clicked button index other than 0");
         // Add another action here
         NSLog(@"subject: %@", subject);
-        [self performSegueWithIdentifier:@"setUserDetail" sender:self];
+        [self doPOST];
+        //[self performSegueWithIdentifier:@"setUserDetail" sender:self];
     }
 }
 - (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
@@ -286,6 +288,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
      [NSURL URLWithString:[NSString stringWithFormat:@"%@/inbox_addconversation.php", BASE_URL]]];
     
     [request setHTTPMethod:@"POST"];
+    
     NSString *postString =[NSString stringWithFormat:@"timeStamp=%d&senderId=%@&recipientId=%@&subject=%@&",
                            timestamp,
                            sender,
@@ -299,17 +302,29 @@ shouldReloadTableForSearchString:(NSString *)searchString
     [request setHTTPBody:[postString
                           dataUsingEncoding:NSUTF8StringEncoding]];
     
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    //[[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSError *errorReturned = nil;
+    NSURLResponse *theResponse =[[NSURLResponse alloc]init];
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&theResponse error:&errorReturned];
     
+    if (errorReturned) {
+        // Handle error.
+    }
+    else
+    {
+        NSError *jsonParsingError = nil;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:&jsonParsingError];
+        NSLog(@"resultat? %@", jsonArray);
+        conversationId = [jsonArray valueForKey:@"conversationId"];
+    }
     
-    NSLog(@"Sender? %@", sender);
-    NSLog(@"Reciver? %@", receiver);
-    NSLog(@"Subject? %@", subject);
-    
+    [MessagesViewController conversationIdMthd:conversationId];
+    [MessagesViewController receiverIdMthd:receiver];
+    //[MessagesViewController senderAvatarMthd:conversation.avatar];
 
+    [self performSegueWithIdentifier:@"message" sender:self];
     
-
-    
+ 
     
 }
 
