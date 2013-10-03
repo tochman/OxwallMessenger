@@ -190,9 +190,10 @@ shouldReloadTableForSearchString:(NSString *)searchString
         cell.textLabel.text = [[usersArr objectAtIndex:indexPath.row] valueForKey:@"realname"];
         [cell.imageView setImageWithURL:[[usersArr objectAtIndex:indexPath.row] valueForKey:@"avatar"]
                        placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
+        
     }
     
-    receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
+    
     
     
     
@@ -208,8 +209,10 @@ shouldReloadTableForSearchString:(NSString *)searchString
     // [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     //[self performSegueWithIdentifier:@"setUserDetail" sender:self];
     //receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
-    sender = @"1"; //Implement
+    receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
 
+    sender = @"1"; //Implement
+    NSLog(@"recievier vid val av rad: %@", receiver);
     [self showMessage:self];
     //    if (tableView == self.searchDisplayController.searchResultsTableView) {
     //        [self performSegueWithIdentifier: @"setUserDetail" sender: self];
