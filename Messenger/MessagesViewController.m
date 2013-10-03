@@ -58,6 +58,8 @@ ODRefreshControl *refreshControl1;
     self.title = @"Messages";
 }
 
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     
@@ -100,6 +102,8 @@ ODRefreshControl *refreshControl1;
     
     //Load the avatar of sender - we are not implementing avatars for outgoing messages
     [self getAvatar];
+    [super viewWillAppear:animated];
+    [self scrollToBottomAnimated:YES];
 }
 
 -(void) viewWillDisappear:(BOOL)animated  {
@@ -113,7 +117,7 @@ ODRefreshControl *refreshControl1;
         // back button was pressed.  We know this is true because self is no longer
         // in the navigation stack.
     }
-    
+
 }
 
 
@@ -125,12 +129,7 @@ ODRefreshControl *refreshControl1;
 }
 
 
-- (void)buttonPressed:(UIButton*)sender
-{
-    // Testing pushing/popping messages view ???? Where did this code come from?? Do we need this?
-    MessagesViewController *vc = [[MessagesViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:vc animated:YES];
-}
+
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -144,12 +143,7 @@ ODRefreshControl *refreshControl1;
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-    
-    
-    
-    //[self.messages addObject:text];
-    
-    //[self.timestamps addObject:text];
+
     
     self.newmessage = text;
     
@@ -159,6 +153,7 @@ ODRefreshControl *refreshControl1;
         [JSMessageSoundEffect playMessageReceivedSound];
     
     [self sendMessage:self];
+    [self scrollToBottomAnimated:YES];
     [self finishSend];
 }
 
@@ -232,16 +227,14 @@ ODRefreshControl *refreshControl1;
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-       
-    [refreshControl endRefreshing ];
+        
+        [refreshControl endRefreshing ];
     });
 }
 
 - (void)dropViewDidBeginRefreshingTime: (ODRefreshControl *)refreshControl
 {
     double delayInSeconds = 1.0;
-    //[self.messages addObject:@"Added @ MessVC."];
-   
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -259,9 +252,16 @@ ODRefreshControl *refreshControl1;
 - (IBAction)sendMessage:(id)sender{
     
     [self doPOST];
+    [self scrollToBottomAnimated:YES];
     
 }
 
+- (void)scrollToBottomAnimated:(BOOL)animated {
+    NSInteger numberOfRows = [self.tableView numberOfRowsInSection:0];
+    if (numberOfRows) {
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:numberOfRows-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+    }
+}
 
 - (void)doPOST {
     //Prepering for POST request
@@ -290,15 +290,15 @@ ODRefreshControl *refreshControl1;
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     double delayInSeconds = 1.0;
-    //[self.messages addObject:@"Added @ MessVC."];
     
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-       
+        
     });
     //reload everything
     [self dropViewDidBeginRefreshingTime:nil];
+    [self scrollToBottomAnimated:YES];
     [self.tableView reloadData];
     return;
     
@@ -329,12 +329,12 @@ ODRefreshControl *refreshControl1;
         [json setObject:newMessages forKey:@"messagesinconversation"];
         
     }
-
+    
     
 }
 
 - (void) loadJson {
-     NSLog(@"conversationID %@", conversationid);
+    NSLog(@"conversationID %@", conversationid);
     NSString *callURL = [NSString stringWithFormat:@"%@/inbox_messages.php?conversationId=%@", BASE_URL, conversationid];
     NSData* messFeed = [NSData dataWithContentsOfURL:
                         [NSURL URLWithString:callURL]
@@ -347,9 +347,10 @@ ODRefreshControl *refreshControl1;
                                                               options:kNilOptions
                                                               error:nil]];
         [self cleanArray];
+        [self scrollToBottomAnimated:YES];
         [self.tableView reloadData];
     }
-
+    
 }
 
 @end
