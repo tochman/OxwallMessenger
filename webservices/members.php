@@ -99,7 +99,7 @@ if ($rows) {
         $post["username"] = $row["username"];
         $post["realname"]    = $row["realname"];
         $post["email"]    = $row["email"];
-        $post["avatar"] = OW_URL_IMAGE . 'ow_userfiles/plugins/base/avatars/avatar_'.$row['id'].'_'.$row['hash'].'.jpg';
+        $post["avatar"] = OW_URL_IMAGE . '/ow_userfiles/plugins/base/avatars/avatar_'.$row['id'].'_'.$row['hash'].'.jpg';
         
         
         
