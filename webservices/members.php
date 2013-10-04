@@ -105,7 +105,7 @@ if ($rows) {
     
 } else {
     $response["success"] = 0;
-    $response["message"] = "No Post Available!";
+    $response["message"] = "No Members Available!";
     die(json_encode($response));
 }
 
