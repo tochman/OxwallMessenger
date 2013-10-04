@@ -51,7 +51,7 @@
     // Title
     self.title = @"New message";
     
-    [self getFeed:@"Th"];
+    [self getFeed:@""];
 }
 
 
