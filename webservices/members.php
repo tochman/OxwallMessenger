@@ -2,15 +2,11 @@
 
 /*
 Our "config.inc.php" file connects to database every time we include or require
-it within a php script.  Since we want this script to add a new user to our db,
-we will be talking with our database, and therefore,
-let's require the connection to happen:
+it within a php script.  
 
-The query structure is complicated. Make documentation in wili
+TODO The query structure is complicated. Make documentation in wiki
 
-LIMIT 0, 100
-
-
+LIMIT 0, 100??
 
 
 */
@@ -37,7 +33,7 @@ SELECT
 FROM 
 	ow_base_user  
 LEFT JOIN
-     ow_base_avatar 
+     	ow_base_avatar 
 ON 
 	ow_base_user.id = ow_base_avatar.userId
 
@@ -47,24 +43,20 @@ ON
 	ow_base_user.id = ow_base_component_entity_setting.entityId
 	
 LEFT JOIN
-     ow_base_question_data 
+     	ow_base_question_data 
 ON 
 	ow_base_user.id = ow_base_question_data.userId 
 AND
-     questionName in ('sex', 'birthdate', 'realname')
+     	questionName in ('sex', 'birthdate', 'realname')
 
 WHERE ow_base_user.username LIKE :search
     	
 GROUP BY ow_base_user.username
 
-
-
 ";
 
 $query_params = array(
     	':search' => $_GET['search'].'%'
-        //':username' => $_POST['username']
-        
     );
 
 //execute query
@@ -99,7 +91,7 @@ if ($rows) {
         $post["username"] = $row["username"];
         $post["realname"]    = $row["realname"];
         $post["email"]    = $row["email"];
-        $post["avatar"] = OW_URL_IMAGE . 'ow_userfiles/plugins/base/avatars/avatar_'.$row['id'].'_'.$row['hash'].'.jpg';
+        $post["avatar"] = OW_URL_IMAGE . '/ow_userfiles/plugins/base/avatars/avatar_'.$row['id'].'_'.$row['hash'].'.jpg';
         
         
         
@@ -113,7 +105,7 @@ if ($rows) {
     
 } else {
     $response["success"] = 0;
-    $response["message"] = "No Post Available!";
+    $response["message"] = "No Members Available!";
     die(json_encode($response));
 }
 
