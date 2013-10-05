@@ -11,7 +11,7 @@ if (!empty($_POST)) {
 	$query = "START TRANSACTION;
 	INSERT INTO ow_mailbox_message ( conversationId, timeStamp, senderId, recipientId, text ) VALUES ( :conversationId, :timeStamp, :senderId, :recipientId, :text );
 
-	UPDATE ow_mailbox_conversation
+UPDATE ow_mailbox_conversation
 	SET
 
 	 `read`=
@@ -25,10 +25,9 @@ if (!empty($_POST)) {
  THEN
  1
  END),
-
-
-     `viewed` =
-     (CASE
+ 
+ 	 `viewed`=
+(CASE
  WHEN
  `interlocutorId` = :senderId
  THEN
@@ -38,15 +37,73 @@ if (!empty($_POST)) {
  THEN
  1
  END),
- 
-     `deleted` = IF(`deleted` = '1', '0', '0') ,
-     `deleted` = IF(`deleted` = '2', '0', '0') ,
-     `notificationSent` = '0' ,
-     `subject`= 'for testing...'
+
+     `deleted` = IF(`deleted` != '0', '0', '0') ,
+     `notificationSent` = '0'
+     
+    
 	 WHERE ow_mailbox_conversation.id = :conversationId;
 
+SET @last_message_id = (SELECT id FROM ow_mailbox_last_message WHERE conversationId = :conversationId);
 
-	COMMIT;";
+SELECT 
+CASE 
+WHEN  `interlocutorId` =  :senderId
+THEN (
+
+SELECT MAX( id ) 
+FROM  `ow_mailbox_message` 
+WHERE  `conversationId` =  :conversationId
+AND  `senderId` =  :senderId
+)
+ELSE (
+
+SELECT MAX( id ) 
+FROM  `ow_mailbox_message` 
+WHERE  `conversationId` =  :conversationId
+AND  `recipientId` =  :senderId
+)
+END 
+INTO @last_interlocutorMessageId 
+FROM ow_mailbox_conversation
+WHERE  `id` =  :conversationId;
+
+
+SELECT 
+CASE 
+WHEN  `initiatorId` =  :senderId
+THEN (
+
+SELECT MAX( id ) 
+FROM  `ow_mailbox_message` 
+WHERE  `conversationId` =  :conversationId
+AND  `senderId` =  :senderId
+)
+ELSE (
+
+SELECT MAX( id ) 
+FROM  `ow_mailbox_message` 
+WHERE  `conversationId` =  :conversationId
+AND  `recipientId` =  :senderId
+)
+END 
+INTO @last_initiatorMessageId 
+FROM ow_mailbox_conversation
+WHERE  `id` =  :conversationId;
+
+	 
+
+    INSERT IGNORE INTO  ow_mailbox_last_message (  id ,  conversationId ,  initiatorMessageId ,  interlocutorMessageId ) 
+    VALUES (@last_message_id, :conversationId, @last_initiatorMessageId, @last_interlocutorMessageId ) 
+    ON DUPLICATE KEY UPDATE 
+    id = @last_message_id,
+    conversationId = :conversationId,
+    initiatorMessageId = @last_initiatorMessageId,
+    interlocutorMessageId = @last_interlocutorMessageId ;		
+	
+	
+	COMMIT;	
+	";
 
 	//Update query
 	$query_params = array(

@@ -277,7 +277,7 @@ ODRefreshControl *refreshControl1;
                            conversationid,
                            timestamp,
                            self.sender,
-                           self.receiver,
+                           receiver,
                            self.newmessage];
     
     [request setValue:[NSString

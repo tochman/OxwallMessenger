@@ -50,6 +50,8 @@
     
     // Title
     self.title = @"New message";
+    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
+    sender = [standardUserDefaults stringForKey:@"userid"];
     
     [self getFeed:@""];
 }
@@ -193,10 +195,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
         
     }
     
-    
-    
-    
-    
+
     return cell;
 }
 
@@ -211,7 +210,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
     //receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
     receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
 
-    sender = @"1"; //Implement
     NSLog(@"recievier vid val av rad: %@", receiver);
     [self showMessage:self];
     //    if (tableView == self.searchDisplayController.searchResultsTableView) {
