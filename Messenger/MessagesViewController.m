@@ -44,7 +44,6 @@ ODRefreshControl *refreshControl1;
 }
 
 + (void)senderAvatarMthd : (NSURL *)senderAvatarPassed {
-    
     senderAvatarURL = senderAvatarPassed;
     return; //??
 }
@@ -58,7 +57,13 @@ ODRefreshControl *refreshControl1;
     self.title = @"Messages";
 }
 
+-(void)viewDidLayoutSubviews{
+    [self.inputToolBarView.textView becomeFirstResponder];
+}
 
+-(void)viewDidAppear:(BOOL)animated{
+    
+}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -69,8 +74,6 @@ ODRefreshControl *refreshControl1;
     NSLog(@"MVC reciever %@", receiver);
     NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
     self.sender = [standardUserDefaults stringForKey:@"userid"];
-    
-    
     
     NSString *callURL = [NSString stringWithFormat:@"%@/inbox_messages.php?conversationId=%@", BASE_URL, conversationid];
     NSData* messFeed = [NSData dataWithContentsOfURL:
@@ -143,8 +146,6 @@ ODRefreshControl *refreshControl1;
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-
-    
     self.newmessage = text;
     
     if((self.messages.count - 1) % 2)

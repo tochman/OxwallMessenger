@@ -28,7 +28,7 @@
 
 @end
 
-@implementation SearchViewController {
+@implementation SearchViewController
     
     UsersFeed * _feed;
     NSArray *searchResults;
@@ -37,7 +37,6 @@
     NSDictionary* json;
     UINavigationController *navController;
     
-}
 @synthesize usersArr, json, sender, receiver, subject, conversationId;
 
 - (void)viewDidLoad
@@ -54,8 +53,8 @@
     sender = [standardUserDefaults stringForKey:@"userid"];
     
     [self getFeed:@""];
+    
 }
-
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -71,6 +70,7 @@
     if ([navController.viewControllers indexOfObject:self]==NSNotFound) {
         // back button was pressed.  We know this is true because self is no longer
         // in the navigation stack.
+        NSLog(@"About to crash");
     }
     
     
@@ -328,7 +328,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
  
     
 }
-
 
 -(IBAction)cancel {
     
