@@ -33,10 +33,11 @@
     UsersFeed * _feed;
     NSArray *searchResults;
     NSArray *searchResultsAvatar;
+    NSMutableArray *searchResultId;
     // NSArray* usersArr;
     NSDictionary* json;
     UINavigationController *navController;
-    
+
 @synthesize usersArr, json, sender, receiver, subject, conversationId;
 
 - (void)viewDidLoad
@@ -84,12 +85,34 @@
     
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@",searchText];
     
-    
-    
     searchResults = [[usersArr valueForKey:@"realname"] filteredArrayUsingPredicate:resultPredicate];
    //We can´t implement this this way.
     //searchResultsAvatar = [usersArr valueForKey:@"avatar"];
+    
+ 
+    NSMutableArray *newArray = [[NSMutableArray alloc] init];
+    [newArray addObjectsFromArray:[usersArr valueForKey:@"realname"]];
+    
+    NSIndexSet *indexes = [newArray indexesOfObjectsPassingTest:^(id obj, NSUInteger idx, BOOL *stop) {
+        return [resultPredicate evaluateWithObject:obj];
+    }];
+    
+    NSUInteger index=[indexes firstIndex];
+    searchResultId = [[NSMutableArray alloc] init];
+    [searchResultId addObject:[NSString stringWithFormat:@"%d",index]];
+    NSLog(@"Search Result is %d",index);
+    while(index != NSNotFound)
+    {
+        index=[indexes indexGreaterThanIndex: index];
+        if(index != NSNotFound){
+            [searchResultId addObject:[NSString stringWithFormat:@"%d",index]];
+            NSLog(@"Search Result is %d",index);
+        }
+        
+    }
+    
 }
+
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller
 shouldReloadTableForSearchString:(NSString *)searchString
@@ -149,7 +172,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [searchResults count];
+        return [searchResultId count];
         
     } else {
         
@@ -184,9 +207,10 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
-        //[cell.imageView setImageWithURL:[[searchResults objectAtIndex:indexPath.row] valueForKey:@"avatar" ]
-        //               placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
+        int row = [[searchResultId objectAtIndex:indexPath.row] integerValue];
+        cell.textLabel.text = [[usersArr objectAtIndex:row] valueForKey:@"realname"];
+        [cell.imageView setImageWithURL:[[usersArr objectAtIndex:row] valueForKey:@"avatar" ]
+                       placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
         
     } else {
         cell.textLabel.text = [[usersArr objectAtIndex:indexPath.row] valueForKey:@"realname"];
@@ -328,6 +352,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
  
     
 }
+
 
 -(IBAction)cancel {
     
