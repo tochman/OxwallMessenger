@@ -37,6 +37,7 @@
     // NSArray* usersArr;
     NSDictionary* json;
     UINavigationController *navController;
+int row;
 
 @synthesize usersArr, json, sender, receiver, subject, conversationId;
 
@@ -107,6 +108,7 @@
         if(index != NSNotFound){
             [searchResultId addObject:[NSString stringWithFormat:@"%d",index]];
             NSLog(@"Search Result is %d",index);
+            
         }
         
     }
@@ -229,16 +231,23 @@ shouldReloadTableForSearchString:(NSString *)searchString
 {
     //Implement method for selecting users
     
-    // [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    //[self performSegueWithIdentifier:@"setUserDetail" sender:self];
-    //receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
-    receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        
+        // Setting recieiver by converting int to NSString -
+        receiver = [NSString stringWithFormat:@"%@",[searchResultId objectAtIndex:indexPath.row]];
 
-    NSLog(@"recievier vid val av rad: %@", receiver);
+        
+    } else {
+        receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
+        
+    }
+
+
+
+    NSLog(@"recievier when chosen: %@", receiver);
     [self showMessage:self];
-    //    if (tableView == self.searchDisplayController.searchResultsTableView) {
-    //        [self performSegueWithIdentifier: @"setUserDetail" sender: self];
-    //    }
+
 }
 
 
