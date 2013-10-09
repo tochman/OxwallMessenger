@@ -41,6 +41,7 @@
     self.checkbox.checked = FALSE;
     self.checkbox.disabled = FALSE;
     self.checkbox.text = @"Remember me";
+    [self.navigationItem setHidesBackButton:YES];
     
     NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
     usernameField.text = [standardUserDefaults stringForKey:@"username"];

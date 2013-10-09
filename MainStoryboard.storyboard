@@ -244,28 +244,28 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="oxwall logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="wzg-Qc-CWh">
-                                <rect key="frame" x="127" y="77" width="67" height="67"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="wzg-Qc-CWh">
+                                <rect key="frame" x="114" y="52" width="92" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="67" id="TUF-oZ-M6t"/>
-                                    <constraint firstAttribute="width" constant="67" id="jOw-Ft-nqp"/>
+                                    <constraint firstAttribute="height" constant="92" id="gHQ-PR-ReN"/>
+                                    <constraint firstAttribute="width" constant="92" id="wzs-O4-2We"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cPv-LL-u0T" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="159" id="1l7-9t-wcB"/>
-                            <constraint firstItem="wzg-Qc-CWh" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="77" id="CbQ-QL-pph"/>
                             <constraint firstAttribute="bottom" secondItem="w7j-pt-Dre" secondAttribute="bottom" constant="40" id="FgO-Ip-bTO"/>
                             <constraint firstItem="uaG-LY-28p" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="201" id="HNL-qE-SUu"/>
                             <constraint firstItem="dWX-Up-YPI" firstAttribute="centerX" secondItem="uaG-LY-28p" secondAttribute="centerX" type="default" id="Msg-RB-TEs"/>
                             <constraint firstItem="dWX-Up-YPI" firstAttribute="trailing" secondItem="43J-d6-lfn" secondAttribute="trailing" type="default" id="Qrp-bZ-d8T"/>
+                            <constraint firstItem="wzg-Qc-CWh" firstAttribute="centerX" secondItem="cPv-LL-u0T" secondAttribute="centerX" type="default" id="U6O-ap-LmK"/>
                             <constraint firstAttribute="bottom" secondItem="dWX-Up-YPI" secondAttribute="bottom" constant="181" id="UCf-jk-f7P"/>
-                            <constraint firstItem="wzg-Qc-CWh" firstAttribute="centerX" secondItem="cPv-LL-u0T" secondAttribute="centerX" type="default" id="byr-2x-irc"/>
-                            <constraint firstItem="dWX-Up-YPI" firstAttribute="centerX" secondItem="BKX-lc-7UK" secondAttribute="centerX" type="default" id="fQK-gN-iXA"/>
                             <constraint firstItem="43J-d6-lfn" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="20" symbolic="YES" type="default" id="gHE-wO-0lX"/>
                             <constraint firstItem="w7j-pt-Dre" firstAttribute="centerX" secondItem="dWX-Up-YPI" secondAttribute="centerX" type="default" id="htN-HK-X9Z"/>
+                            <constraint firstItem="uaG-LY-28p" firstAttribute="centerX" secondItem="BKX-lc-7UK" secondAttribute="centerX" type="default" id="m83-8i-tpI"/>
+                            <constraint firstItem="wzg-Qc-CWh" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="52" id="v6h-UV-Onx"/>
                             <constraint firstItem="cPv-LL-u0T" firstAttribute="centerX" secondItem="uaG-LY-28p" secondAttribute="centerX" type="default" id="xMX-9u-e4V"/>
                         </constraints>
                     </view>
@@ -665,8 +665,8 @@ You can choose the site you want to connect to in settings. Make sure that your 
     </scenes>
     <resources>
         <image name="Default.png" width="454" height="681"/>
+        <image name="OM.png" width="338" height="339"/>
         <image name="btnCheck.png" width="32" height="32"/>
-        <image name="oxwall logo.png" width="388" height="388"/>
         <image name="powered-by-oxwall.png" width="97" height="13"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

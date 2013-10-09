@@ -115,6 +115,7 @@
 		E965EFED18054488003C5C61 /* oxwall logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E965EFEC18054488003C5C61 /* oxwall logo.png */; };
 		E965EFEF18055F4A003C5C61 /* OM57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = E965EFEE18055F4A003C5C61 /* OM57x57.png */; };
 		E965EFF118055FAA003C5C61 /* OM114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = E965EFF018055FAA003C5C61 /* OM114x114.png */; };
+		E965EFF318057E72003C5C61 /* OM.png in Resources */ = {isa = PBXBuildFile; fileRef = E965EFF218057E72003C5C61 /* OM.png */; };
 		E9814E7517EE495F00043A59 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9814E7417EE495F00043A59 /* ImageIO.framework */; };
 		E9814E7817EE4B6F00043A59 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9814E7717EE4B6F00043A59 /* SDWebImage.framework */; };
 		E988C40917E6FDEF0053296C /* NUIAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = E988C39F17E6FDEF0053296C /* NUIAppearance.m */; };
@@ -340,6 +341,7 @@
 		E965EFEC18054488003C5C61 /* oxwall logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oxwall logo.png"; sourceTree = "<group>"; };
 		E965EFEE18055F4A003C5C61 /* OM57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OM57x57.png; sourceTree = "<group>"; };
 		E965EFF018055FAA003C5C61 /* OM114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OM114x114.png; sourceTree = "<group>"; };
+		E965EFF218057E72003C5C61 /* OM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OM.png; sourceTree = "<group>"; };
 		E9814E7417EE495F00043A59 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		E9814E7717EE4B6F00043A59 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = ../Downloads/SDWebImage.framework; sourceTree = "<group>"; };
 		E988C39E17E6FDEF0053296C /* NUIAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUIAppearance.h; sourceTree = "<group>"; };
@@ -769,6 +771,7 @@
 		E9477F2F17E071EB00A16505 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E965EFF218057E72003C5C61 /* OM.png */,
 				E965EFF018055FAA003C5C61 /* OM114x114.png */,
 				E965EFEE18055F4A003C5C61 /* OM57x57.png */,
 				E965EFE718052947003C5C61 /* SvcIconInfo.png */,
@@ -1073,6 +1076,7 @@
 				E92FDA2317F41A7C0062D24E /* input-bar@2x.png in Resources */,
 				E988C42C17E6FDEF0053296C /* SkyBlue.NUI.nss in Resources */,
 				E92FDA0617F41A7C0062D24E /* bubble-default-outgoing-green.png in Resources */,
+				E965EFF318057E72003C5C61 /* OM.png in Resources */,
 				E92FDA1717F41A7C0062D24E /* bubble-square-incoming-selected@2x.png in Resources */,
 				E988C42D17E6FDEF0053296C /* Switchboard.NUI.nss in Resources */,
 				E92FDA1917F41A7C0062D24E /* bubble-square-incoming@2x.png in Resources */,
