@@ -28,6 +28,7 @@ This project is based on open source projects and uses (among others):
 - NUI - Style iOS apps with a stylesheet, similar to CSS: https://github.com/tombenner/nui
 - ODRefreshControl: https://github.com/Sephiroth87/ODRefreshControl
 - SDWebImage Asynchronous image downloader with cache support: https://github.com/rs/SDWebImage
+- Lockbox, a utility class for storing data securely in the keychain. https://github.com/granoff/Lockbox
 - NewRelics Application Performance Management & Monitoring
 
 
