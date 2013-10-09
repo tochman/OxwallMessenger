@@ -27,9 +27,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.title = @"Oxwall Messenger";
     self.navigationItem.hidesBackButton = YES;
-    self.title = @"About us";
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -38,7 +41,7 @@
 }
 
 - (IBAction)close:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
