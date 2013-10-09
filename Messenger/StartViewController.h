@@ -11,4 +11,5 @@
 @interface StartViewController : UIViewController
 
 - (IBAction)start:(id)sender;
+-(IBAction)showAbout:(id)sender;
 @end

@@ -19,4 +19,5 @@
 - (IBAction)checkCredentials;
 - (IBAction)testCheckbox:(id)sender;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
+-(IBAction)showAbout:(id)sender;
 @end

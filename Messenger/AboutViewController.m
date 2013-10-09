@@ -1,22 +1,18 @@
 //
-//  StartViewController.m
+//  AboutViewController.m
 //  Oxwall Messenger
 //
-//  Created by Thomas Ochman on 2013-09-27.
+//  Created by Thomas Ochman on 2013-10-09.
 //  Copyright (c) 2013 Underplot ltd. All rights reserved.
 //
 
-#import "StartViewController.h"
+#import "AboutViewController.h"
 
-@interface StartViewController ()
+@interface AboutViewController ()
 
 @end
 
-@implementation StartViewController
-- (IBAction)start:(id)sender {
-    [self performSegueWithIdentifier:@"start" sender:self];
-    
-}
+@implementation AboutViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +27,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.navigationItem.hidesBackButton = YES;
+    self.title = @"About us";
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,8 +37,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)showAbout:(id)sender {
-    [self performSegueWithIdentifier:@"About" sender:sender];
+- (IBAction)close:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

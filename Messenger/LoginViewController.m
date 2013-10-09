@@ -174,6 +174,8 @@
     [self checkCredentials];
     return YES;
 }
-
+- (IBAction)showAbout:(id)sender {
+    [self performSegueWithIdentifier:@"About" sender:sender];
+}
 
 @end

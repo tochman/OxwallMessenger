@@ -110,6 +110,8 @@
 		E9477F4317E0F43800A16505 /* ConversationFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4217E0F43800A16505 /* ConversationFeed.m */; };
 		E9477F4617E10B9F00A16505 /* MessageFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4517E10B9C00A16505 /* MessageFeed.m */; };
 		E9477F4917E10BC600A16505 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4817E10BC600A16505 /* MessageModel.m */; };
+		E965EFE818052947003C5C61 /* SvcIconInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = E965EFE718052947003C5C61 /* SvcIconInfo.png */; };
+		E965EFEB18052CD3003C5C61 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E965EFEA18052CD3003C5C61 /* AboutViewController.m */; };
 		E9814E7517EE495F00043A59 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9814E7417EE495F00043A59 /* ImageIO.framework */; };
 		E9814E7817EE4B6F00043A59 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9814E7717EE4B6F00043A59 /* SDWebImage.framework */; };
 		E988C40917E6FDEF0053296C /* NUIAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = E988C39F17E6FDEF0053296C /* NUIAppearance.m */; };
@@ -329,6 +331,9 @@
 		E9477F4517E10B9C00A16505 /* MessageFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageFeed.m; path = Messenger/MessageFeed.m; sourceTree = "<group>"; };
 		E9477F4717E10BC500A16505 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageModel.h; path = Messenger/MessageModel.h; sourceTree = "<group>"; };
 		E9477F4817E10BC600A16505 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageModel.m; path = Messenger/MessageModel.m; sourceTree = "<group>"; };
+		E965EFE718052947003C5C61 /* SvcIconInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SvcIconInfo.png; sourceTree = "<group>"; };
+		E965EFE918052CD3003C5C61 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Messenger/AboutViewController.h; sourceTree = SOURCE_ROOT; };
+		E965EFEA18052CD3003C5C61 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Messenger/AboutViewController.m; sourceTree = SOURCE_ROOT; };
 		E9814E7417EE495F00043A59 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		E9814E7717EE4B6F00043A59 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = ../Downloads/SDWebImage.framework; sourceTree = "<group>"; };
 		E988C39E17E6FDEF0053296C /* NUIAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUIAppearance.h; sourceTree = "<group>"; };
@@ -553,6 +558,8 @@
 				E9477F0217DF869600A16505 /* main.m */,
 				E9477F0517DF869600A16505 /* Oxwall Messenger-Info.plist */,
 				E9477F0617DF869600A16505 /* Oxwall Messenger-Prefix.pch */,
+				E965EFE918052CD3003C5C61 /* AboutViewController.h */,
+				E965EFEA18052CD3003C5C61 /* AboutViewController.m */,
 			);
 			name = "Supporting Files";
 			path = JSON_HelloWorld;
@@ -756,6 +763,7 @@
 		E9477F2F17E071EB00A16505 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E965EFE718052947003C5C61 /* SvcIconInfo.png */,
 				E9A84F5E17F2C3F0001A24C3 /* powered-by-oxwall.png */,
 				E9A84F5C17F2B9E6001A24C3 /* OM_background.png */,
 				E9A84F5817F2B96C001A24C3 /* Default.png */,
@@ -1048,6 +1056,7 @@
 				E988C42917E6FDEF0053296C /* Googolplex.NUI.nss in Resources */,
 				E988C42A17E6FDEF0053296C /* Round.NUI.nss in Resources */,
 				E988C42B17E6FDEF0053296C /* Route.NUI.nss in Resources */,
+				E965EFE818052947003C5C61 /* SvcIconInfo.png in Resources */,
 				E92FDA1C17F41A7C0062D24E /* bubble-square-outgoing.png in Resources */,
 				E92FDA2317F41A7C0062D24E /* input-bar@2x.png in Resources */,
 				E988C42C17E6FDEF0053296C /* SkyBlue.NUI.nss in Resources */,
@@ -1091,6 +1100,7 @@
 				E9477F0817DF869600A16505 /* SearchViewController.m in Sources */,
 				E9477F1C17DF8AF200A16505 /* LoginViewController.m in Sources */,
 				E92FD9FC17F41A7C0062D24E /* JSMessageInputView.m in Sources */,
+				E965EFEB18052CD3003C5C61 /* AboutViewController.m in Sources */,
 				E9477F2517DF931800A16505 /* LoginModel.m in Sources */,
 				E9477F2E17E043E700A16505 /* DUViewController.m in Sources */,
 				E9477F3A17E0723000A16505 /* UICheckbox.m in Sources */,
