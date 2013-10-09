@@ -9,7 +9,11 @@
 #import "Constants.h"
 
 @implementation Constants
+
+NSString * const SITE = @"Demosite";
 NSString * const BASE_URL = @"http://scalo.se/webservice";
+
 //NSString * const BASE_URL = @"http://cloudshare.se/webservice";
+
 
 @end

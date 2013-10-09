@@ -12,6 +12,7 @@
 @interface LoginViewController : UIViewController {
     IBOutlet UITextField *usernameField;
     IBOutlet UITextField *passwordField;
+    IBOutlet UILabel *passwordLabel;
 
     NSDictionary *credentialsDictionary;
 }

@@ -42,9 +42,19 @@
     self.checkbox.disabled = FALSE;
     self.checkbox.text = @"Remember me";
     [self.navigationItem setHidesBackButton:YES];
+    //usernameField.placeholder = @"Username or e-mail";
+    passwordLabel.text =[NSString stringWithFormat:@"Your username at %@", SITE ];
     
     NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
+    //if ([[standardUserDefaults stringForKey:@"username"] length] != 0) {
+    
+    if ([[standardUserDefaults stringForKey:@"username"]  isEqual: @""]){
+    //if ([[[standardUserDefaults stringForKey:@"username"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] != 0){
+    usernameField.placeholder = @"Username or e-mail";
+        
+    } else {
     usernameField.text = [standardUserDefaults stringForKey:@"username"];
+    }
  
 }
 

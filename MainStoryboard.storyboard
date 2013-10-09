@@ -80,7 +80,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username or email" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="HrS-Kq-0Ok">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="HrS-Kq-0Ok">
                                 <rect key="frame" x="20" y="77" width="281" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -178,6 +178,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                     <connections>
                         <outlet property="checkbox" destination="iRm-31-qPQ" id="jxe-1B-5HZ"/>
                         <outlet property="passwordField" destination="cnS-uc-M54" id="R4a-31-yA7"/>
+                        <outlet property="passwordLabel" destination="SLU-QA-5JN" id="MTu-fU-azx"/>
                         <outlet property="usernameField" destination="HrS-Kq-0Ok" id="1GZ-r3-kfA"/>
                         <segue destination="mfc-GP-I8c" kind="push" identifier="userprofile" id="rzE-mc-Sqt"/>
                         <segue destination="w55-Us-Nhh" kind="push" identifier="About" id="dfM-1F-9fs"/>
@@ -676,7 +677,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="rzE-mc-Sqt"/>
-        <segue reference="2QW-Mj-fzj"/>
+        <segue reference="dfM-1F-9fs"/>
         <segue reference="6fg-Ux-aGr"/>
         <segue reference="p8L-nl-tWI"/>
     </inferredMetricsTieBreakers>

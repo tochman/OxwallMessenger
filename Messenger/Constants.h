@@ -10,4 +10,5 @@
 
 @interface Constants : NSObject
 extern NSString * const BASE_URL;
+extern NSString * const SITE;
 @end
