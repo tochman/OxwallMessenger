@@ -51,7 +51,7 @@ SmallButton {
 }
 Label {
     font-name: @primaryFontName;
-    font-size: 18;
+    font-size: 16;
     font-color: @secondaryFontColor;
     text-auto-fit: false;
 }

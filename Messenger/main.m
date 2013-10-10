@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
         
         if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"6.1")) {
             [NUISettings init];
-            [NUISettings setGlobalExclusions:@[@"checkbox", @"UICheckbox"]];
+            [NUISettings setAutoUpdatePath:@"/NUI/Themes/Default.NUI.nss"];
         }
         
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7")) {

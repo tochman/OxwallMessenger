@@ -14,6 +14,7 @@
 #import "MessagesViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "Lockbox.h"
 
 @interface DUViewController (){
     ConversationFeed* _feed;
@@ -107,15 +108,20 @@
 }
 
 - (void)loadStandardUser {
-    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
+    //NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
     
-    username = [standardUserDefaults stringForKey:@"username"];
-    realname = [standardUserDefaults stringForKey:@"realname"];
-    sex = [standardUserDefaults stringForKey:@"sex"];
-    membersince = [standardUserDefaults stringForKey:@"membersince"];
-    presentation = [standardUserDefaults stringForKey:@"presentation"];
-    avatarURL = [standardUserDefaults URLForKey:@"avatarURL"];
-    
+    //username = [standardUserDefaults stringForKey:@"username"];
+    username = [Lockbox stringForKey:@"username"];
+    //realname = [standardUserDefaults stringForKey:@"realname"];
+    realname = [Lockbox stringForKey:@"realname"];
+    //sex = [standardUserDefaults stringForKey:@"sex"];
+    sex = [Lockbox stringForKey:@"sex"];
+    //membersince = [standardUserDefaults stringForKey:@"membersince"];
+    membersince = [Lockbox stringForKey:@"membersince"];
+    //presentation = [standardUserDefaults stringForKey:@"presentation"];
+    presentation = [Lockbox stringForKey:@"presentation"];
+    //avatarURL = [standardUserDefaults URLForKey:@"avatarURL"];
+    avatarURL = [NSURL URLWithString:[Lockbox stringForKey:@"avatarURL"]];
 }
 
 -(void)setLProfileLabels
@@ -143,6 +149,8 @@
     [standardUserDefaults synchronize];
     [HUD hideUIBlockingIndicator];
     [self performSegueWithIdentifier:@"start" sender:self];
+    
+    
 }
 
 

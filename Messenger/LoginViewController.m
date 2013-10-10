@@ -12,6 +12,7 @@
 #import "LoginModel.h"
 #import "HUD.h"
 #import "UICheckbox.h"
+#import "Lockbox.h"
 
 @interface LoginViewController () {
     LoginModel* _feed;
@@ -99,7 +100,7 @@
 }
 
 - (void)saveDefaultUserCredentials {
-    //Lets save all gatherd user data in NSUserDefaults for later use
+    //Set user defaults to NSUserDefaults when in development
     
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
 
@@ -122,8 +123,17 @@
     
     [standardUserDefaults synchronize];
     
+    // Set user defaults to Lockbox for later use when in in production
+    [Lockbox setString:_feed.userid forKey:@"userid"];
+    [Lockbox setString:_feed.user forKey:@"username"];
+    [Lockbox setString:_feed.realname forKey:@"realname"];
+    [Lockbox setString:_feed.sex forKey:@"sex"];
+    [Lockbox setString:_feed.member_since forKey:@"membersince"];
+    [Lockbox setString:[_feed.small_avatar absoluteString] forKey:@"avatarURL"];
     
-
+    
+  //To use that avatar url:
+    // avatarURL = [NSURL URLWithString:[Lockbox stringForKey:@"avatarURL"]];
   
 
 
@@ -187,6 +197,10 @@
 }
 - (IBAction)showAbout:(id)sender {
     [self performSegueWithIdentifier:@"About" sender:sender];
+}
+
+- (IBAction)showSettings:(id)sender {
+    [self performSegueWithIdentifier:@"settings" sender:sender];
 }
 
 @end

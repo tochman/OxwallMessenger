@@ -7,9 +7,9 @@
 //
 
 #import "Constants.h"
+#import "Lockbox.h"
 
 @implementation Constants
-
 NSString * const SITE = @"Demosite";
 NSString * const BASE_URL = @"http://scalo.se/webservice";
 

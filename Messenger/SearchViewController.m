@@ -87,10 +87,10 @@ int row;
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@",searchText];
     
     searchResults = [[usersArr valueForKey:@"realname"] filteredArrayUsingPredicate:resultPredicate];
-   //We can´t implement this this way.
+    //We can´t implement this this way.
     //searchResultsAvatar = [usersArr valueForKey:@"avatar"];
     
- 
+    
     NSMutableArray *newArray = [[NSMutableArray alloc] init];
     [newArray addObjectsFromArray:[usersArr valueForKey:@"realname"]];
     
@@ -100,7 +100,10 @@ int row;
     
     NSUInteger index=[indexes firstIndex];
     searchResultId = [[NSMutableArray alloc] init];
-    [searchResultId addObject:[NSString stringWithFormat:@"%d",index]];
+    if (index != NSNotFound) {
+        [searchResultId addObject:[NSString stringWithFormat:@"%d",index]];
+    }
+    
     NSLog(@"Search Result is %d",index);
     while(index != NSNotFound)
     {
@@ -108,13 +111,11 @@ int row;
         if(index != NSNotFound){
             [searchResultId addObject:[NSString stringWithFormat:@"%d",index]];
             NSLog(@"Search Result is %d",index);
-            
         }
         
     }
     
 }
-
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller
 shouldReloadTableForSearchString:(NSString *)searchString
@@ -226,30 +227,15 @@ shouldReloadTableForSearchString:(NSString *)searchString
 }
 
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Implement method for selecting users
+    int row = [[searchResultId objectAtIndex:indexPath.row] integerValue];
+    receiver = [[usersArr valueForKey:@"id"] objectAtIndex:row];
     
-    
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        
-        // Setting recieiver by converting int to NSString -
-        receiver = [NSString stringWithFormat:@"%@",[searchResultId objectAtIndex:indexPath.row]];
-
-        
-    } else {
-        receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
-        
-    }
-
-
-
-    NSLog(@"recievier when chosen: %@", receiver);
+    NSLog(@"recievier vid val av rad: %@", receiver);
     [self showMessage:self];
 
 }
-
 
 - (void)showMessage:(id)sender {
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter subject"

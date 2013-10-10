@@ -21,4 +21,5 @@
 - (IBAction)testCheckbox:(id)sender;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 -(IBAction)showAbout:(id)sender;
+- (IBAction)showSettings:(id)sender;
 @end

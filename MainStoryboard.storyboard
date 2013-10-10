@@ -6,7 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--About View Controller-->
+        <!--About View Controller - About-->
         <scene sceneID="Bge-ec-3fc">
             <objects>
                 <viewController id="w55-Us-Nhh" customClass="AboutViewController" sceneMemberID="viewController">
@@ -15,18 +15,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6O-Q3-9ZG">
-                                <rect key="frame" x="20" y="20" width="280" height="370"/>
+                                <rect key="frame" x="20" y="58" width="281" height="342"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <mutableString key="text">OxwallMessenger connects to a Oxwall powered site and provides the user with messaging functionality.
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="342" id="NxX-Uq-hzw"/>
+                                </constraints>
+                                <string key="text">OxwallMessenger connects to a Oxwall powered site and provides the user with messaging functionality.
 Oxwall is a social networking software platform written in PHP/MySQL. Oxwall is used for a wide range of projects starting from family sites and custom social networks to collaboration tools and enterprise community solutions. You can find more info about Oxwall at: www.oxwall.org/.
 
-You can choose the site you want to connect to in settings. Make sure that your site is powered with the Oxwall Messenger API. If not, ask your Administrator to upgrade.</mutableString>
+You can choose the site you want to connect to in settings. Make sure that your site is powered with the Oxwall Messenger API. If not, ask your Administrator to upgrade.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gg-AK-FQs">
-                                <rect key="frame" x="19" y="398" width="280" height="44"/>
+                                <rect key="frame" x="21" y="408" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="0Ym-7b-V33"/>
@@ -44,27 +47,114 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="mXp-Jg-v9H">
-                                <rect key="frame" x="112" y="449" width="97" height="13"/>
+                                <rect key="frame" x="111" y="471" width="97" height="13"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="z6O-Q3-9ZG" firstAttribute="top" secondItem="ptd-sd-AHp" secondAttribute="top" constant="20" symbolic="YES" type="default" id="9hV-Aa-VK4"/>
-                            <constraint firstItem="0gg-AK-FQs" firstAttribute="top" secondItem="z6O-Q3-9ZG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Xh4-IH-Lfz"/>
+                            <constraint firstItem="z6O-Q3-9ZG" firstAttribute="top" secondItem="ptd-sd-AHp" secondAttribute="top" constant="58" id="Gby-tA-2fY"/>
+                            <constraint firstItem="mXp-Jg-v9H" firstAttribute="leading" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="111" id="IbE-2p-ZGe"/>
                             <constraint firstItem="z6O-Q3-9ZG" firstAttribute="leading" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YQL-kP-kPk"/>
-                            <constraint firstItem="mXp-Jg-v9H" firstAttribute="centerX" secondItem="ptd-sd-AHp" secondAttribute="centerX" type="default" id="dBw-Z1-xPX"/>
-                            <constraint firstAttribute="bottom" secondItem="mXp-Jg-v9H" secondAttribute="bottom" constant="42" id="eDU-YZ-mb0"/>
-                            <constraint firstItem="mXp-Jg-v9H" firstAttribute="top" secondItem="0gg-AK-FQs" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="jkP-Y1-4ai"/>
-                            <constraint firstItem="0gg-AK-FQs" firstAttribute="leading" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="19" id="kwt-Q6-KCK"/>
-                            <constraint firstItem="mXp-Jg-v9H" firstAttribute="centerX" secondItem="z6O-Q3-9ZG" secondAttribute="centerX" type="default" id="ved-sq-EdY"/>
+                            <constraint firstItem="0gg-AK-FQs" firstAttribute="trailing" secondItem="z6O-Q3-9ZG" secondAttribute="trailing" type="default" id="nOc-KC-UNE"/>
+                            <constraint firstItem="0gg-AK-FQs" firstAttribute="top" secondItem="z6O-Q3-9ZG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nTb-S2-GD5"/>
+                            <constraint firstAttribute="bottom" secondItem="mXp-Jg-v9H" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="toq-rv-TGt"/>
+                            <constraint firstItem="0gg-AK-FQs" firstAttribute="leading" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="21" id="yIs-v0-IDB"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="About" image="Folder-Documents-icon.png" id="Ivw-ra-aOd"/>
                     <navigationItem key="navigationItem" id="mk3-Z2-yKw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izq-OE-J0l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-551" y="-1494"/>
+            <point key="canvasLocation" x="-1587" y="-1810"/>
+        </scene>
+        <!--Settings View Controller - Settings-->
+        <scene sceneID="gZU-jV-aoP">
+            <objects>
+                <viewController id="0rX-VR-SKe" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HPi-1D-6sz">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sitename" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aor-5Y-arz">
+                                <rect key="frame" x="20" y="95" width="73" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Site url" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUh-fM-PhL">
+                                <rect key="frame" x="20" y="165" width="54" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvM-ep-0LK">
+                                <rect key="frame" x="20" y="230" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Check connection">
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkConnection:" destination="0rX-VR-SKe" eventType="touchUpInside" id="yNi-cT-oPF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgm-6v-7g7">
+                                <rect key="frame" x="20" y="307" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MDx-Dl-h9R">
+                                <rect key="frame" x="20" y="122" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d05-Jl-hhU">
+                                <rect key="frame" x="20" y="189" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cgm-6v-7g7" firstAttribute="leading" secondItem="mvM-ep-0LK" secondAttribute="leading" type="default" id="1mY-wI-8pA"/>
+                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="leading" secondItem="aor-5Y-arz" secondAttribute="leading" type="default" id="5Mn-SQ-XGc"/>
+                            <constraint firstItem="d05-Jl-hhU" firstAttribute="leading" secondItem="RUh-fM-PhL" secondAttribute="leading" type="default" id="6aX-nS-M1H"/>
+                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="top" secondItem="HPi-1D-6sz" secondAttribute="top" constant="122" id="AlR-9i-W7a"/>
+                            <constraint firstAttribute="bottom" secondItem="cgm-6v-7g7" secondAttribute="bottom" constant="176" id="HKz-Jp-mSX"/>
+                            <constraint firstItem="aor-5Y-arz" firstAttribute="leading" secondItem="HPi-1D-6sz" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="JJt-f9-B2e"/>
+                            <constraint firstItem="d05-Jl-hhU" firstAttribute="trailing" secondItem="mvM-ep-0LK" secondAttribute="trailing" type="default" id="KOW-ro-2bQ"/>
+                            <constraint firstItem="aor-5Y-arz" firstAttribute="top" secondItem="HPi-1D-6sz" secondAttribute="top" constant="95" id="MBd-Sk-8Vh"/>
+                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="leading" secondItem="RUh-fM-PhL" secondAttribute="leading" type="default" id="Tb7-YH-j4g"/>
+                            <constraint firstItem="d05-Jl-hhU" firstAttribute="leading" secondItem="mvM-ep-0LK" secondAttribute="leading" type="default" id="U22-gm-ofF"/>
+                            <constraint firstItem="d05-Jl-hhU" firstAttribute="top" secondItem="HPi-1D-6sz" secondAttribute="top" constant="189" id="b6x-ps-Pjh"/>
+                            <constraint firstItem="RUh-fM-PhL" firstAttribute="top" secondItem="HPi-1D-6sz" secondAttribute="top" constant="165" id="f6f-aq-Uh1"/>
+                            <constraint firstItem="mvM-ep-0LK" firstAttribute="trailing" secondItem="cgm-6v-7g7" secondAttribute="trailing" type="default" id="hjo-Cs-zOx"/>
+                            <constraint firstAttribute="trailing" secondItem="MDx-Dl-h9R" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="t3v-gA-2yT"/>
+                            <constraint firstItem="mvM-ep-0LK" firstAttribute="top" secondItem="HPi-1D-6sz" secondAttribute="top" constant="230" id="tSo-ap-I3C"/>
+                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="trailing" secondItem="d05-Jl-hhU" secondAttribute="trailing" type="default" id="zcq-5f-L7a"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Folder-Smart-icon.png" id="MhS-BG-1XG"/>
+                    <navigationItem key="navigationItem" id="jpK-Q1-ZvA"/>
+                    <connections>
+                        <outlet property="connectionStatusLabel" destination="cgm-6v-7g7" id="FDg-my-Q5D"/>
+                        <outlet property="siteName" destination="MDx-Dl-h9R" id="S1R-l6-Pdi"/>
+                        <outlet property="siteURL" destination="d05-Jl-hhU" id="80g-k5-Yk1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RFj-ub-VBP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1576" y="462"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Fdv-Xw-7qW">
@@ -75,24 +165,24 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username or email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLU-QA-5JN">
-                                <rect key="frame" x="20" y="48" width="145" height="21"/>
+                                <rect key="frame" x="20" y="61" width="145" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="HrS-Kq-0Ok">
-                                <rect key="frame" x="20" y="77" width="281" height="30"/>
+                                <rect key="frame" x="20" y="90" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEt-FR-ShS">
-                                <rect key="frame" x="20" y="115" width="76" height="21"/>
+                                <rect key="frame" x="20" y="128" width="76" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="P@ssw0rd" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-uc-M54">
-                                <rect key="frame" x="20" y="144" width="281" height="30"/>
+                                <rect key="frame" x="20" y="157" width="280" height="30"/>
                                 <accessibility key="accessibilityConfiguration" label="Password"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
@@ -131,11 +221,11 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ObI-fD-9lu">
-                                <rect key="frame" x="282" y="19" width="18" height="19"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ObI-fD-9lu">
+                                <rect key="frame" x="268" y="15" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
+                                <state key="normal" image="Folder-Documents-icon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -146,31 +236,42 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <rect key="frame" x="112" y="454" width="97" height="13"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9U-6Z-FIu">
+                                <rect key="frame" x="20" y="15" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Folder-Smart-icon.png"/>
+                                <connections>
+                                    <action selector="showSettings:" destination="PbY-Oj-VuW" eventType="touchUpInside" id="ZfU-Aa-cbX"/>
+                                    <action selector="showSettings:" destination="bMa-nk-uoY" eventType="touchUpInside" id="evV-tA-cXC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iRm-31-qPQ" firstAttribute="top" secondItem="cnS-uc-M54" secondAttribute="bottom" constant="31" type="default" id="0JE-co-rTc"/>
                             <constraint firstAttribute="trailing" secondItem="ObI-fD-9lu" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0kR-Ai-5dA"/>
+                            <constraint firstItem="SLU-QA-5JN" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="61" id="1E1-Gv-S2x"/>
                             <constraint firstItem="L5T-sy-Su8" firstAttribute="centerX" secondItem="4YE-7E-zxB" secondAttribute="centerX" type="default" id="3Lv-4S-Zub"/>
+                            <constraint firstItem="I9U-6Z-FIu" firstAttribute="leading" secondItem="SLU-QA-5JN" secondAttribute="leading" type="default" id="4AL-Sx-IVs"/>
                             <constraint firstItem="SLU-QA-5JN" firstAttribute="leading" secondItem="HrS-Kq-0Ok" secondAttribute="leading" type="default" id="6Gv-Hw-Wm6"/>
-                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="centerX" secondItem="kdS-Ng-ue1" secondAttribute="centerX" type="default" id="7fr-ig-xm0"/>
                             <constraint firstItem="HrS-Kq-0Ok" firstAttribute="trailing" secondItem="cnS-uc-M54" secondAttribute="trailing" type="default" id="G0D-hm-Ugb"/>
                             <constraint firstItem="iRm-31-qPQ" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="99" type="default" id="GUt-jS-pDA"/>
-                            <constraint firstItem="ObI-fD-9lu" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="20" symbolic="YES" type="default" id="HVO-YP-WPq"/>
+                            <constraint firstItem="iRm-31-qPQ" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="205" id="KeE-DI-Lbo"/>
                             <constraint firstItem="rEt-FR-ShS" firstAttribute="leading" secondItem="HrS-Kq-0Ok" secondAttribute="leading" type="default" id="QSw-FZ-MQk"/>
+                            <constraint firstItem="ObI-fD-9lu" firstAttribute="trailing" secondItem="HrS-Kq-0Ok" secondAttribute="trailing" type="default" id="TGB-3P-rQ1"/>
                             <constraint firstItem="cnS-uc-M54" firstAttribute="top" secondItem="rEt-FR-ShS" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="UsT-ij-4it"/>
                             <constraint firstItem="B9i-T5-S4u" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="55" type="default" id="VBf-Mr-p9Y"/>
+                            <constraint firstItem="I9U-6Z-FIu" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YQ4-a4-NfS"/>
                             <constraint firstAttribute="trailing" secondItem="B9i-T5-S4u" secondAttribute="trailing" constant="72" type="default" id="ax4-yx-r5d"/>
                             <constraint firstItem="cnS-uc-M54" firstAttribute="leading" secondItem="rEt-FR-ShS" secondAttribute="leading" type="default" id="ejI-5w-08B"/>
                             <constraint firstItem="4YE-7E-zxB" firstAttribute="centerX" secondItem="cnS-uc-M54" secondAttribute="centerX" type="default" id="gl0-Wp-fpx"/>
                             <constraint firstItem="B9i-T5-S4u" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="238" id="gtZ-bH-SVL"/>
+                            <constraint firstItem="ObI-fD-9lu" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="15" id="hH7-n9-whK"/>
                             <constraint firstAttribute="trailing" secondItem="iRm-31-qPQ" secondAttribute="trailing" constant="205" type="default" id="p8Y-mA-qNc"/>
-                            <constraint firstItem="SLU-QA-5JN" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="pCB-61-Shg"/>
                             <constraint firstItem="HrS-Kq-0Ok" firstAttribute="top" secondItem="SLU-QA-5JN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pjg-A2-Gj3"/>
                             <constraint firstAttribute="bottom" secondItem="L5T-sy-Su8" secondAttribute="bottom" constant="37" id="qDr-kj-GcN"/>
                             <constraint firstItem="4YE-7E-zxB" firstAttribute="top" secondItem="B9i-T5-S4u" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="qKt-bv-8Pd"/>
                             <constraint firstItem="B9i-T5-S4u" firstAttribute="top" secondItem="iRm-31-qPQ" secondAttribute="bottom" constant="16" type="default" id="rc1-Si-Qum"/>
-                            <constraint firstItem="SLU-QA-5JN" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="48" id="vuz-Z1-tDZ"/>
+                            <constraint firstItem="ObI-fD-9lu" firstAttribute="top" secondItem="I9U-6Z-FIu" secondAttribute="top" type="default" id="snU-wc-vYl"/>
                             <constraint firstItem="rEt-FR-ShS" firstAttribute="top" secondItem="HrS-Kq-0Ok" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xiY-Lc-cyZ"/>
                         </constraints>
                     </view>
@@ -182,6 +283,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <outlet property="usernameField" destination="HrS-Kq-0Ok" id="1GZ-r3-kfA"/>
                         <segue destination="mfc-GP-I8c" kind="push" identifier="userprofile" id="rzE-mc-Sqt"/>
                         <segue destination="w55-Us-Nhh" kind="push" identifier="About" id="dfM-1F-9fs"/>
+                        <segue destination="0rX-VR-SKe" kind="push" identifier="settings" id="6yq-rF-IoJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1BG-ph-btk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -214,11 +316,11 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="start:" destination="PbY-Oj-VuW" eventType="touchUpInside" id="1gJ-Nq-cxD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43J-d6-lfn">
-                                <rect key="frame" x="281" y="19" width="18" height="19"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43J-d6-lfn">
+                                <rect key="frame" x="267" y="20" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
+                                <state key="normal" image="Folder-Documents-icon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -253,37 +355,51 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <constraint firstAttribute="width" constant="92" id="wzs-O4-2We"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndz-O7-EQ8">
+                                <rect key="frame" x="20" y="20" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Folder-Smart-icon.png"/>
+                                <connections>
+                                    <action selector="showSettings:" destination="PbY-Oj-VuW" eventType="touchUpInside" id="cvJ-an-Gf6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cPv-LL-u0T" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="159" id="1l7-9t-wcB"/>
+                            <constraint firstItem="ndz-O7-EQ8" firstAttribute="leading" secondItem="BKX-lc-7UK" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="8hM-Uw-OWi"/>
                             <constraint firstAttribute="bottom" secondItem="w7j-pt-Dre" secondAttribute="bottom" constant="40" id="FgO-Ip-bTO"/>
                             <constraint firstItem="uaG-LY-28p" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="201" id="HNL-qE-SUu"/>
                             <constraint firstItem="dWX-Up-YPI" firstAttribute="centerX" secondItem="uaG-LY-28p" secondAttribute="centerX" type="default" id="Msg-RB-TEs"/>
                             <constraint firstItem="dWX-Up-YPI" firstAttribute="trailing" secondItem="43J-d6-lfn" secondAttribute="trailing" type="default" id="Qrp-bZ-d8T"/>
                             <constraint firstItem="wzg-Qc-CWh" firstAttribute="centerX" secondItem="cPv-LL-u0T" secondAttribute="centerX" type="default" id="U6O-ap-LmK"/>
                             <constraint firstAttribute="bottom" secondItem="dWX-Up-YPI" secondAttribute="bottom" constant="181" id="UCf-jk-f7P"/>
-                            <constraint firstItem="43J-d6-lfn" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="20" symbolic="YES" type="default" id="gHE-wO-0lX"/>
+                            <constraint firstItem="ndz-O7-EQ8" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ZWc-pK-JUZ"/>
                             <constraint firstItem="w7j-pt-Dre" firstAttribute="centerX" secondItem="dWX-Up-YPI" secondAttribute="centerX" type="default" id="htN-HK-X9Z"/>
-                            <constraint firstItem="uaG-LY-28p" firstAttribute="centerX" secondItem="BKX-lc-7UK" secondAttribute="centerX" type="default" id="m83-8i-tpI"/>
+                            <constraint firstItem="w7j-pt-Dre" firstAttribute="centerX" secondItem="BKX-lc-7UK" secondAttribute="centerX" type="default" id="tYb-vr-1On"/>
                             <constraint firstItem="wzg-Qc-CWh" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="52" id="v6h-UV-Onx"/>
+                            <constraint firstItem="ndz-O7-EQ8" firstAttribute="top" secondItem="43J-d6-lfn" secondAttribute="top" type="default" id="wav-cW-Xc6"/>
                             <constraint firstItem="cPv-LL-u0T" firstAttribute="centerX" secondItem="uaG-LY-28p" secondAttribute="centerX" type="default" id="xMX-9u-e4V"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yF3-hD-lxN"/>
                     <connections>
+                        <outlet property="aboutButton" destination="43J-d6-lfn" id="a4m-uI-PUk"/>
+                        <outlet property="settingsButton" destination="ndz-O7-EQ8" id="o4a-j1-W3j"/>
                         <segue destination="w55-Us-Nhh" kind="push" identifier="About" id="2QW-Mj-fzj"/>
                         <segue destination="bMa-nk-uoY" kind="push" identifier="start" id="EcD-DB-ip3"/>
+                        <segue destination="0rX-VR-SKe" kind="push" identifier="settings" id="P3Y-dt-uBE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyb-DY-RFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1093" y="-671"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Item-->
         <scene sceneID="11">
             <objects>
                 <navigationController id="3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="App-Messages-icon.png" id="V5I-Ki-wfI"/>
                     <navigationItem key="navigationItem" id="HoV-Nq-5q1"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
                         <autoresizingMask key="autoresizingMask"/>
@@ -665,7 +781,10 @@ You can choose the site you want to connect to in settings. Make sure that your 
         </scene>
     </scenes>
     <resources>
+        <image name="App-Messages-icon.png" width="32" height="32"/>
         <image name="Default.png" width="454" height="681"/>
+        <image name="Folder-Documents-icon.png" width="32" height="32"/>
+        <image name="Folder-Smart-icon.png" width="32" height="32"/>
         <image name="OM.png" width="338" height="339"/>
         <image name="btnCheck.png" width="32" height="32"/>
         <image name="powered-by-oxwall.png" width="97" height="13"/>
@@ -676,9 +795,10 @@ You can choose the site you want to connect to in settings. Make sure that your 
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rzE-mc-Sqt"/>
-        <segue reference="dfM-1F-9fs"/>
         <segue reference="6fg-Ux-aGr"/>
         <segue reference="p8L-nl-tWI"/>
+        <segue reference="2QW-Mj-fzj"/>
+        <segue reference="rzE-mc-Sqt"/>
+        <segue reference="P3Y-dt-uBE"/>
     </inferredMetricsTieBreakers>
 </document>
