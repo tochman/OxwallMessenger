@@ -11,14 +11,14 @@
             <objects>
                 <viewController id="w55-Us-Nhh" customClass="AboutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ptd-sd-AHp">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6O-Q3-9ZG">
-                                <rect key="frame" x="20" y="131" width="281" height="269"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6O-Q3-9ZG">
+                                <rect key="frame" x="20" y="131" width="281" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="269" id="EIf-Fv-9zQ"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="256" type="user" id="kJ8-Og-TI8"/>
                                 </constraints>
                                 <string key="text">OxwallMessenger connects to a Oxwall powered site and provides the user with messaging functionality.
 Oxwall is a social networking software platform written in PHP/MySQL. You can find more info about Oxwall at: www.oxwall.org/.
@@ -29,10 +29,10 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gg-AK-FQs">
-                                <rect key="frame" x="21" y="408" width="280" height="44"/>
+                                <rect key="frame" x="21" y="327" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="0Ym-7b-V33"/>
+                                    <constraint firstAttribute="width" constant="280" type="user" id="Ig6-H8-YtS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Close">
@@ -47,29 +47,34 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="mXp-Jg-v9H">
-                                <rect key="frame" x="111" y="471" width="97" height="13"/>
+                                <rect key="frame" x="111" y="383" width="97" height="13"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="OdH-dy-bjR">
                                 <rect key="frame" x="111" y="20" width="92" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="4U7-D1-Seg"/>
+                                    <constraint firstAttribute="height" constant="92" type="user" id="4U7-D1-Seg"/>
                                     <constraint firstAttribute="width" constant="92" id="hmQ-L1-L6I"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OdH-dy-bjR" firstAttribute="top" secondItem="ptd-sd-AHp" secondAttribute="top" constant="20" symbolic="YES" type="default" id="1t2-St-70Y"/>
-                            <constraint firstItem="z6O-Q3-9ZG" firstAttribute="centerX" secondItem="ptd-sd-AHp" secondAttribute="centerX" type="default" id="2dX-sC-cYE"/>
-                            <constraint firstItem="OdH-dy-bjR" firstAttribute="leading" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="111" id="2yH-KK-c6h"/>
-                            <constraint firstItem="OdH-dy-bjR" firstAttribute="leading" secondItem="mXp-Jg-v9H" secondAttribute="leading" type="default" id="SfY-eR-t1a"/>
-                            <constraint firstItem="z6O-Q3-9ZG" firstAttribute="leading" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YQL-kP-kPk"/>
-                            <constraint firstItem="z6O-Q3-9ZG" firstAttribute="top" secondItem="ptd-sd-AHp" secondAttribute="top" constant="131" id="dRj-bG-BEF"/>
-                            <constraint firstItem="0gg-AK-FQs" firstAttribute="trailing" secondItem="z6O-Q3-9ZG" secondAttribute="trailing" type="default" id="nOc-KC-UNE"/>
-                            <constraint firstItem="0gg-AK-FQs" firstAttribute="top" secondItem="z6O-Q3-9ZG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nTb-S2-GD5"/>
-                            <constraint firstAttribute="bottom" secondItem="mXp-Jg-v9H" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="toq-rv-TGt"/>
+                            <constraint firstItem="0gg-AK-FQs" firstAttribute="top" secondItem="z6O-Q3-9ZG" secondAttribute="bottom" constant="28" type="user" id="1T1-fd-QRv"/>
+                            <constraint firstItem="OdH-dy-bjR" firstAttribute="top" secondItem="ptd-sd-AHp" secondAttribute="top" constant="20" symbolic="YES" type="user" id="1t2-St-70Y"/>
+                            <constraint firstItem="z6O-Q3-9ZG" firstAttribute="centerX" secondItem="ptd-sd-AHp" secondAttribute="centerX" type="user" id="2dX-sC-cYE"/>
+                            <constraint firstItem="z6O-Q3-9ZG" firstAttribute="top" secondItem="ptd-sd-AHp" secondAttribute="top" constant="131" type="user" id="2v8-Or-hd8"/>
+                            <constraint firstItem="OdH-dy-bjR" firstAttribute="leading" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="111" type="user" id="2yH-KK-c6h"/>
+                            <constraint firstAttribute="bottom" secondItem="mXp-Jg-v9H" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="6kG-h3-I2W"/>
+                            <constraint firstItem="mXp-Jg-v9H" firstAttribute="leading" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="111" type="user" id="H4F-bt-3xU"/>
+                            <constraint firstItem="OdH-dy-bjR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="111" type="user" id="Lo5-bJ-33g"/>
+                            <constraint firstAttribute="bottom" secondItem="0gg-AK-FQs" secondAttribute="bottom" constant="46" type="user" id="VNx-bL-yJR"/>
+                            <constraint firstItem="z6O-Q3-9ZG" firstAttribute="leading" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="YQL-kP-kPk"/>
+                            <constraint firstItem="0gg-AK-FQs" firstAttribute="leading" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="21" type="user" id="ejs-AX-A8D"/>
+                            <constraint firstAttribute="trailing" secondItem="z6O-Q3-9ZG" secondAttribute="trailing" constant="19" type="user" id="epj-bV-hvy"/>
+                            <constraint firstItem="z6O-Q3-9ZG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="20" type="user" id="hte-C5-1jE"/>
+                            <constraint firstItem="0gg-AK-FQs" firstAttribute="trailing" secondItem="z6O-Q3-9ZG" secondAttribute="trailing" type="user" id="qdN-N0-v6G"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="Folder-Documents-icon.png" id="Ivw-ra-aOd"/>
@@ -84,7 +89,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
             <objects>
                 <viewController id="0rX-VR-SKe" customClass="SettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HPi-1D-6sz">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sitename" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aor-5Y-arz">
@@ -101,7 +106,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvM-ep-0LK">
-                                <rect key="frame" x="20" y="262" width="280" height="44"/>
+                                <rect key="frame" x="20" y="174" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Check connection">
@@ -116,7 +121,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgm-6v-7g7">
-                                <rect key="frame" x="20" y="339" width="280" height="21"/>
+                                <rect key="frame" x="20" y="251" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -134,7 +139,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0x-86-3qE">
-                                <rect key="frame" x="20" y="413" width="280" height="44"/>
+                                <rect key="frame" x="20" y="325" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Close">
@@ -149,7 +154,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZAx-kr-W2B">
-                                <rect key="frame" x="112" y="471" width="97" height="13"/>
+                                <rect key="frame" x="112" y="383" width="97" height="13"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gh2-dD-A45">
@@ -205,7 +210,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
             <objects>
                 <viewController id="bMa-nk-uoY" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kdS-Ng-ue1">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username or email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLU-QA-5JN">
@@ -277,7 +282,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="L5T-sy-Su8">
-                                <rect key="frame" x="112" y="454" width="97" height="13"/>
+                                <rect key="frame" x="112" y="383" width="97" height="13"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9U-6Z-FIu">
@@ -312,10 +317,10 @@ You can choose the site you want to connect to in settings. Make sure that your 
                             <constraint firstItem="ObI-fD-9lu" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="15" id="hH7-n9-whK"/>
                             <constraint firstAttribute="trailing" secondItem="iRm-31-qPQ" secondAttribute="trailing" constant="205" type="default" id="p8Y-mA-qNc"/>
                             <constraint firstItem="HrS-Kq-0Ok" firstAttribute="top" secondItem="SLU-QA-5JN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pjg-A2-Gj3"/>
-                            <constraint firstAttribute="bottom" secondItem="L5T-sy-Su8" secondAttribute="bottom" constant="37" id="qDr-kj-GcN"/>
                             <constraint firstItem="4YE-7E-zxB" firstAttribute="top" secondItem="B9i-T5-S4u" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="qKt-bv-8Pd"/>
                             <constraint firstItem="ObI-fD-9lu" firstAttribute="top" secondItem="I9U-6Z-FIu" secondAttribute="top" type="default" id="snU-wc-vYl"/>
                             <constraint firstItem="iRm-31-qPQ" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="213" id="u2r-eo-8Om"/>
+                            <constraint firstAttribute="bottom" secondItem="L5T-sy-Su8" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="vNY-Ev-Mch"/>
                             <constraint firstItem="rEt-FR-ShS" firstAttribute="top" secondItem="HrS-Kq-0Ok" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xiY-Lc-cyZ"/>
                         </constraints>
                     </view>
@@ -341,7 +346,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
             <objects>
                 <viewController id="PbY-Oj-VuW" customClass="StartViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BKX-lc-7UK">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWX-Up-YPI">
@@ -374,14 +379,14 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="w7j-pt-Dre">
-                                <rect key="frame" x="112" y="471" width="97" height="13"/>
+                                <rect key="frame" x="112" y="383" width="97" height="13"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oxwall Messenger" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPv-LL-u0T">
                                 <rect key="frame" x="49" y="159" width="223" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="0HH-9D-6BJ"/>
+                                    <constraint firstAttribute="height" constant="39" type="user" id="0HH-9D-6BJ"/>
                                     <constraint firstAttribute="width" constant="223" id="i6J-kg-vZt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
@@ -397,7 +402,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <rect key="frame" x="114" y="52" width="92" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="gHQ-PR-ReN"/>
+                                    <constraint firstAttribute="height" constant="92" type="user" id="gHQ-PR-ReN"/>
                                     <constraint firstAttribute="width" constant="92" id="wzs-O4-2We"/>
                                 </constraints>
                             </imageView>
@@ -412,19 +417,25 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cPv-LL-u0T" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="159" id="1l7-9t-wcB"/>
+                            <constraint firstItem="cPv-LL-u0T" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="159" type="user" id="1l7-9t-wcB"/>
+                            <constraint firstItem="ndz-O7-EQ8" firstAttribute="top" secondItem="43J-d6-lfn" secondAttribute="bottom" constant="-32" type="user" id="6nu-tw-5UN"/>
                             <constraint firstItem="ndz-O7-EQ8" firstAttribute="leading" secondItem="BKX-lc-7UK" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="8hM-Uw-OWi"/>
-                            <constraint firstItem="uaG-LY-28p" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="201" id="HNL-qE-SUu"/>
+                            <constraint firstItem="uaG-LY-28p" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="201" type="user" id="HNL-qE-SUu"/>
                             <constraint firstAttribute="bottom" secondItem="w7j-pt-Dre" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="KVf-I6-1g8"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="w7j-pt-Dre" secondAttribute="bottom" constant="20" type="user" id="Krx-Ep-s8C"/>
+                            <constraint firstItem="dWX-Up-YPI" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="280" type="user" id="MkM-Rf-eDV"/>
                             <constraint firstItem="dWX-Up-YPI" firstAttribute="centerX" secondItem="uaG-LY-28p" secondAttribute="centerX" type="default" id="Msg-RB-TEs"/>
+                            <constraint firstItem="cPv-LL-u0T" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BKX-lc-7UK" secondAttribute="top" constant="159" type="user" id="QRF-CT-z2X"/>
                             <constraint firstItem="dWX-Up-YPI" firstAttribute="trailing" secondItem="43J-d6-lfn" secondAttribute="trailing" type="default" id="Qrp-bZ-d8T"/>
                             <constraint firstItem="wzg-Qc-CWh" firstAttribute="centerX" secondItem="cPv-LL-u0T" secondAttribute="centerX" type="default" id="U6O-ap-LmK"/>
-                            <constraint firstAttribute="bottom" secondItem="dWX-Up-YPI" secondAttribute="bottom" constant="181" id="UCf-jk-f7P"/>
-                            <constraint firstItem="ndz-O7-EQ8" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ZWc-pK-JUZ"/>
+                            <constraint firstItem="43J-d6-lfn" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="20" type="user" id="X2Z-W1-5rU"/>
+                            <constraint firstItem="ndz-O7-EQ8" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="20" symbolic="YES" type="user" id="ZWc-pK-JUZ"/>
                             <constraint firstItem="w7j-pt-Dre" firstAttribute="centerX" secondItem="dWX-Up-YPI" secondAttribute="centerX" type="default" id="htN-HK-X9Z"/>
+                            <constraint firstItem="43J-d6-lfn" firstAttribute="top" secondItem="ndz-O7-EQ8" secondAttribute="top" type="user" id="pdU-qE-cen"/>
+                            <constraint firstItem="uaG-LY-28p" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BKX-lc-7UK" secondAttribute="top" constant="201" type="user" id="sfO-ae-XLA"/>
                             <constraint firstItem="w7j-pt-Dre" firstAttribute="centerX" secondItem="BKX-lc-7UK" secondAttribute="centerX" type="default" id="tYb-vr-1On"/>
-                            <constraint firstItem="wzg-Qc-CWh" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="52" id="v6h-UV-Onx"/>
-                            <constraint firstItem="ndz-O7-EQ8" firstAttribute="top" secondItem="43J-d6-lfn" secondAttribute="top" type="default" id="wav-cW-Xc6"/>
+                            <constraint firstItem="wzg-Qc-CWh" firstAttribute="top" secondItem="BKX-lc-7UK" secondAttribute="top" constant="52" type="user" id="v6h-UV-Onx"/>
+                            <constraint firstItem="ndz-O7-EQ8" firstAttribute="top" secondItem="43J-d6-lfn" secondAttribute="top" type="user" id="wav-cW-Xc6"/>
                             <constraint firstItem="cPv-LL-u0T" firstAttribute="centerX" secondItem="uaG-LY-28p" secondAttribute="centerX" type="default" id="xMX-9u-e4V"/>
                         </constraints>
                     </view>
@@ -463,7 +474,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
             <objects>
                 <viewController id="mfc-GP-I8c" customClass="DUViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5w1-vo-HrX">
-                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Member since:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ny-lN-UDJ">
@@ -479,7 +490,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="My conversations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfF-nm-Way">
                                 <rect key="frame" x="10" y="114" width="157" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="4vg-eq-Mwd"/>
+                                    <constraint firstAttribute="height" constant="21" type="user" id="4vg-eq-Mwd"/>
                                     <constraint firstAttribute="width" constant="157" scoringType="23.5" id="ZYW-dA-5WS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -522,7 +533,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <rect key="frame" x="0.0" y="143" width="320" height="295"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="295" id="gbr-SA-xNW"/>
+                                    <constraint firstAttribute="height" constant="295" type="user" id="gbr-SA-xNW"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="bottomLeft" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ConversationCell" textLabel="cbt-xg-Jve" detailTextLabel="5aG-tq-6Uv" imageView="QN3-BR-1Xx" style="IBUITableViewCellStyleSubtitle" id="kRQ-Ly-JmZ">
@@ -559,7 +570,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsY-hY-zJW">
-                                <rect key="frame" x="36" y="408" width="249" height="44"/>
+                                <rect key="frame" x="36" y="320" width="249" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="249" id="aKV-fI-pCw"/>
@@ -580,7 +591,8 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="KsY-hY-zJW" secondAttribute="bottom" constant="9" id="1Nr-Kf-Pl9"/>
-                            <constraint firstItem="lfF-nm-Way" firstAttribute="top" secondItem="5w1-vo-HrX" secondAttribute="top" constant="114" id="3cw-3J-GlU"/>
+                            <constraint firstItem="lfF-nm-Way" firstAttribute="top" secondItem="5w1-vo-HrX" secondAttribute="top" constant="114" type="user" id="3cw-3J-GlU"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KsY-hY-zJW" secondAttribute="bottom" constant="9" type="user" id="3xg-mR-tjw"/>
                             <constraint firstItem="UfD-qN-dRH" firstAttribute="bottom" secondItem="7ny-lN-UDJ" secondAttribute="bottom" type="default" id="6xq-5M-fD8"/>
                             <constraint firstItem="haU-g2-lHD" firstAttribute="leading" secondItem="yNu-Te-6uL" secondAttribute="leading" type="default" id="755-M4-tGv"/>
                             <constraint firstItem="yNu-Te-6uL" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" constant="101" id="912-XJ-Yz7"/>
@@ -592,7 +604,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                             <constraint firstItem="7ny-lN-UDJ" firstAttribute="leading" secondItem="haU-g2-lHD" secondAttribute="leading" type="default" id="Oa1-7w-kgu"/>
                             <constraint firstItem="yNu-Te-6uL" firstAttribute="top" secondItem="5w1-vo-HrX" secondAttribute="top" constant="19" id="Px7-xq-CZT"/>
                             <constraint firstAttribute="trailing" secondItem="aVi-zt-sak" secondAttribute="trailing" type="default" id="aHe-gw-O8u"/>
-                            <constraint firstItem="aVi-zt-sak" firstAttribute="top" secondItem="lfF-nm-Way" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="cpa-Ux-ltB"/>
+                            <constraint firstItem="aVi-zt-sak" firstAttribute="top" secondItem="lfF-nm-Way" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="cpa-Ux-ltB"/>
                             <constraint firstItem="7ny-lN-UDJ" firstAttribute="baseline" secondItem="Wpv-cu-A8g" secondAttribute="baseline" type="default" id="i1m-HL-Gcr"/>
                             <constraint firstItem="UfD-qN-dRH" firstAttribute="leading" secondItem="lfF-nm-Way" secondAttribute="leading" type="default" id="oQ3-ai-EEJ"/>
                             <constraint firstItem="7ny-lN-UDJ" firstAttribute="top" secondItem="Wpv-cu-A8g" secondAttribute="top" type="default" id="pRq-vh-Nt3"/>
@@ -643,7 +655,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
             <objects>
                 <tableViewController title="Master" id="12" customClass="SearchViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="vXV-bx-mVH">
@@ -714,7 +726,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
             <objects>
                 <viewController id="Qn3-9b-ypi" customClass="NewConversationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2A2-BF-uSZ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SendTo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VM5-ha-o5V">
@@ -815,7 +827,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
             <objects>
                 <viewController id="YOd-9q-iqi" customClass="MessagesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YmP-NT-GcF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -830,30 +842,21 @@ You can choose the site you want to connect to in settings. Make sure that your 
         <image name="App-Messages-icon.png" width="32" height="32"/>
         <image name="Default.png" width="454" height="681"/>
         <image name="Folder-Documents-icon.png" width="32" height="32"/>
-        <image name="Folder-Documents-icon.png" width="32" height="32"/>
-        <image name="Folder-Documents-icon.png" width="32" height="32"/>
         <image name="Folder-Smart-icon.png" width="32" height="32"/>
-        <image name="Folder-Smart-icon.png" width="32" height="32"/>
-        <image name="Folder-Smart-icon.png" width="32" height="32"/>
-        <image name="OM.png" width="338" height="339"/>
-        <image name="OM.png" width="338" height="339"/>
         <image name="OM.png" width="338" height="339"/>
         <image name="btnCheck.png" width="32" height="32"/>
-        <image name="powered-by-oxwall.png" width="97" height="13"/>
-        <image name="powered-by-oxwall.png" width="97" height="13"/>
-        <image name="powered-by-oxwall.png" width="97" height="13"/>
         <image name="powered-by-oxwall.png" width="97" height="13"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6fg-Ux-aGr"/>
-        <segue reference="p8L-nl-tWI"/>
-        <segue reference="2QW-Mj-fzj"/>
+        <segue reference="ubP-e7-h0u"/>
         <segue reference="rzE-mc-Sqt"/>
         <segue reference="P3Y-dt-uBE"/>
+        <segue reference="2QW-Mj-fzj"/>
+        <segue reference="1Ax-z6-hPl"/>
     </inferredMetricsTieBreakers>
 </document>

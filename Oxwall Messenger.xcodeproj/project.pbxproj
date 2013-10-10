@@ -31,6 +31,7 @@
 		E9041C8E18068D30000B8A67 /* App-Messages-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E9041C8B18068D30000B8A67 /* App-Messages-icon.png */; };
 		E9041C8F18068D30000B8A67 /* Folder-Smart-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E9041C8C18068D30000B8A67 /* Folder-Smart-icon.png */; };
 		E9041C9018068D30000B8A67 /* Folder-Documents-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E9041C8D18068D30000B8A67 /* Folder-Documents-icon.png */; };
+		E9041C951806CCF7000B8A67 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9041C911806CCF7000B8A67 /* libTestFlight.a */; };
 		E909C47F17E198EB0058B75A /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E909C47E17E198EB0058B75A /* MessagesViewController.m */; };
 		E909C49E17E19B5B0058B75A /* missingAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49417E19B5B0058B75A /* missingAvatar.png */; };
 		E909C49F17E19B5B0058B75A /* missingAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49517E19B5B0058B75A /* missingAvatar@2x.png */; };
@@ -235,6 +236,10 @@
 		E9041C8B18068D30000B8A67 /* App-Messages-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-Messages-icon.png"; sourceTree = "<group>"; };
 		E9041C8C18068D30000B8A67 /* Folder-Smart-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder-Smart-icon.png"; sourceTree = "<group>"; };
 		E9041C8D18068D30000B8A67 /* Folder-Documents-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder-Documents-icon.png"; sourceTree = "<group>"; };
+		E9041C911806CCF7000B8A67 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		E9041C921806CCF7000B8A67 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		E9041C931806CCF7000B8A67 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		E9041C941806CCF7000B8A67 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		E909C47D17E198EB0058B75A /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesViewController.h; path = Messenger/MessagesViewController.h; sourceTree = SOURCE_ROOT; };
 		E909C47E17E198EB0058B75A /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesViewController.m; path = Messenger/MessagesViewController.m; sourceTree = SOURCE_ROOT; };
 		E909C49417E19B5B0058B75A /* missingAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missingAvatar.png; sourceTree = "<group>"; };
@@ -482,6 +487,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9041C951806CCF7000B8A67 /* libTestFlight.a in Frameworks */,
 				E9041C87180667C2000B8A67 /* Security.framework in Frameworks */,
 				E9814E7517EE495F00043A59 /* ImageIO.framework in Frameworks */,
 				E92C601717E88EAA00B98C63 /* libz.dylib in Frameworks */,
@@ -975,6 +981,10 @@
 		E9F371C817F31554003A4055 /* Supporting libraries */ = {
 			isa = PBXGroup;
 			children = (
+				E9041C911806CCF7000B8A67 /* libTestFlight.a */,
+				E9041C921806CCF7000B8A67 /* TestFlight.h */,
+				E9041C931806CCF7000B8A67 /* TestFlight+AsyncLogging.h */,
+				E9041C941806CCF7000B8A67 /* TestFlight+ManualSessions.h */,
 				E92FD9B317F41A7C0062D24E /* JSMessagesTableViewController */,
 				9C39544E16A34FF300C5C8FD /* JSONModel */,
 				9C39544316A34FC800C5C8FD /* HUD */,
@@ -1286,6 +1296,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRANK_LIBRARY_SEARCH_PATHS)",
+					/Users/thomas/OxwallMessenger,
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1310,6 +1321,10 @@
 				GCC_PREFIX_HEADER = "Messenger/Oxwall Messenger-Prefix.pch";
 				INFOPLIST_FILE = "Messenger/Oxwall Messenger-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/thomas/OxwallMessenger,
+				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "Oxwall Messenger";
 				WRAPPER_EXTENSION = app;

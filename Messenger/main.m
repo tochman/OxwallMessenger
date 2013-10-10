@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
         
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7")) {
 //Do some stuff for iOS 7.0
+            [NUISettings init];
         }
 
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));

@@ -9,13 +9,14 @@
 
 #import "AppDelegate.h"
 #import <NewRelicAgent/NewRelicAgent.h>
+#import "TestFlight.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [NewRelicAgent startWithApplicationToken:@"AAd40e0cf67623484b41b889aa53df62ba66828e9f"];
-
+    [TestFlight takeOff:@"d15b76ea-68ef-4c0d-b326-33c444b7c54b"];
     [NUIAppearance init];
    
     return YES;
