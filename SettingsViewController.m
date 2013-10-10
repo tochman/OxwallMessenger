@@ -31,10 +31,11 @@
     [super viewDidLoad];
 	self.title = @"Settings";
     self.siteName.text = SITE;
-    //self.siteURL.text = BASE_URL;
+    
+    self.siteURL.text = [BASE_URL stringByReplacingOccurrencesOfString:@"/webservice" withString:@""];
     self.siteURL.placeholder = @"http://domain.com";
     self.connectionStatusLabel.hidden = TRUE;
-   // self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.hidesBackButton = YES;
     
 }
 
@@ -79,5 +80,9 @@
         self.connectionStatusLabel.text = @"Could not connect to server";
         NSLog(@"NSURLConnection connection==false");
     };
+}
+
+- (IBAction)close:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

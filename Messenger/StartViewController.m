@@ -26,8 +26,7 @@
         // Custom initialization
     }
     return self;
-    self.settingsButton.nuiClass = @"SmallButton";
-    self.aboutButton.nuiClass = @"SmallButton";
+
 }
 
 - (void)viewDidLoad
@@ -35,7 +34,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = @"Oxwall Messenger";
-    
+    settingsButton.nuiClass = @"none";
+    aboutButton.nuiClass = @"none";
 }
 
 - (void)didReceiveMemoryWarning

@@ -13,4 +13,5 @@
 @property (strong, nonatomic) IBOutlet UITextField *siteURL;
 @property (strong, nonatomic) IBOutlet UILabel *connectionStatusLabel;
 - (IBAction)checkConnection:(id)sender;
+-(IBAction)close:(id)sender;
 @end

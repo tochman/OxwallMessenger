@@ -60,10 +60,10 @@ LargeButton {
     corner-radius: 10;
 }
 SmallButton {
-background-color-top: @primaryBackgroundColor;
+    background-color-top: @primaryBackgroundColor;
     background-color-bottom: @primaryBackgroundColor
     border-color: @primaryBackgroundColor;
-    border-width: @primaryBackgroundColor;
+    border-width: 0;
     height: 22;
     font-size: 12;
     corner-radius: 5;

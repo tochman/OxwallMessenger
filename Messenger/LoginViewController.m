@@ -13,6 +13,7 @@
 #import "HUD.h"
 #import "UICheckbox.h"
 #import "Lockbox.h"
+#import "UIButton+NUI.h"
 
 @interface LoginViewController () {
     LoginModel* _feed;
@@ -23,6 +24,7 @@
 
 @implementation LoginViewController
 @synthesize checkbox = _checkbox;
+@synthesize settingsButton, aboutButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,9 +41,13 @@
 
     // Title
     self.title = @"Oxwall Messenger";
+    settingsButton.nuiClass = @"none";
+    aboutButton.nuiClass = @"none";
+    self.checkbox.nuiClass = @"none";
     self.checkbox.checked = FALSE;
     self.checkbox.disabled = FALSE;
     self.checkbox.text = @"Remember me";
+    self.checkbox.hidden = TRUE;
     [self.navigationItem setHidesBackButton:YES];
     //usernameField.placeholder = @"Username or e-mail";
     passwordLabel.text =[NSString stringWithFormat:@"Your username at %@", SITE ];

@@ -16,6 +16,8 @@
 
     NSDictionary *credentialsDictionary;
 }
+@property (strong, nonatomic) IBOutlet UIButton *aboutButton;
+@property (strong, nonatomic) IBOutlet UIButton *settingsButton;
 @property(nonatomic, weak)IBOutlet UICheckbox *checkbox;
 - (IBAction)checkCredentials;
 - (IBAction)testCheckbox:(id)sender;
