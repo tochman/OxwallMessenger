@@ -40,7 +40,7 @@
     [super viewDidLoad];
 
     // Title
-    self.title = @"Oxwall Messenger";
+    self.title = @"Login";
     settingsButton.nuiClass = @"none";
     aboutButton.nuiClass = @"none";
     self.checkbox.nuiClass = @"none";

@@ -26,12 +26,14 @@
 @property (strong, nonatomic) NSString *receiver;
 @property (strong, nonatomic) NSString *str;
 @property (strong, nonatomic) UIImage* senderAvatar;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *closeBarButton;
 
 
 + (void)conversationIdMthd : (NSString *)conversationIdStr;
 + (void)senderAvatarMthd : (NSURL *)senderAvatar;
 + (void)receiverIdMthd : (NSString *)receiverIdStr;
 - (IBAction)sendMessage:(id)sender;
+- (IBAction)closeMessageView:(id)sender;
 
 @end
 

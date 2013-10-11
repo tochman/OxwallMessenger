@@ -190,25 +190,16 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //UsersModel* user = usersArr[indexPath.row];
-    //user = _feed.posts[indexPath.row];
     static NSString *cellIdentifier = @"SearchCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    
-    // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
-    
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
     
     // Here we use the new provided setImageWithURL: method to load the web image
-    
-    
-    
-    
+  
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         int row = [[searchResultId objectAtIndex:indexPath.row] integerValue];
         cell.textLabel.text = [[usersArr objectAtIndex:row] valueForKey:@"realname"];
@@ -229,8 +220,16 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int row = [[searchResultId objectAtIndex:indexPath.row] integerValue];
-    receiver = [[usersArr valueForKey:@"id"] objectAtIndex:row];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        
+        int row = [[searchResultId objectAtIndex:indexPath.row] integerValue];
+        receiver = [[usersArr valueForKey:@"id"] objectAtIndex:row];
+        
+    } else {
+        receiver = [[usersArr valueForKey:@"id"] objectAtIndex:indexPath.row];
+        
+    }
+  
     
     NSLog(@"recievier vid val av rad: %@", receiver);
     [self showMessage:self];

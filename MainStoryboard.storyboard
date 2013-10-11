@@ -80,6 +80,21 @@ You can choose the site you want to connect to in settings. Make sure that your 
             </objects>
             <point key="canvasLocation" x="-1085" y="-1446"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ys1-Pu-Bct">
+            <objects>
+                <navigationController storyboardIdentifier="userNav" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pg9-xq-JKC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MYP-Vl-1gg">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mfc-GP-I8c" kind="relationship" relationship="rootViewController" id="KS5-VE-a1K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gGc-Xd-zeG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-524" y="-652"/>
+        </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="gZU-jV-aoP">
             <objects>
@@ -227,24 +242,24 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username or email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLU-QA-5JN">
-                                <rect key="frame" x="20" y="63" width="145" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="Ygw-8l-cSN"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="123" width="145" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="HrS-Kq-0Ok">
-                                <rect key="frame" x="20" y="89" width="280" height="30"/>
+                                <rect key="frame" x="20" y="148" width="280" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="lhQ-kg-hr4"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="P@ssw0rd" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-uc-M54">
-                                <rect key="frame" x="20" y="149" width="280" height="33"/>
+                                <rect key="frame" x="20" y="211" width="280" height="32"/>
                                 <accessibility key="accessibilityConfiguration" label="Password"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="LzK-Ky-hFq"/>
+                                    <constraint firstAttribute="height" constant="32" id="8tA-Tf-N8M"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
@@ -253,7 +268,10 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9i-T5-S4u">
-                                <rect key="frame" x="64" y="277" width="192" height="44"/>
+                                <rect key="frame" x="64" y="342" width="192" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="GO9-YN-Gnh"/>
+                                </constraints>
                                 <state key="normal" title="Log in">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -262,101 +280,116 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRm-31-qPQ" customClass="UICheckbox">
-                                <rect key="frame" x="99" y="216" width="16" height="18"/>
+                                <rect key="frame" x="99" y="291" width="16" height="37"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="testCheckbox:" destination="bMa-nk-uoY" eventType="touchUpInside" id="9kO-Yd-2US"/>
                                 </connections>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Register" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YE-7E-zxB">
-                                <rect key="frame" x="128" y="376" width="64" height="21"/>
+                                <rect key="frame" x="128" y="410" width="64" height="0.0"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="H2F-1A-v4M"/>
-                                    <constraint firstAttribute="width" constant="64" id="LmN-ys-E3J"/>
+                                    <constraint firstAttribute="height" id="Sgr-4G-GVg"/>
+                                    <constraint firstAttribute="width" constant="64" id="ugp-10-R4X"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ObI-fD-9lu">
-                                <rect key="frame" x="268" y="-49" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="Folder-Documents-icon.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showAbout:" destination="bMa-nk-uoY" eventType="touchUpInside" id="JbV-BI-YVE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9U-6Z-FIu">
-                                <rect key="frame" x="20" y="-49" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Folder-Smart-icon.png"/>
-                                <connections>
-                                    <action selector="showSettings:" destination="PbY-Oj-VuW" eventType="touchUpInside" id="ZfU-Aa-cbX"/>
-                                    <action selector="showSettings:" destination="bMa-nk-uoY" eventType="touchUpInside" id="evV-tA-cXC"/>
-                                </connections>
-                            </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalCompressionResistancePriority="749" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="L5T-sy-Su8">
-                                <rect key="frame" x="112" y="471" width="97" height="13"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEt-FR-ShS">
-                                <rect key="frame" x="20" y="123" width="76" height="22"/>
+                                <rect key="frame" x="20" y="181" width="76" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="ycs-ok-NEp"/>
+                                    <constraint firstAttribute="height" constant="22" id="Xcx-6f-Xyf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="n2W-ex-iic">
+                                <rect key="frame" x="119" y="30" width="82" height="81"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ef-iv-5Jm">
+                                <rect key="frame" x="268" y="31" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Xs9-rH-YlE"/>
+                                    <constraint firstAttribute="width" constant="32" id="zjP-A9-BMi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Folder-Documents-icon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showAbout:" destination="bMa-nk-uoY" eventType="touchUpInside" id="oSX-zj-fbS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klb-QW-Phb">
+                                <rect key="frame" x="20" y="30" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="MAM-Qe-4kr"/>
+                                </constraints>
+                                <state key="normal" image="Folder-Smart-icon.png"/>
+                                <connections>
+                                    <action selector="showSettings:" destination="bMa-nk-uoY" eventType="touchUpInside" id="DDP-Wo-SZm"/>
+                                </connections>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalCompressionResistancePriority="749" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="L5T-sy-Su8">
+                                <rect key="frame" x="112" y="469" width="97" height="15"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="L5T-sy-Su8" firstAttribute="centerX" secondItem="4YE-7E-zxB" secondAttribute="centerX" id="2do-31-coB"/>
-                            <constraint firstItem="4YE-7E-zxB" firstAttribute="centerX" secondItem="B9i-T5-S4u" secondAttribute="centerX" id="2oO-u4-EQz"/>
-                            <constraint firstItem="I9U-6Z-FIu" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="20" symbolic="YES" id="3B9-ho-Rh3"/>
-                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="top" secondItem="SLU-QA-5JN" secondAttribute="bottom" constant="3" id="3cq-cw-SQ9"/>
-                            <constraint firstAttribute="trailing" secondItem="iRm-31-qPQ" secondAttribute="trailing" constant="205" id="5cg-Si-N50"/>
-                            <constraint firstAttribute="trailing" secondItem="ObI-fD-9lu" secondAttribute="trailing" constant="20" symbolic="YES" id="5nt-Hp-xCJ"/>
-                            <constraint firstAttribute="bottom" secondItem="L5T-sy-Su8" secondAttribute="bottom" constant="20" symbolic="YES" id="7Wy-Zd-IRe"/>
-                            <constraint firstItem="B9i-T5-S4u" firstAttribute="top" secondItem="iRm-31-qPQ" secondAttribute="bottom" constant="43" id="BB7-Df-vSP"/>
-                            <constraint firstItem="iRm-31-qPQ" firstAttribute="top" secondItem="cnS-uc-M54" secondAttribute="bottom" constant="34" id="D45-HD-3tw"/>
-                            <constraint firstItem="SLU-QA-5JN" firstAttribute="leading" secondItem="I9U-6Z-FIu" secondAttribute="leading" id="DjI-PM-S4U"/>
-                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="leading" secondItem="rEt-FR-ShS" secondAttribute="leading" id="QW0-cH-U0J"/>
-                            <constraint firstItem="SLU-QA-5JN" firstAttribute="leading" secondItem="HrS-Kq-0Ok" secondAttribute="leading" id="RUV-t8-0st"/>
-                            <constraint firstItem="itd-6l-JZe" firstAttribute="top" secondItem="I9U-6Z-FIu" secondAttribute="bottom" constant="17" id="Sh5-3L-eLn"/>
-                            <constraint firstItem="L5T-sy-Su8" firstAttribute="top" secondItem="4YE-7E-zxB" secondAttribute="bottom" constant="74" id="XiO-dj-0tL"/>
-                            <constraint firstItem="rEt-FR-ShS" firstAttribute="top" secondItem="HrS-Kq-0Ok" secondAttribute="bottom" constant="4" id="agi-Uz-u53"/>
-                            <constraint firstItem="rEt-FR-ShS" firstAttribute="leading" secondItem="cnS-uc-M54" secondAttribute="leading" id="cxl-k3-Jd5"/>
-                            <constraint firstItem="iRm-31-qPQ" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="99" id="l9i-gS-AH6"/>
-                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="trailing" secondItem="cnS-uc-M54" secondAttribute="trailing" id="m6f-tM-8lH"/>
-                            <constraint firstItem="cnS-uc-M54" firstAttribute="top" secondItem="rEt-FR-ShS" secondAttribute="bottom" constant="4" id="pCV-Ne-Ev8"/>
-                            <constraint firstItem="B9i-T5-S4u" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="64" id="pc3-u6-S3j"/>
-                            <constraint firstItem="SLU-QA-5JN" firstAttribute="top" secondItem="itd-6l-JZe" secondAttribute="bottom" constant="63" id="rVh-Py-tcn"/>
-                            <constraint firstItem="cnS-uc-M54" firstAttribute="centerX" secondItem="B9i-T5-S4u" secondAttribute="centerX" id="tAr-fA-k2J"/>
-                            <constraint firstItem="ObI-fD-9lu" firstAttribute="top" secondItem="I9U-6Z-FIu" secondAttribute="top" id="x3O-wn-kGu"/>
-                            <constraint firstItem="4YE-7E-zxB" firstAttribute="top" secondItem="B9i-T5-S4u" secondAttribute="bottom" constant="56" id="x8m-G8-p43"/>
-                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="trailing" secondItem="ObI-fD-9lu" secondAttribute="trailing" id="zPi-U9-JBF"/>
+                            <constraint firstAttribute="trailing" secondItem="5Ef-iv-5Jm" secondAttribute="trailing" constant="20" symbolic="YES" id="6X6-bL-dfE"/>
+                            <constraint firstItem="4YE-7E-zxB" firstAttribute="top" secondItem="B9i-T5-S4u" secondAttribute="bottom" constant="23" id="6kD-7D-H9e"/>
+                            <constraint firstItem="B9i-T5-S4u" firstAttribute="top" secondItem="iRm-31-qPQ" secondAttribute="bottom" constant="14" id="Bc5-cH-JSX"/>
+                            <constraint firstItem="B9i-T5-S4u" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="64" id="Bc8-BA-9UP"/>
+                            <constraint firstItem="klb-QW-Phb" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="20" symbolic="YES" id="H0f-nv-uOQ"/>
+                            <constraint firstItem="cnS-uc-M54" firstAttribute="top" secondItem="HrS-Kq-0Ok" secondAttribute="bottom" constant="31" id="IKd-Jz-lxi"/>
+                            <constraint firstItem="cnS-uc-M54" firstAttribute="leading" secondItem="rEt-FR-ShS" secondAttribute="leading" id="KMV-O9-TVu"/>
+                            <constraint firstItem="cnS-uc-M54" firstAttribute="top" secondItem="rEt-FR-ShS" secondAttribute="bottom" constant="8" id="LWH-VF-R30"/>
+                            <constraint firstItem="L5T-sy-Su8" firstAttribute="top" secondItem="532-IU-44L" secondAttribute="bottom" constant="-35" id="LgL-ZB-qUD"/>
+                            <constraint firstItem="n2W-ex-iic" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="30" id="NMx-XE-u6c"/>
+                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="leading" secondItem="SLU-QA-5JN" secondAttribute="leading" id="Q8L-5u-bvY"/>
+                            <constraint firstItem="SLU-QA-5JN" firstAttribute="leading" secondItem="klb-QW-Phb" secondAttribute="leading" id="W2s-yc-W7J"/>
+                            <constraint firstAttribute="bottom" secondItem="L5T-sy-Su8" secondAttribute="bottom" constant="20" id="WMH-Lr-zrl"/>
+                            <constraint firstItem="B9i-T5-S4u" firstAttribute="centerX" secondItem="cnS-uc-M54" secondAttribute="centerX" id="YCv-7L-Bkf"/>
+                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="leading" secondItem="rEt-FR-ShS" secondAttribute="leading" id="ZCT-hQ-jbQ"/>
+                            <constraint firstItem="SLU-QA-5JN" firstAttribute="top" secondItem="n2W-ex-iic" secondAttribute="bottom" constant="12" id="Zqn-s8-KUp"/>
+                            <constraint firstItem="iRm-31-qPQ" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="99" id="ax6-1N-FUv"/>
+                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="trailing" secondItem="5Ef-iv-5Jm" secondAttribute="trailing" id="bYA-Gl-3wo"/>
+                            <constraint firstItem="klb-QW-Phb" firstAttribute="top" secondItem="itd-6l-JZe" secondAttribute="bottom" constant="30" id="bYU-Rs-Vdc"/>
+                            <constraint firstItem="4YE-7E-zxB" firstAttribute="centerX" secondItem="B9i-T5-S4u" secondAttribute="centerX" id="ckT-Xd-aP4"/>
+                            <constraint firstItem="n2W-ex-iic" firstAttribute="leading" secondItem="klb-QW-Phb" secondAttribute="trailing" constant="67" id="eDK-lf-jer"/>
+                            <constraint firstItem="iRm-31-qPQ" firstAttribute="top" secondItem="cnS-uc-M54" secondAttribute="bottom" constant="48" id="gGO-MX-2Nl"/>
+                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="centerX" secondItem="n2W-ex-iic" secondAttribute="centerX" id="jGY-n9-vrM"/>
+                            <constraint firstItem="4YE-7E-zxB" firstAttribute="centerX" secondItem="L5T-sy-Su8" secondAttribute="centerX" id="nOF-dK-ObW"/>
+                            <constraint firstItem="532-IU-44L" firstAttribute="top" secondItem="4YE-7E-zxB" secondAttribute="bottom" constant="94" id="nrX-cx-Mhe"/>
+                            <constraint firstItem="5Ef-iv-5Jm" firstAttribute="top" secondItem="itd-6l-JZe" secondAttribute="bottom" constant="31" id="tgR-oj-j66"/>
+                            <constraint firstAttribute="trailing" secondItem="iRm-31-qPQ" secondAttribute="trailing" constant="205" id="u0e-uC-NLY"/>
+                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="trailing" secondItem="cnS-uc-M54" secondAttribute="trailing" id="vls-Rx-89H"/>
+                            <constraint firstItem="SLU-QA-5JN" firstAttribute="top" secondItem="klb-QW-Phb" secondAttribute="bottom" constant="61" id="wT4-4F-J9S"/>
+                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="top" secondItem="n2W-ex-iic" secondAttribute="bottom" constant="37" id="wx7-qw-dYq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="21l-gD-2V8"/>
                     <connections>
-                        <outlet property="aboutButton" destination="ObI-fD-9lu" id="1Pi-ee-coH"/>
+                        <outlet property="aboutButton" destination="5Ef-iv-5Jm" id="3jx-f9-WdB"/>
                         <outlet property="checkbox" destination="iRm-31-qPQ" id="jxe-1B-5HZ"/>
                         <outlet property="passwordField" destination="cnS-uc-M54" id="R4a-31-yA7"/>
                         <outlet property="passwordLabel" destination="SLU-QA-5JN" id="MTu-fU-azx"/>
-                        <outlet property="settingsButton" destination="I9U-6Z-FIu" id="F1P-DU-7xa"/>
+                        <outlet property="settingsButton" destination="klb-QW-Phb" id="mLB-Hk-W3u"/>
                         <outlet property="usernameField" destination="HrS-Kq-0Ok" id="1GZ-r3-kfA"/>
-                        <segue destination="mfc-GP-I8c" kind="push" identifier="userprofile" id="rzE-mc-Sqt"/>
                         <segue destination="w55-Us-Nhh" kind="push" identifier="About" id="dfM-1F-9fs"/>
                         <segue destination="0rX-VR-SKe" kind="push" identifier="settings" id="6yq-rF-IoJ"/>
+                        <segue destination="Pg9-xq-JKC" kind="modal" identifier="userprofile" animates="NO" id="y3A-wR-Vit"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1BG-ph-btk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-539" y="-676"/>
+            <point key="canvasLocation" x="-1659" y="-689"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="U3o-jI-jKE">
@@ -377,8 +410,8 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <constraint firstAttribute="height" constant="81" id="gZC-r0-DC7"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWX-Up-YPI">
-                                <rect key="frame" x="108" y="326" width="105" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWX-Up-YPI">
+                                <rect key="frame" x="108" y="275" width="105" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="IvO-x3-bbK"/>
@@ -445,18 +478,18 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <outlet property="aboutButton" destination="43J-d6-lfn" id="a4m-uI-PUk"/>
                         <outlet property="settingsButton" destination="ndz-O7-EQ8" id="o4a-j1-W3j"/>
                         <segue destination="w55-Us-Nhh" kind="push" identifier="About" id="2QW-Mj-fzj"/>
-                        <segue destination="bMa-nk-uoY" kind="push" identifier="start" id="EcD-DB-ip3"/>
                         <segue destination="0rX-VR-SKe" kind="push" identifier="settings" id="P3Y-dt-uBE"/>
+                        <segue destination="bMa-nk-uoY" kind="push" identifier="start" id="YIV-KB-RvX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyb-DY-RFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1093" y="-671"/>
+            <point key="canvasLocation" x="-2310" y="-689"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="11">
             <objects>
-                <navigationController id="3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="App-Messages-icon.png" id="V5I-Ki-wfI"/>
                     <navigationItem key="navigationItem" id="HoV-Nq-5q1"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
@@ -468,12 +501,12 @@ You can choose the site you want to connect to in settings. Make sure that your 
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1587" y="-671"/>
+            <point key="canvasLocation" x="-2835" y="-689"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="USm-hR-APk">
             <objects>
-                <viewController id="mfc-GP-I8c" customClass="DUViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DUView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mfc-GP-I8c" customClass="DUViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1s9-C9-s47"/>
                         <viewControllerLayoutGuide type="bottom" id="XC9-YV-FCR"/>
@@ -742,13 +775,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ER5-ki-Q7a">
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="5NL-wR-lRY">
-                            <connections>
-                                <action selector="cancel" destination="12" id="ceg-Sc-zMp"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="ER5-ki-Q7a"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="lzS-SZ-geZ" id="00H-X6-kZY"/>
                         <outlet property="view" destination="13" id="iz7-u4-2nI"/>
@@ -864,7 +891,16 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="ZvL-DS-9wa"/>
+                    <navigationItem key="navigationItem" id="ZvL-DS-9wa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="kb7-qJ-cp3">
+                            <connections>
+                                <action selector="closeMessageView:" destination="YOd-9q-iqi" id="E3q-yA-472"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="closeBarButton" destination="kb7-qJ-cp3" id="6qX-B0-HA9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NlI-KU-hGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -875,9 +911,21 @@ You can choose the site you want to connect to in settings. Make sure that your 
         <image name="App-Messages-icon.png" width="32" height="32"/>
         <image name="Default.png" width="454" height="681"/>
         <image name="Folder-Documents-icon.png" width="32" height="32"/>
+        <image name="Folder-Documents-icon.png" width="32" height="32"/>
+        <image name="Folder-Documents-icon.png" width="32" height="32"/>
+        <image name="Folder-Smart-icon.png" width="32" height="32"/>
+        <image name="Folder-Smart-icon.png" width="32" height="32"/>
         <image name="Folder-Smart-icon.png" width="32" height="32"/>
         <image name="OM.png" width="338" height="339"/>
+        <image name="OM.png" width="338" height="339"/>
+        <image name="OM.png" width="338" height="339"/>
+        <image name="OM.png" width="338" height="339"/>
         <image name="btnCheck.png" width="32" height="32"/>
+        <image name="btnCheck.png" width="32" height="32"/>
+        <image name="btnCheck.png" width="32" height="32"/>
+        <image name="powered-by-oxwall.png" width="97" height="13"/>
+        <image name="powered-by-oxwall.png" width="97" height="13"/>
+        <image name="powered-by-oxwall.png" width="97" height="13"/>
         <image name="powered-by-oxwall.png" width="97" height="13"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -886,10 +934,10 @@ You can choose the site you want to connect to in settings. Make sure that your 
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dfM-1F-9fs"/>
-        <segue reference="rzE-mc-Sqt"/>
+        <segue reference="Dfj-Em-gpP"/>
         <segue reference="ubP-e7-h0u"/>
         <segue reference="p8L-nl-tWI"/>
         <segue reference="6yq-rF-IoJ"/>
+        <segue reference="dfM-1F-9fs"/>
     </inferredMetricsTieBreakers>
 </document>

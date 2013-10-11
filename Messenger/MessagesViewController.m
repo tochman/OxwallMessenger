@@ -9,6 +9,7 @@
 #import "Constants.h"
 #import "MessagesViewController.h"
 #import "ODRefreshControl.h"
+#import "DUViewController.h"
 
 
 
@@ -19,7 +20,7 @@
 
 @implementation MessagesViewController
 
-@synthesize messages, json, jsonDict;
+@synthesize messages, json, jsonDict, closeBarButton;
 
 static NSString *conversationid;
 static NSString *receiver;
@@ -55,6 +56,7 @@ ODRefreshControl *refreshControl1;
     self.delegate = self;
     self.dataSource = self;
     self.title = @"Messages";
+    [self.navigationItem setHidesBackButton:YES];
 }
 
 -(void)viewDidLayoutSubviews{
@@ -255,6 +257,13 @@ ODRefreshControl *refreshControl1;
     [self doPOST];
     [self scrollToBottomAnimated:YES];
     
+}
+
+- (IBAction)closeMessageView:(id)sender {
+    UINavigationController *duview =[self.storyboard instantiateViewControllerWithIdentifier:@"userNav"];
+    
+   // [duview setModalTransitionStyle:UIModalTrans];
+    [self presentViewController:duview animated:YES completion:nil];
 }
 
 - (void)scrollToBottomAnimated:(BOOL)animated {
