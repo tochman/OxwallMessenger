@@ -250,7 +250,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="HrS-Kq-0Ok">
                                 <rect key="frame" x="20" y="148" width="280" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="lhQ-kg-hr4"/>
+                                    <constraint firstAttribute="height" constant="32" id="VsE-9q-jQd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -259,7 +259,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <rect key="frame" x="20" y="211" width="280" height="32"/>
                                 <accessibility key="accessibilityConfiguration" label="Password"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="8tA-Tf-N8M"/>
+                                    <constraint firstAttribute="height" constant="32" id="UsR-6B-m0G"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
@@ -270,7 +270,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9i-T5-S4u">
                                 <rect key="frame" x="64" y="342" width="192" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="GO9-YN-Gnh"/>
+                                    <constraint firstAttribute="height" constant="45" id="k3k-gE-V1b"/>
                                 </constraints>
                                 <state key="normal" title="Log in">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -289,8 +289,8 @@ You can choose the site you want to connect to in settings. Make sure that your 
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Register" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YE-7E-zxB">
                                 <rect key="frame" x="128" y="410" width="64" height="0.0"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" id="Sgr-4G-GVg"/>
-                                    <constraint firstAttribute="width" constant="64" id="ugp-10-R4X"/>
+                                    <constraint firstAttribute="width" constant="64" id="WC5-ID-pk3"/>
+                                    <constraint firstAttribute="height" id="wyF-u7-Mpw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -299,23 +299,19 @@ You can choose the site you want to connect to in settings. Make sure that your 
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEt-FR-ShS">
                                 <rect key="frame" x="20" y="181" width="76" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="Xcx-6f-Xyf"/>
+                                    <constraint firstAttribute="height" constant="22" id="Is0-Xd-yky"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="n2W-ex-iic">
-                                <rect key="frame" x="119" y="30" width="82" height="81"/>
+                                <rect key="frame" x="119" y="31" width="82" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ef-iv-5Jm">
                                 <rect key="frame" x="268" y="31" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="Xs9-rH-YlE"/>
-                                    <constraint firstAttribute="width" constant="32" id="zjP-A9-BMi"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Folder-Documents-icon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -328,7 +324,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <rect key="frame" x="20" y="30" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="MAM-Qe-4kr"/>
+                                    <constraint firstAttribute="height" constant="32" id="0ES-9p-TKc"/>
                                 </constraints>
                                 <state key="normal" image="Folder-Smart-icon.png"/>
                                 <connections>
@@ -338,40 +334,42 @@ You can choose the site you want to connect to in settings. Make sure that your 
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalCompressionResistancePriority="749" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="L5T-sy-Su8">
                                 <rect key="frame" x="112" y="469" width="97" height="15"/>
                                 <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="A6X-Aa-9ZG"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="5Ef-iv-5Jm" secondAttribute="trailing" constant="20" symbolic="YES" id="6X6-bL-dfE"/>
-                            <constraint firstItem="4YE-7E-zxB" firstAttribute="top" secondItem="B9i-T5-S4u" secondAttribute="bottom" constant="23" id="6kD-7D-H9e"/>
-                            <constraint firstItem="B9i-T5-S4u" firstAttribute="top" secondItem="iRm-31-qPQ" secondAttribute="bottom" constant="14" id="Bc5-cH-JSX"/>
-                            <constraint firstItem="B9i-T5-S4u" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="64" id="Bc8-BA-9UP"/>
-                            <constraint firstItem="klb-QW-Phb" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="20" symbolic="YES" id="H0f-nv-uOQ"/>
-                            <constraint firstItem="cnS-uc-M54" firstAttribute="top" secondItem="HrS-Kq-0Ok" secondAttribute="bottom" constant="31" id="IKd-Jz-lxi"/>
-                            <constraint firstItem="cnS-uc-M54" firstAttribute="leading" secondItem="rEt-FR-ShS" secondAttribute="leading" id="KMV-O9-TVu"/>
-                            <constraint firstItem="cnS-uc-M54" firstAttribute="top" secondItem="rEt-FR-ShS" secondAttribute="bottom" constant="8" id="LWH-VF-R30"/>
-                            <constraint firstItem="L5T-sy-Su8" firstAttribute="top" secondItem="532-IU-44L" secondAttribute="bottom" constant="-35" id="LgL-ZB-qUD"/>
-                            <constraint firstItem="n2W-ex-iic" firstAttribute="top" secondItem="kdS-Ng-ue1" secondAttribute="top" constant="30" id="NMx-XE-u6c"/>
-                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="leading" secondItem="SLU-QA-5JN" secondAttribute="leading" id="Q8L-5u-bvY"/>
-                            <constraint firstItem="SLU-QA-5JN" firstAttribute="leading" secondItem="klb-QW-Phb" secondAttribute="leading" id="W2s-yc-W7J"/>
-                            <constraint firstAttribute="bottom" secondItem="L5T-sy-Su8" secondAttribute="bottom" constant="20" id="WMH-Lr-zrl"/>
-                            <constraint firstItem="B9i-T5-S4u" firstAttribute="centerX" secondItem="cnS-uc-M54" secondAttribute="centerX" id="YCv-7L-Bkf"/>
-                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="leading" secondItem="rEt-FR-ShS" secondAttribute="leading" id="ZCT-hQ-jbQ"/>
-                            <constraint firstItem="SLU-QA-5JN" firstAttribute="top" secondItem="n2W-ex-iic" secondAttribute="bottom" constant="12" id="Zqn-s8-KUp"/>
-                            <constraint firstItem="iRm-31-qPQ" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="99" id="ax6-1N-FUv"/>
-                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="trailing" secondItem="5Ef-iv-5Jm" secondAttribute="trailing" id="bYA-Gl-3wo"/>
-                            <constraint firstItem="klb-QW-Phb" firstAttribute="top" secondItem="itd-6l-JZe" secondAttribute="bottom" constant="30" id="bYU-Rs-Vdc"/>
-                            <constraint firstItem="4YE-7E-zxB" firstAttribute="centerX" secondItem="B9i-T5-S4u" secondAttribute="centerX" id="ckT-Xd-aP4"/>
-                            <constraint firstItem="n2W-ex-iic" firstAttribute="leading" secondItem="klb-QW-Phb" secondAttribute="trailing" constant="67" id="eDK-lf-jer"/>
-                            <constraint firstItem="iRm-31-qPQ" firstAttribute="top" secondItem="cnS-uc-M54" secondAttribute="bottom" constant="48" id="gGO-MX-2Nl"/>
-                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="centerX" secondItem="n2W-ex-iic" secondAttribute="centerX" id="jGY-n9-vrM"/>
-                            <constraint firstItem="4YE-7E-zxB" firstAttribute="centerX" secondItem="L5T-sy-Su8" secondAttribute="centerX" id="nOF-dK-ObW"/>
-                            <constraint firstItem="532-IU-44L" firstAttribute="top" secondItem="4YE-7E-zxB" secondAttribute="bottom" constant="94" id="nrX-cx-Mhe"/>
-                            <constraint firstItem="5Ef-iv-5Jm" firstAttribute="top" secondItem="itd-6l-JZe" secondAttribute="bottom" constant="31" id="tgR-oj-j66"/>
-                            <constraint firstAttribute="trailing" secondItem="iRm-31-qPQ" secondAttribute="trailing" constant="205" id="u0e-uC-NLY"/>
-                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="trailing" secondItem="cnS-uc-M54" secondAttribute="trailing" id="vls-Rx-89H"/>
-                            <constraint firstItem="SLU-QA-5JN" firstAttribute="top" secondItem="klb-QW-Phb" secondAttribute="bottom" constant="61" id="wT4-4F-J9S"/>
-                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="top" secondItem="n2W-ex-iic" secondAttribute="bottom" constant="37" id="wx7-qw-dYq"/>
+                            <constraint firstItem="n2W-ex-iic" firstAttribute="top" secondItem="itd-6l-JZe" secondAttribute="bottom" constant="31" id="0Aw-4u-taL"/>
+                            <constraint firstItem="cnS-uc-M54" firstAttribute="centerX" secondItem="B9i-T5-S4u" secondAttribute="centerX" id="0Fr-OC-mx0"/>
+                            <constraint firstItem="SLU-QA-5JN" firstAttribute="leading" secondItem="HrS-Kq-0Ok" secondAttribute="leading" id="2p9-F7-EzG"/>
+                            <constraint firstItem="klb-QW-Phb" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="20" symbolic="YES" id="3kE-Ch-oLv"/>
+                            <constraint firstItem="rEt-FR-ShS" firstAttribute="top" secondItem="HrS-Kq-0Ok" secondAttribute="bottom" constant="1" id="5tt-dH-7ey"/>
+                            <constraint firstItem="B9i-T5-S4u" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="64" id="7YO-rR-Ecv"/>
+                            <constraint firstItem="cnS-uc-M54" firstAttribute="leading" secondItem="rEt-FR-ShS" secondAttribute="leading" id="7yT-EP-5xU"/>
+                            <constraint firstItem="5Ef-iv-5Jm" firstAttribute="trailing" secondItem="HrS-Kq-0Ok" secondAttribute="trailing" id="9Qi-Wq-Wh2"/>
+                            <constraint firstItem="SLU-QA-5JN" firstAttribute="leading" secondItem="klb-QW-Phb" secondAttribute="leading" id="CcD-gF-SBp"/>
+                            <constraint firstItem="klb-QW-Phb" firstAttribute="top" secondItem="itd-6l-JZe" secondAttribute="bottom" constant="30" id="DGg-1v-yN4"/>
+                            <constraint firstItem="B9i-T5-S4u" firstAttribute="top" secondItem="iRm-31-qPQ" secondAttribute="bottom" constant="14" id="DaP-pM-5JE"/>
+                            <constraint firstItem="4YE-7E-zxB" firstAttribute="centerX" secondItem="L5T-sy-Su8" secondAttribute="centerX" id="FvK-hN-LJd"/>
+                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="top" secondItem="SLU-QA-5JN" secondAttribute="bottom" constant="4" id="IFe-Gn-eA2"/>
+                            <constraint firstItem="n2W-ex-iic" firstAttribute="centerX" secondItem="HrS-Kq-0Ok" secondAttribute="centerX" id="IYy-gq-EY0"/>
+                            <constraint firstAttribute="bottom" secondItem="L5T-sy-Su8" secondAttribute="bottom" constant="20" symbolic="YES" id="MTN-Ed-MDO"/>
+                            <constraint firstItem="cnS-uc-M54" firstAttribute="trailing" secondItem="HrS-Kq-0Ok" secondAttribute="trailing" id="Ssh-zA-Ac7"/>
+                            <constraint firstItem="4YE-7E-zxB" firstAttribute="top" secondItem="B9i-T5-S4u" secondAttribute="bottom" constant="23" id="Ssq-xL-jUZ"/>
+                            <constraint firstAttribute="trailing" secondItem="5Ef-iv-5Jm" secondAttribute="trailing" constant="20" symbolic="YES" id="XP8-EC-Mgl"/>
+                            <constraint firstItem="n2W-ex-iic" firstAttribute="leading" secondItem="klb-QW-Phb" secondAttribute="trailing" constant="67" id="bUv-Zr-HY1"/>
+                            <constraint firstItem="L5T-sy-Su8" firstAttribute="top" secondItem="4YE-7E-zxB" secondAttribute="bottom" constant="59" id="dDk-Qn-ZJP"/>
+                            <constraint firstItem="SLU-QA-5JN" firstAttribute="top" secondItem="klb-QW-Phb" secondAttribute="bottom" constant="61" id="dgb-Md-ddK"/>
+                            <constraint firstItem="4YE-7E-zxB" firstAttribute="centerX" secondItem="B9i-T5-S4u" secondAttribute="centerX" id="fZs-BQ-1vf"/>
+                            <constraint firstItem="SLU-QA-5JN" firstAttribute="top" secondItem="n2W-ex-iic" secondAttribute="bottom" constant="12" id="gn5-80-IXs"/>
+                            <constraint firstAttribute="trailing" secondItem="iRm-31-qPQ" secondAttribute="trailing" constant="205" id="jHl-CH-LYX"/>
+                            <constraint firstItem="n2W-ex-iic" firstAttribute="top" secondItem="5Ef-iv-5Jm" secondAttribute="top" id="m6L-oO-0fu"/>
+                            <constraint firstItem="iRm-31-qPQ" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="99" id="sca-Dg-7qI"/>
+                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="leading" secondItem="rEt-FR-ShS" secondAttribute="leading" id="uFS-C6-lFP"/>
+                            <constraint firstItem="iRm-31-qPQ" firstAttribute="top" secondItem="cnS-uc-M54" secondAttribute="bottom" constant="48" id="yYe-xI-XXx"/>
+                            <constraint firstItem="cnS-uc-M54" firstAttribute="top" secondItem="rEt-FR-ShS" secondAttribute="bottom" constant="8" symbolic="YES" id="yci-Dk-BT8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="21l-gD-2V8"/>
@@ -512,11 +510,11 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="XC9-YV-FCR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5w1-vo-HrX">
-                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Member since:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ny-lN-UDJ">
-                                <rect key="frame" x="101" y="70" width="107" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Member since:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ny-lN-UDJ">
+                                <rect key="frame" x="101" y="77" width="107" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Y65-OX-c73"/>
                                     <constraint firstAttribute="width" constant="107" id="q0h-Dh-Rh5"/>
@@ -525,8 +523,8 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="My conversations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfF-nm-Way">
-                                <rect key="frame" x="10" y="108" width="157" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="My conversations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfF-nm-Way">
+                                <rect key="frame" x="10" y="118" width="157" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="157" id="TuO-YF-mQE"/>
                                 </constraints>
@@ -534,8 +532,8 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="JSONSex" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haU-g2-lHD" colorLabel="IBBuiltInLabel-Gray">
-                                <rect key="frame" x="101" y="-11" width="75" height="14"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="JSONSex" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haU-g2-lHD" colorLabel="IBBuiltInLabel-Gray">
+                                <rect key="frame" x="108" y="40" width="75" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="d82-42-m5X"/>
                                 </constraints>
@@ -543,20 +541,20 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="JSONmembersince" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpv-cu-A8g" colorLabel="IBBuiltInLabel-Gray">
-                                <rect key="frame" x="185" y="70" width="148" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="JSONmembersince" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpv-cu-A8g" colorLabel="IBBuiltInLabel-Gray">
+                                <rect key="frame" x="185" y="77" width="148" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-qN-dRH">
-                                <rect key="frame" x="10" y="11" width="80" height="80"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-qN-dRH">
+                                <rect key="frame" x="10" y="12" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="CmV-sj-vFZ"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aVi-zt-sak">
-                                <rect key="frame" x="0.0" y="142" width="320" height="242"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aVi-zt-sak">
+                                <rect key="frame" x="0.0" y="170" width="320" height="242"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="bottomLeft" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ConversationCell" textLabel="cbt-xg-Jve" detailTextLabel="5aG-tq-6Uv" imageView="QN3-BR-1Xx" style="IBUITableViewCellStyleSubtitle" id="kRQ-Ly-JmZ">
@@ -644,7 +642,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <outlet property="delegate" destination="mfc-GP-I8c" id="edX-3I-76c"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsY-hY-zJW">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsY-hY-zJW">
                                 <rect key="frame" x="36" y="396" width="249" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -657,8 +655,8 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="newConversation" destination="mfc-GP-I8c" eventType="touchUpInside" id="xsh-ap-Gp8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="JSONusername" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNu-Te-6uL" colorLabel="IBBuiltInLabel-Gray">
-                                <rect key="frame" x="108" y="11" width="121" height="20"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="JSONusername" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNu-Te-6uL" colorLabel="IBBuiltInLabel-Gray">
+                                <rect key="frame" x="108" y="12" width="121" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="hXM-ht-gb0"/>
                                 </constraints>
@@ -716,7 +714,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6T-c5-p1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="50" y="-436"/>
+            <point key="canvasLocation" x="80" y="-572"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7BL-db-QSD">
@@ -738,7 +736,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
             <objects>
                 <tableViewController title="Master" id="12" customClass="SearchViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
-                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="vXV-bx-mVH">
@@ -886,7 +884,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="AUV-fq-wdd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YmP-NT-GcF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -936,8 +934,8 @@ You can choose the site you want to connect to in settings. Make sure that your 
     <inferredMetricsTieBreakers>
         <segue reference="Dfj-Em-gpP"/>
         <segue reference="ubP-e7-h0u"/>
-        <segue reference="p8L-nl-tWI"/>
-        <segue reference="6yq-rF-IoJ"/>
+        <segue reference="1Ax-z6-hPl"/>
         <segue reference="dfM-1F-9fs"/>
+        <segue reference="6yq-rF-IoJ"/>
     </inferredMetricsTieBreakers>
 </document>
