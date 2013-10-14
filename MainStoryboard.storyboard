@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="6JB-Ls-ng2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6JB-Ls-ng2">
     <dependencies>
         <deployment version="1552" defaultVersion="1536" identifier="iOS"/>
         <development version="5000" identifier="xcode"/>
@@ -15,11 +15,11 @@
                         <viewControllerLayoutGuide type="bottom" id="xLA-Ra-vKu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ptd-sd-AHp">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6O-Q3-9ZG">
-                                <rect key="frame" x="18" y="100" width="281" height="289"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6O-Q3-9ZG">
+                                <rect key="frame" x="19" y="204" width="281" height="278"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">OxwallMessenger connects to a Oxwall powered site and provides the user with messaging functionality.
 Oxwall is a social networking software platform written in PHP/MySQL. You can find more info about Oxwall at: www.oxwall.org/.
@@ -29,9 +29,12 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gg-AK-FQs">
-                                <rect key="frame" x="18" y="412" width="280" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gg-AK-FQs">
+                                <rect key="frame" x="20" y="503" width="280" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="efQ-Zx-w73"/>
+                                </constraints>
                                 <state key="normal" title="Close">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -39,16 +42,27 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="close:" destination="w55-Us-Nhh" eventType="touchUpInside" id="qIn-sT-ov9"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="mXp-Jg-v9H">
-                                <rect key="frame" x="112" y="471" width="97" height="34"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="OdH-dy-bjR">
+                                <rect key="frame" x="116" y="75" width="86" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="OdH-dy-bjR">
-                                <rect key="frame" x="123" y="21" width="71" height="71"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="P9l-ry-M41"/>
+                                    <constraint firstAttribute="width" constant="86" id="ds0-2d-nVY"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="z6O-Q3-9ZG" firstAttribute="trailing" secondItem="0gg-AK-FQs" secondAttribute="trailing" id="4Ee-X1-0mf"/>
+                            <constraint firstAttribute="bottom" secondItem="0gg-AK-FQs" secondAttribute="bottom" constant="20" symbolic="YES" id="84n-Jk-20I"/>
+                            <constraint firstItem="OdH-dy-bjR" firstAttribute="top" secondItem="JpC-1H-Dg9" secondAttribute="bottom" constant="11" id="9Rt-8N-RSd"/>
+                            <constraint firstItem="OdH-dy-bjR" firstAttribute="centerX" secondItem="z6O-Q3-9ZG" secondAttribute="centerX" id="FoH-Ql-A6c"/>
+                            <constraint firstItem="z6O-Q3-9ZG" firstAttribute="top" secondItem="OdH-dy-bjR" secondAttribute="bottom" constant="33" id="Sjo-SK-tOE"/>
+                            <constraint firstAttribute="trailing" secondItem="z6O-Q3-9ZG" secondAttribute="trailing" constant="20" symbolic="YES" id="TfQ-A8-wqh"/>
+                            <constraint firstItem="0gg-AK-FQs" firstAttribute="top" secondItem="z6O-Q3-9ZG" secondAttribute="bottom" constant="21" id="hGZ-AE-SJ3"/>
+                            <constraint firstItem="z6O-Q3-9ZG" firstAttribute="leading" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="19" id="i5p-y6-Aja"/>
+                            <constraint firstItem="0gg-AK-FQs" firstAttribute="leading" secondItem="ptd-sd-AHp" secondAttribute="leading" constant="20" symbolic="YES" id="uFR-Qa-uqM"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="Folder-Documents-icon.png" id="Ivw-ra-aOd"/>
                     <navigationItem key="navigationItem" id="mk3-Z2-yKw"/>
@@ -70,7 +84,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGc-Xd-zeG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-524" y="-652"/>
+            <point key="canvasLocation" x="-704" y="-580"/>
         </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="gZU-jV-aoP">
@@ -81,25 +95,31 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="hYN-DR-c3k"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HPi-1D-6sz">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sitename" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aor-5Y-arz">
-                                <rect key="frame" x="20" y="56" width="73" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sitename" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aor-5Y-arz">
+                                <rect key="frame" x="20" y="178" width="73" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="jZt-3d-VCg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Site url" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUh-fM-PhL">
-                                <rect key="frame" x="20" y="123" width="54" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Site url" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUh-fM-PhL">
+                                <rect key="frame" x="20" y="245" width="54" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvM-ep-0LK">
-                                <rect key="frame" x="20" y="201" width="280" height="49"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvM-ep-0LK">
+                                <rect key="frame" x="20" y="308" width="280" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="HR4-BC-aIx"/>
+                                </constraints>
                                 <state key="normal" title="Check connection">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -107,26 +127,35 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="checkConnection:" destination="0rX-VR-SKe" eventType="touchUpInside" id="yNi-cT-oPF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgm-6v-7g7">
-                                <rect key="frame" x="20" y="282" width="280" height="16"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgm-6v-7g7">
+                                <rect key="frame" x="20" y="371" width="280" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="cP3-wO-nl3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MDx-Dl-h9R">
-                                <rect key="frame" x="20" y="80" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MDx-Dl-h9R">
+                                <rect key="frame" x="20" y="202" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="NRp-Mx-P1N"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d05-Jl-hhU">
-                                <rect key="frame" x="20" y="152" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d05-Jl-hhU">
+                                <rect key="frame" x="20" y="274" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="haA-UP-OP3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0x-86-3qE">
-                                <rect key="frame" x="20" y="407" width="280" height="49"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0x-86-3qE">
+                                <rect key="frame" x="20" y="417" width="280" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Close">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -135,20 +164,49 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="close:" destination="0rX-VR-SKe" eventType="touchUpInside" id="coi-9V-CfZ"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZAx-kr-W2B">
-                                <rect key="frame" x="-618" y="-1510" width="0.0" height="0.0"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="w7j-pt-Dre">
+                                <rect key="frame" x="117" y="535" width="97" height="13"/>
                                 <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="x0i-Yt-vk7"/>
+                                </constraints>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gh2-dD-A45">
-                                <rect key="frame" x="-618" y="-1510" width="0.0" height="0.0"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gh2-dD-A45">
+                                <rect key="frame" x="113" y="68" width="94" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="w7j-pt-Dre">
-                                <rect key="frame" x="112" y="471" width="97" height="13"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="sJV-fT-il4"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RUh-fM-PhL" firstAttribute="top" secondItem="MDx-Dl-h9R" secondAttribute="bottom" constant="13" id="4pH-WP-8NQ"/>
+                            <constraint firstItem="mvM-ep-0LK" firstAttribute="top" secondItem="d05-Jl-hhU" secondAttribute="bottom" constant="4" id="61N-zs-xZG"/>
+                            <constraint firstItem="cgm-6v-7g7" firstAttribute="leading" secondItem="K0x-86-3qE" secondAttribute="leading" id="7ej-ye-A4j"/>
+                            <constraint firstAttribute="bottom" secondItem="w7j-pt-Dre" secondAttribute="bottom" constant="20" symbolic="YES" id="9lL-hu-W4A"/>
+                            <constraint firstItem="aor-5Y-arz" firstAttribute="top" secondItem="QSx-Ef-Cq1" secondAttribute="bottom" constant="114" id="DoG-2v-fVm"/>
+                            <constraint firstItem="cgm-6v-7g7" firstAttribute="trailing" secondItem="mvM-ep-0LK" secondAttribute="trailing" id="JXR-Y7-pPl"/>
+                            <constraint firstItem="d05-Jl-hhU" firstAttribute="leading" secondItem="mvM-ep-0LK" secondAttribute="leading" id="MxR-R1-IqA"/>
+                            <constraint firstItem="aor-5Y-arz" firstAttribute="leading" secondItem="HPi-1D-6sz" secondAttribute="leading" constant="20" symbolic="YES" id="N8r-mC-0ZO"/>
+                            <constraint firstItem="d05-Jl-hhU" firstAttribute="trailing" secondItem="MDx-Dl-h9R" secondAttribute="trailing" id="Nbm-qu-OCE"/>
+                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="centerX" secondItem="Gh2-dD-A45" secondAttribute="centerX" id="Nrt-0z-eaR"/>
+                            <constraint firstItem="cgm-6v-7g7" firstAttribute="leading" secondItem="mvM-ep-0LK" secondAttribute="leading" id="PdB-aL-IVr"/>
+                            <constraint firstItem="Gh2-dD-A45" firstAttribute="top" secondItem="QSx-Ef-Cq1" secondAttribute="bottom" constant="4" id="Pds-wC-uZs"/>
+                            <constraint firstItem="w7j-pt-Dre" firstAttribute="top" secondItem="K0x-86-3qE" secondAttribute="bottom" constant="51" id="Qnr-sC-dcG"/>
+                            <constraint firstItem="d05-Jl-hhU" firstAttribute="top" secondItem="RUh-fM-PhL" secondAttribute="bottom" constant="8" symbolic="YES" id="TXJ-5Q-4Xa"/>
+                            <constraint firstItem="aor-5Y-arz" firstAttribute="leading" secondItem="MDx-Dl-h9R" secondAttribute="leading" id="dRT-1Y-LDj"/>
+                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="top" secondItem="Gh2-dD-A45" secondAttribute="bottom" constant="24" id="dnq-fC-qWC"/>
+                            <constraint firstItem="w7j-pt-Dre" firstAttribute="leading" secondItem="HPi-1D-6sz" secondAttribute="leading" constant="117" id="hJo-z4-aBb"/>
+                            <constraint firstItem="cgm-6v-7g7" firstAttribute="top" secondItem="mvM-ep-0LK" secondAttribute="bottom" constant="21" id="ieP-lG-pZx"/>
+                            <constraint firstItem="d05-Jl-hhU" firstAttribute="trailing" secondItem="mvM-ep-0LK" secondAttribute="trailing" id="ihs-06-9An"/>
+                            <constraint firstItem="d05-Jl-hhU" firstAttribute="leading" secondItem="RUh-fM-PhL" secondAttribute="leading" id="jgm-J5-xkG"/>
+                            <constraint firstItem="K0x-86-3qE" firstAttribute="top" secondItem="cgm-6v-7g7" secondAttribute="bottom" constant="30" id="mAK-5O-DKu"/>
+                            <constraint firstItem="K0x-86-3qE" firstAttribute="trailing" secondItem="cgm-6v-7g7" secondAttribute="trailing" id="ni1-k1-QfT"/>
+                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="top" secondItem="aor-5Y-arz" secondAttribute="bottom" constant="3" id="o0y-TB-GAI"/>
+                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="leading" secondItem="RUh-fM-PhL" secondAttribute="leading" id="sWF-Sb-DbZ"/>
+                            <constraint firstAttribute="trailing" secondItem="MDx-Dl-h9R" secondAttribute="trailing" constant="20" symbolic="YES" id="wVG-Ll-7VQ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="Folder-Smart-icon.png" id="MhS-BG-1XG"/>
                     <navigationItem key="navigationItem" id="jpK-Q1-ZvA"/>
@@ -171,22 +229,22 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="Tb1-UC-QQf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kdS-Ng-ue1">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Username or email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLU-QA-5JN">
-                                <rect key="frame" x="20" y="123" width="145" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username or email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLU-QA-5JN">
+                                <rect key="frame" x="20" y="189" width="145" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="HrS-Kq-0Ok">
-                                <rect key="frame" x="20" y="147" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="HrS-Kq-0Ok">
+                                <rect key="frame" x="20" y="217" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="P@ssw0rd" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-uc-M54">
-                                <rect key="frame" x="20" y="211" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="P@ssw0rd" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-uc-M54">
+                                <rect key="frame" x="20" y="289" width="280" height="30"/>
                                 <accessibility key="accessibilityConfiguration" label="Password"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
@@ -194,8 +252,11 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <outlet property="delegate" destination="bMa-nk-uoY" id="oL3-eu-Z1A"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9i-T5-S4u">
-                                <rect key="frame" x="64" y="378" width="192" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9i-T5-S4u">
+                                <rect key="frame" x="59" y="332" width="192" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="nja-f1-bge"/>
+                                </constraints>
                                 <state key="normal" title="Log in">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -203,31 +264,53 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="checkCredentials" destination="bMa-nk-uoY" eventType="touchUpInside" id="gL6-Zs-Qf7"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iRm-31-qPQ" customClass="UICheckbox">
-                                <rect key="frame" x="99" y="291" width="16" height="0.0"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRm-31-qPQ" customClass="UICheckbox">
+                                <rect key="frame" x="99" y="305" width="16" height="0.0"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="testCheckbox:" destination="bMa-nk-uoY" eventType="touchUpInside" id="9kO-Yd-2US"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Register" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YE-7E-zxB">
-                                <rect key="frame" x="128" y="452" width="64" height="0.0"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Register" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YE-7E-zxB">
+                                <rect key="frame" x="128" y="509" width="64" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="8hl-pa-4Hw"/>
+                                    <constraint firstAttribute="height" id="uPc-er-wzk"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEt-FR-ShS">
-                                <rect key="frame" x="20" y="181" width="76" height="22"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEt-FR-ShS">
+                                <rect key="frame" x="20" y="255" width="76" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="oM7-i7-ynh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" fixedFrame="YES" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="n2W-ex-iic">
-                                <rect key="frame" x="119" y="31" width="82" height="80"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" misplaced="YES" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="n2W-ex-iic">
+                                <rect key="frame" x="105" y="85" width="111" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ef-iv-5Jm">
-                                <rect key="frame" x="268" y="31" width="32" height="32"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalCompressionResistancePriority="749" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="L5T-sy-Su8">
+                                <rect key="frame" x="112" y="535" width="97" height="13"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klb-QW-Phb">
+                                <rect key="frame" x="20" y="84" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="7KJ-31-UKR"/>
+                                </constraints>
+                                <state key="normal" image="Folder-Smart-icon.png"/>
+                                <connections>
+                                    <action selector="showSettings:" destination="bMa-nk-uoY" eventType="touchUpInside" id="DDP-Wo-SZm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ef-iv-5Jm">
+                                <rect key="frame" x="268" y="85" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Folder-Documents-icon.png">
@@ -237,20 +320,39 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="showAbout:" destination="bMa-nk-uoY" eventType="touchUpInside" id="oSX-zj-fbS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klb-QW-Phb">
-                                <rect key="frame" x="20" y="30" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Folder-Smart-icon.png"/>
-                                <connections>
-                                    <action selector="showSettings:" destination="bMa-nk-uoY" eventType="touchUpInside" id="DDP-Wo-SZm"/>
-                                </connections>
-                            </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalCompressionResistancePriority="749" fixedFrame="YES" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="L5T-sy-Su8">
-                                <rect key="frame" x="112" y="432" width="97" height="15"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n2W-ex-iic" firstAttribute="top" secondItem="OkF-FC-uEN" secondAttribute="bottom" constant="21" id="4r5-fg-LT0"/>
+                            <constraint firstItem="klb-QW-Phb" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="20" symbolic="YES" id="5LP-BK-sS1"/>
+                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="top" secondItem="SLU-QA-5JN" secondAttribute="bottom" constant="7" id="AJX-T9-UHi"/>
+                            <constraint firstAttribute="trailing" secondItem="5Ef-iv-5Jm" secondAttribute="trailing" constant="20" symbolic="YES" id="Abd-tc-kaR"/>
+                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="trailing" secondItem="5Ef-iv-5Jm" secondAttribute="trailing" id="EsN-uk-zy0"/>
+                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="leading" secondItem="SLU-QA-5JN" secondAttribute="leading" id="HN8-fw-mqa"/>
+                            <constraint firstItem="4YE-7E-zxB" firstAttribute="centerX" secondItem="L5T-sy-Su8" secondAttribute="centerX" id="JLy-YG-nfF"/>
+                            <constraint firstItem="n2W-ex-iic" firstAttribute="centerX" secondItem="HrS-Kq-0Ok" secondAttribute="centerX" id="Ooz-RZ-wdH"/>
+                            <constraint firstItem="L5T-sy-Su8" firstAttribute="top" secondItem="4YE-7E-zxB" secondAttribute="bottom" constant="26" id="PLN-P8-5Do"/>
+                            <constraint firstItem="HrS-Kq-0Ok" firstAttribute="trailing" secondItem="cnS-uc-M54" secondAttribute="trailing" id="Q3H-mz-4G5"/>
+                            <constraint firstItem="cnS-uc-M54" firstAttribute="top" secondItem="rEt-FR-ShS" secondAttribute="bottom" constant="12" id="S27-Ri-r5A"/>
+                            <constraint firstItem="SLU-QA-5JN" firstAttribute="top" secondItem="klb-QW-Phb" secondAttribute="bottom" constant="73" id="UA7-B9-sYH"/>
+                            <constraint firstItem="klb-QW-Phb" firstAttribute="top" secondItem="OkF-FC-uEN" secondAttribute="bottom" constant="20" id="V3j-ee-hl9"/>
+                            <constraint firstItem="B9i-T5-S4u" firstAttribute="top" secondItem="cnS-uc-M54" secondAttribute="bottom" constant="13" id="Wsl-ZW-9z4"/>
+                            <constraint firstItem="iRm-31-qPQ" firstAttribute="top" secondItem="HrS-Kq-0Ok" secondAttribute="bottom" constant="58" id="XQG-s9-fJ5"/>
+                            <constraint firstItem="5Ef-iv-5Jm" firstAttribute="leading" secondItem="n2W-ex-iic" secondAttribute="trailing" constant="52" id="asp-gb-uPg"/>
+                            <constraint firstItem="SLU-QA-5JN" firstAttribute="top" secondItem="n2W-ex-iic" secondAttribute="bottom" constant="12" id="c6x-a5-xOa"/>
+                            <constraint firstItem="B9i-T5-S4u" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="59" id="dYp-V7-VtU"/>
+                            <constraint firstAttribute="trailing" secondItem="iRm-31-qPQ" secondAttribute="trailing" constant="205" id="hXI-BI-guG"/>
+                            <constraint firstItem="rEt-FR-ShS" firstAttribute="leading" secondItem="HrS-Kq-0Ok" secondAttribute="leading" id="hni-bM-BL3"/>
+                            <constraint firstItem="5Ef-iv-5Jm" firstAttribute="top" secondItem="n2W-ex-iic" secondAttribute="top" id="ibe-N3-OA0"/>
+                            <constraint firstItem="cnS-uc-M54" firstAttribute="leading" secondItem="rEt-FR-ShS" secondAttribute="leading" id="kMC-Wj-7dy"/>
+                            <constraint firstItem="rEt-FR-ShS" firstAttribute="top" secondItem="HrS-Kq-0Ok" secondAttribute="bottom" constant="8" symbolic="YES" id="lUi-wM-ab6"/>
+                            <constraint firstItem="iRm-31-qPQ" firstAttribute="leading" secondItem="kdS-Ng-ue1" secondAttribute="leading" constant="99" id="n0v-zB-AT2"/>
+                            <constraint firstItem="4YE-7E-zxB" firstAttribute="centerX" secondItem="cnS-uc-M54" secondAttribute="centerX" id="n2n-NA-fpX"/>
+                            <constraint firstItem="B9i-T5-S4u" firstAttribute="top" secondItem="iRm-31-qPQ" secondAttribute="bottom" constant="27" id="oTh-xL-UjS"/>
+                            <constraint firstItem="klb-QW-Phb" firstAttribute="leading" secondItem="SLU-QA-5JN" secondAttribute="leading" id="ruo-RJ-pU8"/>
+                            <constraint firstAttribute="trailing" secondItem="B9i-T5-S4u" secondAttribute="trailing" constant="69" id="wls-GJ-YvX"/>
+                            <constraint firstAttribute="bottom" secondItem="L5T-sy-Su8" secondAttribute="bottom" constant="20" symbolic="YES" id="zwc-GX-uju"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="21l-gD-2V8"/>
                     <connections>
@@ -278,16 +380,16 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="dBm-Sz-ETk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BKX-lc-7UK">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" fixedFrame="YES" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="wzg-Qc-CWh">
-                                <rect key="frame" x="119" y="38" width="82" height="81"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWX-Up-YPI">
-                                <rect key="frame" x="108" y="275" width="105" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWX-Up-YPI">
+                                <rect key="frame" x="108" y="365" width="105" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="38J-6W-bMl"/>
+                                    <constraint firstAttribute="height" constant="46" id="7P9-OW-uTA"/>
+                                </constraints>
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -295,20 +397,26 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="start:" destination="PbY-Oj-VuW" eventType="touchUpInside" id="1gJ-Nq-cxD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oxwall Messenger" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPv-LL-u0T">
-                                <rect key="frame" x="50" y="139" width="220" height="33"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oxwall Messenger" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPv-LL-u0T">
+                                <rect key="frame" x="50" y="229" width="220" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="rIx-3j-xP2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaG-LY-28p">
-                                <rect key="frame" x="142" y="196" width="36" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaG-LY-28p">
+                                <rect key="frame" x="142" y="286" width="36" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="rFw-MI-sWz"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43J-d6-lfn">
-                                <rect key="frame" x="268" y="38" width="32" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43J-d6-lfn">
+                                <rect key="frame" x="268" y="82" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Folder-Documents-icon.png">
@@ -318,16 +426,36 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="showAbout:" destination="PbY-Oj-VuW" eventType="touchUpInside" id="0UP-d1-6gK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndz-O7-EQ8">
-                                <rect key="frame" x="20" y="38" width="32" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndz-O7-EQ8">
+                                <rect key="frame" x="20" y="82" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Folder-Smart-icon.png"/>
                                 <connections>
                                     <action selector="showSettings:" destination="PbY-Oj-VuW" eventType="touchUpInside" id="cvJ-an-Gf6"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" misplaced="YES" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="wzg-Qc-CWh">
+                                <rect key="frame" x="121" y="64" width="79" height="134"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dWX-Up-YPI" firstAttribute="centerX" secondItem="uaG-LY-28p" secondAttribute="centerX" id="8Ns-rj-JwL"/>
+                            <constraint firstItem="43J-d6-lfn" firstAttribute="top" secondItem="ndz-O7-EQ8" secondAttribute="top" id="8P2-CR-6yS"/>
+                            <constraint firstItem="ndz-O7-EQ8" firstAttribute="top" secondItem="AiG-Jr-Gcq" secondAttribute="bottom" constant="18" id="ByV-Ee-iEO"/>
+                            <constraint firstItem="ndz-O7-EQ8" firstAttribute="leading" secondItem="BKX-lc-7UK" secondAttribute="leading" constant="20" symbolic="YES" id="HAD-67-0eE"/>
+                            <constraint firstItem="wzg-Qc-CWh" firstAttribute="top" secondItem="AiG-Jr-Gcq" secondAttribute="bottom" id="NO4-QC-zNa"/>
+                            <constraint firstAttribute="trailing" secondItem="43J-d6-lfn" secondAttribute="trailing" constant="20" symbolic="YES" id="QUu-Hx-UID"/>
+                            <constraint firstItem="wzg-Qc-CWh" firstAttribute="centerX" secondItem="BKX-lc-7UK" secondAttribute="centerX" id="Z4B-oa-jRh"/>
+                            <constraint firstItem="cPv-LL-u0T" firstAttribute="centerX" secondItem="wzg-Qc-CWh" secondAttribute="centerX" id="au0-oW-17U"/>
+                            <constraint firstItem="dWX-Up-YPI" firstAttribute="top" secondItem="uaG-LY-28p" secondAttribute="bottom" constant="58" id="hpW-1x-kTh"/>
+                            <constraint firstItem="cPv-LL-u0T" firstAttribute="top" secondItem="wzg-Qc-CWh" secondAttribute="bottom" constant="31" id="kdA-2m-Jhm"/>
+                            <constraint firstItem="43J-d6-lfn" firstAttribute="leading" secondItem="wzg-Qc-CWh" secondAttribute="trailing" constant="68" id="mGi-bI-ntU"/>
+                            <constraint firstItem="cPv-LL-u0T" firstAttribute="centerX" secondItem="uaG-LY-28p" secondAttribute="centerX" id="qHx-EE-WsJ"/>
+                            <constraint firstItem="dBm-Sz-ETk" firstAttribute="top" secondItem="dWX-Up-YPI" secondAttribute="bottom" constant="157" id="vjc-KJ-9xf"/>
+                            <constraint firstItem="uaG-LY-28p" firstAttribute="top" secondItem="cPv-LL-u0T" secondAttribute="bottom" constant="24" id="zyT-Vy-dp9"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yF3-hD-lxN"/>
                     <connections>
@@ -351,7 +479,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="qKl-FL-6Wc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="J7x-Em-jLY">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -386,61 +514,74 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="n3h-NP-MNj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5w1-vo-HrX">
-                        <rect key="frame" x="0.0" y="20" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Member since:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ny-lN-UDJ">
-                                <rect key="frame" x="101" y="77" width="107" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Member since:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ny-lN-UDJ">
+                                <rect key="frame" x="106" y="134" width="107" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="NlO-I0-d10"/>
+                                    <constraint firstAttribute="width" constant="107" id="hbs-PI-90n"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="My conversations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfF-nm-Way">
-                                <rect key="frame" x="10" y="118" width="157" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="My conversations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfF-nm-Way">
+                                <rect key="frame" x="8" y="162" width="157" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="157" id="MxU-Io-EUk"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="JSONSex" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haU-g2-lHD" colorLabel="IBBuiltInLabel-Gray">
-                                <rect key="frame" x="108" y="40" width="75" height="14"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="JSONSex" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haU-g2-lHD" colorLabel="IBBuiltInLabel-Gray">
+                                <rect key="frame" x="106" y="106" width="75" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="Zfc-nZ-GFz"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="JSONmembersince" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpv-cu-A8g" colorLabel="IBBuiltInLabel-Gray">
-                                <rect key="frame" x="185" y="77" width="148" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="JSONmembersince" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpv-cu-A8g" colorLabel="IBBuiltInLabel-Gray">
+                                <rect key="frame" x="190" y="134" width="148" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-qN-dRH">
-                                <rect key="frame" x="10" y="12" width="80" height="80"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-qN-dRH">
+                                <rect key="frame" x="8" y="75" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="WsC-z8-Nnh"/>
+                                </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aVi-zt-sak">
-                                <rect key="frame" x="0.0" y="147" width="320" height="242"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aVi-zt-sak">
+                                <rect key="frame" x="0.0" y="197" width="320" height="242"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="bottomLeft" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ConversationCell" textLabel="cbt-xg-Jve" detailTextLabel="5aG-tq-6Uv" imageView="QN3-BR-1Xx" style="IBUITableViewCellStyleSubtitle" id="kRQ-Ly-JmZ">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kRQ-Ly-JmZ" id="hFd-7G-gTy">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cbt-xg-Jve">
-                                                    <rect key="frame" x="47" y="2" width="36" height="22"/>
+                                                    <rect key="frame" x="62" y="2" width="36" height="22"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5aG-tq-6Uv">
-                                                    <rect key="frame" x="47" y="24" width="36" height="17"/>
+                                                    <rect key="frame" x="62" y="24" width="36" height="17"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                     <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="btnCheck.png" id="QN3-BR-1Xx">
-                                                    <rect key="frame" x="5" y="5" width="32" height="32"/>
+                                                    <rect key="frame" x="15" y="5" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -450,23 +591,23 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                         <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uWs-Ar-Vqk" id="dnl-8a-Bky">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YXf-9s-6ef">
-                                                    <rect key="frame" x="47" y="2" width="36" height="22"/>
+                                                    <rect key="frame" x="62" y="2" width="36" height="22"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RHl-sV-QPR">
-                                                    <rect key="frame" x="47" y="24" width="36" height="17"/>
+                                                    <rect key="frame" x="62" y="24" width="36" height="17"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                     <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="btnCheck.png" id="Xpx-hV-MMz">
-                                                    <rect key="frame" x="5" y="5" width="32" height="32"/>
+                                                    <rect key="frame" x="15" y="5" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -476,23 +617,23 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                         <rect key="frame" x="0.0" y="110" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sBJ-nb-qv4" id="Yc8-aw-bic">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AvS-oF-tIB">
-                                                    <rect key="frame" x="47" y="2" width="36" height="22"/>
+                                                    <rect key="frame" x="62" y="2" width="36" height="22"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8UM-GJ-DzW">
-                                                    <rect key="frame" x="47" y="24" width="36" height="17"/>
+                                                    <rect key="frame" x="62" y="24" width="36" height="17"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                     <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="btnCheck.png" id="frE-K0-rjH">
-                                                    <rect key="frame" x="5" y="5" width="32" height="32"/>
+                                                    <rect key="frame" x="15" y="5" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -505,9 +646,12 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <outlet property="delegate" destination="mfc-GP-I8c" id="edX-3I-76c"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsY-hY-zJW">
-                                <rect key="frame" x="36" y="440" width="249" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsY-hY-zJW">
+                                <rect key="frame" x="36" y="465" width="248" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Dic-5I-ry8"/>
+                                </constraints>
                                 <state key="normal" title="Start New Conversation">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -515,14 +659,42 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="newConversation" destination="mfc-GP-I8c" eventType="touchUpInside" id="xsh-ap-Gp8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="JSONusername" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNu-Te-6uL" colorLabel="IBBuiltInLabel-Gray">
-                                <rect key="frame" x="108" y="12" width="121" height="20"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="JSONusername" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNu-Te-6uL" colorLabel="IBBuiltInLabel-Gray">
+                                <rect key="frame" x="106" y="75" width="121" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="G6O-GR-5AY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n3h-NP-MNj" firstAttribute="top" secondItem="KsY-hY-zJW" secondAttribute="bottom" constant="14" id="3JU-1y-lK2"/>
+                            <constraint firstItem="KsY-hY-zJW" firstAttribute="centerX" secondItem="5w1-vo-HrX" secondAttribute="centerX" id="4Mv-Dm-4Pc"/>
+                            <constraint firstItem="haU-g2-lHD" firstAttribute="top" secondItem="yNu-Te-6uL" secondAttribute="bottom" constant="11" id="5Vs-II-hKr"/>
+                            <constraint firstItem="lfF-nm-Way" firstAttribute="top" secondItem="UfD-qN-dRH" secondAttribute="bottom" constant="7" id="5ed-TY-ZoZ"/>
+                            <constraint firstItem="UfD-qN-dRH" firstAttribute="top" secondItem="pXw-JE-axe" secondAttribute="bottom" constant="11" id="7DI-Mq-CFc"/>
+                            <constraint firstItem="aVi-zt-sak" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" id="8Nd-X5-6gQ"/>
+                            <constraint firstItem="KsY-hY-zJW" firstAttribute="top" secondItem="aVi-zt-sak" secondAttribute="bottom" constant="26" id="Bfe-Iv-XT5"/>
+                            <constraint firstItem="KsY-hY-zJW" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" constant="36" id="DNt-GT-HHE"/>
+                            <constraint firstItem="Wpv-cu-A8g" firstAttribute="leading" secondItem="UfD-qN-dRH" secondAttribute="trailing" constant="102" id="MTg-aP-5Ut"/>
+                            <constraint firstAttribute="trailing" secondItem="aVi-zt-sak" secondAttribute="trailing" id="Ndb-Dd-5t9"/>
+                            <constraint firstItem="lfF-nm-Way" firstAttribute="top" secondItem="7ny-lN-UDJ" secondAttribute="bottom" constant="7" id="Nrv-9U-6gU"/>
+                            <constraint firstItem="aVi-zt-sak" firstAttribute="top" secondItem="lfF-nm-Way" secondAttribute="bottom" constant="14" id="YwD-do-hiG"/>
+                            <constraint firstItem="aVi-zt-sak" firstAttribute="top" secondItem="Wpv-cu-A8g" secondAttribute="bottom" constant="42" id="ahc-ka-S4q"/>
+                            <constraint firstItem="UfD-qN-dRH" firstAttribute="leading" secondItem="lfF-nm-Way" secondAttribute="leading" id="bMO-QV-9Rx"/>
+                            <constraint firstItem="UfD-qN-dRH" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" constant="8" id="bo7-G0-KGU"/>
+                            <constraint firstItem="Wpv-cu-A8g" firstAttribute="baseline" secondItem="7ny-lN-UDJ" secondAttribute="baseline" id="dBq-aC-eFC"/>
+                            <constraint firstItem="7ny-lN-UDJ" firstAttribute="leading" secondItem="UfD-qN-dRH" secondAttribute="trailing" constant="18" id="dLk-Vd-eJC"/>
+                            <constraint firstAttribute="trailing" secondItem="Wpv-cu-A8g" secondAttribute="trailing" constant="-18" id="eeM-dT-8oV"/>
+                            <constraint firstItem="Wpv-cu-A8g" firstAttribute="top" secondItem="7ny-lN-UDJ" secondAttribute="top" id="gMi-g2-3my"/>
+                            <constraint firstItem="UfD-qN-dRH" firstAttribute="top" secondItem="yNu-Te-6uL" secondAttribute="top" id="lgE-fH-Vp5"/>
+                            <constraint firstItem="yNu-Te-6uL" firstAttribute="leading" secondItem="UfD-qN-dRH" secondAttribute="trailing" constant="18" id="q8f-so-H5L"/>
+                            <constraint firstItem="Wpv-cu-A8g" firstAttribute="top" secondItem="yNu-Te-6uL" secondAttribute="bottom" constant="39" id="r9m-qu-qtS"/>
+                            <constraint firstItem="haU-g2-lHD" firstAttribute="leading" secondItem="yNu-Te-6uL" secondAttribute="leading" id="wUb-c7-8dw"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ghW-Uh-Gxu">
@@ -568,11 +740,11 @@ You can choose the site you want to connect to in settings. Make sure that your 
             <objects>
                 <tableViewController title="Master" id="12" customClass="SearchViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="vXV-bx-mVH">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -581,14 +753,14 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" textLabel="phq-AM-6qj" style="IBUITableViewCellStyleDefault" id="lJ0-d7-vTF">
-                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lJ0-d7-vTF" id="Tj4-iX-gyw">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="phq-AM-6qj">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -636,48 +808,16 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="nTa-X3-6bR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2A2-BF-uSZ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SendTo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VM5-ha-o5V">
-                                <rect key="frame" x="61" y="52" width="239" height="21"/>
+                                <rect key="frame" x="20" y="60" width="239" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7g1-hj-g09">
-                                <rect key="frame" x="20" y="52" width="23" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92x-at-twp">
-                                <rect key="frame" x="20" y="81" width="59" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4k-cA-MdF">
-                                <rect key="frame" x="20" y="145" width="70" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QeR-Tq-LOa">
-                                <rect key="frame" x="20" y="107" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text=" " translatesAutoresizingMaskIntoConstraints="NO" id="Dz0-Wl-pI8">
-                                <rect key="frame" x="20" y="174" width="280" height="264"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
-                            </textView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmD-qx-kHu">
                                 <rect key="frame" x="0.0" y="-3" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -716,7 +856,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="39X-RC-8QX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YmP-NT-GcF">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -741,9 +881,19 @@ You can choose the site you want to connect to in settings. Make sure that your 
         <image name="App-Messages-icon.png" width="32" height="32"/>
         <image name="Default.png" width="454" height="681"/>
         <image name="Folder-Documents-icon.png" width="32" height="32"/>
+        <image name="Folder-Documents-icon.png" width="32" height="32"/>
+        <image name="Folder-Documents-icon.png" width="32" height="32"/>
+        <image name="Folder-Smart-icon.png" width="32" height="32"/>
+        <image name="Folder-Smart-icon.png" width="32" height="32"/>
         <image name="Folder-Smart-icon.png" width="32" height="32"/>
         <image name="OM.png" width="338" height="339"/>
+        <image name="OM.png" width="338" height="339"/>
+        <image name="OM.png" width="338" height="339"/>
+        <image name="OM.png" width="338" height="339"/>
         <image name="btnCheck.png" width="32" height="32"/>
+        <image name="btnCheck.png" width="32" height="32"/>
+        <image name="btnCheck.png" width="32" height="32"/>
+        <image name="powered-by-oxwall.png" width="97" height="13"/>
         <image name="powered-by-oxwall.png" width="97" height="13"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -752,10 +902,10 @@ You can choose the site you want to connect to in settings. Make sure that your 
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Dfj-Em-gpP"/>
+        <segue reference="6yq-rF-IoJ"/>
+        <segue reference="KS5-VE-a1K"/>
         <segue reference="ubP-e7-h0u"/>
         <segue reference="1Ax-z6-hPl"/>
         <segue reference="dfM-1F-9fs"/>
-        <segue reference="6yq-rF-IoJ"/>
     </inferredMetricsTieBreakers>
 </document>
