@@ -116,6 +116,13 @@
 		E9477F4317E0F43800A16505 /* ConversationFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4217E0F43800A16505 /* ConversationFeed.m */; };
 		E9477F4617E10B9F00A16505 /* MessageFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4517E10B9C00A16505 /* MessageFeed.m */; };
 		E9477F4917E10BC600A16505 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4817E10BC600A16505 /* MessageModel.m */; };
+		E95B981C180BAF2A00E93FB1 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = E95B9819180BAF2A00E93FB1 /* EAIntroPage.m */; };
+		E95B981D180BAF2A00E93FB1 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = E95B981B180BAF2A00E93FB1 /* EAIntroView.m */; };
+		E95B9820180BAF4900E93FB1 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E95B981F180BAF4900E93FB1 /* IntroViewController.m */; };
+		E95B9824180BB16C00E93FB1 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = E95B9821180BB16C00E93FB1 /* 1.png */; };
+		E95B9825180BB16C00E93FB1 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = E95B9822180BB16C00E93FB1 /* 2.png */; };
+		E95B9826180BB16C00E93FB1 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = E95B9823180BB16C00E93FB1 /* 3.png */; };
+		E95B9829180BB1FF00E93FB1 /* iOS-7-Wall-3.png in Resources */ = {isa = PBXBuildFile; fileRef = E95B9827180BB1FF00E93FB1 /* iOS-7-Wall-3.png */; };
 		E965EFE818052947003C5C61 /* SvcIconInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = E965EFE718052947003C5C61 /* SvcIconInfo.png */; };
 		E965EFEB18052CD3003C5C61 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E965EFEA18052CD3003C5C61 /* AboutViewController.m */; };
 		E965EFED18054488003C5C61 /* oxwall logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E965EFEC18054488003C5C61 /* oxwall logo.png */; };
@@ -352,6 +359,16 @@
 		E9477F4517E10B9C00A16505 /* MessageFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageFeed.m; path = Messenger/MessageFeed.m; sourceTree = "<group>"; };
 		E9477F4717E10BC500A16505 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageModel.h; path = Messenger/MessageModel.h; sourceTree = "<group>"; };
 		E9477F4817E10BC600A16505 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageModel.m; path = Messenger/MessageModel.m; sourceTree = "<group>"; };
+		E95B9818180BAF2A00E93FB1 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
+		E95B9819180BAF2A00E93FB1 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
+		E95B981A180BAF2A00E93FB1 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
+		E95B981B180BAF2A00E93FB1 /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
+		E95B981E180BAF4900E93FB1 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroViewController.h; path = Messenger/IntroViewController.h; sourceTree = SOURCE_ROOT; };
+		E95B981F180BAF4900E93FB1 /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IntroViewController.m; path = Messenger/IntroViewController.m; sourceTree = SOURCE_ROOT; };
+		E95B9821180BB16C00E93FB1 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		E95B9822180BB16C00E93FB1 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		E95B9823180BB16C00E93FB1 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		E95B9827180BB1FF00E93FB1 /* iOS-7-Wall-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS-7-Wall-3.png"; sourceTree = "<group>"; };
 		E965EFE718052947003C5C61 /* SvcIconInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SvcIconInfo.png; sourceTree = "<group>"; };
 		E965EFE918052CD3003C5C61 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Messenger/AboutViewController.h; sourceTree = SOURCE_ROOT; };
 		E965EFEA18052CD3003C5C61 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Messenger/AboutViewController.m; sourceTree = SOURCE_ROOT; };
@@ -594,6 +611,8 @@
 				E965EFEA18052CD3003C5C61 /* AboutViewController.m */,
 				E9041C88180672B5000B8A67 /* SettingsViewController.h */,
 				E9041C89180672B5000B8A67 /* SettingsViewController.m */,
+				E95B981E180BAF4900E93FB1 /* IntroViewController.h */,
+				E95B981F180BAF4900E93FB1 /* IntroViewController.m */,
 			);
 			name = "Supporting Files";
 			path = JSON_HelloWorld;
@@ -797,6 +816,10 @@
 		E9477F2F17E071EB00A16505 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E95B9827180BB1FF00E93FB1 /* iOS-7-Wall-3.png */,
+				E95B9821180BB16C00E93FB1 /* 1.png */,
+				E95B9822180BB16C00E93FB1 /* 2.png */,
+				E95B9823180BB16C00E93FB1 /* 3.png */,
 				E9041C8B18068D30000B8A67 /* App-Messages-icon.png */,
 				E9041C8C18068D30000B8A67 /* Folder-Smart-icon.png */,
 				E9041C8D18068D30000B8A67 /* Folder-Documents-icon.png */,
@@ -817,6 +840,17 @@
 				E9477F3317E0720F00A16505 /* uicheckbox_unchecked@2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		E95B9817180BAF2A00E93FB1 /* EAIntroView */ = {
+			isa = PBXGroup;
+			children = (
+				E95B9818180BAF2A00E93FB1 /* EAIntroPage.h */,
+				E95B9819180BAF2A00E93FB1 /* EAIntroPage.m */,
+				E95B981A180BAF2A00E93FB1 /* EAIntroView.h */,
+				E95B981B180BAF2A00E93FB1 /* EAIntroView.m */,
+			);
+			path = EAIntroView;
 			sourceTree = "<group>";
 		};
 		E988C39C17E6FDEF0053296C /* NUI */ = {
@@ -981,6 +1015,7 @@
 		E9F371C817F31554003A4055 /* Supporting libraries */ = {
 			isa = PBXGroup;
 			children = (
+				E95B9817180BAF2A00E93FB1 /* EAIntroView */,
 				E9041C911806CCF7000B8A67 /* libTestFlight.a */,
 				E9041C921806CCF7000B8A67 /* TestFlight.h */,
 				E9041C931806CCF7000B8A67 /* TestFlight+AsyncLogging.h */,
@@ -1044,6 +1079,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E95B9825180BB16C00E93FB1 /* 2.png in Resources */,
 				9C39544A16A34FC800C5C8FD /* btnCheck.png in Resources */,
 				E92FDA1317F41A7C0062D24E /* bubble-flat-outgoing-selected@2x.png in Resources */,
 				E92FDA1F17F41A7C0062D24E /* bubble-typing@2x.png in Resources */,
@@ -1099,8 +1135,10 @@
 				E988C42717E6FDEF0053296C /* Blue.NUI.nss in Resources */,
 				E92FDA2A17F41A7C0062D24E /* messageReceived.aiff in Resources */,
 				E92FDA2817F41A7C0062D24E /* send.png in Resources */,
+				E95B9824180BB16C00E93FB1 /* 1.png in Resources */,
 				E92FDA2B17F41A7C0062D24E /* messageSent.aiff in Resources */,
 				E92FDA1E17F41A7C0062D24E /* bubble-typing.png in Resources */,
+				E95B9826180BB16C00E93FB1 /* 3.png in Resources */,
 				E988C42817E6FDEF0053296C /* Default.NUI.nss in Resources */,
 				E92FDA2717F41A7C0062D24E /* send-highlighted@2x.png in Resources */,
 				E988C42917E6FDEF0053296C /* Googolplex.NUI.nss in Resources */,
@@ -1120,6 +1158,7 @@
 				E92FDA1817F41A7C0062D24E /* bubble-square-incoming.png in Resources */,
 				E92FDA0417F41A7C0062D24E /* bubble-default-incoming.png in Resources */,
 				E9A84F5D17F2B9E6001A24C3 /* OM_background.png in Resources */,
+				E95B9829180BB1FF00E93FB1 /* iOS-7-Wall-3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1132,6 +1171,7 @@
 			files = (
 				9C39544C16A34FC800C5C8FD /* HUD.m in Sources */,
 				9C39544D16A34FC800C5C8FD /* MBProgressHUD.m in Sources */,
+				E95B9820180BAF4900E93FB1 /* IntroViewController.m in Sources */,
 				9C39546816A34FF300C5C8FD /* JSONModel.m in Sources */,
 				9C39546916A34FF300C5C8FD /* JSONModelArray.m in Sources */,
 				9C39546A16A34FF300C5C8FD /* JSONModelClassProperty.m in Sources */,
@@ -1182,6 +1222,8 @@
 				E988C41517E6FDEF0053296C /* NUILabelRenderer.m in Sources */,
 				E988C41617E6FDEF0053296C /* NUINavigationBarRenderer.m in Sources */,
 				E988C41717E6FDEF0053296C /* NUINavigationItemRenderer.m in Sources */,
+				E95B981C180BAF2A00E93FB1 /* EAIntroPage.m in Sources */,
+				E95B981D180BAF2A00E93FB1 /* EAIntroView.m in Sources */,
 				E92FD9F917F41A7C0062D24E /* JSBubbleMessageCell.m in Sources */,
 				E988C41817E6FDEF0053296C /* NUIProgressViewRenderer.m in Sources */,
 				E988C41917E6FDEF0053296C /* NUISearchBarRenderer.m in Sources */,
