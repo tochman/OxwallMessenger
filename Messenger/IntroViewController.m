@@ -33,14 +33,14 @@
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
    
-    page1.title = @"BETA 0.1";
+    page1.title = @"BETA 0.2";
     page1.desc = @"You have already downloaded this app - this means that you are mostly done with the installation. Make sure that you have an account at www.scalo.se (our Demosite) in order to be able to login to this app and start using its functionality. ";
     page1.bgImage = [UIImage imageNamed:@"OM_background"];
     page1.titleImage = [UIImage imageNamed:@"OM114x114"];
     
     EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"Issues - will be fixed in BETA 0.2";
-    page2.desc = @"iOS7 is misplacing the elements -  In order to LOGIN press Return after entering your Password";
+    page2.title = @"Issues - will be fixed in BETA 0.3";
+    page2.desc = @"iOS7 is still misplacing the elements on some views -  In order to LOGIN press Return after entering your password";
     page2.bgImage = [UIImage imageNamed:@"OM_background"];
     page2.titleImage = [UIImage imageNamed:@"OM114x114"];;
     
