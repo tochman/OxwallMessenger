@@ -30,7 +30,13 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        //Register to receive an update when the app goes into the backround
+        //It will call our "appEnteredBackground method
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(appEnteredBackground)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
+        
     }
     return self;
 }
@@ -69,9 +75,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     //show loader view
-    
-    
- 
+
 }
 
 
@@ -100,6 +104,7 @@
     usernameField.text = @"";
     passwordField.text = @"";
     [usernameField becomeFirstResponder];
+    [passwordField becomeFirstResponder];
 
 }
     return;
@@ -148,17 +153,11 @@
 
 
 - (IBAction)checkCredentials {
-    
-    
     if ([passwordField.text isEqual: @""] || [usernameField.text isEqual:@""])
-        
     {
-        
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must provide both a username/email and a password" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [alert show];
-        
-        
-        
+    
         
     } else {
     
@@ -192,12 +191,60 @@
     }
     
 }
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = 80; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self animateTextField: textField up: YES];
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self animateTextField: textField up: NO];
+}
+
+
+- (void)appEnteredBackground{
+    [usernameField resignFirstResponder];
+    [passwordField resignFirstResponder];
+}
+
+
+
+
+
+
 -(IBAction)testCheckbox:(id)sender {
     NSLog(@"checked = %@", (self.checkbox.checked) ? @"YES" : @"NO");
  
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    
+    if (textField == usernameField) {
+		[textField resignFirstResponder];
+		[passwordField becomeFirstResponder];
+	}
+	
+	else if (textField == passwordField) {
+		[textField resignFirstResponder];
+	}
+
     [self checkCredentials];
     return YES;
 }
