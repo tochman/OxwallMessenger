@@ -79,7 +79,7 @@
 }
 
 -(void)fireUpdate  {
-    [HUD showUIBlockingIndicatorWithText:@"Getting Conversations"];
+    //[HUD showUIBlockingIndicatorWithText:@"Getting Conversations"];
     NSString *callURL = [NSString stringWithFormat:@"%@/inbox_conversations.php?user=%@", BASE_URL, userid];
     
     //fetch the feed
@@ -87,7 +87,7 @@
                                                  completion:^(JSONModel *model, JSONModelError *err) {
                                                      
                                                      //hide the loader view
-                                                     [HUD hideUIBlockingIndicator];
+                                                     //[HUD hideUIBlockingIndicator];
                                                      
                                                      //json fetched
                                                      

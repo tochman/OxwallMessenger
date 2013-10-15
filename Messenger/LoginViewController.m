@@ -204,7 +204,7 @@
 
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up
 {
-    const int movementDistance = 110; // tweak as needed
+    const int movementDistance = 80; // tweak as needed
     const float movementDuration = 0.3f; // tweak as needed
     
     int movement = (up ? -movementDistance : movementDistance);
@@ -242,7 +242,7 @@
 }
 
 
-#define kOFFSET_FOR_KEYBOARD 80.0
+#define kOFFSET_FOR_KEYBOARD 40.0
 
 -(void)keyboardWillShow {
     // Animate the current view out of the way
