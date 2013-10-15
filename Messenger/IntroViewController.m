@@ -33,14 +33,14 @@
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
    
-    page1.title = @"Hello Tester";
-    page1.desc = @"I'd like to welcome you to the Oxwall Messenger for iOS. We are ready to start testing this app for the next upcoming 14 days. As all new software this will encounter some issues and we really appreciate your help.";
+    page1.title = @"BETA 0.2";
+    page1.desc = @"You have already downloaded this app - this means that you are mostly done with the installation. Make sure that you have an account at www.scalo.se (our Demosite) in order to be able to login to this app and start using its functionality. ";
     page1.bgImage = [UIImage imageNamed:@"OM_background"];
     page1.titleImage = [UIImage imageNamed:@"OM114x114"];
     
     EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"What you need to do";
-    page2.desc = @"You have already downloaded this app - this means that you are mostly done with the installation. Make sure that you have an account at www.scalo.se (our Demosite) in order to be able to login to this app and start using its functionality. ";
+    page2.title = @"Issues - will be fixed in BETA 0.3";
+    page2.desc = @"iOS7 is still misplacing the elements on some views -  In order to LOGIN press Return after entering your password";
     page2.bgImage = [UIImage imageNamed:@"OM_background"];
     page2.titleImage = [UIImage imageNamed:@"OM114x114"];;
     
