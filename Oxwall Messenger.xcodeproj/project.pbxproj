@@ -96,6 +96,11 @@
 		E92FDA2D17F41A7C0062D24E /* UIColor+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = E92FD9F417F41A7C0062D24E /* UIColor+JSMessagesView.m */; };
 		E92FDA2E17F41A7C0062D24E /* UIImage+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = E92FD9F617F41A7C0062D24E /* UIImage+JSMessagesView.m */; };
 		E92FDA2F17F41A7C0062D24E /* UIView+AnimationOptionsForCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = E92FD9F817F41A7C0062D24E /* UIView+AnimationOptionsForCurve.m */; };
+		E9330D5F180D18F700BB5AE0 /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D58180D18F700BB5AE0 /* FAImageView.m */; };
+		E9330D60180D18F700BB5AE0 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D5A180D18F700BB5AE0 /* NSString+FontAwesome.m */; };
+		E9330D61180D18F700BB5AE0 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9330D5C180D18F700BB5AE0 /* FontAwesome.ttf */; };
+		E9330D62180D18F700BB5AE0 /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D5E180D18F700BB5AE0 /* UIFont+FontAwesome.m */; };
+		E9330D66180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D65180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m */; };
 		E9477EFD17DF865700A16505 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EF717DF865600A16505 /* AppDelegate.m */; };
 		E9477F0117DF865700A16505 /* NewConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EFC17DF865700A16505 /* NewConversationViewController.m */; };
 		E9477F0717DF869600A16505 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F0217DF869600A16505 /* main.m */; };
@@ -325,6 +330,15 @@
 		E92FD9F617F41A7C0062D24E /* UIImage+JSMessagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JSMessagesView.m"; sourceTree = "<group>"; };
 		E92FD9F717F41A7C0062D24E /* UIView+AnimationOptionsForCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationOptionsForCurve.h"; sourceTree = "<group>"; };
 		E92FD9F817F41A7C0062D24E /* UIView+AnimationOptionsForCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationOptionsForCurve.m"; sourceTree = "<group>"; };
+		E9330D57180D18F700BB5AE0 /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
+		E9330D58180D18F700BB5AE0 /* FAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
+		E9330D59180D18F700BB5AE0 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		E9330D5A180D18F700BB5AE0 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		E9330D5C180D18F700BB5AE0 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		E9330D5D180D18F700BB5AE0 /* UIFont+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+FontAwesome.h"; sourceTree = "<group>"; };
+		E9330D5E180D18F700BB5AE0 /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FontAwesome.m"; sourceTree = "<group>"; };
+		E9330D64180D2BA600BB5AE0 /* XCDFormInputAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCDFormInputAccessoryView.h; sourceTree = "<group>"; };
+		E9330D65180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCDFormInputAccessoryView.m; sourceTree = "<group>"; };
 		E9477EF617DF865600A16505 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Messenger/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		E9477EF717DF865600A16505 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Messenger/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		E9477EFB17DF865700A16505 /* NewConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewConversationViewController.h; path = Messenger/NewConversationViewController.h; sourceTree = SOURCE_ROOT; };
@@ -788,6 +802,37 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		E9330D56180D18F700BB5AE0 /* FontAwesome */ = {
+			isa = PBXGroup;
+			children = (
+				E9330D57180D18F700BB5AE0 /* FAImageView.h */,
+				E9330D58180D18F700BB5AE0 /* FAImageView.m */,
+				E9330D59180D18F700BB5AE0 /* NSString+FontAwesome.h */,
+				E9330D5A180D18F700BB5AE0 /* NSString+FontAwesome.m */,
+				E9330D5B180D18F700BB5AE0 /* Resources */,
+				E9330D5D180D18F700BB5AE0 /* UIFont+FontAwesome.h */,
+				E9330D5E180D18F700BB5AE0 /* UIFont+FontAwesome.m */,
+			);
+			path = FontAwesome;
+			sourceTree = "<group>";
+		};
+		E9330D5B180D18F700BB5AE0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E9330D5C180D18F700BB5AE0 /* FontAwesome.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E9330D63180D2BA600BB5AE0 /* XCDFormInputAccessoryView */ = {
+			isa = PBXGroup;
+			children = (
+				E9330D64180D2BA600BB5AE0 /* XCDFormInputAccessoryView.h */,
+				E9330D65180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m */,
+			);
+			path = XCDFormInputAccessoryView;
+			sourceTree = "<group>";
+		};
 		E9477F1D17DF8B9E00A16505 /* Messenger Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1015,6 +1060,8 @@
 		E9F371C817F31554003A4055 /* Supporting libraries */ = {
 			isa = PBXGroup;
 			children = (
+				E9330D63180D2BA600BB5AE0 /* XCDFormInputAccessoryView */,
+				E9330D56180D18F700BB5AE0 /* FontAwesome */,
 				E95B9817180BAF2A00E93FB1 /* EAIntroView */,
 				E9041C911806CCF7000B8A67 /* libTestFlight.a */,
 				E9041C921806CCF7000B8A67 /* TestFlight.h */,
@@ -1161,6 +1208,7 @@
 				E92FDA1917F41A7C0062D24E /* bubble-square-incoming@2x.png in Resources */,
 				E92FDA1D17F41A7C0062D24E /* bubble-square-outgoing@2x.png in Resources */,
 				E92FDA1817F41A7C0062D24E /* bubble-square-incoming.png in Resources */,
+				E9330D61180D18F700BB5AE0 /* FontAwesome.ttf in Resources */,
 				E92FDA0417F41A7C0062D24E /* bubble-default-incoming.png in Resources */,
 				E9A84F5D17F2B9E6001A24C3 /* OM_background.png in Resources */,
 				E95B9829180BB1FF00E93FB1 /* iOS-7-Wall-3.png in Resources */,
@@ -1195,12 +1243,14 @@
 				E9477F0117DF865700A16505 /* NewConversationViewController.m in Sources */,
 				E9477F0717DF869600A16505 /* main.m in Sources */,
 				E9477F0817DF869600A16505 /* SearchViewController.m in Sources */,
+				E9330D5F180D18F700BB5AE0 /* FAImageView.m in Sources */,
 				E9477F1C17DF8AF200A16505 /* LoginViewController.m in Sources */,
 				E92FD9FC17F41A7C0062D24E /* JSMessageInputView.m in Sources */,
 				E965EFEB18052CD3003C5C61 /* AboutViewController.m in Sources */,
 				E9477F2517DF931800A16505 /* LoginModel.m in Sources */,
 				E9477F2E17E043E700A16505 /* DUViewController.m in Sources */,
 				E9477F3A17E0723000A16505 /* UICheckbox.m in Sources */,
+				E9330D66180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m in Sources */,
 				E92FDA2D17F41A7C0062D24E /* UIColor+JSMessagesView.m in Sources */,
 				E9477F3D17E0E4D800A16505 /* ConversationsViewController.m in Sources */,
 				E9477F4017E0E51700A16505 /* ConversationsModel.m in Sources */,
@@ -1216,6 +1266,7 @@
 				E988C40C17E6FDEF0053296C /* NUIGraphics.m in Sources */,
 				E988C40D17E6FDEF0053296C /* NUIRenderer.m in Sources */,
 				E92FDA2F17F41A7C0062D24E /* UIView+AnimationOptionsForCurve.m in Sources */,
+				E9330D62180D18F700BB5AE0 /* UIFont+FontAwesome.m in Sources */,
 				E988C40E17E6FDEF0053296C /* NUISettings.m in Sources */,
 				E988C40F17E6FDEF0053296C /* NUIStyleParser.m in Sources */,
 				E9EBCE1F17F16EC900629DB0 /* UsersFeed.m in Sources */,
@@ -1265,6 +1316,7 @@
 				E988C43C17E6FDEF0053296C /* UITableViewCell+NUI.m in Sources */,
 				E988C43D17E6FDEF0053296C /* UITextField+NUI.m in Sources */,
 				E988C43E17E6FDEF0053296C /* UIToolbar+NUI.m in Sources */,
+				E9330D60180D18F700BB5AE0 /* NSString+FontAwesome.m in Sources */,
 				E988C43F17E6FDEF0053296C /* UIView+NUI.m in Sources */,
 				E92FD9FF17F41A7C0062D24E /* NSString+JSMessagesView.m in Sources */,
 				E988C44017E6FDEF0053296C /* UIWindow+NUI.m in Sources */,

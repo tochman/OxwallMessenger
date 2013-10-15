@@ -8,6 +8,7 @@
 
 #import "StartViewController.h"
 #import "UIButton+NUI.h"
+#import "NSString+FontAwesome.h"
 
 @interface StartViewController ()
 
@@ -33,7 +34,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.title = @"Oxwall Messenger";
+    //self.title = @"Oxwall Messenger";
+    
+    self.title = [NSString fontAwesomeIconStringForIconIdentifier:@"icon-user"];
     settingsButton.nuiClass = @"none";
     aboutButton.nuiClass = @"none";
 }
