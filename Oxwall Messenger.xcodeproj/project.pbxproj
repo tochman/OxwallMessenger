@@ -1056,6 +1056,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Underplot ltd.";
+				TargetAttributes = {
+					9C39541816A34F8200C5C8FD = {
+						DevelopmentTeam = F8TBQ2928V;
+					};
+				};
 			};
 			buildConfigurationList = 9C39541316A34F8200C5C8FD /* Build configuration list for PBXProject "Oxwall Messenger" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1325,6 +1330,8 @@
 		9C39544116A34F8200C5C8FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Thomas Ochman (F8TBQ2928V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thomas Ochman (F8TBQ2928V)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -1346,6 +1353,7 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "Oxwall Messenger";
+				PROVISIONING_PROFILE = "F22E0743-B792-4B4A-8987-5601196F3D39";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1353,6 +1361,8 @@
 		9C39544216A34F8200C5C8FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Thomas Ochman (F8TBQ2928V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thomas Ochman (F8TBQ2928V)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -1369,6 +1379,7 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "Oxwall Messenger";
+				PROVISIONING_PROFILE = "F22E0743-B792-4B4A-8987-5601196F3D39";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
