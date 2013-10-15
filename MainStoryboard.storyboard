@@ -355,6 +355,8 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="21l-gD-2V8"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="aboutButton" destination="5Ef-iv-5Jm" id="3jx-f9-WdB"/>
                         <outlet property="checkbox" destination="iRm-31-qPQ" id="jxe-1B-5HZ"/>
@@ -892,10 +894,10 @@ You can choose the site you want to connect to in settings. Make sure that your 
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="P3Y-dt-uBE"/>
+        <segue reference="6yq-rF-IoJ"/>
         <segue reference="KS5-VE-a1K"/>
         <segue reference="ubP-e7-h0u"/>
         <segue reference="1Ax-z6-hPl"/>
-        <segue reference="2QW-Mj-fzj"/>
+        <segue reference="dfM-1F-9fs"/>
     </inferredMetricsTieBreakers>
 </document>
