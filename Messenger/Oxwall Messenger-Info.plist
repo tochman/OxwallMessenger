@@ -29,13 +29,17 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.3</string>
+	<string>0.3.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>beta1410.1</string>
+	<string>beta1410.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FontAwesome.ttf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
 	<key>UIRequiredDeviceCapabilities</key>

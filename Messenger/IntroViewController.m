@@ -33,8 +33,8 @@
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
    
-    page1.title = @"BETA 0.3";
-    page1.desc = @"We continue our beta testing with another build. In this one we adressed mainly some UI issues and som networking errors we had. Login view is much more user friendly.";
+    page1.title = @"BETA 0.3.1";
+    page1.desc = @"Just some small fixes in UI. Implementet a segmentet control in profile view for better UX";
     page1.bgImage = [UIImage imageNamed:@"OM_background"];
     page1.titleImage = [UIImage imageNamed:@"OM114x114"];
     

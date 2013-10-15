@@ -18,7 +18,7 @@
     
     IBOutlet UILabel *membersinceLabel;
     
-    //IBOutlet UITextView *presentationTextview;
+    IBOutlet UITextView *presentationTextview;
     
     IBOutlet UIImageView *avatar;
     
@@ -29,7 +29,8 @@
     NSMutableArray *avatarImageUrls;
     NSURL *finalImgUrl;
 }
-
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UILabel *selectedSegmentLabel;
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSString *realname;
 @property (strong, nonatomic) NSString *sex;
@@ -38,13 +39,16 @@
 @property (strong, nonatomic) NSURL *avatarURL;
 @property (strong, nonatomic) IBOutlet UIImageView *convAvatar;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIView *profileView;
 @property (strong, nonatomic) NSString *userid;
 @property (strong, nonatomic) UIImage *senderAvatar;
+@property (strong, nonatomic)  IBOutlet UIButton * ConversationButton;
 
 
 
+- (IBAction)segmentDidChange:(id)sender;
 - (IBAction)logOut:(UIBarButtonItem *)sender;
-- (IBAction)newConversation;
+- (IBAction)newConversation: (UIButton *) sender;
 - (IBAction)cancel;
 
 @end

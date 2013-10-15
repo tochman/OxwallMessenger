@@ -16,7 +16,7 @@
 
 @implementation StartViewController
 
-@synthesize settingsButton, aboutButton;
+@synthesize settingsButton, aboutButton, versionLabel;
 
 
 
@@ -34,11 +34,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    //self.title = @"Oxwall Messenger";
-    
-    self.title = [NSString fontAwesomeIconStringForIconIdentifier:@"icon-user"];
+    self.title = @"Oxwall Messenger";
     settingsButton.nuiClass = @"none";
     aboutButton.nuiClass = @"none";
+    versionLabel.text = @"Beta 0.3.1";
 }
 
 - (void)didReceiveMemoryWarning

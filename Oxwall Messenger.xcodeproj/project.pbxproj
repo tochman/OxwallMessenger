@@ -101,6 +101,7 @@
 		E9330D61180D18F700BB5AE0 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9330D5C180D18F700BB5AE0 /* FontAwesome.ttf */; };
 		E9330D62180D18F700BB5AE0 /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D5E180D18F700BB5AE0 /* UIFont+FontAwesome.m */; };
 		E9330D66180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D65180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m */; };
+		E9330D6A180D52DB00BB5AE0 /* SDSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D69180D52DB00BB5AE0 /* SDSegmentedControl.m */; };
 		E9477EFD17DF865700A16505 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EF717DF865600A16505 /* AppDelegate.m */; };
 		E9477F0117DF865700A16505 /* NewConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EFC17DF865700A16505 /* NewConversationViewController.m */; };
 		E9477F0717DF869600A16505 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F0217DF869600A16505 /* main.m */; };
@@ -339,6 +340,8 @@
 		E9330D5E180D18F700BB5AE0 /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FontAwesome.m"; sourceTree = "<group>"; };
 		E9330D64180D2BA600BB5AE0 /* XCDFormInputAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCDFormInputAccessoryView.h; sourceTree = "<group>"; };
 		E9330D65180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCDFormInputAccessoryView.m; sourceTree = "<group>"; };
+		E9330D68180D52DB00BB5AE0 /* SDSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSegmentedControl.h; sourceTree = "<group>"; };
+		E9330D69180D52DB00BB5AE0 /* SDSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSegmentedControl.m; sourceTree = "<group>"; };
 		E9477EF617DF865600A16505 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Messenger/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		E9477EF717DF865600A16505 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Messenger/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		E9477EFB17DF865700A16505 /* NewConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewConversationViewController.h; path = Messenger/NewConversationViewController.h; sourceTree = SOURCE_ROOT; };
@@ -604,8 +607,6 @@
 				E9477F2D17E043E600A16505 /* DUViewController.m */,
 				E909C47D17E198EB0058B75A /* MessagesViewController.h */,
 				E909C47E17E198EB0058B75A /* MessagesViewController.m */,
-				E92198F917F57B000052EFA6 /* StartViewController.h */,
-				E92198FA17F57B000052EFA6 /* StartViewController.m */,
 			);
 			name = Messenger;
 			path = JSON_HelloWorld;
@@ -614,6 +615,8 @@
 		9C39542416A34F8200C5C8FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E92198F917F57B000052EFA6 /* StartViewController.h */,
+				E92198FA17F57B000052EFA6 /* StartViewController.m */,
 				E9477F3817E0722F00A16505 /* UICheckbox.h */,
 				E9477F3917E0722F00A16505 /* UICheckbox.m */,
 				E9477F1817DF889600A16505 /* InfoPlist.strings */,
@@ -831,6 +834,15 @@
 				E9330D65180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m */,
 			);
 			path = XCDFormInputAccessoryView;
+			sourceTree = "<group>";
+		};
+		E9330D67180D52C500BB5AE0 /* SegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				E9330D68180D52DB00BB5AE0 /* SDSegmentedControl.h */,
+				E9330D69180D52DB00BB5AE0 /* SDSegmentedControl.m */,
+			);
+			name = SegmentedControl;
 			sourceTree = "<group>";
 		};
 		E9477F1D17DF8B9E00A16505 /* Messenger Models */ = {
@@ -1060,6 +1072,7 @@
 		E9F371C817F31554003A4055 /* Supporting libraries */ = {
 			isa = PBXGroup;
 			children = (
+				E9330D67180D52C500BB5AE0 /* SegmentedControl */,
 				E9330D63180D2BA600BB5AE0 /* XCDFormInputAccessoryView */,
 				E9330D56180D18F700BB5AE0 /* FontAwesome */,
 				E95B9817180BAF2A00E93FB1 /* EAIntroView */,
@@ -1241,6 +1254,7 @@
 				9C39548216A3581600C5C8FD /* OxwallFeed.m in Sources */,
 				E9477EFD17DF865700A16505 /* AppDelegate.m in Sources */,
 				E9477F0117DF865700A16505 /* NewConversationViewController.m in Sources */,
+				E9330D6A180D52DB00BB5AE0 /* SDSegmentedControl.m in Sources */,
 				E9477F0717DF869600A16505 /* main.m in Sources */,
 				E9477F0817DF869600A16505 /* SearchViewController.m in Sources */,
 				E9330D5F180D18F700BB5AE0 /* FAImageView.m in Sources */,

@@ -121,29 +121,7 @@
 }
 
 - (void)saveDefaultUserCredentials {
-    //Set user defaults to NSUserDefaults when in development
-    
-    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-
-
-    
-    [[NSUserDefaults standardUserDefaults]
-     setObject:_feed.userid forKey:@"userid"];
-    [[NSUserDefaults standardUserDefaults]
-     setObject:_feed.user forKey:@"username"];
-    [[NSUserDefaults standardUserDefaults]
-     setObject:_feed.realname forKey:@"realname"];
-    [[NSUserDefaults standardUserDefaults]
-     setObject:_feed.sex forKey:@"sex"];
-    [[NSUserDefaults standardUserDefaults]
-     setObject:_feed.member_since forKey:@"membersince"];
-    [[NSUserDefaults standardUserDefaults]
-     setObject:_feed.profiletext forKey:@"presentation"];
-    [[NSUserDefaults standardUserDefaults]
-     setURL:_feed.small_avatar forKey:@"avatarURL"];
-    
-    [standardUserDefaults synchronize];
-    
+        
     // Set user defaults to Lockbox for later use when in in production
     [Lockbox setString:_feed.userid forKey:@"userid"];
     [Lockbox setString:_feed.user forKey:@"username"];
@@ -151,6 +129,7 @@
     [Lockbox setString:_feed.sex forKey:@"sex"];
     [Lockbox setString:_feed.member_since forKey:@"membersince"];
     [Lockbox setString:[_feed.small_avatar absoluteString] forKey:@"avatarURL"];
+    [Lockbox setString:_feed.profiletext forKey:@"presentation"];
     
     
   //To use that avatar url:

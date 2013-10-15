@@ -14,6 +14,7 @@
 #import "MessagesViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "SDSegmentedControl.h"
 #import "Lockbox.h"
 
 @interface DUViewController (){
@@ -33,8 +34,12 @@
 @synthesize avatarURL;
 @synthesize convAvatar;
 @synthesize tableView = _tableView;
+@synthesize profileView = _profileView;
 @synthesize userid;
 @synthesize senderAvatar;
+@synthesize segmentedControl, selectedSegmentLabel;
+@synthesize ConversationButton  = conversatinbutton;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,15 +55,35 @@
 {
     
     [super viewDidLoad];
+    
+    //Get everything together
     [self loadStandardUser];
     [self setLProfileLabels];
+    
+    //Segmented control
+    segmentedControl.selectedSegmentIndex = 1;
+    [self.tableView setHidden:NO];
+    conversatinbutton.hidden = NO;
+    [self.profileView setHidden:YES];
     
     // Title
     self.title = realname;
     [self.navigationItem setHidesBackButton:YES];
     
-    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-    userid = [standardUserDefaults stringForKey:@"userid"];
+    //Some settings
+    userid = [Lockbox stringForKey:@"userid"];
+    [self updateSelectedSegmentLabel];
+    
+    
+    //Profile view
+    [self.profileView addSubview:membersinceLabel];
+    [self.profileView addSubview:presentationTextview];
+    [self.profileView addSubview:sexLabel];
+    
+    
+    //Rounded avatar
+    
+    
     
     
 }
@@ -77,6 +102,17 @@
     [super viewWillDisappear:animated];
     [timer1 invalidate];
 }
+
+- (void)updateSelectedSegmentLabel
+{
+    self.selectedSegmentLabel.font = [UIFont boldSystemFontOfSize:self.selectedSegmentLabel.font.pointSize];
+    self.selectedSegmentLabel.text = [NSString stringWithFormat:@"%d", self.segmentedControl.selectedSegmentIndex];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, .5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^(void)
+                   {
+                       self.selectedSegmentLabel.font = [UIFont systemFontOfSize:self.selectedSegmentLabel.font.pointSize];
+                   });
+}
+
 
 -(void)fireUpdate  {
     //[HUD showUIBlockingIndicatorWithText:@"Getting Conversations"];
@@ -131,22 +167,27 @@
     sexLabel.text = sex;
     membersinceLabel.text = membersince;
     avatar.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:avatarURL]];
+    avatar.layer.cornerRadius = 5.0;
+    avatar.layer.masksToBounds = YES;
+    avatar.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    avatar.layer.borderWidth = 1.0;
+    presentationTextview.text = presentation;
     
 }
 
 
 - (IBAction)logOut:(UIBarButtonItem *)sender {
     [HUD showUIBlockingIndicatorWithText:@"Logging out..."];
-    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
     
-    [standardUserDefaults setObject:@"" forKey:@"username"];
-    [standardUserDefaults setObject:@"" forKey:@"realname"];
-    [standardUserDefaults setObject:@"" forKey:@"sex"];
-    [standardUserDefaults setObject:@"" forKey:@"membersince"];
-    [standardUserDefaults setObject:@"" forKey:@"presentation"];
-    [standardUserDefaults setObject:@"" forKey:@"avatarURL"];
+    [Lockbox setString:@"" forKey:@"username"];
+    [Lockbox setString:@"" forKey:@"realname"];
+    [Lockbox setString:@"" forKey:@"sex"];
+    [Lockbox setString:@"" forKey:@"membersince"];
+    [Lockbox setString:@"" forKey:@"presentation"];
+    [Lockbox setString:@"" forKey:@"avatarURL"];
+    
     [NSThread sleepForTimeInterval:0.5];
-    [standardUserDefaults synchronize];
+    
     [HUD hideUIBlockingIndicator];
     [self performSegueWithIdentifier:@"start" sender:self];
     
@@ -206,7 +247,7 @@
     
 }
 
-- (IBAction)newConversation{
+- (IBAction)newConversation: (UIButton *) sender{
     [self performSegueWithIdentifier:@"newConversation" sender:self];
     
 }
@@ -214,6 +255,21 @@
 - (IBAction)cancel {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)segmentDidChange:(id)sender
+{
+    if(segmentedControl.selectedSegmentIndex == 0){
+		NSLog(@"1");
+        [self.tableView setHidden:YES];
+        conversatinbutton.hidden = YES;
+        [self.profileView setHidden:NO];
+	}
+	if(segmentedControl.selectedSegmentIndex == 1){
+        NSLog(@"2");
+        [self.tableView setHidden:NO];
+        conversatinbutton.hidden = NO;
+        [self.profileView setHidden:YES];
+	}
 }
 
 
