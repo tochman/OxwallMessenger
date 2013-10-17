@@ -1,11 +1,11 @@
 //
 //  JSONModel+networking.h
 //
-//  @version 0.8.2
+//  @version 0.9.3
 //  @author Marin Todorov, http://www.touch-code-magazine.com
 //
 
-// Copyright (c) 2012 Marin Todorov, Underplot ltd.
+// Copyright (c) 2012-2013 Marin Todorov, Underplot ltd.
 // This code is distributed under the terms and conditions of the MIT license.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -17,6 +17,8 @@
 #import "JSONModel.h"
 #import "JSONHTTPClient.h"
 
+typedef void (^JSONModelBlock)(id model, JSONModelError* err);
+
 /**
  * The JSONModel(networking) class category adds networking to JSONModel.
  * It adds initFromURLWithString: initializer, which makes a GET http request 
@@ -26,15 +28,6 @@
 @interface JSONModel(Networking)
 
 @property (assign, nonatomic) BOOL isLoading;
-/** @name Synchroniously create a model over the network */
-/**
- * Synchroniously create a model over the network. Create a new model instance and initialize it with the JSON fetched from the given URL
- * @param urlString the absolute URL address of the JSON feed as a string
- * @param err an initialization error or nil
- * @exception JSONModelTypeNotAllowedException thrown when unsported type is found in the incoming JSON, or a property type in your model is not supported by JSONValueTransformer and its categories
- */
--(instancetype)initFromURLWithString:(NSString*)urlString error:(JSONModelError**)err;
-
 /** @name Asynchroniously create a model over the network */
 /**
  * Asynchroniously create a model over the network. Create a new model instance and initialize it with the JSON fetched from the given URL

@@ -1,11 +1,11 @@
 //
 //  JSONAPI.h
 //
-//  @version 0.8.2
+//  @version 0.9.3
 //  @author Marin Todorov, http://www.touch-code-magazine.com
 //
 
-// Copyright (c) 2012 Marin Todorov, Underplot ltd.
+// Copyright (c) 2012-2013 Marin Todorov, Underplot ltd.
 // This code is distributed under the terms and conditions of the MIT license.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -20,7 +20,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * Class for working with JSON APIs. It builds upon the JSONHTTPClient class
+ * @discussion Class for working with JSON APIs. It builds upon the JSONHTTPClient class
  * and facilitates making requests to the same web host. Also features helper
  * method for making calls to a JSON RPC service
  */
@@ -46,17 +46,10 @@
 
 /** @name Making GET API requests */
 /**
- * Makes a synchronious GET request to the API
- * @param params the variables to pass to the API
- * @return the JSON response as desrialized object
- */
-+(id)getWithPath:(NSString*)path andParams:(NSDictionary*)params;
-
-/**
  * Makes an asynchronious GET request to the API
+ * @param path the URL path to add to the base API URL for this HTTP call
  * @param params the variables to pass to the API
  * @param completeBlock a JSONObjectBlock block to execute upon completion
- * @return the JSON response as desrialized object
  */
 +(void)getWithPath:(NSString*)path andParams:(NSDictionary*)params completion:(JSONObjectBlock)completeBlock;
 
@@ -65,36 +58,32 @@
 /** @name Making POST API requests */
 /**
  * Makes a POST request to the API
- * @param params the variables to pass to the API
- * @return the JSON response as desrialized object
- */
-+(id)postWithPath:(NSString*)path andParams:(NSDictionary*)params;
-
-/**
- * Makes a POST request to the API
+ * @param path the URL path to add to the base API URL for this HTTP call
  * @param params the variables to pass to the API
  * @param completeBlock a JSONObjectBlock block to execute upon completion
- * @return the JSON response as desrialized object
  */
 +(void)postWithPath:(NSString*)path andParams:(NSDictionary*)params completion:(JSONObjectBlock)completeBlock;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-/** @name JSON RPC (1.0) request method */
+/** @name JSON RPC methods */
 /**
- * Makes a synchronious JSON RPC request to the API
- * @param args the list of arguments to pass to the API
- * @return the JSON response as desrialized object
- */
-+(id)rpcWithMethodName:(NSString*)method andArguments:(NSArray*)args;
-
-/**
- * Makes an asynchronious JSON RPC request to the API
+ * Makes an asynchronious JSON RPC request to the API. Read more: http://www.jsonrpc.org
+ * @param method the HTTP method name; GET or POST only
  * @param args the list of arguments to pass to the API
  * @param completeBlock JSONObjectBlock to execute upon completion
- * @return the JSON response as desrialized object
  */
 +(void)rpcWithMethodName:(NSString*)method andArguments:(NSArray*)args completion:(JSONObjectBlock)completeBlock;
+
+/** @name JSON RPC (2.0) request method */
+/**
+ * Makes an asynchronious JSON RPC 2.0 request to the API. Read more: http://www.jsonrpc.org
+ * @param method the HTTP method name; GET or POST only
+ * @param params the params to pass to the API - an NSArray or an NSDictionary, 
+ * depending whether you're using named or unnamed parameters
+ * @param completeBlock JSONObjectBlock to execute upon completion
+ */
++(void)rpc2WithMethodName:(NSString*)method andParams:(id)params completion:(JSONObjectBlock)completeBlock;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 

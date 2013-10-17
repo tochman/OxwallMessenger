@@ -1,11 +1,11 @@
 //
 //  JSONValueTransformer.m
 //
-//  @version 0.8.2
+//  @version 0.9.3
 //  @author Marin Todorov, http://www.touch-code-magazine.com
 //
 
-// Copyright (c) 2012 Marin Todorov, Underplot ltd.
+// Copyright (c) 2012-2013 Marin Todorov, Underplot ltd.
 // This code is distributed under the terms and conditions of the MIT license.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -31,7 +31,10 @@ extern BOOL isNull(id value)
 {
     self = [super init];
     if (self) {
-        _primitivesNames = @{@"f":@"float", @"i":@"int", @"d":@"double", @"l":@"long", @"c":@"BOOL", @"s":@"short", @"q":@"long"};
+        _primitivesNames = @{@"f":@"float", @"i":@"int", @"d":@"double", @"l":@"long", @"c":@"BOOL", @"s":@"short", @"q":@"long",
+                             //and some famos aliases of primitive types
+                             // BOOL is now "B" on iOS __LP64 builds
+                             @"I":@"NSInteger", @"B":@"BOOL"};
     }
     return self;
 }
@@ -107,10 +110,22 @@ extern BOOL isNull(id value)
 }
 
 
-#pragma mark - BOOL <-> number
+#pragma mark - BOOL <-> number/string
 -(NSNumber*)BOOLFromNSNumber:(NSNumber*)number
 {
     if (isNull(number)) return @0;
+    return number;
+}
+
+-(NSNumber*)BOOLFromNSString:(NSString*)string
+{
+    int val = [string intValue];
+    if (val!=0) val=1;
+    return @(val);
+}
+
+-(NSNumber*)JSONObjectFromBOOL:(NSNumber*)number
+{
     return number;
 }
 
@@ -149,7 +164,7 @@ extern BOOL isNull(id value)
 #pragma mark - string <-> url
 -(NSURL*)NSURLFromNSString:(NSString*)string
 {
-    return [NSURL URLWithString: string];
+    return [NSURL URLWithString: [string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
 
 -(NSString*)JSONObjectFromNSURL:(NSURL*)url
@@ -170,7 +185,7 @@ extern BOOL isNull(id value)
 -(NSString*)JSONObjectFromNSDate:(NSDate*)date
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZ"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZ"];
     
     return [dateFormatter stringFromDate:date];
 }

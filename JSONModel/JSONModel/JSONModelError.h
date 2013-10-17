@@ -1,11 +1,11 @@
 //
 //  JSONModelError.h
 //
-//  @version 0.8.2
+//  @version 0.9.3
 //  @author Marin Todorov, http://www.touch-code-magazine.com
 //
 
-// Copyright (c) 2012 Marin Todorov, Underplot ltd.
+// Copyright (c) 2012-2013 Marin Todorov, Underplot ltd.
 // This code is distributed under the terms and conditions of the MIT license.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -17,12 +17,13 @@
 #import <Foundation/Foundation.h>
 
 /////////////////////////////////////////////////////////////////////////////////////////////
-enum kJSONModelErrorTypes
+typedef NS_ENUM(int, kJSONModelErrorTypes)
 {
     kJSONModelErrorInvalidData = 1,
     kJSONModelErrorBadResponse = 2,
     kJSONModelErrorBadJSON = 3,
-    kJSONModelErrorModelIsInvalid = 4
+    kJSONModelErrorModelIsInvalid = 4,
+    kJSONModelErrorNilInput = 5
 };
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,10 +33,25 @@ extern NSString* const JSONModelErrorDomain;
 /** 
  * If the model JSON input misses keys that are required, check the
  * userInfo dictionary of the JSONModelError instance you get back - 
- * under the kJSONModelErrorInvalidData key you will find a list of the 
+ * under the kJSONModelMissingKeys key you will find a list of the
  * names of the missing keys.
  */
 extern NSString* const kJSONModelMissingKeys;
+
+/**
+ * If JSON input has a different type than expected by the model, check the
+ * userInfo dictionary of the JSONModelError instance you get back -
+ * under the kJSONModelTypeMismatch key you will find a description
+ * of the mismatched types.
+ */
+extern NSString* const kJSONModelTypeMismatch;
+
+/**
+ * If an error occurs in a nested model, check the userInfo dictionary of
+ * the JSONModelError instance you get back - under the kJSONModelKeyPath
+ * key you will find key-path at which the error occurred.
+ */
+extern NSString* const kJSONModelKeyPath;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 /**
@@ -44,15 +60,24 @@ extern NSString* const kJSONModelMissingKeys;
  */
 @interface JSONModelError : NSError
 
-/**
- * Creates a JSONModelError instance with code kJSONModelErrorInvalidData = 1
- */
-+(id)errorInvalidData;
+@property (strong, nonatomic) NSHTTPURLResponse* httpResponse;
 
 /**
  * Creates a JSONModelError instance with code kJSONModelErrorInvalidData = 1
  */
++(id)errorInvalidDataWithMessage:(NSString*)message;
+
+/**
+ * Creates a JSONModelError instance with code kJSONModelErrorInvalidData = 1
+ * @param keys a set of field names that were required, but not found in the input
+ */
 +(id)errorInvalidDataWithMissingKeys:(NSSet*)keys;
+
+/**
+ * Creates a JSONModelError instance with code kJSONModelErrorInvalidData = 1
+ * @param A description of the type mismatch that was encountered.
+ */
++(id)errorInvalidDataWithTypeMismatch:(NSString*)mismatchDescription;
 
 /**
  * Creates a JSONModelError instance with code kJSONModelErrorBadResponse = 2
@@ -68,6 +93,20 @@ extern NSString* const kJSONModelMissingKeys;
  * Creates a JSONModelError instance with code kJSONModelErrorModelIsInvalid = 4
  */
 +(id)errorModelIsInvalid;
+
+/**
+ * Creates a JSONModelError instance with code kJSONModelErrorNilInput = 5
+ */
++(id)errorInputIsNil;
+
+/**
+ * Creates a new JSONModelError with the same values plus information about the key-path of the error.
+ * Properties in the new error object are the same as those from the receiver,
+ * except that a new key kJSONModelKeyPath is added to the userInfo dictionary.
+ * This key contains the component string parameter. If the key is already present
+ * then the new error object has the component string prepended to the existing value.
+ */
+- (instancetype)errorByPrependingKeyPathComponent:(NSString*)component;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 @end

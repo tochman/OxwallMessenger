@@ -1,11 +1,11 @@
 //
 //  JSONModel.h
 //
-//  @version 0.8.2
+//  @version 0.9.3
 //  @author Marin Todorov, http://www.touch-code-magazine.com
 //
 
-// Copyright (c) 2012 Marin Todorov, Underplot ltd.
+// Copyright (c) 2012-2013 Marin Todorov, Underplot ltd.
 // This code is distributed under the terms and conditions of the MIT license.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -28,13 +28,19 @@ lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
 #define JMLog( s, ... )
 #endif
 /////////////////////////////////////////////////////////////////////////////////////////////
-#if !__has_feature(objc_arc)
-#error The JSONMOdel framework is ARC only, you can enable ARC on per file basis.
-#endif
-/////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma mark - Property Protocols
-/** 
+/**
+ * Protocol for defining properties in a JSON Model class that should not be considered at all
+ * neither while importing nor when exporting JSON.
+ *
+ * @property (strong, nonatomic) NSString&lt;Ignore&gt;* propertyName;
+ *
+ */
+@protocol Ignore
+@end
+
+/**
  * Protocol for defining optional properties in a JSON Model class. Use like below to define 
  * model properties that are not required to have values in the JSON input:
  * 
@@ -55,11 +61,23 @@ lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
 @end
 
 /**
+ * Make all objects Optional compatible to avoid compiler warnings
+ */
+@interface NSObject(JSONModelPropertyCompatibility)<Optional, Index, Ignore>
+@end
+
+/**
  * ConvertOnDemand enables lazy model initialization for NSArrays of models
  *
  * @property (strong, nonatomic) NSArray&lt;JSONModel, ConvertOnDemand&gt;* propertyName;
  */
 @protocol ConvertOnDemand
+@end
+
+/**
+ * Make all arrays ConvertOnDemand compatible to avoid compiler warnings
+ */
+@interface NSArray(JSONModelPropertyCompatibility)<ConvertOnDemand>
 @end
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,7 +95,7 @@ lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
    * For most classes the default initWithDictionary: inherited from JSONModel itself
    * should suffice, but developers have the option ot also overwrite it if needed.
    *
-   * @param d a dictionary holding JSON objects, to be imported in the model.
+   * @param dict a dictionary holding JSON objects, to be imported in the model.
    * @param err an error or NULL
    */
   -(instancetype)initWithDictionary:(NSDictionary*)dict error:(NSError**)err;
@@ -111,7 +129,7 @@ lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
 
   /**
    * Create a new model instance and initialize it with the JSON from a text parameter. The method assumes UTF8 encoded input text.
-   * @param s JSON text data
+   * @param string JSON text data
    * @param err an initialization error or nil
    * @exception JSONModelTypeNotAllowedException thrown when unsported type is found in the incoming JSON, 
    * or a property type in your model is not supported by JSONValueTransformer and its categories
@@ -121,7 +139,7 @@ lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
 
   /**
    * Create a new model instance and initialize it with the JSON from a text parameter using the given encoding.
-   * @param s JSON text data
+   * @param string JSON text data
    * @param encoding the text encoding to use when parsing the string (see NSStringEncoding)
    * @param err an initialization error or nil
    * @exception JSONModelTypeNotAllowedException thrown when unsported type is found in the incoming JSON, 
@@ -148,7 +166,7 @@ lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
    * of model objects. Handy when importing JSON data lists.
    * This method will loop over the input list and initialize a data model for every dictionary in the list.
    *
-   * @param a list of dictionaries to be imported as models
+   * @param array list of dictionaries to be imported as models
    * @return list of initialized data model objects
    * @exception JSONModelTypeNotAllowedException thrown when unsported type is found in the incoming JSON, 
    * or a property type in your model is not supported by JSONValueTransformer and its categories
@@ -160,7 +178,7 @@ lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
   /**
    * If you have an NSArray of data model objects, this method takes it in and outputs a list of the 
    * matching dictionaries. This method does the opposite of arrayOfObjectsFromDictionaries:
-   * @param a list of JSONModel objects
+   * @param array list of JSONModel objects
    * @return a list of NSDictionary objects
    * @exception JSONModelTypeNotAllowedException thrown when unsported type is found in the incoming JSON, 
    * or a property type in your model is not supported by JSONValueTransformer and its categories
@@ -175,11 +193,12 @@ lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
    * You can define Index property by using the Index protocol:
    * @property (strong, nonatomic) NSString&lt;Index&gt;* id;
    */
-  @property (strong, nonatomic, readonly) NSString* indexPropertyName;
+  -(NSString*)indexPropertyName;
 
   /**
    * Overriden NSObject method to compare model objects. Compares the &lt;Index&gt; property of the two models,
    * if an index property is defined.
+   * @param object a JSONModel instance to compare to for equality
    */
   -(BOOL)isEqual:(id)object;
 
@@ -188,6 +207,7 @@ lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
    * If there isn't an index property throws an exception. If the Index property does not have a compare: method
    * also throws an exception. NSString and NSNumber have compare: methods, and in case the Index property is 
    * a another custom class, the programmer should create a custom compare: method then.
+   * @param object a JSONModel instance to compare to
    */
   -(NSComparisonResult)compare:(id)object;
 
@@ -197,16 +217,41 @@ lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
    * Overwrite the validate method in your own models if you need to perform some custom validation over the model data.
    * This method gets called at the very end of the JSONModel initializer, thus the model is in the state that you would
    * get it back when initialzed. Check the values of any property that needs to be validated and if any invalid values
-   * are encountered return an NSError object. If the model is valid return nil.
-   * @return an NSError instance. You can use the convenience method [JSONModelError errorModelIsInvalid] to get an NSError instance.
+   * are encountered return NO and set the error parameter to an NSError object. If the model is valid return YES.
+   *
+   * NB: Only setting the error parameter is not enough to fail the validation, you also need to return a NO value.
+   *
+   * @param error a pointer to an NSError object, to pass back an error if needed
+   * @return a BOOL result, showing whether the model data validates or not. You can use the convenience method
+   * [JSONModelError errorModelIsInvalid] to set the NSError param if the data fails your custom validation
    */
-  -(NSError*)validate;
+-(BOOL)validate:(NSError**)error;
 
 /** @name Key mapping */
   /**
    * Overwrite in your models if your property names don't match your JSON key names.
    * Lookup JSONKeyMapper docs for more details.
    */
-  +(JSONKeyMapper*)keyMapper;
++(JSONKeyMapper*)keyMapper;
+
+/**
+ * Sets a key mapper which affects ALL the models in your project. Use this if you need only one mapper to work
+ * with your API. For example if you are using the [JSONKeyMapper mapperFromUnderscoreCaseToCamelCase] it is more
+ * likely that you will need to use it with ALL of your models.
+ * NB: Custom key mappers take precendence over the global key mapper.
+ * @param globalKeyMapper a key mapper to apply to all models in your project.
+ *
+ * Lookup JSONKeyMapper docs for more details.
+ */
++(void)setGlobalKeyMapper:(JSONKeyMapper*)globalKeyMapper;
+
+/**
+ * Indicates whether the property with the given name is Optional.
+ * To have a model with all of its properties being Optional just return YES.
+ * This method returns by default NO, since the default behaviour is to have all propertoes required.
+ * @param propertyName the name of the property
+ * @return a BOOL result indicating whether the property is optional
+ */
++(BOOL)propertyIsOptional:(NSString*)propertyName;
 
 @end

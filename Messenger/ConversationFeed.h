@@ -13,5 +13,8 @@
 
 
 @property (strong, nonatomic) NSArray<ConversationsModel>* conversations;
+@property (strong, nonatomic) NSString* message;
+@property (strong, nonatomic) NSNumber* conversationcount;
+
 
 @end
