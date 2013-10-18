@@ -16,7 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [NewRelicAgent startWithApplicationToken:@"AAd40e0cf67623484b41b889aa53df62ba66828e9f"];
-    [TestFlight takeOff:@"d15b76ea-68ef-4c0d-b326-33c444b7c54b"];
+    [TestFlight takeOff:@"67454926-2384-4f01-832e-f0fc275f363d"];
     [NUIAppearance init];
     
     // Add the view controller's view to the window and display.
@@ -25,10 +25,10 @@
     application.applicationIconBadgeNumber = application.applicationIconBadgeNumber = 0;
     
     // Handle launching from a notification
-    UILocalNotification *localNotif =
+    UILocalNotification *notif =
     [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    if (localNotif) {
-        NSLog(@"Recieved Notification %@",localNotif);
+    if (notif) {
+        NSLog(@"Recieved Notification %@",notif);
     }
     
     return YES;

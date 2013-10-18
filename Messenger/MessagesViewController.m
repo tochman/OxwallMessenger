@@ -10,6 +10,7 @@
 #import "MessagesViewController.h"
 #import "ODRefreshControl.h"
 #import "DUViewController.h"
+#import "Lockbox.h"
 
 
 
@@ -75,8 +76,7 @@ ODRefreshControl *refreshControl1;
     NSLog(@"MVC conversationid :%@",conversationid);
     NSLog(@"MVC sender avatar %@", senderAvatarURL);
     NSLog(@"MVC reciever %@", receiver);
-    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
-    self.sender = [standardUserDefaults stringForKey:@"userid"];
+    self.sender = [Lockbox stringForKey:@"userid"];
     
     NSString *callURL = [NSString stringWithFormat:@"%@/inbox_messages.php?conversationId=%@", BASE_URL, conversationid];
     NSData* messFeed = [NSData dataWithContentsOfURL:
@@ -117,12 +117,10 @@ ODRefreshControl *refreshControl1;
     [timer1 invalidate];
     [timer2 invalidate];
     [timer3 invalidate];
+
     
     [json removeAllObjects];
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        // back button was pressed.  We know this is true because self is no longer
-        // in the navigation stack.
-    }
+
 
 }
 

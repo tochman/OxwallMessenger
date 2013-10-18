@@ -45,6 +45,9 @@
 @property (strong, nonatomic) UIImage *senderAvatar;
 @property (strong, nonatomic)  IBOutlet UIButton * ConversationButton;
 
+//Notifications
+@property (strong, nonatomic) UILocalNotification *notif;
+
 
 
 - (IBAction)segmentDidChange:(id)sender;

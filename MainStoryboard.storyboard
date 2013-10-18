@@ -378,7 +378,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWX-Up-YPI">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="105" placeholderIntrinsicHeight="46" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWX-Up-YPI">
                                 <rect key="frame" x="108" y="365" width="105" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start">
@@ -388,21 +388,25 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="start:" destination="PbY-Oj-VuW" eventType="touchUpInside" id="1gJ-Nq-cxD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oxwall Messenger" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPv-LL-u0T">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="220" placeholderIntrinsicHeight="33" text="Oxwall Messenger" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPv-LL-u0T">
                                 <rect key="frame" x="50" y="229" width="220" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaG-LY-28p">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="117" placeholderIntrinsicHeight="21" text="Beta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaG-LY-28p">
                                 <rect key="frame" x="102" y="285" width="117" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43J-d6-lfn">
+                            <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43J-d6-lfn">
                                 <rect key="frame" x="268" y="82" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="EEE-AG-I2m"/>
+                                    <constraint firstAttribute="height" constant="32" id="ryn-YJ-Rfb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Folder-Documents-icon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -411,20 +415,36 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="showAbout:" destination="PbY-Oj-VuW" eventType="touchUpInside" id="0UP-d1-6gK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndz-O7-EQ8">
+                            <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndz-O7-EQ8">
                                 <rect key="frame" x="20" y="82" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="bYP-fo-Env"/>
+                                    <constraint firstAttribute="height" constant="32" id="o4z-gT-h0D"/>
+                                </constraints>
                                 <state key="normal" image="Folder-Smart-icon.png"/>
                                 <connections>
                                     <action selector="showSettings:" destination="PbY-Oj-VuW" eventType="touchUpInside" id="cvJ-an-Gf6"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" fixedFrame="YES" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="wzg-Qc-CWh">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" image="OM.png" translatesAutoresizingMaskIntoConstraints="NO" id="wzg-Qc-CWh">
                                 <rect key="frame" x="106" y="82" width="109" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="E36-yV-2tc"/>
+                                    <constraint firstAttribute="width" constant="109" id="ieT-fh-H1f"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ndz-O7-EQ8" firstAttribute="top" secondItem="hCw-4E-eOT" secondAttribute="bottom" constant="18" id="1JE-Dz-l3e"/>
+                            <constraint firstItem="wzg-Qc-CWh" firstAttribute="top" secondItem="ndz-O7-EQ8" secondAttribute="top" id="M6D-nD-yWO"/>
+                            <constraint firstAttribute="centerX" secondItem="wzg-Qc-CWh" secondAttribute="centerX" constant="-0.5" id="Ycy-cv-aQg"/>
+                            <constraint firstItem="wzg-Qc-CWh" firstAttribute="top" secondItem="hCw-4E-eOT" secondAttribute="bottom" constant="18" id="h5S-C8-7xc"/>
+                            <constraint firstItem="43J-d6-lfn" firstAttribute="top" secondItem="ndz-O7-EQ8" secondAttribute="top" id="moO-U7-23G"/>
+                            <constraint firstItem="43J-d6-lfn" firstAttribute="top" secondItem="wzg-Qc-CWh" secondAttribute="top" id="pTD-YI-8n8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yF3-hD-lxN"/>
                     <connections>
@@ -891,9 +911,19 @@ You can choose the site you want to connect to in settings. Make sure that your 
         <image name="App-Messages-icon.png" width="32" height="32"/>
         <image name="Default.png" width="454" height="681"/>
         <image name="Folder-Documents-icon.png" width="32" height="32"/>
+        <image name="Folder-Documents-icon.png" width="32" height="32"/>
+        <image name="Folder-Documents-icon.png" width="32" height="32"/>
+        <image name="Folder-Smart-icon.png" width="32" height="32"/>
+        <image name="Folder-Smart-icon.png" width="32" height="32"/>
         <image name="Folder-Smart-icon.png" width="32" height="32"/>
         <image name="OM.png" width="338" height="339"/>
+        <image name="OM.png" width="338" height="339"/>
+        <image name="OM.png" width="338" height="339"/>
+        <image name="OM.png" width="338" height="339"/>
         <image name="btnCheck.png" width="32" height="32"/>
+        <image name="btnCheck.png" width="32" height="32"/>
+        <image name="btnCheck.png" width="32" height="32"/>
+        <image name="powered-by-oxwall.png" width="97" height="13"/>
         <image name="powered-by-oxwall.png" width="97" height="13"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -903,9 +933,9 @@ You can choose the site you want to connect to in settings. Make sure that your 
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="KS5-VE-a1K"/>
-        <segue reference="6yq-rF-IoJ"/>
-        <segue reference="dfM-1F-9fs"/>
-        <segue reference="ubP-e7-h0u"/>
         <segue reference="1Ax-z6-hPl"/>
+        <segue reference="ubP-e7-h0u"/>
+        <segue reference="P3Y-dt-uBE"/>
+        <segue reference="2QW-Mj-fzj"/>
     </inferredMetricsTieBreakers>
 </document>

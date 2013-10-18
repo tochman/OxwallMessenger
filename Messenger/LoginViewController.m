@@ -61,8 +61,7 @@
     //usernameField.placeholder = @"Username or e-mail";
     passwordLabel.text =[NSString stringWithFormat:@"Your username at %@", SITE ];
     
-    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
-    //if ([[standardUserDefaults stringForKey:@"username"] length] != 0) {
+   
     
     if ([[Lockbox stringForKey:@"username"]  isEqual: @""]){
     usernameField.placeholder = @"Username or e-mail";

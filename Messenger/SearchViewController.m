@@ -13,7 +13,7 @@
 #import "MessagesViewController.h"
 #import "NewConversationViewController.h"
 #import "DUViewController.h"
-
+#import "Lockbox.h"
 #import "JSONModelLib.h"
 #import "UsersFeed.h"
 //#import "OxwallFeed.h"
@@ -52,7 +52,7 @@ int row;
     // Title
     self.title = @"New message";
     NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
-    sender = [standardUserDefaults stringForKey:@"userid"];
+    sender = [Lockbox stringForKey:@"userid"];
     
     [self getFeed:@""];
     

@@ -37,7 +37,7 @@
     self.title = @"Oxwall Messenger";
     settingsButton.nuiClass = @"none";
     aboutButton.nuiClass = @"none";
-    versionLabel.text = @"Beta 0.3.1";
+    versionLabel.text = @"Beta 0.4.1";
 }
 
 - (void)didReceiveMemoryWarning

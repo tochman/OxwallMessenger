@@ -40,6 +40,7 @@
 @synthesize senderAvatar;
 @synthesize segmentedControl, selectedSegmentLabel;
 @synthesize ConversationButton  = conversatinbutton;
+@synthesize notif;
 
 static NSString * kMessageCountChanged = @"NULL";
 
@@ -86,8 +87,14 @@ static NSString * kMessageCountChanged = @"NULL";
     
     
     
-    //Initialize all stuff
-   
+    //Notifications
+    notif = [[UILocalNotification alloc]init];
+    notif.alertBody = @"There is a new message for you";
+    notif.alertAction = @"View";
+    notif.soundName = UILocalNotificationDefaultSoundName;
+    notif.applicationIconBadgeNumber = 0;
+    [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -226,8 +233,11 @@ static NSString * kMessageCountChanged = @"NULL";
             
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - unread", conversation.startedby];
             UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red_dot_small.png"]];
-            [imageView setFrame:CGRectMake(45,30,10,10)]; //refactor this for better display in iOS6.0
+            [imageView setFrame:CGRectMake(45,30,7,7)]; //refactor this for better display in iOS6.0
             [cell.contentView addSubview:imageView];
+            
+            notif.applicationIconBadgeNumber = notif.applicationIconBadgeNumber +1;
+            [[UIApplication sharedApplication] scheduleLocalNotification:notif];
             
             
         } else {
@@ -239,8 +249,11 @@ static NSString * kMessageCountChanged = @"NULL";
         if ([conversation.conversationflag intValue] == 1 | [conversation.conversationflag intValue] == 0){
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - unread", conversation.startedby];
             UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red_dot_small.png"]];
-            [imageView setFrame:CGRectMake(40,25,7,7)]; //refactor this for better display in iOS6.0
+            [imageView setFrame:CGRectMake(45,30,7,7)]; //refactor this for better display in iOS6.0
             [cell.contentView addSubview:imageView];
+            
+            notif.applicationIconBadgeNumber = notif.applicationIconBadgeNumber +1;
+            [[UIApplication sharedApplication] scheduleLocalNotification:notif];
         }
         cell.detailTextLabel.text = conversation.startedby;
     }
