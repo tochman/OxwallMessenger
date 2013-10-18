@@ -45,14 +45,7 @@
 @property (strong, nonatomic) UIImage *senderAvatar;
 @property (strong, nonatomic)  IBOutlet UIButton * ConversationButton;
 
-//Observer and Notifications
-@property (nonatomic, strong) MessageCountObserver * messageObserver;
-@property (nonatomic, strong) NSMutableArray *messageCountsArr;
-@property (nonatomic, strong) NSMutableArray *messageCountsArrCopy;
-@property (nonatomic, strong) NSMutableDictionary *messageCountsDic;
-@property (nonatomic, strong) NSMutableDictionary *messageCountsDicCopy;
 
-- (void)addMessageCount:(NSNumber *)mc; // Not used?
 
 - (IBAction)segmentDidChange:(id)sender;
 - (IBAction)logOut:(UIBarButtonItem *)sender;

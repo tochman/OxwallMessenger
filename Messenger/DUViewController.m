@@ -40,7 +40,6 @@
 @synthesize senderAvatar;
 @synthesize segmentedControl, selectedSegmentLabel;
 @synthesize ConversationButton  = conversatinbutton;
-@synthesize messageCountsArr, messageCountsArrCopy, messageCountsDic, messageCountsDicCopy, messageObserver;
 
 static NSString * kMessageCountChanged = @"NULL";
 
@@ -88,14 +87,7 @@ static NSString * kMessageCountChanged = @"NULL";
     
     
     //Initialize all stuff
-    messageCountsDic = [[NSMutableDictionary alloc]initWithCapacity:1000];
-    messageCountsDicCopy = [[NSMutableDictionary alloc]initWithCapacity:1000];
-    [messageCountsDic addObserver:self forKeyPath:@"results" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-
-    
    
-
-
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -113,10 +105,6 @@ static NSString * kMessageCountChanged = @"NULL";
 -(void)viewWillDisappear:(BOOL)animated  {
     [super viewWillDisappear:animated];
     
-//        [self.messageCountsDic removeObserver:self
-//                                forKeyPath:@"messagecount"
-//                                   context:nil];
-
     
     [timer1 invalidate];
 }
@@ -142,41 +130,12 @@ static NSString * kMessageCountChanged = @"NULL";
                                                      
                                                      //hide the loader view
                                                      //[HUD hideUIBlockingIndicator];
-                                                     messageCountsDic = [[_feed toDictionary] objectForKey:@"conversations"];
-                                                     
-                                                     
+    
 
                                                      [self.tableView reloadData];
-                                                     NSLog(@"new dictionary inside block%@", messageCountsDic);
                                                      
                                                }];
-//    //NSLog(@"new dictionary outside block%@", messageCountsDic);
-//    if (messageCountsArr) {
-//        
-//        [messageCountsArr enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
-//            //NSLog(@"%lu => %@", (unsigned long)idx, object);
-//            [self.messageCountsDic setObject:object forKey:[NSString stringWithFormat:@"%lu-Key", (unsigned long)idx]];
-//            //
-//           
-//        }];
-//        NSLog(@"hur ser det ut? %@", messageCountsDic);
-//        [messageCountsDic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//           // [messageCountsDic addObserver:self forKeyPath:key options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:nil];
-//        }];
-//        
-//        
-//        for (id key in messageCountsDic) {
-//            //[messageCountsDic addObserver:self forKeyPath:@"conversationid" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:nil];
-//            //NSLog(@"There are %@ message(s) in %@", messageCountsDic[key], key);
-//          [self.messageCountsDicCopy setObject:[messageCountsDic valueForKey:@"messagecount"] forKey:[NSString stringWithFormat:@"%@-Key", [messageCountsDic objectForKey:@"conversationid"]]];
-//        }
-//   
-//    //NSLog(@"messageCountsDicCopy%@", messageCountsDicCopy);
-//    }
-//
-// 
 }
-
 
 
 
@@ -288,68 +247,6 @@ static NSString * kMessageCountChanged = @"NULL";
    
     return cell;
     
-}
-- (void)getMessageCountToArray:(NSNumber*)messagecount id:(NSString *)conversationid  {
-    [self.messageCountsDic setObject:messagecount forKey:[NSString stringWithFormat:@"%@-Key", conversationid]];
-
-//     [self.messageCountsDic  addObserver:self
-//                          forKeyPath:[self.messageCountsDic allKeys]
-//      options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:nil];
-    
-    
-
-    
-       // Test kod
-    
-//    NSLog(@"We currently have %ld messeges", (unsigned long)[messageCountsDic count]);
-//    for (id key in messageCountsDic) {
-//        NSLog(@"There are %@ message(s) in %@", messageCountsDic[key], key);
-//    }
-
-
-    
-    return;
-}
-
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    //NSLog(@"keyPath %@", keyPath);
-    if (context == @"test")
-    {
-        id newValue = [object valueForKeyPath:keyPath];
-        NSLog(@"The keyPath %@ changed to %@", keyPath, newValue);
-    }
-    else if ([keyPath rangeOfString:@"-Key"].location != NSNotFound)
-    {
-        id newValue = [change objectForKey:NSKeyValueChangeNewKey];
-        id oldValue = [change objectForKey:NSKeyValueChangeOldKey];
-        //NSLog(@"The keyPath %@ changed from %@ to %@", keyPath, oldValue, newValue);
-        
-        if (newValue != oldValue){
-            
-            //Notifications
-            UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-            // Notification details
-            localNotif.alertBody = @"There is a new messege for you";
-            // Set the action button
-            localNotif.alertAction = @"View";
-            localNotif.soundName = UILocalNotificationDefaultSoundName;
-            localNotif.applicationIconBadgeNumber = 1;
-            
-            [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-
-            NSLog(@"The keyPath %@ changed from %@ to %@", keyPath, oldValue, newValue);
-            
-        } else {
-            
-        // NSLog(@"No Change");
-        }
-    }
-    else if ([object isEqual:messageCountsDic])
-    {
-        NSLog(@"Change!");
-    }
 }
 
 
