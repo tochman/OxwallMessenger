@@ -187,19 +187,12 @@ static NSString * kMessageCountChanged = @"NULL";
 }
 
 - (void)loadStandardUser {
-    //NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
     
-    //username = [standardUserDefaults stringForKey:@"username"];
     username = [Lockbox stringForKey:@"username"];
-    //realname = [standardUserDefaults stringForKey:@"realname"];
     realname = [Lockbox stringForKey:@"realname"];
-    //sex = [standardUserDefaults stringForKey:@"sex"];
     sex = [Lockbox stringForKey:@"sex"];
-    //membersince = [standardUserDefaults stringForKey:@"membersince"];
     membersince = [Lockbox stringForKey:@"membersince"];
-    //presentation = [standardUserDefaults stringForKey:@"presentation"];
     presentation = [Lockbox stringForKey:@"presentation"];
-    //avatarURL = [standardUserDefaults URLForKey:@"avatarURL"];
     avatarURL = [NSURL URLWithString:[Lockbox stringForKey:@"avatarURL"]];
 }
 
@@ -221,7 +214,7 @@ static NSString * kMessageCountChanged = @"NULL";
 
 - (IBAction)logOut:(UIBarButtonItem *)sender {
     [HUD showUIBlockingIndicatorWithText:@"Logging out..."];
-    
+    [Lockbox setString:@"" forKey:@"userid"];
     [Lockbox setString:@"" forKey:@"username"];
     [Lockbox setString:@"" forKey:@"realname"];
     [Lockbox setString:@"" forKey:@"sex"];
@@ -269,9 +262,29 @@ static NSString * kMessageCountChanged = @"NULL";
                    placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
     
     cell.textLabel.text = conversation.title;
-    cell.detailTextLabel.text = conversation.startedby;
-    
-    //[self getMessageCountToArray:conversation.messagecount id:conversation.conversationid];
+    if ([conversation.startedbyid isEqualToString:[Lockbox stringForKey:@"userid"]]){
+        if ([conversation.conversationflag intValue] == 2 | [conversation.conversationflag intValue] == 0) {
+            
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - unread", conversation.startedby];
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red_dot_small.png"]];
+            [imageView setFrame:CGRectMake(45,30,10,10)]; //refactor this for better display in iOS6.0
+            [cell.contentView addSubview:imageView];
+            
+            
+        } else {
+            
+            cell.detailTextLabel.text = conversation.startedby;
+        }
+    } else if ([conversation.startedbyid isEqualToString:[Lockbox stringForKey:@"userid"]] == NO) {
+        
+        if ([conversation.conversationflag intValue] == 1 | [conversation.conversationflag intValue] == 0){
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - unread", conversation.startedby];
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red_dot_small.png"]];
+            [imageView setFrame:CGRectMake(40,25,7,7)]; //refactor this for better display in iOS6.0
+            [cell.contentView addSubview:imageView];
+        }
+        cell.detailTextLabel.text = conversation.startedby;
+    }
    
     return cell;
     

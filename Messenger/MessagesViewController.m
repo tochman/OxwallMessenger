@@ -56,6 +56,7 @@ ODRefreshControl *refreshControl1;
     self.delegate = self;
     self.dataSource = self;
     self.title = @"Messages";
+    [self updateConversation:conversationid];
     [self.navigationItem setHidesBackButton:YES];
 }
 
@@ -249,6 +250,7 @@ ODRefreshControl *refreshControl1;
 {
     ODRefreshControl* refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     refreshControl = (ODRefreshControl *)timer;
+    [self scrollToBottomAnimated:YES];
     [refreshControl endRefreshing];
 }
 
@@ -312,6 +314,44 @@ ODRefreshControl *refreshControl1;
     [self.tableView reloadData];
     return;
     
+}
+
+- (void) updateConversation: (NSString*)conversation {
+    //Prepare to updateConversation. We are adding +1 to read & view in malbox_conversations
+ 
+    
+    
+    NSMutableURLRequest *request =
+    [[NSMutableURLRequest alloc] initWithURL:
+     [NSURL URLWithString:[NSString stringWithFormat:@"%@/update_conversation.php", BASE_URL]]];
+    
+    [request setHTTPMethod:@"POST"];
+    NSString *postString =[NSString stringWithFormat:@"conversationId=%@",
+                           conversation];
+    
+    [request setValue:[NSString
+                       stringWithFormat:@"%d", [postString length]]
+   forHTTPHeaderField:@"Content-length"];
+    
+    [request setHTTPBody:[postString
+                          dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    double delayInSeconds = 1.0;
+    
+    
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+    });
+    //reload everything
+    [self dropViewDidBeginRefreshingTime:nil];
+    [self scrollToBottomAnimated:YES];
+    [self.tableView reloadData];
+    return;
+
+
 }
 
 -(void)cleanArray

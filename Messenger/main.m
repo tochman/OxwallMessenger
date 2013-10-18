@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 //            [NUISettings setGlobalExclusions:@[@"EAIntroView", @"EAIntroPage"]];
 //            }
             [NUISettings init];
-            [NUISettings setGlobalExclusions:@[@"EAIntroView", @"EAIntroPage", @"SDSegmentedControl"]];
+            [NUISettings setGlobalExclusions:@[@"EAIntroView", @"EAIntroPage", @"SDSegmentedControl", @"JSMessagesTableViewController"]];
         }
 
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
