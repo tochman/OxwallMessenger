@@ -51,7 +51,7 @@
 @property (nonatomic, strong) NSMutableArray *messageCountsArrCopy;
 @property (nonatomic, strong) NSMutableDictionary *messageCountsDic;
 @property (nonatomic, strong) NSMutableDictionary *messageCountsDicCopy;
-
+@property (nonatomic, strong) UILocalNotification *localNotif;
 - (void)addMessageCount:(NSNumber *)mc; // Not used?
 
 - (IBAction)segmentDidChange:(id)sender;

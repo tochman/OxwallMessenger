@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Underplot ltd. All rights reserved.
 //
 
+
 #import "DUViewController.h"
 #import "Constants.h"
 #import "HUD.h"
@@ -40,7 +41,7 @@
 @synthesize senderAvatar;
 @synthesize segmentedControl, selectedSegmentLabel;
 @synthesize ConversationButton  = conversatinbutton;
-@synthesize messageCountsArr, messageCountsArrCopy, messageCountsDic, messageCountsDicCopy, messageObserver;
+@synthesize messageCountsArr, messageCountsArrCopy, messageCountsDic, messageCountsDicCopy, messageObserver, localNotif;
 
 static NSString * kMessageCountChanged = @"NULL";
 
@@ -92,9 +93,16 @@ static NSString * kMessageCountChanged = @"NULL";
     messageCountsDicCopy = [[NSMutableDictionary alloc]initWithCapacity:1000];
     [messageCountsDic addObserver:self forKeyPath:@"results" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
 
+    //Notifications
+    localNotif = [[UILocalNotification alloc]init];
+    // Notification details
+    localNotif.alertBody = @"There is a new messege for you";
+    // Set the action button
+    localNotif.alertAction = @"View";
+    localNotif.soundName = UILocalNotificationDefaultSoundName;
+    localNotif.applicationIconBadgeNumber = 0;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
     
-   
-
 
 }
 
@@ -269,7 +277,32 @@ static NSString * kMessageCountChanged = @"NULL";
                    placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
     
     cell.textLabel.text = conversation.title;
-    cell.detailTextLabel.text = conversation.startedby;
+    
+    if ([conversation.conversationflag intValue] == 0 | [conversation.conversationflag intValue] == 2) {
+        // Red dot to be displayed for new messages
+        
+        UIImage     * thumbs;
+        UIImageView * thumbsView;
+        CGFloat       width;
+        
+        thumbs             = [UIImage imageNamed:@"red_dot_small.png"];
+        thumbsView         = [[UIImageView alloc] initWithImage:thumbs] ;
+        width              = (cell.frame.size.height * thumbs.size.width) / thumbs.size.height;
+        thumbsView.frame   = CGRectMake(0, 0, 12, 12);
+        cell.accessoryView = thumbsView;
+        
+        // Add a text notification as well?
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - new message", conversation.startedby ];
+        localNotif.applicationIconBadgeNumber++;
+        
+    } else {
+        
+        
+        
+        
+        
+        cell.detailTextLabel.text = conversation.startedby;
+    }
     
     //[self getMessageCountToArray:conversation.messagecount id:conversation.conversationid];
    
@@ -316,7 +349,7 @@ static NSString * kMessageCountChanged = @"NULL";
         if (newValue != oldValue){
             
             //Notifications
-            UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+            
             // Notification details
             localNotif.alertBody = @"There is a new messege for you";
             // Set the action button

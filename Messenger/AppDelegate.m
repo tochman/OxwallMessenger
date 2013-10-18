@@ -22,7 +22,7 @@
     // Add the view controller's view to the window and display.
     
     
-    application.applicationIconBadgeNumber = application.applicationIconBadgeNumber = 0;
+    //application.applicationIconBadgeNumber = 0;
     
     // Handle launching from a notification
     UILocalNotification *localNotif =
