@@ -113,6 +113,7 @@
 		E9477F4317E0F43800A16505 /* ConversationFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4217E0F43800A16505 /* ConversationFeed.m */; };
 		E9477F4617E10B9F00A16505 /* MessageFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4517E10B9C00A16505 /* MessageFeed.m */; };
 		E9477F4917E10BC600A16505 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4817E10BC600A16505 /* MessageModel.m */; };
+		E95305051812871E004B7618 /* OMHTTPCalls.m in Sources */ = {isa = PBXBuildFile; fileRef = E95305041812871E004B7618 /* OMHTTPCalls.m */; };
 		E95B981C180BAF2A00E93FB1 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = E95B9819180BAF2A00E93FB1 /* EAIntroPage.m */; };
 		E95B981D180BAF2A00E93FB1 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = E95B981B180BAF2A00E93FB1 /* EAIntroView.m */; };
 		E95B9820180BAF4900E93FB1 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E95B981F180BAF4900E93FB1 /* IntroViewController.m */; };
@@ -359,6 +360,8 @@
 		E9477F4517E10B9C00A16505 /* MessageFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageFeed.m; path = Messenger/MessageFeed.m; sourceTree = "<group>"; };
 		E9477F4717E10BC500A16505 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageModel.h; path = Messenger/MessageModel.h; sourceTree = "<group>"; };
 		E9477F4817E10BC600A16505 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageModel.m; path = Messenger/MessageModel.m; sourceTree = "<group>"; };
+		E95305031812871E004B7618 /* OMHTTPCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OMHTTPCalls.h; path = Messenger/OMHTTPCalls.h; sourceTree = SOURCE_ROOT; };
+		E95305041812871E004B7618 /* OMHTTPCalls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OMHTTPCalls.m; path = Messenger/OMHTTPCalls.m; sourceTree = SOURCE_ROOT; };
 		E95B9818180BAF2A00E93FB1 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
 		E95B9819180BAF2A00E93FB1 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
 		E95B981A180BAF2A00E93FB1 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
@@ -637,6 +640,8 @@
 				E9041C89180672B5000B8A67 /* SettingsViewController.m */,
 				E95B981E180BAF4900E93FB1 /* IntroViewController.h */,
 				E95B981F180BAF4900E93FB1 /* IntroViewController.m */,
+				E95305031812871E004B7618 /* OMHTTPCalls.h */,
+				E95305041812871E004B7618 /* OMHTTPCalls.m */,
 			);
 			name = "Supporting Files";
 			path = JSON_HelloWorld;
@@ -1263,6 +1268,7 @@
 				E99FA4DE180FBB4500D439D5 /* JSONValueTransformer.m in Sources */,
 				E965EFEB18052CD3003C5C61 /* AboutViewController.m in Sources */,
 				E9477F2517DF931800A16505 /* LoginModel.m in Sources */,
+				E95305051812871E004B7618 /* OMHTTPCalls.m in Sources */,
 				E9477F2E17E043E700A16505 /* DUViewController.m in Sources */,
 				E9477F3A17E0723000A16505 /* UICheckbox.m in Sources */,
 				E99FA4DB180FBB4500D439D5 /* JSONHTTPClient.m in Sources */,

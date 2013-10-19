@@ -14,10 +14,12 @@
 #import "UICheckbox.h"
 #import "Lockbox.h"
 #import "UIButton+NUI.h"
+#import "OMHTTPCalls.h"
 
 
 @interface LoginViewController () {
     LoginModel* _feed;
+    OMHTTPCalls* call;
 }
 
 
@@ -104,6 +106,7 @@
     NSLog(@"Loginmessege: %@", _feed.message);
     [self saveDefaultUserCredentials ];
     [HUD hideUIBlockingIndicator];
+    [self feedNotify];
     [self performSegueWithIdentifier:@"userprofile" sender:self];
 } else {
   NSLog(@"Fail");
@@ -117,6 +120,10 @@
 
 }
     return;
+}
+
+-(void) feedNotify {
+    [OMHTTPCalls notifyLogin:[Lockbox stringForKey:@"userid"]];
 }
 
 - (void)saveDefaultUserCredentials {
