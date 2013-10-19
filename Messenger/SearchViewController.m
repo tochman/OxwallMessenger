@@ -22,7 +22,6 @@
 @interface SearchViewController () {
     UsersFeed* _feed;
     UsersModel* usersModel;
-    NSArray* usersArr;
     
 }
 
@@ -139,7 +138,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
                                   completion:^(NSDictionary *json, JSONModelError *err) {
                                       
                                       //got JSON back
-                                      NSLog(@"Got JSON from web: %@", json);
+                                      //NSLog(@"Got JSON from web: %@", json);
                                       
                                       if (err) {
                                           [[[UIAlertView alloc] initWithTitle:@"Error"
@@ -151,14 +150,19 @@ shouldReloadTableForSearchString:(NSString *)searchString
                                       }
                                       
                                       //initialize the models
-                                      usersArr = [UsersModel arrayOfModelsFromDictionaries:
+                                      NSArray * tmp = [[NSArray alloc]init];
+                                      tmp = [UsersModel arrayOfModelsFromDictionaries:
                                                   json[@"posts"]
                                                   ];
-                                      
-                                      if (usersArr) NSLog(@"Loaded successfully models");
+                                      //usersArr = [tmp mutableCopy];
+                                      NSPredicate *idPredicate = [NSPredicate predicateWithFormat:@"id != %@", sender];
+                                      usersArr = [[tmp filteredArrayUsingPredicate:idPredicate]mutableCopy];
+                                      if (usersArr.count > 0) NSLog(@"usersArr count: %i", usersArr.count);
                                       [self.tableView reloadData];
                                       
                                   }];
+    //NSArray *data = [NSArray arrayWithObject:[NSMutableDictionary dictionaryWithObject:@"foo" forKey:@"BAR"]];
+
     
     
     
@@ -191,7 +195,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
     static NSString *cellIdentifier = @"SearchCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
+    // et försök att rensa data. Rungerar inte
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }

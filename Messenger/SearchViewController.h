@@ -11,7 +11,7 @@
 #import "JSONModelArray.h"
 @interface SearchViewController : UITableViewController
 @property JSONModelArray *users;
-@property (strong, nonatomic) NSArray* usersArr;
+@property (strong, nonatomic) NSMutableArray* usersArr;
 @property (strong, nonatomic) NSDictionary *json;
 @property (strong, nonatomic) NSString *subject;
 @property (strong, nonatomic) NSString *sender;
