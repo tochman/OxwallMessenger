@@ -10,6 +10,7 @@
 #import "MessagesViewController.h"
 #import "ODRefreshControl.h"
 #import "DUViewController.h"
+#import "Lockbox.h"
 
 
 
@@ -56,11 +57,13 @@ ODRefreshControl *refreshControl1;
     self.delegate = self;
     self.dataSource = self;
     self.title = @"Messages";
+    [self updateConversation:conversationid];
     [self.navigationItem setHidesBackButton:YES];
 }
 
 -(void)viewDidLayoutSubviews{
-    [self.inputToolBarView.textView becomeFirstResponder];
+    [self scrollToBottomAnimated:NO] ;
+    //[self.inputToolBarView.textView becomeFirstResponder];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -74,8 +77,7 @@ ODRefreshControl *refreshControl1;
     NSLog(@"MVC conversationid :%@",conversationid);
     NSLog(@"MVC sender avatar %@", senderAvatarURL);
     NSLog(@"MVC reciever %@", receiver);
-    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
-    self.sender = [standardUserDefaults stringForKey:@"userid"];
+    self.sender = [Lockbox stringForKey:@"userid"];
     
     NSString *callURL = [NSString stringWithFormat:@"%@/inbox_messages.php?conversationId=%@", BASE_URL, conversationid];
     NSData* messFeed = [NSData dataWithContentsOfURL:
@@ -107,8 +109,9 @@ ODRefreshControl *refreshControl1;
     
     //Load the avatar of sender - we are not implementing avatars for outgoing messages
     [self getAvatar];
-    [super viewWillAppear:animated];
     [self scrollToBottomAnimated:YES];
+    [super viewWillAppear:animated];
+    
 }
 
 -(void) viewWillDisappear:(BOOL)animated  {
@@ -116,12 +119,10 @@ ODRefreshControl *refreshControl1;
     [timer1 invalidate];
     [timer2 invalidate];
     [timer3 invalidate];
+
     
     [json removeAllObjects];
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        // back button was pressed.  We know this is true because self is no longer
-        // in the navigation stack.
-    }
+
 
 }
 
@@ -155,8 +156,8 @@ ODRefreshControl *refreshControl1;
     else
         [JSMessageSoundEffect playMessageReceivedSound];
     
-    [self sendMessage:self];
     [self scrollToBottomAnimated:YES];
+    [self sendMessage:self];
     [self finishSend];
 }
 
@@ -226,12 +227,14 @@ ODRefreshControl *refreshControl1;
     //Refresh code - for now it is just for show, not fully implemented
     double delayInSeconds = 1.0;
     //[self.messages addObject:@"Added @ MessVC."];
-    [self loadJson];
+    
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        
+        [self scrollToBottomAnimated:YES];
+        [self loadJson];
         [refreshControl endRefreshing ];
+        NSLog(@"1. dropViewDidBeginRefreshing");
     });
 }
 
@@ -242,6 +245,7 @@ ODRefreshControl *refreshControl1;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self loadJson];
+         NSLog(@"2. dropViewDidBeginRefreshingTime");
     });
 }
 
@@ -314,6 +318,43 @@ ODRefreshControl *refreshControl1;
     
 }
 
+- (void) updateConversation: (NSString*)conversation {
+    //Prepare to updateConversation. We are adding +1 to read & view in malbox_conversations
+ 
+    
+    
+    NSMutableURLRequest *request =
+    [[NSMutableURLRequest alloc] initWithURL:
+     [NSURL URLWithString:[NSString stringWithFormat:@"%@/update_conversation.php", BASE_URL]]];
+    
+    [request setHTTPMethod:@"POST"];
+    NSString *postString =[NSString stringWithFormat:@"conversationId=%@",
+                           conversation];
+    
+    [request setValue:[NSString
+                       stringWithFormat:@"%d", [postString length]]
+   forHTTPHeaderField:@"Content-length"];
+    
+    [request setHTTPBody:[postString
+                          dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    double delayInSeconds = 1.0;
+    
+    
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+    });
+    //reload everything
+    [self dropViewDidBeginRefreshingTime:nil];
+    [self.tableView reloadData];
+    return;
+
+
+}
+
 -(void)cleanArray
 {
     //clean up array
@@ -357,7 +398,6 @@ ODRefreshControl *refreshControl1;
                                                               options:kNilOptions
                                                               error:nil]];
         [self cleanArray];
-        [self scrollToBottomAnimated:YES];
         [self.tableView reloadData];
     }
     

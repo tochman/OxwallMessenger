@@ -1,11 +1,11 @@
 //
 //  JSONValueTransformer.h
 //
-//  @version 0.8.2
+//  @version 0.9.3
 //  @author Marin Todorov, http://www.touch-code-magazine.com
 //
 
-// Copyright (c) 2012 Marin Todorov, Underplot ltd.
+// Copyright (c) 2012-2013 Marin Todorov, Underplot ltd.
 // This code is distributed under the terms and conditions of the MIT license.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -110,7 +110,7 @@ extern BOOL isNull(id value);
  */
 -(NSArray*)JSONObjectFromNSMutableSet:(NSMutableSet*)set;
 
-#pragma mark - BOOL <-> number
+#pragma mark - BOOL <-> number/string
 /** @name Transforming JSON types */
 /**
  * Transforms a number object to a bool number object
@@ -118,6 +118,20 @@ extern BOOL isNull(id value);
  * @return the resulting number
  */
 -(NSNumber*)BOOLFromNSNumber:(NSNumber*)number;
+
+/**
+ * Transforms a number object to a bool number object
+ * @param string the string value to convert, "0" converts to NO, everything else to YES
+ * @return the resulting number
+ */
+-(NSNumber*)BOOLFromNSString:(NSString*)string;
+
+/**
+ * Transforms a BOOL value to a bool number object
+ * @param number an NSNumber value coming from the model
+ * @return the result number
+ */
+-(NSNumber*)JSONObjectFromBOOL:(NSNumber*)number;
 
 #pragma mark - string <-> number
 /**
@@ -152,23 +166,14 @@ extern BOOL isNull(id value);
 
 #pragma mark - string <-> date
 /** @name Transforming Dates */
-/*  string <-> date using the W3C format ISO8601 */
 /**
- * Transforms a string object to an NSDate object, asuming the dates in the JSON feed are W3C (ISO8601) encoded.
- * If the dates in your JSON are in different format, you should just create a category for JSONValueTransformer
- * and overwrite this method
- * @param string the string to convert
- * @return the resulting NSDate object
+ * The following two methods are not public. This way if there is a category on converting 
+ * dates it'll override them. If there isn't a category the default methods found in the .m
+ * file will be invoked. If these are public a warning is produced at the point of overriding
+ * them in a category, so they have to stay hidden here.
  */
--(NSDate*)NSDateFromNSString:(NSString*)string;
 
-/**
- * Transforms an NSDate object to an NSString object, using W3C (ISO8601) format.
- * If you want different date string format you should just create a category for JSONValueTransformer
- * and overwrite this method
- * @param date the date to convert
- * @return the resulting string object
- */
--(NSString*)JSONObjectFromNSDate:(NSDate*)date;
+//-(NSDate*)NSDateFromNSString:(NSString*)string;
+//-(NSString*)JSONObjectFromNSDate:(NSDate*)date;
 
 @end

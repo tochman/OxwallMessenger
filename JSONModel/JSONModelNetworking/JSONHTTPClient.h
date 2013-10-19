@@ -1,11 +1,11 @@
 //
 //  JSONModelHTTPClient.h
 //
-//  @version 0.8.2
+//  @version 0.9.3
 //  @author Marin Todorov, http://www.touch-code-magazine.com
 //
 
-// Copyright (c) 2012 Marin Todorov, Underplot ltd.
+// Copyright (c) 2012-2013 Marin Todorov, Underplot ltd.
 // This code is distributed under the terms and conditions of the MIT license.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -16,37 +16,52 @@
 
 #import "JSONModel.h"
 
-extern NSString * const kHTTPMethodGET;
-extern NSString * const kHTTPMethodPOST;
+#pragma mark - definitions
 
 /**
- * A block type to handle incoming JSONModel instance and an error. 
- * You pass it to methods which create a model asynchroniously. When the operation is finished
- * you receive back the initialized model (or nil) and an error (or nil)
- *
- * TODO: How do you document block type definitions? This doesn't work obviously.
- *
- * @param model the newly created JSONModel instance or nil
- * @param e JSONModelError or nil
+ * HTTP Request methods
  */
-typedef void (^JSONModelBlock)(JSONModel* model, JSONModelError* err);
+extern NSString* const kHTTPMethodGET;
+extern NSString* const kHTTPMethodPOST;
 
-typedef void (^JSONObjectBlock)(NSDictionary* json, JSONModelError* err);
+/**
+ * Content-type strings
+ */
+extern NSString* const kContentTypeAutomatic;
+extern NSString* const kContentTypeJSON;
+extern NSString* const kContentTypeWWWEncoded;
+
+/**
+ * A block type to handle incoming JSON object and an error. 
+ * You pass it to methods which fetch JSON asynchroniously. When the operation is finished
+ * you receive back the fetched JSON (or nil) and an error (or nil)
+ *
+ * @param json object derived from a JSON string
+ * @param err JSONModelError or nil
+ */
+typedef void (^JSONObjectBlock)(id json, JSONModelError* err);
 
 /////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - configuration methods
 
 /**
- * A very thin HTTP client that can do GET and POST HTTP requests.
+ * @discussion A very thin HTTP client that can do GET and POST HTTP requests.
  * It fetches only JSON data and also deserializes it using NSJSONSerialization.
- * 
  */
 @interface JSONHTTPClient : NSObject
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
+
 /** @name HTTP Client configuration */
 /**
- * A dictioanry of HTTP headers the client sends along the requests
+ * Returns a modifyable dictionary of the client's default HTTP headers.
+ * @result A mutable dictionary of pairs - HTTP header names and values.
+ * @discussion You can use the result to modify the http client headers like so:
+ * <pre>
+ * NSMutableDictionary* headers = [JSONHTTPClient requestHeaders];
+ * headers[@"APIToken"] = @"MySecretTokenValue";
+ * </pre>
  */
 +(NSMutableDictionary*)requestHeaders;
 
@@ -62,7 +77,13 @@ typedef void (^JSONObjectBlock)(NSDictionary* json, JSONModelError* err);
  * See NSURLRequestCachePolicy for a list of the pre-defined policies
  * @param policy the caching policy
  */
-+(void)setDefaultCachingPolicy:(NSURLRequestCachePolicy)policy;
++(void)setCachingPolicy:(NSURLRequestCachePolicy)policy;
+
+/**
+ * Sets the timeout for network calls
+ * @param seconds the amount of seconds to wait before considering the call failed
+ */
++(void)setTimeoutInSeconds:(int)seconds;
 
 /**
  * A method to enable/disable automatic network indicator showing. 
@@ -73,50 +94,22 @@ typedef void (^JSONObjectBlock)(NSDictionary* json, JSONModelError* err);
  */
 +(void)setControlsNetworkIndicator:(BOOL)doesControlIndicator;
 
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-/** @name Making synchronious HTTP requests */
 /**
- * Makes GET request to the given URL address and fetches a JSON response.
- * @param urlString the URL as a string
- * @return JSON compliant object or nil
+ * A method to set the default conent type of the request body
+ * By default the content type is set to kContentTypeAutomatic
+ * which checks the body request and decides between "application/json"
+ * and "application/x-www-form-urlencoded"
  */
-+(id)getJSONFromURLWithString:(NSString*)urlString;
-
-/**
- * Makes GET request to the given URL address and fetches a JSON response. Sends the params as a query string variables.
- * @param urlString the URL as a string
- * @param params a dictionary of key / value pairs to be send as variables to the request
- * @return JSON compliant object or nil
- */
-+(id)getJSONFromURLWithString:(NSString*)urlString params:(NSDictionary*)params;
++(void)setRequestContentType:(NSString*)contentTypeString;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * Makes POST request to the given URL address and fetches a JSON response. Sends the params as url encoded variables via the POST body.
- * @param urlString the URL as a string
- * @param params a dictionary of key / value pairs to be send as variables to the request
- * @return JSON compliant object or nil
- */
-+(id)postJSONFromURLWithString:(NSString*)urlString params:(NSDictionary*)params;
-
-/**
- * Makes POST request to the given URL address and fetches a JSON response. Sends the bodyString param as the POST request body.
- * @param urlString the URL as a string
- * @param bodyString the body of the POST request as a string
- * @return JSON compliant object or nil
- */
-+(id)postJSONFromURLWithString:(NSString*)urlString bodyString:(NSString*)bodyString;
-
-/////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - GET asynchronious JSON calls
 
 /** @name Making asynchronious HTTP requests */
 /**
  * Makes GET request to the given URL address and fetches a JSON response.
  * @param urlString the URL as a string
  * @param completeBlock JSONObjectBlock to execute upon completion
- * @return JSON compliant object or nil
  */
 +(void)getJSONFromURLWithString:(NSString*)urlString completion:(JSONObjectBlock)completeBlock;
 
@@ -125,18 +118,38 @@ typedef void (^JSONObjectBlock)(NSDictionary* json, JSONModelError* err);
  * @param urlString the URL as a string
  * @param params a dictionary of key / value pairs to be send as variables to the request
  * @param completeBlock JSONObjectBlock to execute upon completion
- * @return JSON compliant object or nil
  */
 +(void)getJSONFromURLWithString:(NSString*)urlString params:(NSDictionary*)params completion:(JSONObjectBlock)completeBlock;
 
+/**
+ * Makes a request to the given URL address and fetches a JSON response.
+ * @param urlString the URL as a string
+ * @param method the method of the request as a string
+ * @param params a dictionary of key / value pairs to be send as variables to the request
+ * @param bodyString the body of the POST request as a string
+ * @param completeBlock JSONObjectBlock to execute upon completion
+ */
++(void)JSONFromURLWithString:(NSString*)urlString method:(NSString*)method params:(NSDictionary*)params orBodyString:(NSString*)bodyString completion:(JSONObjectBlock)completeBlock;
+
+/**
+ * Makes a request to the given URL address and fetches a JSON response.
+ * @param urlString the URL as a string
+ * @param method the method of the request as a string
+ * @param params a dictionary of key / value pairs to be send as variables to the request
+ * @param bodyString the body of the POST request as a string
+ * @param headers the headers to set on the request - overrides those in +requestHeaders
+ * @param completeBlock JSONObjectBlock to execute upon completion
+ */
++(void)JSONFromURLWithString:(NSString*)urlString method:(NSString*)method params:(NSDictionary*)params orBodyString:(NSString*)bodyString headers:(NSDictionary*)headers completion:(JSONObjectBlock)completeBlock;
+
 /////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - POST synchronious JSON calls
 
 /**
  * Makes POST request to the given URL address and fetches a JSON response. Sends the bodyString param as the POST request body.
  * @param urlString the URL as a string
  * @param params a dictionary of key / value pairs to be send as variables to the request
  * @param completeBlock JSONObjectBlock to execute upon completion
- * @return JSON compliant object or nil
  */
 +(void)postJSONFromURLWithString:(NSString*)urlString params:(NSDictionary*)params completion:(JSONObjectBlock)completeBlock;
 
@@ -145,8 +158,16 @@ typedef void (^JSONObjectBlock)(NSDictionary* json, JSONModelError* err);
  * @param urlString the URL as a string
  * @param bodyString the body of the POST request as a string
  * @param completeBlock JSONObjectBlock to execute upon completion
- * @return JSON compliant object or nil
  */
 +(void)postJSONFromURLWithString:(NSString*)urlString bodyString:(NSString*)bodyString completion:(JSONObjectBlock)completeBlock;
+
+/**
+ * Makes POST request to the given URL address and fetches a JSON response. Sends the bodyString param as the POST request body.
+ * @param urlString the URL as a string
+ * @param bodyData the body of the POST request as an NSData object
+ * @param completeBlock JSONObjectBlock to execute upon completion
+ */
++(void)postJSONFromURLWithString:(NSString*)urlString bodyData:(NSData*)bodyData completion:(JSONObjectBlock)completeBlock;
+
 
 @end

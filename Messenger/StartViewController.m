@@ -8,6 +8,7 @@
 
 #import "StartViewController.h"
 #import "UIButton+NUI.h"
+#import "NSString+FontAwesome.h"
 
 @interface StartViewController ()
 
@@ -15,7 +16,7 @@
 
 @implementation StartViewController
 
-@synthesize settingsButton, aboutButton;
+@synthesize settingsButton, aboutButton, versionLabel;
 
 
 
@@ -36,6 +37,7 @@
     self.title = @"Oxwall Messenger";
     settingsButton.nuiClass = @"none";
     aboutButton.nuiClass = @"none";
+    versionLabel.text = @"Beta 0.4.1";
 }
 
 - (void)didReceiveMemoryWarning

@@ -11,6 +11,7 @@
 #import "JSONModelLib.h"
 #import "ConversationFeed.h"
 #import "HUD.h"
+#import "Lockbox.h"
 
 @interface ConversationsViewController () {
     ConversationFeed* _feed;
@@ -26,8 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-    userid = [standardUserDefaults stringForKey:@"userid"];
+    userid = [Lockbox stringForKey:@"userid"];
     // Title
     self.title = @"My conversations";
 }

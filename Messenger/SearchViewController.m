@@ -13,7 +13,7 @@
 #import "MessagesViewController.h"
 #import "NewConversationViewController.h"
 #import "DUViewController.h"
-
+#import "Lockbox.h"
 #import "JSONModelLib.h"
 #import "UsersFeed.h"
 //#import "OxwallFeed.h"
@@ -22,7 +22,6 @@
 @interface SearchViewController () {
     UsersFeed* _feed;
     UsersModel* usersModel;
-    NSArray* usersArr;
     
 }
 
@@ -51,8 +50,7 @@ int row;
     
     // Title
     self.title = @"New message";
-    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
-    sender = [standardUserDefaults stringForKey:@"userid"];
+    sender = [Lockbox stringForKey:@"userid"];
     
     [self getFeed:@""];
     
@@ -87,8 +85,7 @@ int row;
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@",searchText];
     
     searchResults = [[usersArr valueForKey:@"realname"] filteredArrayUsingPredicate:resultPredicate];
-    //We can´t implement this this way.
-    //searchResultsAvatar = [usersArr valueForKey:@"avatar"];
+
     
     
     NSMutableArray *newArray = [[NSMutableArray alloc] init];
@@ -141,7 +138,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
                                   completion:^(NSDictionary *json, JSONModelError *err) {
                                       
                                       //got JSON back
-                                      NSLog(@"Got JSON from web: %@", json);
+                                      //NSLog(@"Got JSON from web: %@", json);
                                       
                                       if (err) {
                                           [[[UIAlertView alloc] initWithTitle:@"Error"
@@ -153,14 +150,19 @@ shouldReloadTableForSearchString:(NSString *)searchString
                                       }
                                       
                                       //initialize the models
-                                      usersArr = [UsersModel arrayOfModelsFromDictionaries:
+                                      NSArray * tmp = [[NSArray alloc]init];
+                                      tmp = [UsersModel arrayOfModelsFromDictionaries:
                                                   json[@"posts"]
                                                   ];
-                                      
-                                      if (usersArr) NSLog(@"Loaded successfully models");
+                                      //usersArr = [tmp mutableCopy];
+                                      NSPredicate *idPredicate = [NSPredicate predicateWithFormat:@"id != %@", sender];
+                                      usersArr = [[tmp filteredArrayUsingPredicate:idPredicate]mutableCopy];
+                                      if (usersArr.count > 0) NSLog(@"usersArr count: %i", usersArr.count);
                                       [self.tableView reloadData];
                                       
                                   }];
+    //NSArray *data = [NSArray arrayWithObject:[NSMutableDictionary dictionaryWithObject:@"foo" forKey:@"BAR"]];
+
     
     
     
@@ -193,13 +195,13 @@ shouldReloadTableForSearchString:(NSString *)searchString
     static NSString *cellIdentifier = @"SearchCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
+    // et försök att rensa data. Rungerar inte
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
     
     // Here we use the new provided setImageWithURL: method to load the web image
-  
+    
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         int row = [[searchResultId objectAtIndex:indexPath.row] integerValue];
         cell.textLabel.text = [[usersArr objectAtIndex:row] valueForKey:@"realname"];
@@ -207,9 +209,13 @@ shouldReloadTableForSearchString:(NSString *)searchString
                        placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
         
     } else {
+        if ([[[usersArr objectAtIndex:row] valueForKey:@"id"] isEqualToString:sender ] == FALSE) {
         cell.textLabel.text = [[usersArr objectAtIndex:indexPath.row] valueForKey:@"realname"];
         [cell.imageView setImageWithURL:[[usersArr objectAtIndex:indexPath.row] valueForKey:@"avatar"]
                        placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
+        } else {
+            return cell;
+        }
         
     }
     

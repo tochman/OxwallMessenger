@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XCDFormInputAccessoryView.h"
 
 @class UICheckbox;
 @interface LoginViewController : UIViewController {
@@ -19,9 +20,11 @@
 @property (strong, nonatomic) IBOutlet UIButton *aboutButton;
 @property (strong, nonatomic) IBOutlet UIButton *settingsButton;
 @property(nonatomic, weak)IBOutlet UICheckbox *checkbox;
+@property (nonatomic, strong) XCDFormInputAccessoryView *inputAccessoryView;
 - (IBAction)checkCredentials;
 - (IBAction)testCheckbox:(id)sender;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 -(IBAction)showAbout:(id)sender;
 - (IBAction)showSettings:(id)sender;
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up;
 @end

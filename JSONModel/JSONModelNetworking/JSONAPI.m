@@ -1,11 +1,11 @@
 //
 //  JSONAPI.m
 //
-//  @version 0.8.2
+//  @version 0.9.3
 //  @author Marin Todorov, http://www.touch-code-magazine.com
 //
 
-// Copyright (c) 2012 Marin Todorov, Underplot ltd.
+// Copyright (c) 2012-2013 Marin Todorov, Underplot ltd.
 // This code is distributed under the terms and conditions of the MIT license.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -16,6 +16,13 @@
 
 #import "JSONAPI.h"
 
+#pragma mark - helper error model class
+@interface JSONAPIRPCErrorModel: JSONModel
+@property (assign, nonatomic) int code;
+@property (strong, nonatomic) NSString* message;
+@property (strong, nonatomic) id<Optional> data;
+@end
+
 #pragma mark - static variables
 
 static JSONAPI* sharedInstance = nil;
@@ -25,7 +32,6 @@ static long jsonRpcId = 0;
 
 @interface JSONAPI ()
 @property (strong, nonatomic) NSString* baseURLString;
-@property (strong, nonatomic) NSString* ctype;
 @end
 
 #pragma mark - JSONAPI implementation
@@ -39,7 +45,6 @@ static long jsonRpcId = 0;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
         sharedInstance = [[JSONAPI alloc] init];
-        sharedInstance.ctype = @"application/json";
     });
 }
 
@@ -52,19 +57,10 @@ static long jsonRpcId = 0;
 
 +(void)setContentType:(NSString*)ctype
 {
-    sharedInstance.ctype = ctype;
+    [JSONHTTPClient setRequestContentType: ctype];
 }
 
 #pragma mark - GET methods
-
-+(id)getWithPath:(NSString*)path andParams:(NSDictionary*)params
-{
-    NSString* fullURL = [NSString stringWithFormat:@"%@%@", sharedInstance.baseURLString, path];
-    
-    id json = [JSONHTTPClient getJSONFromURLWithString: fullURL params:params];
-    return json;
-}
-
 +(void)getWithPath:(NSString*)path andParams:(NSDictionary*)params completion:(JSONObjectBlock)completeBlock
 {
     NSString* fullURL = [NSString stringWithFormat:@"%@%@", sharedInstance.baseURLString, path];
@@ -75,15 +71,6 @@ static long jsonRpcId = 0;
 }
 
 #pragma mark - POST methods
-
-+(id)postWithPath:(NSString*)path andParams:(NSDictionary*)params
-{
-    NSString* fullURL = [NSString stringWithFormat:@"%@%@", sharedInstance.baseURLString, path];
-    
-    id json = [JSONHTTPClient postJSONFromURLWithString: fullURL params:params];
-    return json;
-}
-
 +(void)postWithPath:(NSString*)path andParams:(NSDictionary*)params completion:(JSONObjectBlock)completeBlock
 {
     NSString* fullURL = [NSString stringWithFormat:@"%@%@", sharedInstance.baseURLString, path];
@@ -93,50 +80,73 @@ static long jsonRpcId = 0;
     }];
 }
 
-#pragma mark - RPC 1.0 methods
-
-+(id)rpcWithMethodName:(NSString*)method andArguments:(NSArray*)args
+#pragma mark - RPC methods
++(void)__rpcRequestWithObject:(id)jsonObject completion:(JSONObjectBlock)completeBlock
 {
-    if (!args) args = @[];
     
-    NSDictionary* jsonRequest = @{
-        @"id": [NSNumber numberWithLong: ++jsonRpcId],
-        @"params": args,
-        @"method": method
-    };
-    
-    NSData* jsonRequestData = [NSJSONSerialization dataWithJSONObject:jsonRequest
+    NSData* jsonRequestData = [NSJSONSerialization dataWithJSONObject:jsonObject
                                                               options:kNilOptions
                                                                 error:nil];
     NSString* jsonRequestString = [[NSString alloc] initWithData:jsonRequestData encoding: NSUTF8StringEncoding];
-    
-    id json = [JSONHTTPClient postJSONFromURLWithString: sharedInstance.baseURLString
-                                             bodyString: jsonRequestString];
-    return json;
+
+    NSAssert(sharedInstance.baseURLString, @"API base URL not set");
+    [JSONHTTPClient postJSONFromURLWithString: sharedInstance.baseURLString
+                                   bodyString: jsonRequestString
+                                   completion:^(NSDictionary *json, JSONModelError* e) {
+
+                                       if (completeBlock) {
+                                           //handle the rpc response
+                                           NSDictionary* result = json[@"result"];
+
+                                           if (!result) {
+                                               JSONAPIRPCErrorModel* error = [[JSONAPIRPCErrorModel alloc] initWithDictionary:json[@"error"] error:nil];
+                                               if (error) {
+                                                   //custom server error
+                                                   if (!error.message) error.message = @"Generic json rpc error";
+                                                   e = [JSONModelError errorWithDomain:JSONModelErrorDomain
+                                                                                  code:error.code
+                                                                              userInfo: @{ NSLocalizedDescriptionKey : error.message}];
+                                               } else {
+                                                   //generic error
+                                                   e = [JSONModelError errorBadResponse];
+                                               }
+                                           }
+                                           
+                                           //invoke the callback
+                                           completeBlock(result, e);
+                                       }
+                                   }];
 }
 
 +(void)rpcWithMethodName:(NSString*)method andArguments:(NSArray*)args completion:(JSONObjectBlock)completeBlock
 {
+    NSAssert(method, @"No method specified");
     if (!args) args = @[];
     
-    NSDictionary* jsonRequest = @{
-    @"id": [NSNumber numberWithLong: ++jsonRpcId],
-    @"params": args,
-    @"method": method
-    };
-    
-    NSData* jsonRequestData = [NSJSONSerialization dataWithJSONObject:jsonRequest
-                                                              options:kNilOptions
-                                                                error:nil];
-    NSString* jsonRequestString = [[NSString alloc] initWithData:jsonRequestData encoding: NSUTF8StringEncoding];
-    
-    [JSONHTTPClient postJSONFromURLWithString: sharedInstance.baseURLString
-                                   bodyString: jsonRequestString
-                                   completion:^(NSDictionary *json, JSONModelError* e) {
-                                       //
-                                       NSDictionary* result = json[@"result"];
-                                       completeBlock(result, e);
-                                   }];
+    [self __rpcRequestWithObject:@{
+                                  //rpc 1.0
+                                  @"id": [NSNumber numberWithLong: ++jsonRpcId],
+                                  @"params": args,
+                                  @"method": method
+     } completion:completeBlock];
 }
 
++(void)rpc2WithMethodName:(NSString*)method andParams:(id)params completion:(JSONObjectBlock)completeBlock
+{
+    NSAssert(method, @"No method specified");
+    if (!params) params = @[];
+    
+    [self __rpcRequestWithObject:@{
+                                  //rpc 2.0
+                                  @"jsonrpc": @"2.0",
+                                  @"id": [NSNumber numberWithLong: ++jsonRpcId],
+                                  @"params": params,
+                                  @"method": method
+     } completion:completeBlock];
+}
+
+@end
+
+#pragma - helper rpc error model class implementation
+@implementation JSONAPIRPCErrorModel
 @end

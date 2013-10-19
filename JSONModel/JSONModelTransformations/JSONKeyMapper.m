@@ -1,11 +1,11 @@
 //
 //  JSONKeyMapper.m
 //
-//  @version 0.8.2
+//  @version 0.9.3
 //  @author Marin Todorov, http://www.touch-code-magazine.com
 //
 
-// Copyright (c) 2012 Marin Todorov, Underplot ltd.
+// Copyright (c) 2012-2013 Marin Todorov, Underplot ltd.
 // This code is distributed under the terms and conditions of the MIT license.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -16,8 +16,10 @@
 
 #import "JSONKeyMapper.h"
 
-static NSMutableDictionary* _toModelMap = nil;
-static NSMutableDictionary* _toJSONMap  = nil;
+@interface JSONKeyMapper()
+@property (nonatomic, strong) NSMutableDictionary *toModelMap;
+@property (nonatomic, strong) NSMutableDictionary *toJSONMap;
+@end
 
 @implementation JSONKeyMapper
 
@@ -26,8 +28,8 @@ static NSMutableDictionary* _toJSONMap  = nil;
     self = [super init];
     if (self) {
         //initialization
-        _toModelMap = [NSMutableDictionary dictionaryWithCapacity:10];
-        _toJSONMap  = [NSMutableDictionary dictionaryWithCapacity:10];
+        self.toModelMap = [NSMutableDictionary dictionary];
+        self.toJSONMap  = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -38,26 +40,27 @@ static NSMutableDictionary* _toJSONMap  = nil;
     self = [self init];
     
     if (self) {
+        __weak JSONKeyMapper *myself = self;
         //the json to model convertion block
         _JSONToModelKeyBlock = ^NSString*(NSString* keyName) {
 
             //try to return cached transformed key
-            if (_toModelMap[keyName]) return _toModelMap[keyName];
+            if (myself.toModelMap[keyName]) return myself.toModelMap[keyName];
             
             //try to convert the key, and store in the cache
             NSString* result = toModel(keyName);
-            _toModelMap[keyName] = result;
+            myself.toModelMap[keyName] = result;
             return result;
         };
         
         _modelToJSONKeyBlock = ^NSString*(NSString* keyName) {
             
             //try to return cached transformed key
-            if (_toJSONMap[keyName]) return _toJSONMap[keyName];
+            if (myself.toJSONMap[keyName]) return myself.toJSONMap[keyName];
             
             //try to convert the key, and store in the cache
             NSString* result = toJSON(keyName);
-            _toJSONMap[keyName] = result;
+            myself.toJSONMap[keyName] = result;
             return result;
             
         };
@@ -73,20 +76,20 @@ static NSMutableDictionary* _toJSONMap  = nil;
     if (self) {
         //initialize
 
-        _toModelMap = [NSMutableDictionary dictionaryWithDictionary:map];
-        _toJSONMap  = [NSMutableDictionary dictionaryWithCapacity: map.count];
+        NSMutableDictionary* userToModelMap = [NSMutableDictionary dictionaryWithDictionary: map];
+        NSMutableDictionary* userToJSONMap  = [NSMutableDictionary dictionaryWithCapacity: map.count];
         
         for (NSString* key in map) {
-            _toJSONMap[ map[key] ] = key;
+            userToJSONMap[ map[key] ] = key;
         }
         
         _JSONToModelKeyBlock = ^NSString*(NSString* keyName) {
-            NSString* result = _toModelMap[keyName];
+            NSString* result = [userToModelMap valueForKeyPath: keyName];
             return result?result:keyName;
         };
         
         _modelToJSONKeyBlock = ^NSString*(NSString* keyName) {
-            NSString* result = _toJSONMap[keyName];
+            NSString* result = [userToJSONMap valueForKeyPath: keyName];
             return result?result:keyName;
         };
         

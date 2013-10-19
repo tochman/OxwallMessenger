@@ -33,14 +33,14 @@
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
    
-    page1.title = @"Hello Tester";
-    page1.desc = @"I'd like to welcome you to the Oxwall Messenger for iOS. We are ready to start testing this app for the next upcoming 14 days. As all new software this will encounter some issues and we really appreciate your help.";
+    page1.title = @"BETA 0.4.1 Bug Fix";
+    page1.desc = @"Fixed a bug in MessageView that occured due to security measures (storing user data in KeyChain - Lockbox. Implemented notifications for new messages. Still need to test the 'addObserver' and KVO features. ";
     page1.bgImage = [UIImage imageNamed:@"OM_background"];
     page1.titleImage = [UIImage imageNamed:@"OM114x114"];
     
     EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"What you need to do";
-    page2.desc = @"You have already downloaded this app - this means that you are mostly done with the installation. Make sure that you have an account at www.scalo.se (our Demosite) in order to be able to login to this app and start using its functionality. ";
+    page2.title = @"Issues - will be fixed in BETA 0.5";
+    page2.desc = @"TimeStamp in MessageViev. User profile. The rest will come in future betas... ";
     page2.bgImage = [UIImage imageNamed:@"OM_background"];
     page2.titleImage = [UIImage imageNamed:@"OM114x114"];;
     
