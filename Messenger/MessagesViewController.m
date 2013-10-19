@@ -62,7 +62,8 @@ ODRefreshControl *refreshControl1;
 }
 
 -(void)viewDidLayoutSubviews{
-    [self.inputToolBarView.textView becomeFirstResponder];
+    [self scrollToBottomAnimated:NO] ;
+    //[self.inputToolBarView.textView becomeFirstResponder];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -108,8 +109,9 @@ ODRefreshControl *refreshControl1;
     
     //Load the avatar of sender - we are not implementing avatars for outgoing messages
     [self getAvatar];
-    [super viewWillAppear:animated];
     [self scrollToBottomAnimated:YES];
+    [super viewWillAppear:animated];
+    
 }
 
 -(void) viewWillDisappear:(BOOL)animated  {
@@ -154,8 +156,8 @@ ODRefreshControl *refreshControl1;
     else
         [JSMessageSoundEffect playMessageReceivedSound];
     
-    [self sendMessage:self];
     [self scrollToBottomAnimated:YES];
+    [self sendMessage:self];
     [self finishSend];
 }
 
@@ -225,12 +227,14 @@ ODRefreshControl *refreshControl1;
     //Refresh code - for now it is just for show, not fully implemented
     double delayInSeconds = 1.0;
     //[self.messages addObject:@"Added @ MessVC."];
-    [self loadJson];
+    
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        
+        [self scrollToBottomAnimated:YES];
+        [self loadJson];
         [refreshControl endRefreshing ];
+        NSLog(@"1. dropViewDidBeginRefreshing");
     });
 }
 
@@ -241,6 +245,7 @@ ODRefreshControl *refreshControl1;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self loadJson];
+         NSLog(@"2. dropViewDidBeginRefreshingTime");
     });
 }
 
@@ -248,7 +253,6 @@ ODRefreshControl *refreshControl1;
 {
     ODRefreshControl* refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     refreshControl = (ODRefreshControl *)timer;
-    [self scrollToBottomAnimated:YES];
     [refreshControl endRefreshing];
 }
 
@@ -345,7 +349,6 @@ ODRefreshControl *refreshControl1;
     });
     //reload everything
     [self dropViewDidBeginRefreshingTime:nil];
-    [self scrollToBottomAnimated:YES];
     [self.tableView reloadData];
     return;
 
@@ -395,7 +398,6 @@ ODRefreshControl *refreshControl1;
                                                               options:kNilOptions
                                                               error:nil]];
         [self cleanArray];
-        [self scrollToBottomAnimated:YES];
         [self.tableView reloadData];
     }
     

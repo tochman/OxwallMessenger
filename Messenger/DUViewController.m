@@ -26,7 +26,7 @@
 @end
 
 @implementation DUViewController
-
+static dispatch_once_t onceToken;
 @synthesize username;
 @synthesize realname;
 @synthesize sex;
@@ -230,15 +230,14 @@ static NSString * kMessageCountChanged = @"NULL";
     cell.textLabel.text = conversation.title;
     if ([conversation.startedbyid isEqualToString:[Lockbox stringForKey:@"userid"]]){
         if ([conversation.conversationflag intValue] == 2 | [conversation.conversationflag intValue] == 0) {
-            
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - unread", conversation.startedby];
             UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red_dot_small.png"]];
             [imageView setFrame:CGRectMake(45,30,7,7)]; //refactor this for better display in iOS6.0
             [cell.contentView addSubview:imageView];
-            
+            dispatch_once (&onceToken, ^{
             notif.applicationIconBadgeNumber = notif.applicationIconBadgeNumber +1;
             [[UIApplication sharedApplication] scheduleLocalNotification:notif];
-            
+            });
             
         } else {
             
@@ -251,9 +250,10 @@ static NSString * kMessageCountChanged = @"NULL";
             UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red_dot_small.png"]];
             [imageView setFrame:CGRectMake(45,30,7,7)]; //refactor this for better display in iOS6.0
             [cell.contentView addSubview:imageView];
-            
+            dispatch_once (&onceToken, ^{
             notif.applicationIconBadgeNumber = notif.applicationIconBadgeNumber +1;
             [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+            });
         }
         cell.detailTextLabel.text = conversation.startedby;
     }

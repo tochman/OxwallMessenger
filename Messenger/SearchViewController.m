@@ -51,7 +51,6 @@ int row;
     
     // Title
     self.title = @"New message";
-    NSUserDefaults *standardUserDefaults  = [NSUserDefaults standardUserDefaults];
     sender = [Lockbox stringForKey:@"userid"];
     
     [self getFeed:@""];
@@ -87,8 +86,7 @@ int row;
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@",searchText];
     
     searchResults = [[usersArr valueForKey:@"realname"] filteredArrayUsingPredicate:resultPredicate];
-    //We can´t implement this this way.
-    //searchResultsAvatar = [usersArr valueForKey:@"avatar"];
+
     
     
     NSMutableArray *newArray = [[NSMutableArray alloc] init];
@@ -199,7 +197,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
     }
     
     // Here we use the new provided setImageWithURL: method to load the web image
-  
+    
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         int row = [[searchResultId objectAtIndex:indexPath.row] integerValue];
         cell.textLabel.text = [[usersArr objectAtIndex:row] valueForKey:@"realname"];
@@ -207,9 +205,13 @@ shouldReloadTableForSearchString:(NSString *)searchString
                        placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
         
     } else {
+        if ([[[usersArr objectAtIndex:row] valueForKey:@"id"] isEqualToString:sender ] == FALSE) {
         cell.textLabel.text = [[usersArr objectAtIndex:indexPath.row] valueForKey:@"realname"];
         [cell.imageView setImageWithURL:[[usersArr objectAtIndex:indexPath.row] valueForKey:@"avatar"]
                        placeholderImage:[UIImage imageNamed:@"missingAvatar"]];
+        } else {
+            return cell;
+        }
         
     }
     
