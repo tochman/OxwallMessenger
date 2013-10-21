@@ -43,6 +43,8 @@ static dispatch_once_t onceToken;
 @synthesize notif;
 
 static NSString * kMessageCountChanged = @"NULL";
+NSString *SITE;
+NSString *BASE_URL;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,6 +62,10 @@ static NSString * kMessageCountChanged = @"NULL";
 {
     
     [super viewDidLoad];
+    
+    //Setting the Site Information
+    SITE = [Constants getSiteName];
+    BASE_URL = [Constants getBaseUrl];
     
     //Get everything together
     [self loadStandardUser];

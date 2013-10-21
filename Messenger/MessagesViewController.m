@@ -20,6 +20,8 @@
 @end
 
 @implementation MessagesViewController
+NSString *SITE;
+NSString *BASE_URL;
 
 @synthesize messages, json, jsonDict, closeBarButton;
 
@@ -54,6 +56,11 @@ ODRefreshControl *refreshControl1;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Setting the site Information
+    SITE = [Constants getSiteName];
+    BASE_URL = [Constants getBaseUrl];
+    
     self.delegate = self;
     self.dataSource = self;
     self.title = @"Messages";

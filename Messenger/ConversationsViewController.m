@@ -20,6 +20,9 @@
 @end
 
 @implementation ConversationsViewController
+NSString *SITE;
+NSString *BASE_URL;
+
 @synthesize userid;
 
 
@@ -28,6 +31,11 @@
 {
     [super viewDidLoad];
     userid = [Lockbox stringForKey:@"userid"];
+    
+    //Setting the site information
+    SITE = [Constants getSiteName];
+    BASE_URL = [Constants getBaseUrl];
+    
     // Title
     self.title = @"My conversations";
 }

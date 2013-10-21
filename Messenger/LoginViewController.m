@@ -26,6 +26,8 @@
 @end
 
 @implementation LoginViewController
+NSString *SITE;
+NSString *BASE_URL;
 @synthesize checkbox = _checkbox;
 @synthesize settingsButton, aboutButton;
 
@@ -48,7 +50,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    //Setting the Site Information
+    SITE = [Constants getSiteName];
+    BASE_URL = [Constants getBaseUrl];
+    
+    
     // Title
     self.title = @"Login";
     self.inputAccessoryView = [XCDFormInputAccessoryView new];
@@ -86,7 +93,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-
+    NSLog(@"Site name %@ Site URL %@",SITE,BASE_URL);
 
 }
 

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *siteName;
 @property (strong, nonatomic) IBOutlet UITextField *siteURL;
 @property (strong, nonatomic) IBOutlet UILabel *connectionStatusLabel;
 - (IBAction)checkConnection:(id)sender;
 -(IBAction)close:(id)sender;
+@property (weak, nonatomic) IBOutlet UIPickerView *sitePicker;
 @end

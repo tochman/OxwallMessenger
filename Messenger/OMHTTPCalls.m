@@ -10,9 +10,12 @@
 #import "Constants.h"
 
 @implementation OMHTTPCalls
-
+NSString *SITE;
+NSString *BASE_URL;
 
 + (void) notifyLogin: (NSString* )userid {
+    SITE = [Constants getSiteName];
+    BASE_URL = [Constants getBaseUrl];
     int timestamp = [[NSDate date] timeIntervalSince1970];
     NSLog(@"notifyLogin kallades med userID: %@", userid);
     NSMutableURLRequest *request =

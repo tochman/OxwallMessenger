@@ -16,6 +16,7 @@
 		9C39544D16A34FC800C5C8FD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39544916A34FC800C5C8FD /* MBProgressHUD.m */; };
 		9C39547C16A3554D00C5C8FD /* UsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39547B16A3554D00C5C8FD /* UsersModel.m */; };
 		9C39548216A3581600C5C8FD /* OxwallFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39548116A3581600C5C8FD /* OxwallFeed.m */; };
+		B0DA23C91815411300AA9AAA /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DA23C51815411300AA9AAA /* libTestFlight.a */; };
 		E9041C87180667C2000B8A67 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9041C86180667C2000B8A67 /* Security.framework */; };
 		E9041C8A180672B5000B8A67 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9041C89180672B5000B8A67 /* SettingsViewController.m */; };
 		E9041C8E18068D30000B8A67 /* App-Messages-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E9041C8B18068D30000B8A67 /* App-Messages-icon.png */; };
@@ -92,7 +93,6 @@
 		E9330D66180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D65180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m */; };
 		E9330D6A180D52DB00BB5AE0 /* SDSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D69180D52DB00BB5AE0 /* SDSegmentedControl.m */; };
 		E9330D6D180E99DA00BB5AE0 /* MessageCountObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D6C180E99DA00BB5AE0 /* MessageCountObserver.m */; };
-		E938F9C7181532E400D91E20 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E938F9C3181532E400D91E20 /* libTestFlight.a */; };
 		E9477EFD17DF865700A16505 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EF717DF865600A16505 /* AppDelegate.m */; };
 		E9477F0117DF865700A16505 /* NewConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EFC17DF865700A16505 /* NewConversationViewController.m */; };
 		E9477F0717DF869600A16505 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F0217DF869600A16505 /* main.m */; };
@@ -225,6 +225,10 @@
 		9C39547B16A3554D00C5C8FD /* UsersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersModel.m; sourceTree = "<group>"; };
 		9C39548016A3581600C5C8FD /* OxwallFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxwallFeed.h; sourceTree = "<group>"; };
 		9C39548116A3581600C5C8FD /* OxwallFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxwallFeed.m; sourceTree = "<group>"; };
+		B0DA23C51815411300AA9AAA /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		B0DA23C61815411300AA9AAA /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		B0DA23C71815411300AA9AAA /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		B0DA23C81815411300AA9AAA /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		E9041C86180667C2000B8A67 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E9041C88180672B5000B8A67 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = SOURCE_ROOT; };
 		E9041C89180672B5000B8A67 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = SOURCE_ROOT; };
@@ -322,10 +326,6 @@
 		E9330D69180D52DB00BB5AE0 /* SDSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSegmentedControl.m; sourceTree = "<group>"; };
 		E9330D6B180E99DA00BB5AE0 /* MessageCountObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageCountObserver.h; path = Messenger/MessageCountObserver.h; sourceTree = SOURCE_ROOT; };
 		E9330D6C180E99DA00BB5AE0 /* MessageCountObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageCountObserver.m; path = Messenger/MessageCountObserver.m; sourceTree = SOURCE_ROOT; };
-		E938F9C3181532E400D91E20 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		E938F9C4181532E400D91E20 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		E938F9C5181532E400D91E20 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		E938F9C6181532E400D91E20 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		E9477EF617DF865600A16505 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Messenger/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		E9477EF717DF865600A16505 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Messenger/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		E9477EFB17DF865700A16505 /* NewConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewConversationViewController.h; path = Messenger/NewConversationViewController.h; sourceTree = SOURCE_ROOT; };
@@ -529,7 +529,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E938F9C7181532E400D91E20 /* libTestFlight.a in Frameworks */,
+				B0DA23C91815411300AA9AAA /* libTestFlight.a in Frameworks */,
 				E9041C87180667C2000B8A67 /* Security.framework in Frameworks */,
 				E9814E7517EE495F00043A59 /* ImageIO.framework in Frameworks */,
 				E92C601717E88EAA00B98C63 /* libz.dylib in Frameworks */,
@@ -658,6 +658,17 @@
 				9C39544916A34FC800C5C8FD /* MBProgressHUD.m */,
 			);
 			path = HUD;
+			sourceTree = "<group>";
+		};
+		B0DA23C41815403D00AA9AAA /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				B0DA23C51815411300AA9AAA /* libTestFlight.a */,
+				B0DA23C61815411300AA9AAA /* TestFlight.h */,
+				B0DA23C71815411300AA9AAA /* TestFlight+AsyncLogging.h */,
+				B0DA23C81815411300AA9AAA /* TestFlight+ManualSessions.h */,
+			);
+			name = TestFlight;
 			sourceTree = "<group>";
 		};
 		E92FD9B317F41A7C0062D24E /* JSMessagesTableViewController */ = {
@@ -1085,10 +1096,7 @@
 		E9F371C817F31554003A4055 /* Supporting libraries */ = {
 			isa = PBXGroup;
 			children = (
-				E938F9C3181532E400D91E20 /* libTestFlight.a */,
-				E938F9C4181532E400D91E20 /* TestFlight.h */,
-				E938F9C5181532E400D91E20 /* TestFlight+AsyncLogging.h */,
-				E938F9C6181532E400D91E20 /* TestFlight+ManualSessions.h */,
+				B0DA23C41815403D00AA9AAA /* TestFlight */,
 				E99FA4BB180FBB4500D439D5 /* JSONModel */,
 				E9330D67180D52C500BB5AE0 /* SegmentedControl */,
 				E9330D63180D2BA600BB5AE0 /* XCDFormInputAccessoryView */,
@@ -1129,11 +1137,6 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Underplot ltd.";
-				TargetAttributes = {
-					9C39541816A34F8200C5C8FD = {
-						DevelopmentTeam = F8TBQ2928V;
-					};
-				};
 			};
 			buildConfigurationList = 9C39541316A34F8200C5C8FD /* Build configuration list for PBXProject "Oxwall Messenger" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1412,7 +1415,7 @@
 		9C39544116A34F8200C5C8FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Thomas Ochman (F8TBQ2928V)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thomas Ochman (F8TBQ2928V)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1428,6 +1431,7 @@
 					"$(inherited)",
 					"$(FRANK_LIBRARY_SEARCH_PATHS)",
 					/Users/thomas/OxwallMessenger,
+					/Users/Toye/Documents/Toye/Oxwall/OxwallMessenger/OxwallMessenger,
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1435,7 +1439,7 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "Oxwall Messenger";
-				PROVISIONING_PROFILE = "F22E0743-B792-4B4A-8987-5601196F3D39";
+				PROVISIONING_PROFILE = "C40BCF38-A199-45B4-85B9-6A8FAFD1B9F7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1443,7 +1447,7 @@
 		9C39544216A34F8200C5C8FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Thomas Ochman (F8TBQ2928V)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thomas Ochman (F8TBQ2928V)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1458,10 +1462,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/thomas/OxwallMessenger,
+					/Users/Toye/Documents/Toye/Oxwall/OxwallMessenger/OxwallMessenger,
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "Oxwall Messenger";
-				PROVISIONING_PROFILE = "F22E0743-B792-4B4A-8987-5601196F3D39";
+				PROVISIONING_PROFILE = "C40BCF38-A199-45B4-85B9-6A8FAFD1B9F7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

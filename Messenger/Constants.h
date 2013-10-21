@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface Constants : NSObject
-extern NSString * const BASE_URL;
-extern NSString * const SITE;
+
++(void)setConstantValues:(NSString*)site setBaseURL:(NSString *)baseURL;
++(NSString*)getBaseUrl;
++(NSString*)getSiteName;
+
 @end

@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "Constants.h"
 #import "Lockbox.h"
+#import "JSONModelLib.h"
 
 
 @interface SettingsViewController ()
@@ -16,7 +17,13 @@
 @end
 
 @implementation SettingsViewController
-@synthesize siteName, siteURL, connectionStatusLabel;
+@synthesize siteName, siteURL, connectionStatusLabel,sitePicker;
+
+NSArray *availableSites;
+NSString *SITE;
+NSString *BASE_URL;
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,6 +37,11 @@
 {
     [super viewDidLoad];
 	self.title = @"Settings";
+    
+    //Setting the site Information
+    SITE = [Constants getSiteName];
+    BASE_URL = [Constants getBaseUrl];
+    
     self.siteName.text = SITE;
     
     self.siteURL.text = [BASE_URL stringByReplacingOccurrencesOfString:@"/webservice" withString:@""];
@@ -37,12 +49,39 @@
     self.connectionStatusLabel.hidden = TRUE;
     self.navigationItem.hidesBackButton = YES;
     
+    [self loadAvailableSites];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)loadAvailableSites{
+    //make HTTP call
+    NSString* searchCall = [NSString stringWithFormat:@"%@/om_sites.php", BASE_URL];
+    
+    
+    [JSONHTTPClient getJSONFromURLWithString: searchCall
+                                  completion:^(NSDictionary *json, JSONModelError *err) {
+                                      
+                                      if (err) {
+                                          [[[UIAlertView alloc] initWithTitle:@"Error"
+                                                                      message:[err localizedDescription]
+                                                                     delegate:nil
+                                                            cancelButtonTitle:@"Close"
+                                                            otherButtonTitles: nil] show];
+                                          return;
+                                      }
+                                      
+                                      availableSites = [NSArray arrayWithArray:json[@"sites"]];
+                                      NSLog(@"Results %@",[[availableSites objectAtIndex:0] valueForKey:@"site"]);
+                                      
+                                      self.sitePicker.dataSource = self;
+                                      self.sitePicker.delegate = self;
+                                      [self.sitePicker reloadAllComponents];
+                                }];
 }
 
 - (IBAction)checkConnection:(id)sender {
@@ -82,7 +121,40 @@
     };
 }
 
+
+
 - (IBAction)close:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+#pragma mark - Picker View
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    if (availableSites!=nil) {
+        return [availableSites count];
+    }
+    return 0;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    if (availableSites!=nil) {
+        
+        return [[availableSites objectAtIndex:row] valueForKey:@"site"];
+    }
+    return @"";
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+    self.siteName.text = [[availableSites objectAtIndex:row] valueForKey:@"site"];
+    self.siteURL.text = [[availableSites objectAtIndex:row] valueForKey:@"url"];
+    
+    //Set
+    [Constants setConstantValues:[[availableSites objectAtIndex:row] valueForKey:@"site"] setBaseURL:[[availableSites objectAtIndex:row] valueForKey:@"url"]];
+    
+}
+
 @end

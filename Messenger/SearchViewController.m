@@ -37,12 +37,17 @@
     NSDictionary* json;
     UINavigationController *navController;
 int row;
+NSString *SITE;
+NSString *BASE_URL;
 
 @synthesize usersArr, json, sender, receiver, subject, conversationId;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    SITE = [Constants getSiteName];
+    BASE_URL = [Constants getBaseUrl];
     
     usersArr = [[NSArray alloc]init];
     json = [[NSDictionary alloc]init];
