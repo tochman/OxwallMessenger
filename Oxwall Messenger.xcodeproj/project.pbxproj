@@ -21,7 +21,6 @@
 		E9041C8E18068D30000B8A67 /* App-Messages-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E9041C8B18068D30000B8A67 /* App-Messages-icon.png */; };
 		E9041C8F18068D30000B8A67 /* Folder-Smart-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E9041C8C18068D30000B8A67 /* Folder-Smart-icon.png */; };
 		E9041C9018068D30000B8A67 /* Folder-Documents-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E9041C8D18068D30000B8A67 /* Folder-Documents-icon.png */; };
-		E9041C951806CCF7000B8A67 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9041C911806CCF7000B8A67 /* libTestFlight.a */; };
 		E909C47F17E198EB0058B75A /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E909C47E17E198EB0058B75A /* MessagesViewController.m */; };
 		E909C49E17E19B5B0058B75A /* missingAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49417E19B5B0058B75A /* missingAvatar.png */; };
 		E909C49F17E19B5B0058B75A /* missingAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49517E19B5B0058B75A /* missingAvatar@2x.png */; };
@@ -93,6 +92,7 @@
 		E9330D66180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D65180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m */; };
 		E9330D6A180D52DB00BB5AE0 /* SDSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D69180D52DB00BB5AE0 /* SDSegmentedControl.m */; };
 		E9330D6D180E99DA00BB5AE0 /* MessageCountObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D6C180E99DA00BB5AE0 /* MessageCountObserver.m */; };
+		E938F9C7181532E400D91E20 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E938F9C3181532E400D91E20 /* libTestFlight.a */; };
 		E9477EFD17DF865700A16505 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EF717DF865600A16505 /* AppDelegate.m */; };
 		E9477F0117DF865700A16505 /* NewConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477EFC17DF865700A16505 /* NewConversationViewController.m */; };
 		E9477F0717DF869600A16505 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F0217DF869600A16505 /* main.m */; };
@@ -231,10 +231,6 @@
 		E9041C8B18068D30000B8A67 /* App-Messages-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-Messages-icon.png"; sourceTree = "<group>"; };
 		E9041C8C18068D30000B8A67 /* Folder-Smart-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder-Smart-icon.png"; sourceTree = "<group>"; };
 		E9041C8D18068D30000B8A67 /* Folder-Documents-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder-Documents-icon.png"; sourceTree = "<group>"; };
-		E9041C911806CCF7000B8A67 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		E9041C921806CCF7000B8A67 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		E9041C931806CCF7000B8A67 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		E9041C941806CCF7000B8A67 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		E909C47D17E198EB0058B75A /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesViewController.h; path = Messenger/MessagesViewController.h; sourceTree = SOURCE_ROOT; };
 		E909C47E17E198EB0058B75A /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesViewController.m; path = Messenger/MessagesViewController.m; sourceTree = SOURCE_ROOT; };
 		E909C49417E19B5B0058B75A /* missingAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missingAvatar.png; sourceTree = "<group>"; };
@@ -326,6 +322,10 @@
 		E9330D69180D52DB00BB5AE0 /* SDSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSegmentedControl.m; sourceTree = "<group>"; };
 		E9330D6B180E99DA00BB5AE0 /* MessageCountObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageCountObserver.h; path = Messenger/MessageCountObserver.h; sourceTree = SOURCE_ROOT; };
 		E9330D6C180E99DA00BB5AE0 /* MessageCountObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageCountObserver.m; path = Messenger/MessageCountObserver.m; sourceTree = SOURCE_ROOT; };
+		E938F9C3181532E400D91E20 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		E938F9C4181532E400D91E20 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		E938F9C5181532E400D91E20 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		E938F9C6181532E400D91E20 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		E9477EF617DF865600A16505 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Messenger/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		E9477EF717DF865600A16505 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Messenger/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		E9477EFB17DF865700A16505 /* NewConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewConversationViewController.h; path = Messenger/NewConversationViewController.h; sourceTree = SOURCE_ROOT; };
@@ -529,7 +529,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9041C951806CCF7000B8A67 /* libTestFlight.a in Frameworks */,
+				E938F9C7181532E400D91E20 /* libTestFlight.a in Frameworks */,
 				E9041C87180667C2000B8A67 /* Security.framework in Frameworks */,
 				E9814E7517EE495F00043A59 /* ImageIO.framework in Frameworks */,
 				E92C601717E88EAA00B98C63 /* libz.dylib in Frameworks */,
@@ -1085,15 +1085,15 @@
 		E9F371C817F31554003A4055 /* Supporting libraries */ = {
 			isa = PBXGroup;
 			children = (
+				E938F9C3181532E400D91E20 /* libTestFlight.a */,
+				E938F9C4181532E400D91E20 /* TestFlight.h */,
+				E938F9C5181532E400D91E20 /* TestFlight+AsyncLogging.h */,
+				E938F9C6181532E400D91E20 /* TestFlight+ManualSessions.h */,
 				E99FA4BB180FBB4500D439D5 /* JSONModel */,
 				E9330D67180D52C500BB5AE0 /* SegmentedControl */,
 				E9330D63180D2BA600BB5AE0 /* XCDFormInputAccessoryView */,
 				E9330D56180D18F700BB5AE0 /* FontAwesome */,
 				E95B9817180BAF2A00E93FB1 /* EAIntroView */,
-				E9041C911806CCF7000B8A67 /* libTestFlight.a */,
-				E9041C921806CCF7000B8A67 /* TestFlight.h */,
-				E9041C931806CCF7000B8A67 /* TestFlight+AsyncLogging.h */,
-				E9041C941806CCF7000B8A67 /* TestFlight+ManualSessions.h */,
 				E92FD9B317F41A7C0062D24E /* JSMessagesTableViewController */,
 				9C39544316A34FC800C5C8FD /* HUD */,
 				E98E28A717E98432006A4B8D /* ODRefreshControl */,
