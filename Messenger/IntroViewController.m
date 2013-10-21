@@ -33,14 +33,14 @@
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
    
-    page1.title = @"BETA 0.4.1 Bug Fix";
-    page1.desc = @"Fixed a bug in MessageView that occured due to security measures (storing user data in KeyChain - Lockbox. Implemented notifications for new messages. Still need to test the 'addObserver' and KVO features. ";
+    page1.title = @"BETA 0.4.2 UI";
+    page1.desc = @"Current user is filtred from SearchView. Marketing - App leaves a notification on website whe user logges in. Issues with notification badge due to 'addObserver' and KVO features. ";
     page1.bgImage = [UIImage imageNamed:@"OM_background"];
     page1.titleImage = [UIImage imageNamed:@"OM114x114"];
     
     EAIntroPage *page2 = [EAIntroPage page];
     page2.title = @"Issues - will be fixed in BETA 0.5";
-    page2.desc = @"TimeStamp in MessageViev. User profile. The rest will come in future betas... ";
+    page2.desc = @"Notification badge. TimeStamp in MessageViev. Site newsfeed instead of User profile? We' see... The rest will come in future betas... ";
     page2.bgImage = [UIImage imageNamed:@"OM_background"];
     page2.titleImage = [UIImage imageNamed:@"OM114x114"];;
     
