@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6JB-Ls-ng2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6JB-Ls-ng2">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <development version="5000" identifier="xcode"/>
@@ -15,11 +15,11 @@
                         <viewControllerLayoutGuide type="bottom" id="IuP-xX-0sL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ptd-sd-AHp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6O-Q3-9ZG">
-                                <rect key="frame" x="19" y="179" width="281" height="222"/>
+                                <rect key="frame" x="19" y="179" width="281" height="310"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">OxwallMessenger connects to a Oxwall powered site and provides the user with messaging functionality.
 Oxwall is a social networking software platform written in PHP/MySQL. You can find more info about Oxwall at: www.oxwall.org/.
@@ -30,7 +30,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gg-AK-FQs">
-                                <rect key="frame" x="20" y="415" width="280" height="45"/>
+                                <rect key="frame" x="20" y="503" width="280" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="kdi-hB-nVx"/>
@@ -95,24 +95,24 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="FK9-2q-adn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HPi-1D-6sz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" text="Sitename" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aor-5Y-arz">
-                                <rect key="frame" x="12" y="70" width="73" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Sitename" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aor-5Y-arz">
+                                <rect key="frame" x="20" y="70" width="73" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" text="Site url" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUh-fM-PhL">
-                                <rect key="frame" x="12" y="145" width="54" height="14"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Site url" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUh-fM-PhL">
+                                <rect key="frame" x="20" y="145" width="54" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvM-ep-0LK">
-                                <rect key="frame" x="20" y="237" width="280" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvM-ep-0LK">
+                                <rect key="frame" x="20" y="214" width="281" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Check connection">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,26 +121,26 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="checkConnection:" destination="0rX-VR-SKe" eventType="touchUpInside" id="yNi-cT-oPF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="596" verticalCompressionResistancePriority="505" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgm-6v-7g7">
-                                <rect key="frame" x="12" y="263" width="280" height="38"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="596" verticalCompressionResistancePriority="505" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgm-6v-7g7">
+                                <rect key="frame" x="20" y="260" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MDx-Dl-h9R">
-                                <rect key="frame" x="12" y="93" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MDx-Dl-h9R">
+                                <rect key="frame" x="20" y="93" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d05-Jl-hhU">
-                                <rect key="frame" x="12" y="167" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d05-Jl-hhU">
+                                <rect key="frame" x="20" y="167" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0x-86-3qE">
-                                <rect key="frame" x="12" y="301" width="280" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0x-86-3qE">
+                                <rect key="frame" x="20" y="300" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Close">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -163,8 +163,8 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <constraint firstAttribute="width" id="HAe-6p-MwI"/>
                                 </constraints>
                             </imageView>
-                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4hd-Mh-eNJ">
-                                <rect key="frame" x="0.0" y="335" width="320" height="162"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hd-Mh-eNJ">
+                                <rect key="frame" x="0.0" y="403" width="320" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="0rX-VR-SKe" id="G04-kP-cc1"/>
@@ -174,18 +174,33 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4hd-Mh-eNJ" secondAttribute="trailing" id="9D5-OR-nRH"/>
                             <constraint firstItem="w7j-pt-Dre" firstAttribute="bottom" secondItem="Gh2-dD-A45" secondAttribute="bottom" id="9Sc-tR-1nV"/>
                             <constraint firstItem="w7j-pt-Dre" firstAttribute="leading" secondItem="HPi-1D-6sz" secondAttribute="leading" constant="561" id="9xM-bn-QBs"/>
+                            <constraint firstItem="aor-5Y-arz" firstAttribute="top" secondItem="j1t-9B-4Qj" secondAttribute="bottom" constant="6" id="BkN-jy-FHq"/>
+                            <constraint firstItem="4hd-Mh-eNJ" firstAttribute="centerX" secondItem="d05-Jl-hhU" secondAttribute="centerX" id="CN7-tf-brP"/>
                             <constraint firstItem="w7j-pt-Dre" firstAttribute="top" secondItem="HPi-1D-6sz" secondAttribute="top" constant="-10" id="HoP-nX-8iI"/>
+                            <constraint firstItem="aor-5Y-arz" firstAttribute="leading" secondItem="K0x-86-3qE" secondAttribute="leading" id="Ipk-p8-bYL"/>
+                            <constraint firstItem="aor-5Y-arz" firstAttribute="leading" secondItem="d05-Jl-hhU" secondAttribute="leading" id="JD1-Ph-q5C"/>
+                            <constraint firstItem="4hd-Mh-eNJ" firstAttribute="centerX" secondItem="mvM-ep-0LK" secondAttribute="centerX" id="JgN-eN-BNe"/>
+                            <constraint firstItem="aor-5Y-arz" firstAttribute="leading" secondItem="HPi-1D-6sz" secondAttribute="leading" constant="20" symbolic="YES" id="L1h-CX-DTM"/>
                             <constraint firstItem="MDx-Dl-h9R" firstAttribute="top" secondItem="aor-5Y-arz" secondAttribute="top" constant="23" id="NO2-2x-drC"/>
+                            <constraint firstItem="aor-5Y-arz" firstAttribute="leading" secondItem="mvM-ep-0LK" secondAttribute="leading" id="Nre-xN-3Rh"/>
                             <constraint firstItem="MDx-Dl-h9R" firstAttribute="top" secondItem="RUh-fM-PhL" secondAttribute="top" constant="-52" id="O8G-Ni-1PL"/>
                             <constraint firstItem="w7j-pt-Dre" firstAttribute="leading" secondItem="Gh2-dD-A45" secondAttribute="leading" id="Sdy-oN-bq6"/>
-                            <constraint firstItem="FK9-2q-adn" firstAttribute="top" secondItem="4hd-Mh-eNJ" secondAttribute="bottom" constant="20" id="UIw-mS-qFz"/>
-                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="top" secondItem="mvM-ep-0LK" secondAttribute="top" constant="-144" id="VGg-fm-eBH"/>
-                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="top" secondItem="cgm-6v-7g7" secondAttribute="top" constant="-170" id="Ztk-ip-ObN"/>
+                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="top" secondItem="mvM-ep-0LK" secondAttribute="top" constant="-121" id="VGg-fm-eBH"/>
+                            <constraint firstItem="aor-5Y-arz" firstAttribute="leading" secondItem="MDx-Dl-h9R" secondAttribute="leading" id="VjY-yf-PiB"/>
+                            <constraint firstItem="4hd-Mh-eNJ" firstAttribute="leading" secondItem="HPi-1D-6sz" secondAttribute="leading" id="Vpt-hr-Wmt"/>
+                            <constraint firstItem="4hd-Mh-eNJ" firstAttribute="centerX" secondItem="MDx-Dl-h9R" secondAttribute="centerX" id="ZME-y2-gTn"/>
+                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="top" secondItem="cgm-6v-7g7" secondAttribute="top" constant="-167" id="Ztk-ip-ObN"/>
+                            <constraint firstItem="aor-5Y-arz" firstAttribute="leading" secondItem="cgm-6v-7g7" secondAttribute="leading" id="dgh-1j-5R3"/>
                             <constraint firstItem="Gh2-dD-A45" firstAttribute="trailing" secondItem="w7j-pt-Dre" secondAttribute="trailing" id="e5w-ZM-Iyc"/>
-                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="top" secondItem="K0x-86-3qE" secondAttribute="top" constant="-208" id="mub-UD-TXo"/>
+                            <constraint firstItem="4hd-Mh-eNJ" firstAttribute="centerX" secondItem="K0x-86-3qE" secondAttribute="centerX" id="edO-CP-EeB"/>
+                            <constraint firstItem="FK9-2q-adn" firstAttribute="top" secondItem="4hd-Mh-eNJ" secondAttribute="bottom" constant="3" id="fdO-k1-Oor"/>
+                            <constraint firstItem="aor-5Y-arz" firstAttribute="leading" secondItem="RUh-fM-PhL" secondAttribute="leading" id="iS8-bq-QR2"/>
+                            <constraint firstItem="MDx-Dl-h9R" firstAttribute="top" secondItem="K0x-86-3qE" secondAttribute="top" constant="-207" id="mub-UD-TXo"/>
                             <constraint firstItem="MDx-Dl-h9R" firstAttribute="top" secondItem="d05-Jl-hhU" secondAttribute="top" constant="-74" id="v9q-i0-3As"/>
+                            <constraint firstItem="4hd-Mh-eNJ" firstAttribute="centerX" secondItem="cgm-6v-7g7" secondAttribute="centerX" id="xdl-mS-YOv"/>
                             <constraint firstItem="w7j-pt-Dre" firstAttribute="top" secondItem="Gh2-dD-A45" secondAttribute="top" id="z3P-3M-lQA"/>
                         </constraints>
                     </view>
@@ -211,7 +226,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="l1K-Bk-fZY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kdS-Ng-ue1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username or email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLU-QA-5JN">
@@ -255,7 +270,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 </connections>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Register" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YE-7E-zxB">
-                                <rect key="frame" x="128" y="421" width="64" height="0.0"/>
+                                <rect key="frame" x="128" y="509" width="64" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="o4g-H3-UYy"/>
                                     <constraint firstAttribute="width" constant="64" id="zND-Bx-7jM"/>
@@ -297,7 +312,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalCompressionResistancePriority="749" image="powered-by-oxwall.png" translatesAutoresizingMaskIntoConstraints="NO" id="L5T-sy-Su8">
-                                <rect key="frame" x="107" y="447" width="97" height="13"/>
+                                <rect key="frame" x="107" y="535" width="97" height="13"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
@@ -362,7 +377,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="hFj-EV-MoZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BKX-lc-7UK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" placeholderIntrinsicWidth="105" placeholderIntrinsicHeight="46" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWX-Up-YPI">
@@ -456,7 +471,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="FUR-lg-UPb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="J7x-Em-jLY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -491,18 +506,18 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="eGB-p6-1iA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5w1-vo-HrX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" misplaced="YES" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-qN-dRH">
-                                <rect key="frame" x="20" y="70" width="75" height="75"/>
+                                <rect key="frame" x="20" y="85" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="NHa-gD-AtG"/>
                                     <constraint firstAttribute="height" constant="75" id="fwA-yL-3C3"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aVi-zt-sak">
-                                <rect key="frame" x="0.0" y="134" width="320" height="293"/>
+                                <rect key="frame" x="0.0" y="197" width="320" height="293"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="bottomLeft" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ConversationCell" textLabel="cbt-xg-Jve" detailTextLabel="5aG-tq-6Uv" imageView="QN3-BR-1Xx" style="IBUITableViewCellStyleSubtitle" id="kRQ-Ly-JmZ">
@@ -590,7 +605,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <outlet property="delegate" destination="mfc-GP-I8c" id="edX-3I-76c"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsY-hY-zJW">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsY-hY-zJW">
                                 <rect key="frame" x="42" y="503" width="248" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -604,12 +619,12 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" misplaced="YES" text="JSONusername" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNu-Te-6uL" colorLabel="IBBuiltInLabel-Gray">
-                                <rect key="frame" x="103" y="118" width="121" height="20"/>
+                                <rect key="frame" x="103" y="141" width="121" height="20"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Pd-6L-Oax" customClass="SDSegmentedControl">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Pd-6L-Oax" customClass="SDSegmentedControl">
                                 <rect key="frame" x="0.0" y="168" width="320" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -757,11 +772,11 @@ You can choose the site you want to connect to in settings. Make sure that your 
             <objects>
                 <tableViewController title="Master" id="12" customClass="SearchViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="vXV-bx-mVH">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -770,7 +785,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" textLabel="phq-AM-6qj" style="IBUITableViewCellStyleDefault" id="lJ0-d7-vTF">
-                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lJ0-d7-vTF" id="Tj4-iX-gyw">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -825,7 +840,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="7yh-6j-n0t"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2A2-BF-uSZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SendTo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VM5-ha-o5V">
@@ -873,7 +888,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <viewControllerLayoutGuide type="bottom" id="kvA-dZ-Zgv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YmP-NT-GcF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -898,25 +913,15 @@ You can choose the site you want to connect to in settings. Make sure that your 
         <image name="App-Messages-icon.png" width="32" height="32"/>
         <image name="Default.png" width="454" height="681"/>
         <image name="Folder-Documents-icon.png" width="32" height="32"/>
-        <image name="Folder-Documents-icon.png" width="32" height="32"/>
-        <image name="Folder-Documents-icon.png" width="32" height="32"/>
-        <image name="Folder-Smart-icon.png" width="32" height="32"/>
-        <image name="Folder-Smart-icon.png" width="32" height="32"/>
         <image name="Folder-Smart-icon.png" width="32" height="32"/>
         <image name="OM.png" width="338" height="339"/>
-        <image name="OM.png" width="338" height="339"/>
-        <image name="OM.png" width="338" height="339"/>
-        <image name="OM.png" width="338" height="339"/>
         <image name="btnCheck.png" width="32" height="32"/>
-        <image name="btnCheck.png" width="32" height="32"/>
-        <image name="btnCheck.png" width="32" height="32"/>
-        <image name="powered-by-oxwall.png" width="97" height="13"/>
         <image name="powered-by-oxwall.png" width="97" height="13"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Dfj-Em-gpP"/>
