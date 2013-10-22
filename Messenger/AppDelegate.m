@@ -17,7 +17,7 @@
 {
     [NewRelicAgent startWithApplicationToken:@"AAd40e0cf67623484b41b889aa53df62ba66828e9f"];
     [TestFlight takeOff:@"67454926-2384-4f01-832e-f0fc275f363d"];
-    [NUIAppearance init];
+    //[NUIAppearance init];
     
     // Add the view controller's view to the window and display.
     

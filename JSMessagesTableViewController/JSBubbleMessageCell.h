@@ -1,13 +1,11 @@
 //
-//  JSBubbleMessageCell.h
-//
 //  Created by Jesse Squires on 2/12/13.
 //  Copyright (c) 2013 Hexed Bits. All rights reserved.
 //
 //  http://www.hexedbits.com
 //
 //
-//  Largely based on work by Sam Soffes
+//  Originally based on work by Sam Soffes
 //  https://github.com/soffes
 //
 //  SSMessagesViewController
@@ -36,29 +34,37 @@
 #import <UIKit/UIKit.h>
 #import "JSBubbleView.h"
 
-typedef enum {
-    JSAvatarStyleCircle = 0,
+typedef NS_ENUM(NSUInteger, JSAvatarStyle) {
+    JSAvatarStyleCircle,
     JSAvatarStyleSquare,
     JSAvatarStyleNone
-} JSAvatarStyle;
+};
 
 
 @interface JSBubbleMessageCell : UITableViewCell
 
 #pragma mark - Initialization
-- (id)initWithBubbleType:(JSBubbleMessageType)type
-             bubbleStyle:(JSBubbleMessageStyle)bubbleStyle
-             avatarStyle:(JSAvatarStyle)avatarStyle
-            hasTimestamp:(BOOL)hasTimestamp
-         reuseIdentifier:(NSString *)reuseIdentifier;
+
+- (instancetype)initWithBubbleType:(JSBubbleMessageType)type
+                       bubbleStyle:(JSBubbleMessageStyle)bubbleStyle
+                       avatarStyle:(JSAvatarStyle)avatarStyle
+                      hasTimestamp:(BOOL)hasTimestamp
+                       hasSubtitle:(BOOL)hasSubtitle
+                   reuseIdentifier:(NSString *)reuseIdentifier;
 
 #pragma mark - Message cell
+
 - (void)setMessage:(NSString *)msg;
-- (void)setTimestamp:(NSDate *)date;
+
+- (void)setTimestamp:(NSString *)date;
+
 - (void)setAvatarImage:(UIImage *)image;
+
+- (void)setSubtitle:(NSString *)subtitle;
 
 + (CGFloat)neededHeightForText:(NSString *)bubbleViewText
                      timestamp:(BOOL)hasTimestamp
+					  subtitle:(BOOL)hasSubtitle
                         avatar:(BOOL)hasAvatar;
 
 @end

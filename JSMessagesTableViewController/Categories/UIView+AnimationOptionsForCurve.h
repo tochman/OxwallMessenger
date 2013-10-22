@@ -1,5 +1,5 @@
 //
-//  Created by Jesse Squires on 2/15/13.
+//  Created by Jesse Squires on 3/11/13.
 //  Copyright (c) 2013 Hexed Bits. All rights reserved.
 //
 //  http://www.hexedbits.com
@@ -24,12 +24,10 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import <AudioToolbox/AudioToolbox.h>
+#import <UIKit/UIKit.h>
 
-@interface JSMessageSoundEffect : NSObject
+@interface UIView (AnimationOptionsForCurve)
 
-+ (void)playMessageReceivedSound;
-+ (void)playMessageSentSound;
++ (UIViewAnimationOptions)js_animationOptionsForCurve:(UIViewAnimationCurve)curve;
 
 @end

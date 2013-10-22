@@ -1,7 +1,5 @@
 //
-//  UIView+AnimationOptionsForCurve.m
-//
-//  Created by Jesse Squires on 3/11/13.
+//  Created by Jesse Squires on 7/25/13.
 //  Copyright (c) 2013 Hexed Bits. All rights reserved.
 //
 //  http://www.hexedbits.com
@@ -26,28 +24,36 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "UIView+AnimationOptionsForCurve.h"
+#import <UIKit/UIKit.h>
 
-@implementation UIView (AnimationOptionsForCurve)
+@interface UIImage (JSMessagesBubble)
 
-+ (UIViewAnimationOptions)animationOptionsForCurve:(UIViewAnimationCurve)curve
-{
-    switch (curve) {
-        case UIViewAnimationCurveEaseInOut:
-            return UIViewAnimationOptionCurveEaseInOut;
-            break;
-        case UIViewAnimationCurveEaseIn:
-            return UIViewAnimationOptionCurveEaseIn;
-            break;
-        case UIViewAnimationCurveEaseOut:
-            return UIViewAnimationOptionCurveEaseOut;
-            break;
-        case UIViewAnimationCurveLinear:
-            return UIViewAnimationOptionCurveLinear;
-            break;
-    }
-    
-    return kNilOptions;
-}
+#pragma mark - Bubble cap insets
+
+- (UIImage *)js_makeStretchableDefaultIncoming;
+- (UIImage *)js_makeStretchableDefaultOutgoing;
+
+- (UIImage *)js_makeStretchableSquareIncoming;
+- (UIImage *)js_makeStretchableSquareOutgoing;
+
+#pragma mark - Incoming message bubbles
+
++ (UIImage *)js_bubbleDefaultIncoming;
++ (UIImage *)js_bubbleDefaultIncomingSelected;
+
++ (UIImage *)js_bubbleDefaultIncomingGreen;
+
++ (UIImage *)js_bubbleSquareIncoming;
++ (UIImage *)js_bubbleSquareIncomingSelected;
+
+#pragma mark - Outgoing message bubbles
+
++ (UIImage *)js_bubbleDefaultOutgoing;
++ (UIImage *)js_bubbleDefaultOutgoingSelected;
+
++ (UIImage *)js_bubbleDefaultOutgoingGreen;
+
++ (UIImage *)js_bubbleSquareOutgoing;
++ (UIImage *)js_bubbleSquareOutgoingSelected;
 
 @end

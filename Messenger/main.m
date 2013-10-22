@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
         
         if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"6.1")) {
             [NUISettings init];
-            [NUISettings setGlobalExclusions:@[@"EAIntroView", @"EAIntroPage", @"SDSegmentedControl"]];
+            [NUISettings setGlobalExclusions:@[@"EAIntroView", @"EAIntroPage", @"SDSegmentedControl", @"JSMessagesViewController"]];
             
         }
         

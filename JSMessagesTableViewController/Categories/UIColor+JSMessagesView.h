@@ -1,5 +1,5 @@
 //
-//  Created by Jesse Squires on 2/15/13.
+//  Created by Jesse Squires on 3/19/13.
 //  Copyright (c) 2013 Hexed Bits. All rights reserved.
 //
 //  http://www.hexedbits.com
@@ -24,12 +24,11 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import <AudioToolbox/AudioToolbox.h>
+#import <UIKit/UIKit.h>
 
-@interface JSMessageSoundEffect : NSObject
+@interface UIColor (JSMessagesView)
 
-+ (void)playMessageReceivedSound;
-+ (void)playMessageSentSound;
++ (UIColor *)js_messagesBackgroundColor_iOS6;
++ (UIColor *)js_messagesTimestampColor_iOS6;
 
 @end

@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Underplot ltd. All rights reserved.
 //
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIButton+JSMessagesView.h"
 #import "Constants.h"
 #import "MessagesViewController.h"
 #import "ODRefreshControl.h"
@@ -32,12 +33,7 @@ static UIImage *senderAvatar;
 
 ODRefreshControl *refreshControl1;
 
-- (UIButton *)sendButton
-{
-    // Override to use a custom send button
-    // The button's frame is set automatically for you
-    return [UIButton defaultSendButton];
-}
+
 
 + (void)conversationIdMthd : (NSString *)conversationIdStr {
     conversationid = conversationIdStr;
@@ -73,9 +69,6 @@ ODRefreshControl *refreshControl1;
     //[self.inputToolBarView.textView becomeFirstResponder];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    
-}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -140,6 +133,12 @@ ODRefreshControl *refreshControl1;
     senderAvatar = [UIImage imageWithData:[NSData dataWithContentsOfURL:senderAvatarURL]];
     
 }
+- (UIButton *)sendButton
+{
+    // Override to use a custom send button
+    // The button's frame is set automatically for you
+    return [UIButton js_defaultSendButton_iOS6];
+}
 
 
 
@@ -156,7 +155,9 @@ ODRefreshControl *refreshControl1;
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-    self.newmessage = text;
+    [self.messages addObject:text];
+    
+    [self.timestamps addObject:[NSDate date]];
     
     if((self.messages.count - 1) % 2)
         [JSMessageSoundEffect playMessageSentSound];
@@ -172,10 +173,10 @@ ODRefreshControl *refreshControl1;
 {
     // TODO: Create custom method to display separate incoming from outgoing messages.
     if ([[[json objectForKey:@"messagesinconversation"]valueForKey:@"sentbyID"][indexPath.row] isEqual:self.sender]) {
-        return (indexPath.row) ? JSBubbleMessageTypeOutgoing : JSBubbleMessageTypeOutgoing;
+        return (indexPath.row % 2) ? JSBubbleMessageTypeOutgoing : JSBubbleMessageTypeOutgoing;
     }
     
-    return (indexPath.row) ? JSBubbleMessageTypeIncoming : JSBubbleMessageTypeIncoming;
+    return (indexPath.row % 2) ? JSBubbleMessageTypeIncoming : JSBubbleMessageTypeIncoming;
 }
 
 - (JSBubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath

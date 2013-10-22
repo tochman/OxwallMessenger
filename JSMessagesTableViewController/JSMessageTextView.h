@@ -1,5 +1,5 @@
 //
-//  Created by Jesse Squires on 2/15/13.
+//  Created by Jesse Squires on 10/20/13.
 //  Copyright (c) 2013 Hexed Bits. All rights reserved.
 //
 //  http://www.hexedbits.com
@@ -24,12 +24,8 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import <AudioToolbox/AudioToolbox.h>
+#import "JSDismissiveTextView.h"
 
-@interface JSMessageSoundEffect : NSObject
-
-+ (void)playMessageReceivedSound;
-+ (void)playMessageSentSound;
+@interface JSMessageTextView : JSDismissiveTextView
 
 @end

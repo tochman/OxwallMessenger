@@ -924,10 +924,10 @@ You can choose the site you want to connect to in settings. Make sure that your 
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="6yq-rF-IoJ"/>
         <segue reference="Dfj-Em-gpP"/>
         <segue reference="ubP-e7-h0u"/>
         <segue reference="p8L-nl-tWI"/>
         <segue reference="dfM-1F-9fs"/>
-        <segue reference="6yq-rF-IoJ"/>
     </inferredMetricsTieBreakers>
 </document>

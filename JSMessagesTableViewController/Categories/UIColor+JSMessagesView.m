@@ -1,7 +1,5 @@
 //
-//  NSString+JSMessagesView.h
-//
-//  Created by Jesse Squires on 2/14/13.
+//  Created by Jesse Squires on 3/19/13.
 //  Copyright (c) 2013 Hexed Bits. All rights reserved.
 //
 //  http://www.hexedbits.com
@@ -26,11 +24,18 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import "UIColor+JSMessagesView.h"
 
-@interface NSString (JSMessagesView)
+@implementation UIColor (JSMessagesView)
 
-- (NSString *)trimWhitespace;
-- (NSUInteger)numberOfLines;
++ (UIColor *)js_messagesBackgroundColor_iOS6
+{
+    return [UIColor colorWithRed:0.859f green:0.886f blue:0.929f alpha:1.0f];
+}
+
++ (UIColor *)js_messagesTimestampColor_iOS6
+{
+    return [UIColor colorWithRed:0.533f green:0.573f blue:0.647f alpha:1.0f];
+}
 
 @end

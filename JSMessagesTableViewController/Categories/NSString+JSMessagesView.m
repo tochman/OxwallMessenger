@@ -1,7 +1,5 @@
 //
-//  UIView+AnimationOptionsForCurve.h
-//
-//  Created by Jesse Squires on 3/11/13.
+//  Created by Jesse Squires on 2/14/13.
 //  Copyright (c) 2013 Hexed Bits. All rights reserved.
 //
 //  http://www.hexedbits.com
@@ -26,10 +24,18 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "NSString+JSMessagesView.h"
 
-@interface UIView (AnimationOptionsForCurve)
+@implementation NSString (JSMessagesView)
 
-+ (UIViewAnimationOptions)animationOptionsForCurve:(UIViewAnimationCurve)curve;
+- (NSString *)js_stringByTrimingWhitespace
+{
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+- (NSUInteger)js_numberOfLines
+{
+    return [self componentsSeparatedByString:@"\n"].count + 1;
+}
 
 @end

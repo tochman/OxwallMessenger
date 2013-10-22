@@ -1,6 +1,4 @@
 //
-//  JSDismissiveTextView.h
-//
 //  Taken from MADismissiveTextView
 //  https://github.com/mikeahmarani/MADismissiveTextView
 //
@@ -33,9 +31,9 @@
 
 @optional
 - (void)keyboardDidShow;
-- (void)keyboardDidScrollToPoint:(CGPoint)pt;
+- (void)keyboardDidScrollToPoint:(CGPoint)point;
 - (void)keyboardWillBeDismissed;
-- (void)keyboardWillSnapBackToPoint:(CGPoint)pt;
+- (void)keyboardWillSnapBackToPoint:(CGPoint)point;
 
 @end
 

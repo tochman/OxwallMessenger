@@ -1,7 +1,5 @@
 //
-//  UIColor+JSMessagesView.m
-//
-//  Created by Jesse Squires on 3/19/13.
+//  Created by Jesse Squires on 3/24/13.
 //  Copyright (c) 2013 Hexed Bits. All rights reserved.
 //
 //  http://www.hexedbits.com
@@ -26,23 +24,10 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "UIColor+JSMessagesView.h"
-#import "JSMessageInputView.h"
+#import <UIKit/UIKit.h>
 
+@interface UIButton (JSMessagesView)
 
-@implementation UIColor (JSMessagesView)
-
-+ (UIColor *)messagesBackgroundColor
-{
-    if ([JSMessageInputView inputBarStyle] == JSInputBarStyleFlat)
-        return [UIColor whiteColor];
-
-    return [UIColor colorWithRed:0.859f green:0.886f blue:0.929f alpha:1.0f];
-}
-
-+ (UIColor *)messagesTimestampColor
-{
-    return [UIColor colorWithRed:0.533f green:0.573f blue:0.647f alpha:1.0f];
-}
++ (UIButton *)js_defaultSendButton_iOS6;
 
 @end

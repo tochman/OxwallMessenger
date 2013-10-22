@@ -1,7 +1,5 @@
 //
-//  NSString+JSMessagesView.m
-//
-//  Created by Jesse Squires on 2/14/13.
+//  Created by Jesse Squires on 10/20/13.
 //  Copyright (c) 2013 Hexed Bits. All rights reserved.
 //
 //  http://www.hexedbits.com
@@ -26,18 +24,18 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "NSString+JSMessagesView.h"
+#import <UIKit/UIKit.h>
 
-@implementation NSString (JSMessagesView)
+@interface UIImage (JSMessagesAvatar)
 
-- (NSString *)trimWhitespace
-{
-    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-}
+- (UIImage *)js_circleImageWithSize:(CGFloat)size;
 
-- (NSUInteger)numberOfLines
-{
-    return [self componentsSeparatedByString:@"\n"].count + 1;
-}
+- (UIImage *)js_squareImageWithSize:(CGFloat)size;
+
+- (UIImage *)js_imageAsCircle:(BOOL)clipToCircle
+                  withDiamter:(CGFloat)diameter
+                  borderColor:(UIColor *)borderColor
+                  borderWidth:(CGFloat)borderWidth
+                 shadowOffSet:(CGSize)shadowOffset;
 
 @end
