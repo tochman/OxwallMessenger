@@ -23,8 +23,6 @@
 		E9041C8F18068D30000B8A67 /* Folder-Smart-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E9041C8C18068D30000B8A67 /* Folder-Smart-icon.png */; };
 		E9041C9018068D30000B8A67 /* Folder-Documents-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E9041C8D18068D30000B8A67 /* Folder-Documents-icon.png */; };
 		E909C47F17E198EB0058B75A /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E909C47E17E198EB0058B75A /* MessagesViewController.m */; };
-		E909C49E17E19B5B0058B75A /* missingAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49417E19B5B0058B75A /* missingAvatar.png */; };
-		E909C49F17E19B5B0058B75A /* missingAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E909C49517E19B5B0058B75A /* missingAvatar@2x.png */; };
 		E92198FB17F57B000052EFA6 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92198FA17F57B000052EFA6 /* StartViewController.m */; };
 		E92C601117E88E6000B98C63 /* NewRelicAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92C601017E88E6000B98C63 /* NewRelicAgent.framework */; };
 		E92C601317E88E8E00B98C63 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92C601217E88E8E00B98C63 /* CoreTelephony.framework */; };
@@ -114,6 +112,8 @@
 		E9477F4617E10B9F00A16505 /* MessageFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4517E10B9C00A16505 /* MessageFeed.m */; };
 		E9477F4917E10BC600A16505 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4817E10BC600A16505 /* MessageModel.m */; };
 		E95305051812871E004B7618 /* OMHTTPCalls.m in Sources */ = {isa = PBXBuildFile; fileRef = E95305041812871E004B7618 /* OMHTTPCalls.m */; };
+		E954D19F18180C420023CC7B /* missingAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E954D19D18180C420023CC7B /* missingAvatar@2x.png */; };
+		E954D1A018180C420023CC7B /* missingAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E954D19E18180C420023CC7B /* missingAvatar.png */; };
 		E95B981C180BAF2A00E93FB1 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = E95B9819180BAF2A00E93FB1 /* EAIntroPage.m */; };
 		E95B981D180BAF2A00E93FB1 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = E95B981B180BAF2A00E93FB1 /* EAIntroView.m */; };
 		E95B9820180BAF4900E93FB1 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E95B981F180BAF4900E93FB1 /* IntroViewController.m */; };
@@ -237,8 +237,6 @@
 		E9041C8D18068D30000B8A67 /* Folder-Documents-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder-Documents-icon.png"; sourceTree = "<group>"; };
 		E909C47D17E198EB0058B75A /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesViewController.h; path = Messenger/MessagesViewController.h; sourceTree = SOURCE_ROOT; };
 		E909C47E17E198EB0058B75A /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesViewController.m; path = Messenger/MessagesViewController.m; sourceTree = SOURCE_ROOT; };
-		E909C49417E19B5B0058B75A /* missingAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missingAvatar.png; sourceTree = "<group>"; };
-		E909C49517E19B5B0058B75A /* missingAvatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "missingAvatar@2x.png"; sourceTree = "<group>"; };
 		E92198F917F57B000052EFA6 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartViewController.h; path = Messenger/StartViewController.h; sourceTree = SOURCE_ROOT; };
 		E92198FA17F57B000052EFA6 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartViewController.m; path = Messenger/StartViewController.m; sourceTree = SOURCE_ROOT; };
 		E92C601017E88E6000B98C63 /* NewRelicAgent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NewRelicAgent.framework; sourceTree = "<group>"; };
@@ -362,6 +360,8 @@
 		E9477F4817E10BC600A16505 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageModel.m; path = Messenger/MessageModel.m; sourceTree = "<group>"; };
 		E95305031812871E004B7618 /* OMHTTPCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OMHTTPCalls.h; path = Messenger/OMHTTPCalls.h; sourceTree = SOURCE_ROOT; };
 		E95305041812871E004B7618 /* OMHTTPCalls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OMHTTPCalls.m; path = Messenger/OMHTTPCalls.m; sourceTree = SOURCE_ROOT; };
+		E954D19D18180C420023CC7B /* missingAvatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "missingAvatar@2x.png"; sourceTree = "<group>"; };
+		E954D19E18180C420023CC7B /* missingAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missingAvatar.png; sourceTree = "<group>"; };
 		E95B9818180BAF2A00E93FB1 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
 		E95B9819180BAF2A00E93FB1 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
 		E95B981A180BAF2A00E93FB1 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
@@ -836,6 +836,8 @@
 		E9477F2F17E071EB00A16505 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E954D19D18180C420023CC7B /* missingAvatar@2x.png */,
+				E954D19E18180C420023CC7B /* missingAvatar.png */,
 				E9CF643818112DD40011692C /* red_dot_small.png */,
 				E95B9827180BB1FF00E93FB1 /* iOS-7-Wall-3.png */,
 				E95B9821180BB16C00E93FB1 /* 1.png */,
@@ -853,8 +855,6 @@
 				E9A84F5817F2B96C001A24C3 /* Default.png */,
 				E9A84F5917F2B96C001A24C3 /* Default@2x.png */,
 				E965EFEC18054488003C5C61 /* oxwall logo.png */,
-				E909C49417E19B5B0058B75A /* missingAvatar.png */,
-				E909C49517E19B5B0058B75A /* missingAvatar@2x.png */,
 				E9477F3017E0720F00A16505 /* uicheckbox_checked.png */,
 				E9477F3117E0720F00A16505 /* uicheckbox_checked@2x.png */,
 				E9477F3217E0720F00A16505 /* uicheckbox_unchecked.png */,
@@ -1174,6 +1174,7 @@
 				E9445B8C1817872500C11E56 /* bubble-default-outgoing-selected@2x.png in Resources */,
 				E9445BA61817872500C11E56 /* input-bar@2x.png in Resources */,
 				9C39544A16A34FC800C5C8FD /* btnCheck.png in Resources */,
+				E954D1A018180C420023CC7B /* missingAvatar.png in Resources */,
 				9C39544B16A34FC800C5C8FD /* btnCheck@2x.png in Resources */,
 				E9445B9E1817872500C11E56 /* bubble-square-outgoing-selected@2x.png in Resources */,
 				E9445B891817872500C11E56 /* bubble-default-outgoing-green.png in Resources */,
@@ -1201,11 +1202,10 @@
 				E965EFF118055FAA003C5C61 /* OM114x114.png in Resources */,
 				E9477F3517E0720F00A16505 /* uicheckbox_checked@2x.png in Resources */,
 				E9445BAC1817872500C11E56 /* send@2x.png in Resources */,
+				E954D19F18180C420023CC7B /* missingAvatar@2x.png in Resources */,
 				E9477F3617E0720F00A16505 /* uicheckbox_unchecked.png in Resources */,
 				E9477F3717E0720F00A16505 /* uicheckbox_unchecked@2x.png in Resources */,
 				E9445B8F1817872500C11E56 /* bubble-flat-incoming-selected.png in Resources */,
-				E909C49E17E19B5B0058B75A /* missingAvatar.png in Resources */,
-				E909C49F17E19B5B0058B75A /* missingAvatar@2x.png in Resources */,
 				E9445BA31817872500C11E56 /* input-bar-flat.png in Resources */,
 				E9A84F5F17F2C3F0001A24C3 /* powered-by-oxwall.png in Resources */,
 				E9A84F5B17F2B96C001A24C3 /* Default@2x.png in Resources */,
