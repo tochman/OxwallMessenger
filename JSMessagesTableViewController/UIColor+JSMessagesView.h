@@ -1,17 +1,10 @@
 //
-//  JSBubbleMessageCell.h
+//  UIColor+JSMessagesView.h
 //
-//  Created by Jesse Squires on 2/12/13.
+//  Created by Jesse Squires on 3/19/13.
 //  Copyright (c) 2013 Hexed Bits. All rights reserved.
 //
 //  http://www.hexedbits.com
-//
-//
-//  Largely based on work by Sam Soffes
-//  https://github.com/soffes
-//
-//  SSMessagesViewController
-//  https://github.com/soffes/ssmessagesviewcontroller
 //
 //
 //  The MIT License
@@ -34,31 +27,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JSBubbleView.h"
 
-typedef enum {
-    JSAvatarStyleCircle = 0,
-    JSAvatarStyleSquare,
-    JSAvatarStyleNone
-} JSAvatarStyle;
+@interface UIColor (JSMessagesView)
 
-
-@interface JSBubbleMessageCell : UITableViewCell
-
-#pragma mark - Initialization
-- (id)initWithBubbleType:(JSBubbleMessageType)type
-             bubbleStyle:(JSBubbleMessageStyle)bubbleStyle
-             avatarStyle:(JSAvatarStyle)avatarStyle
-            hasTimestamp:(BOOL)hasTimestamp
-         reuseIdentifier:(NSString *)reuseIdentifier;
-
-#pragma mark - Message cell
-- (void)setMessage:(NSString *)msg;
-- (void)setTimestamp:(NSString *)date;
-- (void)setAvatarImage:(UIImage *)image;
-
-+ (CGFloat)neededHeightForText:(NSString *)bubbleViewText
-                     timestamp:(BOOL)hasTimestamp
-                        avatar:(BOOL)hasAvatar;
++ (UIColor *)messagesBackgroundColor;
++ (UIColor *)messagesTimestampColor;
 
 @end

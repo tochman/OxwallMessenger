@@ -1,11 +1,13 @@
 //
+//  JSBubbleView.h
+//
 //  Created by Jesse Squires on 2/12/13.
 //  Copyright (c) 2013 Hexed Bits. All rights reserved.
 //
 //  http://www.hexedbits.com
 //
 //
-//  Originally based on work by Sam Soffes
+//  Largely based on work by Sam Soffes
 //  https://github.com/soffes
 //
 //  SSMessagesViewController
@@ -35,17 +37,18 @@
 
 extern CGFloat const kJSAvatarSize;
 
-typedef NS_ENUM(NSUInteger, JSBubbleMessageType) {
-    JSBubbleMessageTypeIncoming,
+typedef enum {
+    JSBubbleMessageTypeIncoming = 0,
     JSBubbleMessageTypeOutgoing
-};
+} JSBubbleMessageType;
 
 
-typedef NS_ENUM(NSUInteger, JSBubbleMessageStyle) {
-    JSBubbleMessageStyleDefault,
+typedef enum {
+    JSBubbleMessageStyleDefault = 0,
     JSBubbleMessageStyleSquare,
-    JSBubbleMessageStyleDefaultGreen
-};
+    JSBubbleMessageStyleDefaultGreen,
+    JSBubbleMessageStyleFlat
+} JSBubbleMessageStyle;
 
 
 @interface JSBubbleView : UIView
@@ -53,22 +56,19 @@ typedef NS_ENUM(NSUInteger, JSBubbleMessageStyle) {
 @property (assign, nonatomic) JSBubbleMessageType type;
 @property (assign, nonatomic) JSBubbleMessageStyle style;
 @property (copy, nonatomic) NSString *text;
-@property (assign, nonatomic) BOOL isSelectedToShowCopyMenu;
+@property (assign, nonatomic) BOOL selectedToShowCopyMenu;
 
 #pragma mark - Initialization
-
-- (instancetype)initWithFrame:(CGRect)rect
-                   bubbleType:(JSBubbleMessageType)bubleType
-                  bubbleStyle:(JSBubbleMessageStyle)bubbleStyle;
+- (id)initWithFrame:(CGRect)rect
+         bubbleType:(JSBubbleMessageType)bubleType
+        bubbleStyle:(JSBubbleMessageStyle)bubbleStyle;
 
 #pragma mark - Drawing
-
 - (CGRect)bubbleFrame;
 - (UIImage *)bubbleImage;
 - (UIImage *)bubbleImageHighlighted;
 
 #pragma mark - Bubble view
-
 + (UIImage *)bubbleImageForType:(JSBubbleMessageType)aType
                           style:(JSBubbleMessageStyle)aStyle;
 
