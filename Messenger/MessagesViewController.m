@@ -137,7 +137,7 @@ ODRefreshControl *refreshControl1;
 {
     // Override to use a custom send button
     // The button's frame is set automatically for you
-    return [UIButton js_defaultSendButton_iOS6];
+    return [UIButton defaultSendButton];
 }
 
 
@@ -155,9 +155,7 @@ ODRefreshControl *refreshControl1;
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-    [self.messages addObject:text];
-    
-    [self.timestamps addObject:[NSDate date]];
+    self.newmessage = text;
     
     if((self.messages.count - 1) % 2)
         [JSMessageSoundEffect playMessageSentSound];
