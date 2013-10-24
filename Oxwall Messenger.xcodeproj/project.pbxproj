@@ -36,6 +36,11 @@
 		E9330D66180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D65180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m */; };
 		E9330D6A180D52DB00BB5AE0 /* SDSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D69180D52DB00BB5AE0 /* SDSegmentedControl.m */; };
 		E9330D6D180E99DA00BB5AE0 /* MessageCountObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E9330D6C180E99DA00BB5AE0 /* MessageCountObserver.m */; };
+		E93A33C9181991FA0017BC57 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E93A33C5181991FA0017BC57 /* list@2x.png */; };
+		E93A33CA181991FA0017BC57 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E93A33C6181991FA0017BC57 /* check@2x.png */; };
+		E93A33CB181991FA0017BC57 /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E93A33C7181991FA0017BC57 /* cross@2x.png */; };
+		E93A33CC181991FA0017BC57 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E93A33C8181991FA0017BC57 /* clock@2x.png */; };
+		E93A33CF1819920B0017BC57 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E93A33CE1819920B0017BC57 /* SWTableViewCell.m */; };
 		E9445B7C1817872500C11E56 /* JSBubbleMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9445B381817872500C11E56 /* JSBubbleMessageCell.m */; };
 		E9445B7D1817872500C11E56 /* JSBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9445B3A1817872500C11E56 /* JSBubbleView.m */; };
 		E9445B7E1817872500C11E56 /* JSDismissiveTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9445B3C1817872500C11E56 /* JSDismissiveTextView.m */; };
@@ -258,6 +263,12 @@
 		E9330D69180D52DB00BB5AE0 /* SDSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSegmentedControl.m; sourceTree = "<group>"; };
 		E9330D6B180E99DA00BB5AE0 /* MessageCountObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageCountObserver.h; path = Messenger/MessageCountObserver.h; sourceTree = SOURCE_ROOT; };
 		E9330D6C180E99DA00BB5AE0 /* MessageCountObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageCountObserver.m; path = Messenger/MessageCountObserver.m; sourceTree = SOURCE_ROOT; };
+		E93A33C5181991FA0017BC57 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
+		E93A33C6181991FA0017BC57 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		E93A33C7181991FA0017BC57 /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
+		E93A33C8181991FA0017BC57 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
+		E93A33CD1819920B0017BC57 /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
+		E93A33CE1819920B0017BC57 /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCell.m; sourceTree = "<group>"; };
 		E9445B371817872500C11E56 /* JSBubbleMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBubbleMessageCell.h; sourceTree = "<group>"; };
 		E9445B381817872500C11E56 /* JSBubbleMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBubbleMessageCell.m; sourceTree = "<group>"; };
 		E9445B391817872500C11E56 /* JSBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBubbleView.h; sourceTree = "<group>"; };
@@ -836,6 +847,10 @@
 		E9477F2F17E071EB00A16505 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E93A33C5181991FA0017BC57 /* list@2x.png */,
+				E93A33C6181991FA0017BC57 /* check@2x.png */,
+				E93A33C7181991FA0017BC57 /* cross@2x.png */,
+				E93A33C8181991FA0017BC57 /* clock@2x.png */,
 				E954D19D18180C420023CC7B /* missingAvatar@2x.png */,
 				E954D19E18180C420023CC7B /* missingAvatar.png */,
 				E9CF643818112DD40011692C /* red_dot_small.png */,
@@ -1096,6 +1111,8 @@
 		E9F371C817F31554003A4055 /* Supporting libraries */ = {
 			isa = PBXGroup;
 			children = (
+				E93A33CD1819920B0017BC57 /* SWTableViewCell.h */,
+				E93A33CE1819920B0017BC57 /* SWTableViewCell.m */,
 				E9445B361817872500C11E56 /* JSMessagesTableViewController */,
 				B0DA23C41815403D00AA9AAA /* TestFlight */,
 				E99FA4BB180FBB4500D439D5 /* JSONModel */,
@@ -1215,6 +1232,7 @@
 				E9445B931817872500C11E56 /* bubble-flat-outgoing-old.png in Resources */,
 				E9445BA91817872500C11E56 /* send-highlighted.png in Resources */,
 				E9445B9C1817872500C11E56 /* bubble-square-incoming@2x.png in Resources */,
+				E93A33CB181991FA0017BC57 /* cross@2x.png in Resources */,
 				E9A84F5A17F2B96C001A24C3 /* Default.png in Resources */,
 				E988C42717E6FDEF0053296C /* Blue.NUI.nss in Resources */,
 				E95B9824180BB16C00E93FB1 /* 1.png in Resources */,
@@ -1239,14 +1257,17 @@
 				E988C42D17E6FDEF0053296C /* Switchboard.NUI.nss in Resources */,
 				E9445B9D1817872500C11E56 /* bubble-square-outgoing-selected.png in Resources */,
 				E9041C8E18068D30000B8A67 /* App-Messages-icon.png in Resources */,
+				E93A33CC181991FA0017BC57 /* clock@2x.png in Resources */,
 				E9330D61180D18F700BB5AE0 /* FontAwesome.ttf in Resources */,
 				E9A84F5D17F2B9E6001A24C3 /* OM_background.png in Resources */,
+				E93A33C9181991FA0017BC57 /* list@2x.png in Resources */,
 				E9445BAB1817872500C11E56 /* send.png in Resources */,
 				E9445BA21817872500C11E56 /* bubble-typing@2x.png in Resources */,
 				E9445B9F1817872500C11E56 /* bubble-square-outgoing.png in Resources */,
 				E9445B851817872500C11E56 /* bubble-default-incoming-selected.png in Resources */,
 				E95B9829180BB1FF00E93FB1 /* iOS-7-Wall-3.png in Resources */,
 				E9445B991817872500C11E56 /* bubble-square-incoming-selected.png in Resources */,
+				E93A33CA181991FA0017BC57 /* check@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1268,6 +1289,7 @@
 				E9477EFD17DF865700A16505 /* AppDelegate.m in Sources */,
 				E9477F0117DF865700A16505 /* NewConversationViewController.m in Sources */,
 				E9330D6A180D52DB00BB5AE0 /* SDSegmentedControl.m in Sources */,
+				E93A33CF1819920B0017BC57 /* SWTableViewCell.m in Sources */,
 				E9477F0717DF869600A16505 /* main.m in Sources */,
 				E9477F0817DF869600A16505 /* SearchViewController.m in Sources */,
 				E9330D5F180D18F700BB5AE0 /* FAImageView.m in Sources */,

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MessageCountObserver.h"
+#import "SWTableViewCell.h"
 
 
-@interface DUViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface DUViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate> {
     
     
     IBOutlet UILabel *usernameLabel;
@@ -39,11 +40,12 @@
 @property (strong, nonatomic) NSString *presentation;
 @property (strong, nonatomic) NSURL *avatarURL;
 @property (strong, nonatomic) IBOutlet UIImageView *convAvatar;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 @property (strong, nonatomic) IBOutlet UIView *profileView;
 @property (strong, nonatomic) NSString *userid;
 @property (strong, nonatomic) UIImage *senderAvatar;
 @property (strong, nonatomic)  IBOutlet UIButton * ConversationButton;
+@property (strong, nonatomic) NSString *currentConversationId;
 
 //Notifications
 @property (strong, nonatomic) UILocalNotification *notif;

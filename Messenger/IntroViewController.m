@@ -33,8 +33,8 @@
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
    
-    page1.title = @"BETA 0.5.1 Bug fix";
-    page1.desc = @"Wrong object was added to message due to upgrade of library. Sorry ;-)  Select access to pre-approved Oxwall sites (powered wit our API). TimeStamp issue in MessageVie is resolved. Notification badge should be tested in real enviroment ";
+    page1.title = @"BETA 0.6";
+    page1.desc = @"UI changes and webservice refactoring. Added delete conversation method";
     page1.bgImage = [UIImage imageNamed:@"OM_background"];
     page1.titleImage = [UIImage imageNamed:@"OM114x114"];
     

@@ -11,5 +11,6 @@
 @interface OMHTTPCalls : NSObject 
 
 + (void) notifyLogin: (NSString* )userid;
++ (void) deleteConversation: (NSString* )userId conversation:(NSString*)conversationId;
 
 @end
