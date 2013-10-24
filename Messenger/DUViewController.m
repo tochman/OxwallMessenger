@@ -285,6 +285,10 @@ NSString *BASE_URL;
             });
         }
         cell.detailTextLabel.text = conversation.startedby;
+        cell.imageView.layer.cornerRadius = 5.0;
+        cell.imageView.layer.masksToBounds = YES;
+        cell.imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        cell.imageView.layer.borderWidth = 0.5;
     }
     
     return cell;

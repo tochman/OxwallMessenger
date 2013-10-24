@@ -36,9 +36,9 @@
     // NSArray* usersArr;
     NSDictionary* json;
     UINavigationController *navController;
-int row;
-NSString *SITE;
-NSString *BASE_URL;
+    int row;
+    NSString *SITE;
+    NSString *BASE_URL;
 
 @synthesize usersArr, json, sender, receiver, subject, conversationId;
 
@@ -49,13 +49,19 @@ NSString *BASE_URL;
     SITE = [Constants getSiteName];
     BASE_URL = [Constants getBaseUrl];
     
-    usersArr = [[NSArray alloc]init];
+    usersArr = [[NSMutableArray alloc]init];
     json = [[NSDictionary alloc]init];
     
     
     // Title
     self.title = @"New message";
     sender = [Lockbox stringForKey:@"userid"];
+    
+    //Setting up TableView
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.rowHeight = 70;
+    
     
     [self getFeed:@""];
     
@@ -223,7 +229,10 @@ shouldReloadTableForSearchString:(NSString *)searchString
         }
         
     }
-    
+    cell.imageView.layer.cornerRadius = 5.0;
+    cell.imageView.layer.masksToBounds = YES;
+    cell.imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    cell.imageView.layer.borderWidth = 0.5;
 
     return cell;
 }
