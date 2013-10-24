@@ -286,9 +286,15 @@ NSString *BASE_URL;
         }
         cell.detailTextLabel.text = conversation.startedby;
     }
-    currentConversationId = conversation.conversationid;
+    
     return cell;
     
+}
+
+- (void) setCurrentConversationId: (NSString*)passedConversationId {
+
+
+    currentConversationId = passedConversationId;
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -309,6 +315,9 @@ NSString *BASE_URL;
         {
             [HUD showUIBlockingIndicatorWithText:@"Deleting conversation"];
             NSLog(@"Delete button was pressed");
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+            conversation = _feed.conversations[indexPath.row];
+            currentConversationId = conversation.conversationid;
             [OMHTTPCalls deleteConversation:[Lockbox stringForKey:@"userid"] conversation:currentConversationId];
             [self fireUpdate];
             [cell hideUtilityButtonsAnimated:YES];

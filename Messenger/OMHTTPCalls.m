@@ -52,33 +52,33 @@ NSString *BASE_URL;
 + (void) deleteConversation: (NSString* )userId conversation:(NSString*)conversationId{
     SITE = [Constants getSiteName];
     BASE_URL = [Constants getBaseUrl];
-//    int timestamp = [[NSDate date] timeIntervalSince1970];
-//    NSMutableURLRequest *request =
-//    [[NSMutableURLRequest alloc] initWithURL:
-//     [NSURL URLWithString:[NSString stringWithFormat:@"%@/delete_conversation.php", BASE_URL]]];
-//    
-//    [request setHTTPMethod:@"POST"];
-//    NSString *postString =[NSString stringWithFormat:@"userId=%@&conversationId=%@",
-//                           userId,
-//                           conversationId];
-//    
-//    [request setValue:[NSString
-//                       stringWithFormat:@"%d", [postString length]]
-//   forHTTPHeaderField:@"Content-length"];
-//    
-//    [request setHTTPBody:[postString
-//                          dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [[NSURLConnection alloc] initWithRequest:request delegate:self];
-//    
-//    double delayInSeconds = 1.0;
-//    
-//    
-//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//        
-//    });
-//    //reload everything
+
+    NSMutableURLRequest *request =
+    [[NSMutableURLRequest alloc] initWithURL:
+     [NSURL URLWithString:[NSString stringWithFormat:@"%@/delete_conversation.php", BASE_URL]]];
+    
+    [request setHTTPMethod:@"POST"];
+    NSString *postString =[NSString stringWithFormat:@"userId=%@&conversationId=%@",
+                           userId,
+                           conversationId];
+    
+    [request setValue:[NSString
+                       stringWithFormat:@"%d", [postString length]]
+   forHTTPHeaderField:@"Content-length"];
+    
+    [request setHTTPBody:[postString
+                          dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    double delayInSeconds = 1.0;
+    
+    
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+    });
+    //reload everything
     NSLog(@"Passed userId: %@",userId);
     NSLog(@"Passed conversationId: %@",conversationId);
     return;
