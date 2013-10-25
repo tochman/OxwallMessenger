@@ -21,8 +21,8 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6O-Q3-9ZG">
                                 <rect key="frame" x="19" y="179" width="281" height="310"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">OxwallMessenger connects to a Oxwall powered site and provides the user with messaging functionality.
-Oxwall is a social networking software platform written in PHP/MySQL. You can find more info about Oxwall at: www.oxwall.org/.
+                                <string key="text">OxwallMessenger connects to a Oxwall powered site and provides the user with messaging functionality.
+Oxwall is a social networking software platform written in PHP/MySQL. You can find more info about Oxwall at: www.oxwall.org/.
 
 You can choose the site you want to connect to in settings. Make sure that your site is powered with the Oxwall Messenger API. If not, ask your Administrator to upgrade.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -402,7 +402,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43J-d6-lfn">
+                            <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43J-d6-lfn">
                                 <rect key="frame" x="268" y="82" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -417,7 +417,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="showAbout:" destination="PbY-Oj-VuW" eventType="touchUpInside" id="0UP-d1-6gK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndz-O7-EQ8">
+                            <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndz-O7-EQ8">
                                 <rect key="frame" x="20" y="82" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -441,8 +441,6 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ndz-O7-EQ8" firstAttribute="top" secondItem="hCw-4E-eOT" secondAttribute="bottom" constant="18" id="1JE-Dz-l3e"/>
-                            <constraint firstItem="ndz-O7-EQ8" firstAttribute="leading" secondItem="BKX-lc-7UK" secondAttribute="leading" constant="20" symbolic="YES" id="BKc-im-KXg"/>
-                            <constraint firstAttribute="trailing" secondItem="43J-d6-lfn" secondAttribute="trailing" constant="20" symbolic="YES" id="E1K-pi-AaC"/>
                             <constraint firstItem="wzg-Qc-CWh" firstAttribute="top" secondItem="ndz-O7-EQ8" secondAttribute="top" id="M6D-nD-yWO"/>
                             <constraint firstAttribute="centerX" secondItem="wzg-Qc-CWh" secondAttribute="centerX" constant="-0.5" id="Ycy-cv-aQg"/>
                             <constraint firstItem="wzg-Qc-CWh" firstAttribute="top" secondItem="hCw-4E-eOT" secondAttribute="bottom" constant="18" id="h5S-C8-7xc"/>
@@ -511,13 +509,14 @@ You can choose the site you want to connect to in settings. Make sure that your 
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-qN-dRH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" misplaced="YES" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-qN-dRH">
                                 <rect key="frame" x="20" y="85" width="75" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="NgD-Q5-3QI"/>
+                                    <constraint firstAttribute="width" constant="75" id="NHa-gD-AtG"/>
+                                    <constraint firstAttribute="height" constant="75" id="fwA-yL-3C3"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aVi-zt-sak">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aVi-zt-sak">
                                 <rect key="frame" x="0.0" y="197" width="320" height="293"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections/>
@@ -530,7 +529,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 <rect key="frame" x="42" y="503" width="248" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="qW2-Nd-Ugu"/>
+                                    <constraint firstAttribute="height" constant="45" id="9VJ-aR-Yf8"/>
                                 </constraints>
                                 <state key="normal" title="Start New Conversation">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -539,13 +538,13 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="newConversation:" destination="mfc-GP-I8c" eventType="touchUpInside" id="znf-Wn-JGj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="JSONusername" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNu-Te-6uL" colorLabel="IBBuiltInLabel-Gray">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" misplaced="YES" text="JSONusername" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNu-Te-6uL" colorLabel="IBBuiltInLabel-Gray">
                                 <rect key="frame" x="103" y="141" width="121" height="20"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Pd-6L-Oax" customClass="SDSegmentedControl">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Pd-6L-Oax" customClass="SDSegmentedControl">
                                 <rect key="frame" x="0.0" y="168" width="320" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -556,15 +555,14 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <action selector="segmentDidChange:" destination="mfc-GP-I8c" eventType="valueChanged" id="pMF-EL-2qN"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRG-od-cCE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="366"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pRG-od-cCE">
+                                <rect key="frame" x="-1" y="202" width="320" height="366"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="JSONSex" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="75" translatesAutoresizingMaskIntoConstraints="NO" id="haU-g2-lHD" colorLabel="IBBuiltInLabel-Gray">
                                         <rect key="frame" x="20" y="15" width="75" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="0m4-Oo-s8a"/>
-                                            <constraint firstAttribute="height" constant="14" id="HDC-aU-VXh"/>
+                                            <constraint firstAttribute="width" constant="75" id="Fd9-dj-HJW"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -573,17 +571,17 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Member since:" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="107" translatesAutoresizingMaskIntoConstraints="NO" id="7ny-lN-UDJ">
                                         <rect key="frame" x="20" y="37" width="107" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="107" id="DbL-J2-Hmy"/>
-                                            <constraint firstAttribute="height" constant="21" id="MRJ-Py-fkC"/>
+                                            <constraint firstAttribute="width" constant="107" id="A38-iL-vDb"/>
+                                            <constraint firstAttribute="height" constant="21" id="e6V-RZ-9pY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="JSONmembersince" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="Wpv-cu-A8g" colorLabel="IBBuiltInLabel-Gray">
-                                        <rect key="frame" x="0.0" y="0.0" width="148" height="21"/>
+                                        <rect key="frame" x="124" y="37" width="148" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="148" id="VPx-mj-yfb"/>
+                                            <constraint firstAttribute="width" constant="148" id="WWG-7h-XCv"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -592,11 +590,14 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                     <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WyN-WR-0na">
                                         <rect key="frame" x="15" y="63" width="282" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="ytJ-Q8-PAj"/>
+                                        </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To be implemented!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbq-k6-nQq">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To be implemented!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbq-k6-nQq">
                                         <rect key="frame" x="85" y="283" width="151" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -605,43 +606,42 @@ You can choose the site you want to connect to in settings. Make sure that your 
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="haU-g2-lHD" firstAttribute="leading" secondItem="7ny-lN-UDJ" secondAttribute="leading" id="3DT-JI-5cV"/>
-                                    <constraint firstItem="Hbq-k6-nQq" firstAttribute="centerX" secondItem="pRG-od-cCE" secondAttribute="centerX" id="6UQ-u3-lF4"/>
-                                    <constraint firstAttribute="trailing" secondItem="WyN-WR-0na" secondAttribute="trailing" constant="23" id="95D-73-DlE"/>
-                                    <constraint firstItem="WyN-WR-0na" firstAttribute="top" secondItem="7ny-lN-UDJ" secondAttribute="bottom" constant="5" id="LX5-fI-JZr"/>
-                                    <constraint firstItem="Hbq-k6-nQq" firstAttribute="top" secondItem="WyN-WR-0na" secondAttribute="bottom" constant="92" id="NgG-qR-sRF"/>
-                                    <constraint firstItem="Wpv-cu-A8g" firstAttribute="leading" secondItem="pRG-od-cCE" secondAttribute="leading" id="ScX-iX-SXv"/>
-                                    <constraint firstItem="7ny-lN-UDJ" firstAttribute="top" secondItem="haU-g2-lHD" secondAttribute="bottom" constant="8" symbolic="YES" id="i6D-aV-4ki"/>
-                                    <constraint firstItem="7ny-lN-UDJ" firstAttribute="top" secondItem="Wpv-cu-A8g" secondAttribute="bottom" constant="16" id="jmX-Pb-JNK"/>
-                                    <constraint firstItem="WyN-WR-0na" firstAttribute="leading" secondItem="pRG-od-cCE" secondAttribute="leading" constant="15" id="o9T-kY-7fS"/>
-                                    <constraint firstItem="haU-g2-lHD" firstAttribute="leading" secondItem="pRG-od-cCE" secondAttribute="leading" constant="20" symbolic="YES" id="q0h-dQ-kXh"/>
-                                    <constraint firstItem="haU-g2-lHD" firstAttribute="top" secondItem="pRG-od-cCE" secondAttribute="top" constant="15" id="qLi-n5-anh"/>
-                                    <constraint firstAttribute="bottom" secondItem="Hbq-k6-nQq" secondAttribute="bottom" constant="62" id="tJx-Pa-8RK"/>
-                                    <constraint firstItem="Wpv-cu-A8g" firstAttribute="top" secondItem="pRG-od-cCE" secondAttribute="top" id="w5v-ZD-2hy"/>
+                                    <constraint firstItem="WyN-WR-0na" firstAttribute="top" secondItem="7ny-lN-UDJ" secondAttribute="bottom" constant="5" id="0s9-p0-HE1"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wpv-cu-A8g" secondAttribute="trailing" constant="48" id="4M0-Cf-FUf"/>
+                                    <constraint firstItem="WyN-WR-0na" firstAttribute="leading" secondItem="pRG-od-cCE" secondAttribute="leading" constant="15" id="AFO-lV-k4S"/>
+                                    <constraint firstItem="7ny-lN-UDJ" firstAttribute="leading" secondItem="haU-g2-lHD" secondAttribute="leading" id="BxA-6c-yOU"/>
+                                    <constraint firstItem="haU-g2-lHD" firstAttribute="top" secondItem="pRG-od-cCE" secondAttribute="top" constant="15" id="CUR-MD-lTm"/>
+                                    <constraint firstItem="haU-g2-lHD" firstAttribute="leading" secondItem="pRG-od-cCE" secondAttribute="leading" constant="20" symbolic="YES" id="GOE-ch-GpA"/>
+                                    <constraint firstItem="Wpv-cu-A8g" firstAttribute="top" secondItem="pRG-od-cCE" secondAttribute="top" constant="37" id="KE2-zE-NBD"/>
+                                    <constraint firstItem="Wpv-cu-A8g" firstAttribute="baseline" secondItem="7ny-lN-UDJ" secondAttribute="baseline" id="KQS-hs-gL1"/>
+                                    <constraint firstItem="7ny-lN-UDJ" firstAttribute="top" secondItem="haU-g2-lHD" secondAttribute="bottom" constant="8" symbolic="YES" id="Mnb-vj-TBg"/>
+                                    <constraint firstItem="7ny-lN-UDJ" firstAttribute="top" secondItem="Wpv-cu-A8g" secondAttribute="top" id="X2O-4e-QgW"/>
+                                    <constraint firstAttribute="trailing" secondItem="WyN-WR-0na" secondAttribute="trailing" constant="23" id="Ztf-R1-Sn8"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aVi-zt-sak" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" id="40L-gz-e8L"/>
-                            <constraint firstItem="9Pd-6L-Oax" firstAttribute="trailing" secondItem="pRG-od-cCE" secondAttribute="trailing" id="4gW-eM-3OO"/>
-                            <constraint firstItem="KsY-hY-zJW" firstAttribute="top" secondItem="aVi-zt-sak" secondAttribute="bottom" constant="13" id="7RR-p1-J8e"/>
-                            <constraint firstItem="pRG-od-cCE" firstAttribute="top" secondItem="5w1-vo-HrX" secondAttribute="top" id="7bO-5E-zbp"/>
-                            <constraint firstItem="9Pd-6L-Oax" firstAttribute="top" secondItem="yNu-Te-6uL" secondAttribute="bottom" constant="7" id="C8a-Ti-GYf"/>
-                            <constraint firstAttribute="trailing" secondItem="pRG-od-cCE" secondAttribute="trailing" id="DI9-ji-Mb6"/>
-                            <constraint firstItem="aVi-zt-sak" firstAttribute="top" secondItem="9Pd-6L-Oax" secondAttribute="bottom" constant="1" id="DgY-NM-Afa"/>
-                            <constraint firstItem="9Pd-6L-Oax" firstAttribute="top" secondItem="UfD-qN-dRH" secondAttribute="bottom" constant="8" symbolic="YES" id="Ek9-Dw-wfu"/>
-                            <constraint firstAttribute="trailing" secondItem="KsY-hY-zJW" secondAttribute="trailing" constant="30" id="Hym-pg-Thr"/>
-                            <constraint firstItem="yNu-Te-6uL" firstAttribute="leading" secondItem="UfD-qN-dRH" secondAttribute="trailing" constant="8" symbolic="YES" id="QOs-bY-QCK"/>
-                            <constraint firstAttribute="bottom" secondItem="KsY-hY-zJW" secondAttribute="bottom" constant="20" symbolic="YES" id="RL0-UD-uUA"/>
-                            <constraint firstItem="UfD-qN-dRH" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" constant="20" symbolic="YES" id="SeU-em-ISK"/>
-                            <constraint firstItem="yNu-Te-6uL" firstAttribute="top" secondItem="Y0c-Fp-GO4" secondAttribute="bottom" constant="121" id="dbU-hj-igb"/>
-                            <constraint firstItem="9Pd-6L-Oax" firstAttribute="trailing" secondItem="aVi-zt-sak" secondAttribute="trailing" id="eTa-yM-OqB"/>
-                            <constraint firstItem="9Pd-6L-Oax" firstAttribute="leading" secondItem="aVi-zt-sak" secondAttribute="leading" id="p9m-Tn-nIO"/>
-                            <constraint firstItem="KsY-hY-zJW" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" constant="42" id="sn3-Mn-iw6"/>
-                            <constraint firstAttribute="bottom" secondItem="pRG-od-cCE" secondAttribute="bottom" constant="202" id="ucQ-CC-uhd"/>
-                            <constraint firstItem="9Pd-6L-Oax" firstAttribute="leading" secondItem="pRG-od-cCE" secondAttribute="leading" id="upv-wi-hJ5"/>
-                            <constraint firstItem="UfD-qN-dRH" firstAttribute="top" secondItem="Y0c-Fp-GO4" secondAttribute="bottom" constant="65" id="z6X-tq-THw"/>
+                            <constraint firstItem="aVi-zt-sak" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" id="2Ti-aH-a1r"/>
+                            <constraint firstAttribute="trailing" secondItem="aVi-zt-sak" secondAttribute="trailing" id="4AO-C5-2fy"/>
+                            <constraint firstItem="aVi-zt-sak" firstAttribute="trailing" secondItem="9Pd-6L-Oax" secondAttribute="trailing" id="Ld7-Z5-PSW"/>
+                            <constraint firstItem="yNu-Te-6uL" firstAttribute="leading" secondItem="UfD-qN-dRH" secondAttribute="trailing" constant="8" id="MPW-7A-gB4"/>
+                            <constraint firstItem="UfD-qN-dRH" firstAttribute="top" secondItem="Y0c-Fp-GO4" secondAttribute="bottom" constant="21" id="Mbp-Oi-Tma"/>
+                            <constraint firstItem="KsY-hY-zJW" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" constant="42" id="OJm-R4-Ft0"/>
+                            <constraint firstAttribute="bottom" secondItem="pRG-od-cCE" secondAttribute="bottom" id="QUv-kq-FqK"/>
+                            <constraint firstItem="KsY-hY-zJW" firstAttribute="top" secondItem="aVi-zt-sak" secondAttribute="bottom" constant="13" id="So9-jD-7bV"/>
+                            <constraint firstItem="aVi-zt-sak" firstAttribute="top" secondItem="9Pd-6L-Oax" secondAttribute="bottom" constant="1" id="VJa-F7-Z56"/>
+                            <constraint firstItem="yNu-Te-6uL" firstAttribute="top" secondItem="Y0c-Fp-GO4" secondAttribute="bottom" constant="76" id="Vy6-Y3-pbn"/>
+                            <constraint firstItem="pRG-od-cCE" firstAttribute="top" secondItem="9Pd-6L-Oax" secondAttribute="bottom" constant="6" id="abi-R2-miJ"/>
+                            <constraint firstItem="9Pd-6L-Oax" firstAttribute="leading" secondItem="aVi-zt-sak" secondAttribute="leading" id="bGu-Dv-w9e"/>
+                            <constraint firstAttribute="trailing" secondItem="pRG-od-cCE" secondAttribute="trailing" constant="1" id="dxy-zQ-4Zw"/>
+                            <constraint firstItem="9Pd-6L-Oax" firstAttribute="top" secondItem="UfD-qN-dRH" secondAttribute="bottom" constant="8" id="e6A-49-JmE"/>
+                            <constraint firstItem="pRG-od-cCE" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" constant="-1" id="fMq-7M-Apt"/>
+                            <constraint firstAttribute="bottom" secondItem="KsY-hY-zJW" secondAttribute="bottom" constant="20" symbolic="YES" id="id9-Yo-jQB"/>
+                            <constraint firstItem="9Pd-6L-Oax" firstAttribute="top" secondItem="yNu-Te-6uL" secondAttribute="bottom" constant="8" symbolic="YES" id="jjO-pq-ILO"/>
+                            <constraint firstItem="yNu-Te-6uL" firstAttribute="centerX" secondItem="9Pd-6L-Oax" secondAttribute="centerX" constant="3.5" id="m2r-4B-NeJ"/>
+                            <constraint firstItem="UfD-qN-dRH" firstAttribute="leading" secondItem="5w1-vo-HrX" secondAttribute="leading" constant="20" id="vvf-FP-o8A"/>
+                            <constraint firstAttribute="trailing" secondItem="KsY-hY-zJW" secondAttribute="trailing" constant="30" id="xXa-Oe-Mff"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -846,7 +846,7 @@ You can choose the site you want to connect to in settings. Make sure that your 
         <segue reference="6yq-rF-IoJ"/>
         <segue reference="Dfj-Em-gpP"/>
         <segue reference="ubP-e7-h0u"/>
-        <segue reference="1Ax-z6-hPl"/>
+        <segue reference="p8L-nl-tWI"/>
         <segue reference="dfM-1F-9fs"/>
     </inferredMetricsTieBreakers>
 </document>
