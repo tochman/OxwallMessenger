@@ -36,17 +36,13 @@
     // NSArray* usersArr;
     NSDictionary* json;
     UINavigationController *navController;
-<<<<<<< HEAD
-int row;
-NSString *SITE;
-NSString *BASE_URL;
-BOOL filtered;
-int firstLoad;
-=======
+
     int row;
     NSString *SITE;
     NSString *BASE_URL;
->>>>>>> 7fc79739e11e46648d1df37152c399647f78e8fa
+    BOOL filtered;
+    int firstLoad;
+
 
 @synthesize usersArr, json, sender, receiver, subject, conversationId;
 
@@ -244,7 +240,6 @@ int firstLoad;
         }
         
     }
-<<<<<<< HEAD
     
     if (firstLoad == 0) {
         
@@ -252,12 +247,10 @@ int firstLoad;
         firstLoad = 1;
     }
     
-=======
     cell.imageView.layer.cornerRadius = 5.0;
     cell.imageView.layer.masksToBounds = YES;
     cell.imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     cell.imageView.layer.borderWidth = 0.5;
->>>>>>> 7fc79739e11e46648d1df37152c399647f78e8fa
 
     return cell;
 }
