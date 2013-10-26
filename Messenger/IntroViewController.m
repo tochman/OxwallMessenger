@@ -33,15 +33,15 @@
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
    
-    page1.title = @"BETA 0.4.2 UI";
-    page1.desc = @"Current user is filtred from SearchView. Marketing - App leaves a notification on website whe user logges in. Issues with notification badge due to 'addObserver' and KVO features. ";
-    page1.bgImage = [UIImage imageNamed:@"OM_background"];
+    page1.title = @"BETA 0.6";
+    page1.desc = @"UI changes and webservice refactoring. Added delete conversation method - swipe the cell to reveal delete button. ;-)";
+    page1.bgImage = [UIImage imageNamed:@"iOS-7-Wall-3"];
     page1.titleImage = [UIImage imageNamed:@"OM114x114"];
     
     EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"Issues - will be fixed in BETA 0.5";
-    page2.desc = @"Notification badge. TimeStamp in MessageViev. Site newsfeed instead of User profile? We' see... The rest will come in future betas... ";
-    page2.bgImage = [UIImage imageNamed:@"OM_background"];
+    page2.title = @"Issues - will be fixed in next release";
+    page2.desc = @"Continued improvements in the user interface. Will add a profile view scene for other users. Need to get the right fields from Oxwall database and update the API for that";
+    page2.bgImage = [UIImage imageNamed:@"iOS-7-Wall-3"];
     page2.titleImage = [UIImage imageNamed:@"OM114x114"];;
     
 

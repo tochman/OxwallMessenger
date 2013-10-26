@@ -16,10 +16,10 @@
     newPage.descPositionY   = 220.0f;
     newPage.title = @"";
     newPage.titleFont = [UIFont fontWithName:@"AppleGothic" size:20.0];
-    newPage.titleColor = [UIColor grayColor];
+    newPage.titleColor = [UIColor whiteColor];
     newPage.desc = @"";
     newPage.descFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0];
-    newPage.descColor = [UIColor grayColor];
+    newPage.descColor = [UIColor whiteColor];
     
     return newPage;
 }

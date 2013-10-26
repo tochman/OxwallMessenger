@@ -17,6 +17,7 @@ static NSString *BASE_URL = @"http://scalo.se/webservice";
 +(void)setConstantValues:(NSString*)site setBaseURL:(NSString *)baseURL{
     SITE = site;
     BASE_URL = baseURL;
+    BASE_URL = [NSString stringWithFormat:@"%@/webservice", baseURL];
 }
 
 +(NSString*)getBaseUrl{

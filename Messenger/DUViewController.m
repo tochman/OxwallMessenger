@@ -17,12 +17,15 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SDSegmentedControl.h"
 #import "Lockbox.h"
+#import "SWTableViewCell.h"
+#import "OMHTTPCalls.h"
 
 @interface DUViewController (){
     ConversationFeed* _feed;
+    ConversationsModel* conversation;
     
     }
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation DUViewController
@@ -34,13 +37,14 @@ static dispatch_once_t onceToken;
 @synthesize presentation;
 @synthesize avatarURL;
 @synthesize convAvatar;
-@synthesize tableView = _tableView;
+//@synthesize tableView = _tableView;
 @synthesize profileView = _profileView;
 @synthesize userid;
 @synthesize senderAvatar;
 @synthesize segmentedControl, selectedSegmentLabel;
 @synthesize ConversationButton  = conversatinbutton;
 @synthesize notif;
+@synthesize currentConversationId;
 
 static NSString * kMessageCountChanged = @"NULL";
 NSString *SITE;
@@ -62,6 +66,13 @@ NSString *BASE_URL;
 {
     
     [super viewDidLoad];
+    
+    //Setting up TableView
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.rowHeight = 70;
+    self.tableView.allowsSelection = NO; // We essentially implement our own selection
+    //self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0); // Makes the horizontal row seperator stretch the entire length of the table view
     
     //Setting the Site Information
     SITE = [Constants getSiteName];
@@ -100,6 +111,8 @@ NSString *BASE_URL;
     notif.soundName = UILocalNotificationDefaultSoundName;
     notif.applicationIconBadgeNumber = 0;
     [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+    
+    currentConversationId = [[NSString alloc]init];
     
 }
 
@@ -144,7 +157,7 @@ NSString *BASE_URL;
                                                      //hide the loader view
                                                      //[HUD hideUIBlockingIndicator];
     
-
+                                                     [HUD hideUIBlockingIndicator];
                                                      [self.tableView reloadData];
                                                      
                                                }];
@@ -219,14 +232,24 @@ NSString *BASE_URL;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ConversationsModel* conversation = _feed.conversations[indexPath.row];
+    conversation = _feed.conversations[indexPath.row];
     static NSString *identifier = @"ConversationCell";
-    UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    SWTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:identifier];
     
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:identifier];
+        NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+        
+        [rightUtilityButtons addUtilityButtonWithColor:
+        [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                 icon:[UIImage imageNamed:@"cross.png"]];
+        
+        cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:identifier
+                                  containingTableView:_tableView // Used for row height and selection
+                                   leftUtilityButtons:nil
+                                  rightUtilityButtons:rightUtilityButtons];
+        cell.delegate = self;
     }
     // Here we use the new provided setImageWithURL: method to load the web image
     
@@ -262,19 +285,70 @@ NSString *BASE_URL;
             });
         }
         cell.detailTextLabel.text = conversation.startedby;
+        cell.imageView.layer.cornerRadius = 5.0;
+        cell.imageView.layer.masksToBounds = YES;
+        cell.imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        cell.imageView.layer.borderWidth = 0.5;
     }
-   
+    
     return cell;
     
 }
 
+- (void) setCurrentConversationId: (NSString*)passedConversationId {
 
+
+    currentConversationId = passedConversationId;
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    NSLog(@"scroll view did begin dragging");
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Set background color of cell here if you don't want white
+}
+
+#pragma mark - SWTableViewDelegate
+
+
+
+- (void)swippableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    switch (index) {
+        case 0:
+        {
+            [HUD showUIBlockingIndicatorWithText:@"Deleting conversation"];
+            NSLog(@"Delete button was pressed");
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+            conversation = _feed.conversations[indexPath.row];
+            currentConversationId = conversation.conversationid;
+            [OMHTTPCalls deleteConversation:[Lockbox stringForKey:@"userid"] conversation:currentConversationId];
+            [self fireUpdate];
+            [cell hideUtilityButtonsAnimated:YES];
+            break;
+        }
+        case 1:
+        {
+            // Delete button was pressed
+            NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+            
+            [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ConversationsModel* conversation = _feed.conversations[indexPath.row];
+    conversation = _feed.conversations[indexPath.row];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     // Here we are passing values to MessageVC. Can this be done in a better way?

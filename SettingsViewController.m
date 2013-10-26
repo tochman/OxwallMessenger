@@ -50,6 +50,8 @@ NSString *BASE_URL;
     self.navigationItem.hidesBackButton = YES;
     
     [self loadAvailableSites];
+
+
 }
 
 - (void)didReceiveMemoryWarning

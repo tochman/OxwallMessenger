@@ -192,11 +192,9 @@
     self.bubbleView.text = msg;
 }
 
-- (void)setTimestamp:(NSDate *)date
+- (void)setTimestamp:(NSString *)date
 {
-    self.timestampLabel.text = [NSDateFormatter localizedStringFromDate:date
-                                                              dateStyle:NSDateFormatterMediumStyle
-                                                              timeStyle:NSDateFormatterShortStyle];
+    self.timestampLabel.text = date;
 }
 
 - (void)setAvatarImage:(UIImage *)image

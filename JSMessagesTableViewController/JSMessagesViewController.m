@@ -97,7 +97,6 @@
 {
     [super viewDidLoad];
     [self setup];
-    [self.inputToolBarView becomeFirstResponder];
 }
 
 - (void)viewWillAppear:(BOOL)animated

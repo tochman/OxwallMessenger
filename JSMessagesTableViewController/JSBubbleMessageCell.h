@@ -54,7 +54,7 @@ typedef enum {
 
 #pragma mark - Message cell
 - (void)setMessage:(NSString *)msg;
-- (void)setTimestamp:(NSDate *)date;
+- (void)setTimestamp:(NSString *)date;
 - (void)setAvatarImage:(UIImage *)image;
 
 + (CGFloat)neededHeightForText:(NSString *)bubbleViewText
