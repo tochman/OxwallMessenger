@@ -39,6 +39,8 @@
 int row;
 NSString *SITE;
 NSString *BASE_URL;
+BOOL filtered;
+int firstLoad;
 
 @synthesize usersArr, json, sender, receiver, subject, conversationId;
 
@@ -58,7 +60,6 @@ NSString *BASE_URL;
     sender = [Lockbox stringForKey:@"userid"];
     
     [self getFeed:@""];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -75,60 +76,67 @@ NSString *BASE_URL;
     if ([navController.viewControllers indexOfObject:self]==NSNotFound) {
         // back button was pressed.  We know this is true because self is no longer
         // in the navigation stack.
-        NSLog(@"About to crash");
     }
     
     
     
 }
 
+#pragma mark - searchBar delegate
 
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+-(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text
 {
-    
-    
-    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@",searchText];
-    
-    searchResults = [[usersArr valueForKey:@"realname"] filteredArrayUsingPredicate:resultPredicate];
-
-    
-    
-    NSMutableArray *newArray = [[NSMutableArray alloc] init];
-    [newArray addObjectsFromArray:[usersArr valueForKey:@"realname"]];
-    
-    NSIndexSet *indexes = [newArray indexesOfObjectsPassingTest:^(id obj, NSUInteger idx, BOOL *stop) {
-        return [resultPredicate evaluateWithObject:obj];
-    }];
-    
-    NSUInteger index=[indexes firstIndex];
-    searchResultId = [[NSMutableArray alloc] init];
-    if (index != NSNotFound) {
-        [searchResultId addObject:[NSString stringWithFormat:@"%d",index]];
-    }
-    
-    NSLog(@"Search Result is %d",index);
-    while(index != NSNotFound)
+    if(text.length == 0)
     {
-        index=[indexes indexGreaterThanIndex: index];
-        if(index != NSNotFound){
+        filtered = NO;
+    }
+    else
+    {
+        filtered = YES;
+        NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@",text];
+        
+        searchResults = [[usersArr valueForKey:@"realname"] filteredArrayUsingPredicate:resultPredicate];
+        
+        
+        NSMutableArray *newArray = [[NSMutableArray alloc] init];
+        [newArray addObjectsFromArray:[usersArr valueForKey:@"realname"]];
+        
+        NSIndexSet *indexes = [newArray indexesOfObjectsPassingTest:^(id obj, NSUInteger idx, BOOL *stop) {
+            return [resultPredicate evaluateWithObject:obj];
+        }];
+        
+        NSUInteger index=[indexes firstIndex];
+        searchResultId = [[NSMutableArray alloc] init];
+        if (index != NSNotFound) {
             [searchResultId addObject:[NSString stringWithFormat:@"%d",index]];
-            NSLog(@"Search Result is %d",index);
         }
         
+        NSLog(@"Search Result is %d",index);
+        while(index != NSNotFound)
+        {
+            index=[indexes indexGreaterThanIndex: index];
+            if(index != NSNotFound){
+                [searchResultId addObject:[NSString stringWithFormat:@"%d",index]];
+                NSLog(@"Search Result is %d",index);
+            }
+            
+        }
+
     }
     
+    [self.tableView reloadData];
 }
 
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller
-shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [self filterContentForSearchText:searchString
-                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
-                                      objectAtIndex:[self.searchDisplayController.searchBar
-                                                     selectedScopeButtonIndex]]];
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    searchBar.text = @"";
+    filtered = NO;
+    [self.tableView reloadData];
+    [searchBar resignFirstResponder];
     
-    return YES;
+    [[self tableView] scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
+
+
 
 - (void)getFeed:(NSString*)term {
     
@@ -181,7 +189,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if (filtered == YES) {
+        NSLog(@"Filtered");
         return [searchResultId count];
         
     } else {
@@ -207,7 +216,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
     // Here we use the new provided setImageWithURL: method to load the web image
     
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if (filtered == YES) {
         int row = [[searchResultId objectAtIndex:indexPath.row] integerValue];
         cell.textLabel.text = [[usersArr objectAtIndex:row] valueForKey:@"realname"];
         [cell.imageView setImageWithURL:[[usersArr objectAtIndex:row] valueForKey:@"avatar" ]
@@ -224,6 +233,12 @@ shouldReloadTableForSearchString:(NSString *)searchString
         
     }
     
+    if (firstLoad == 0) {
+        
+        [[self tableView] scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+        firstLoad = 1;
+    }
+    
 
     return cell;
 }
@@ -231,7 +246,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if (filtered == YES) {
         
         int row = [[searchResultId objectAtIndex:indexPath.row] integerValue];
         receiver = [[usersArr valueForKey:@"id"] objectAtIndex:row];
