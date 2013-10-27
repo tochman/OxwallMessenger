@@ -33,8 +33,8 @@
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
    
-    page1.title = @"BETA 0.6";
-    page1.desc = @"UI changes and webservice refactoring. Added delete conversation method - swipe the cell to reveal delete button. ;-)";
+    page1.title = @"BETA 0.7";
+    page1.desc = @"Search function is fixed in iOS7. Added a new site to teh pre-approwed list. Updated the way pre-approwed list is loaded;-)";
     page1.bgImage = [UIImage imageNamed:@"iOS-7-Wall-3"];
     page1.titleImage = [UIImage imageNamed:@"OM114x114"];
     

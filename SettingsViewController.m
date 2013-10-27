@@ -87,6 +87,7 @@ NSString *BASE_URL;
 }
 
 - (IBAction)checkConnection:(id)sender {
+    //Let us test the connection and the status of the installed software. This test os not optimal and should be refactored.
     [self.view endEditing:YES];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/webservice/", siteURL.text]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     
