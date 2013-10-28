@@ -3,7 +3,7 @@
 //  Oxwall Messenger
 //
 //  Created by Thomas Ochman on 2013-09-11.
-//  Copyright (c) 2013 Underplot ltd. All rights reserved.
+//  Copyright (c) 2013 NoceboDesign All rights reserved.
 //
 
 #import "DUViewController.h"
@@ -24,7 +24,7 @@
     ConversationFeed* _feed;
     ConversationsModel* conversation;
     
-    }
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
@@ -37,7 +37,7 @@ static dispatch_once_t onceToken;
 @synthesize presentation;
 @synthesize avatarURL;
 @synthesize convAvatar;
-//@synthesize tableView = _tableView;
+@synthesize tableView = _tableView;
 @synthesize profileView = _profileView;
 @synthesize userid;
 @synthesize senderAvatar;
@@ -55,7 +55,7 @@ NSString *BASE_URL;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [self fireUpdate];
-
+        
     }
     return self;
 }
@@ -70,9 +70,9 @@ NSString *BASE_URL;
     //Setting up TableView
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 70;
+    self.tableView.rowHeight = 60;
     self.tableView.allowsSelection = NO; // We essentially implement our own selection
-    //self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0); // Makes the horizontal row seperator stretch the entire length of the table view
+    
     
     //Setting the Site Information
     SITE = [Constants getSiteName];
@@ -156,11 +156,11 @@ NSString *BASE_URL;
                                                      
                                                      //hide the loader view
                                                      //[HUD hideUIBlockingIndicator];
-    
+                                                     
                                                      [HUD hideUIBlockingIndicator];
                                                      [self.tableView reloadData];
                                                      
-                                               }];
+                                                 }];
 }
 
 
@@ -241,8 +241,8 @@ NSString *BASE_URL;
         NSMutableArray *rightUtilityButtons = [NSMutableArray new];
         
         [rightUtilityButtons addUtilityButtonWithColor:
-        [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
-                                                 icon:[UIImage imageNamed:@"cross.png"]];
+         [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                  icon:[UIImage imageNamed:@"cross.png"]];
         
         cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:identifier
@@ -264,8 +264,8 @@ NSString *BASE_URL;
             [imageView setFrame:CGRectMake(45,30,7,7)]; //refactor this for better display in iOS6.0
             [cell.contentView addSubview:imageView];
             dispatch_once (&onceToken, ^{
-            notif.applicationIconBadgeNumber = notif.applicationIconBadgeNumber +1;
-            [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+                notif.applicationIconBadgeNumber = notif.applicationIconBadgeNumber +1;
+                [[UIApplication sharedApplication] scheduleLocalNotification:notif];
             });
             
         } else {
@@ -280,8 +280,8 @@ NSString *BASE_URL;
             [imageView setFrame:CGRectMake(45,30,7,7)]; //refactor this for better display in iOS6.0
             [cell.contentView addSubview:imageView];
             dispatch_once (&onceToken, ^{
-            notif.applicationIconBadgeNumber = notif.applicationIconBadgeNumber +1;
-            [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+                notif.applicationIconBadgeNumber = notif.applicationIconBadgeNumber +1;
+                [[UIApplication sharedApplication] scheduleLocalNotification:notif];
             });
         }
         cell.detailTextLabel.text = conversation.startedby;
@@ -296,8 +296,8 @@ NSString *BASE_URL;
 }
 
 - (void) setCurrentConversationId: (NSString*)passedConversationId {
-
-
+    
+    
     currentConversationId = passedConversationId;
 }
 
@@ -313,26 +313,14 @@ NSString *BASE_URL;
 
 
 
+
+
 - (void)swippableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     switch (index) {
         case 0:
         {
-            [HUD showUIBlockingIndicatorWithText:@"Deleting conversation"];
-            NSLog(@"Delete button was pressed");
-            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-            conversation = _feed.conversations[indexPath.row];
-            currentConversationId = conversation.conversationid;
-            [OMHTTPCalls deleteConversation:[Lockbox stringForKey:@"userid"] conversation:currentConversationId];
-            [self fireUpdate];
-            [cell hideUtilityButtonsAnimated:YES];
-            break;
-        }
-        case 1:
-        {
-            // Delete button was pressed
-            NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-            
-            [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            [self deleteConversation:cell];
+           
             break;
         }
         default:
@@ -364,6 +352,8 @@ NSString *BASE_URL;
     
 }
 
+#pragma mark - Methods
+
 - (IBAction)cancel {
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -384,5 +374,35 @@ NSString *BASE_URL;
 	}
 }
 
+- (void) confirm {
+UIAlertView *confirm = [[UIAlertView alloc] initWithTitle:@"Confirm"
+                                                  message:@"Do you really want to delete this conversation? ."
+                                                 delegate:nil
+                                        cancelButtonTitle:@"Cancel"
+                                        otherButtonTitles:@"Confirm", nil];
+[confirm show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    if([title isEqualToString:@"Confirm"])
+    {
+        NSLog(@"Confirm was selected.");
+        return;
+    }
+}
+
+- (void)deleteConversation:(SWTableViewCell *)cell {
+    //[self confirm]; //Implement this in som way if there is time
+    [HUD showUIBlockingIndicatorWithText:@"Deleting conversation"];
+    NSLog(@"Delete button was pressed");
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    conversation = _feed.conversations[indexPath.row];
+    currentConversationId = conversation.conversationid;
+    [OMHTTPCalls deleteConversation:[Lockbox stringForKey:@"userid"] conversation:currentConversationId];
+    [self fireUpdate];
+    [cell hideUtilityButtonsAnimated:YES];
+}
 
 @end

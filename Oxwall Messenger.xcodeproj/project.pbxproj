@@ -111,7 +111,7 @@
 		E9477F3617E0720F00A16505 /* uicheckbox_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F3217E0720F00A16505 /* uicheckbox_unchecked.png */; };
 		E9477F3717E0720F00A16505 /* uicheckbox_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9477F3317E0720F00A16505 /* uicheckbox_unchecked@2x.png */; };
 		E9477F3A17E0723000A16505 /* UICheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F3917E0722F00A16505 /* UICheckbox.m */; };
-		E9477F3D17E0E4D800A16505 /* ConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F3C17E0E4D500A16505 /* ConversationsViewController.m */; };
+		E9477F3D17E0E4D800A16505 /* MemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F3C17E0E4D500A16505 /* MemberViewController.m */; };
 		E9477F4017E0E51700A16505 /* ConversationsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F3F17E0E51700A16505 /* ConversationsModel.m */; };
 		E9477F4317E0F43800A16505 /* ConversationFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4217E0F43800A16505 /* ConversationFeed.m */; };
 		E9477F4617E10B9F00A16505 /* MessageFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9477F4517E10B9C00A16505 /* MessageFeed.m */; };
@@ -359,8 +359,8 @@
 		E9477F3317E0720F00A16505 /* uicheckbox_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uicheckbox_unchecked@2x.png"; sourceTree = "<group>"; };
 		E9477F3817E0722F00A16505 /* UICheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICheckbox.h; sourceTree = SOURCE_ROOT; };
 		E9477F3917E0722F00A16505 /* UICheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICheckbox.m; sourceTree = SOURCE_ROOT; };
-		E9477F3B17E0E4CF00A16505 /* ConversationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConversationsViewController.h; path = Messenger/ConversationsViewController.h; sourceTree = SOURCE_ROOT; };
-		E9477F3C17E0E4D500A16505 /* ConversationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConversationsViewController.m; path = Messenger/ConversationsViewController.m; sourceTree = SOURCE_ROOT; };
+		E9477F3B17E0E4CF00A16505 /* MemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemberViewController.h; path = Messenger/MemberViewController.h; sourceTree = SOURCE_ROOT; };
+		E9477F3C17E0E4D500A16505 /* MemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MemberViewController.m; path = Messenger/MemberViewController.m; sourceTree = SOURCE_ROOT; };
 		E9477F3E17E0E51700A16505 /* ConversationsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConversationsModel.h; path = Messenger/ConversationsModel.h; sourceTree = "<group>"; };
 		E9477F3F17E0E51700A16505 /* ConversationsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConversationsModel.m; path = Messenger/ConversationsModel.m; sourceTree = "<group>"; };
 		E9477F4117E0F43800A16505 /* ConversationFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConversationFeed.h; path = Messenger/ConversationFeed.h; sourceTree = "<group>"; };
@@ -612,8 +612,8 @@
 			isa = PBXGroup;
 			children = (
 				E9477F2117DF8E7500A16505 /* MainStoryboard.storyboard */,
-				E9477F3B17E0E4CF00A16505 /* ConversationsViewController.h */,
-				E9477F3C17E0E4D500A16505 /* ConversationsViewController.m */,
+				E9477F3B17E0E4CF00A16505 /* MemberViewController.h */,
+				E9477F3C17E0E4D500A16505 /* MemberViewController.m */,
 				E9477F1A17DF8AF100A16505 /* LoginViewController.h */,
 				E9477F1B17DF8AF200A16505 /* LoginViewController.m */,
 				E9477F0317DF869600A16505 /* SearchViewController.h */,
@@ -1306,7 +1306,7 @@
 				E99FA4DA180FBB4500D439D5 /* JSONAPI.m in Sources */,
 				E9330D66180D2BA600BB5AE0 /* XCDFormInputAccessoryView.m in Sources */,
 				E99FA4D6180FBB4500D439D5 /* JSONModelArray.m in Sources */,
-				E9477F3D17E0E4D800A16505 /* ConversationsViewController.m in Sources */,
+				E9477F3D17E0E4D800A16505 /* MemberViewController.m in Sources */,
 				E9477F4017E0E51700A16505 /* ConversationsModel.m in Sources */,
 				E9477F4317E0F43800A16505 /* ConversationFeed.m in Sources */,
 				E9477F4617E10B9F00A16505 /* MessageFeed.m in Sources */,
