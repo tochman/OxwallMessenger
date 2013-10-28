@@ -1,0 +1,154 @@
+// Get most of newsfeed information:
+
+
+SELECT acscet.userId AS muserId, acscet.activityType, acscet.activityId, acscet.userId, acscet.actionId, acscet.timeStamp, acscet.privacy, acscet.visibility, acscet.status, ascet . * , cset . * , ascet.id AS mactionId
+FROM ow_newsfeed_activity 
+LEFT JOIN ow_newsfeed_action ascet ON ( ascet.id = acscet.actionId ) 
+LEFT JOIN ow_newsfeed_action_set cset ON ( cset.actionId = acscet.actionId ) 
+WHERE (
+acscet.activityType =  'create'
+)
+AND acscet.status =  'active'
+GROUP BY acscet.id
+ORDER BY acscet.timeStamp DESC 
+LIMIT 1 , 20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Current user is filtred from SearchView. Marketing - App leaves a notification on website whe user logges in. Issues with notification badge due to 'addObserver' and KVO features.
+
+Still @TODO-list: Notification badge. TimeStamp in MessageViev. Site newsfeed instead of User profile? Settings view. Etc
+
+
+
+
+
+
+
+
+START TRANSACTION;
+SET @last_status_id = (SELECT `id` FROM `ow_newsfeed_status` WHERE `feedId` = '1' AND `feedType` = 'user');
+
+INSERT INTO `ow_newsfeed_action` (`id` , `entityId`, `entityType`, `pluginKey`, `data`)
+VALUES('', @last_status_id, 'user-status', 'newsfeed', 'array' );
+COMMIT;
+
+
+
+INSERT INTO `ow_newsfeed_action_feed`(`id`, `feedType`, `feedId`, `activityId`) VALUES ('','user', '1','119' )
+
+INSERT INTO `ow_newsfeed_activity`(`id`, `activityType`, `activityId`, `userId`, `data`, `actionId`, `timeStamp`, `privacy`, `visibility`, `status`) VALUES ('','create','1','1','\[\]','52','1382222666','everybody','15','active')
+
+
+
+
+
+
+
+
+
+INSERT INTO ow_mailbox_message ( conversationId, timeStamp, senderId, recipientId, text ) VALUES ( :conversationId, :timeStamp, :senderId, :recipientId, :text );
+
+UPDATE ow_mailbox_conversation
+	SET
+
+	 `read`=
+(CASE
+ WHEN
+ `interlocutorId` = :senderId
+ THEN
+ 2
+ WHEN
+ `initiatorId` = :senderId
+ THEN
+ 1
+ END),
+ 
+ 	 `viewed`=
+(CASE
+ WHEN
+ `interlocutorId` = :senderId
+ THEN
+ 2
+ WHEN
+ `initiatorId` = :senderId
+ THEN
+ 1
+ END),
+
+     `deleted` = IF(`deleted` != '0', '0', '0') ,
+     `notificationSent` = '0'
+     
+    
+	 WHERE ow_mailbox_conversation.id = :conversationId;
+
+SET @last_message_id = (SELECT id FROM ow_mailbox_last_message WHERE conversationId = :conversationId);
+
+SELECT 
+CASE 
+WHEN  `interlocutorId` =  :senderId
+THEN (
+
+SELECT MAX( id ) 
+FROM  `ow_mailbox_message` 
+WHERE  `conversationId` =  :conversationId
+AND  `senderId` =  :senderId
+)
+ELSE (
+
+SELECT MAX( id ) 
+FROM  `ow_mailbox_message` 
+WHERE  `conversationId` =  :conversationId
+AND  `recipientId` =  :senderId
+)
+END 
+INTO @last_interlocutorMessageId 
+FROM ow_mailbox_conversation
+WHERE  `id` =  :conversationId;
+
+
+SELECT 
+CASE 
+WHEN  `initiatorId` =  :senderId
+THEN (
+
+SELECT MAX( id ) 
+FROM  `ow_mailbox_message` 
+WHERE  `conversationId` =  :conversationId
+AND  `senderId` =  :senderId
+)
+ELSE (
+
+SELECT MAX( id ) 
+FROM  `ow_mailbox_message` 
+WHERE  `conversationId` =  :conversationId
+AND  `recipientId` =  :senderId
+)
+END 
+INTO @last_initiatorMessageId 
+FROM ow_mailbox_conversation
+WHERE  `id` =  :conversationId;
+
+	 
+
+    INSERT IGNORE INTO  ow_mailbox_last_message (  id ,  conversationId ,  initiatorMessageId ,  interlocutorMessageId ) 
+    VALUES (@last_message_id, :conversationId, @last_initiatorMessageId, @last_interlocutorMessageId ) 
+    ON DUPLICATE KEY UPDATE 
+    id = @last_message_id,
+    conversationId = :conversationId,
+    initiatorMessageId = @last_initiatorMessageId,
+    interlocutorMessageId = @last_interlocutorMessageId ;	
