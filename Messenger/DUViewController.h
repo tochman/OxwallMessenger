@@ -11,7 +11,7 @@
 #import "SWTableViewCell.h"
 
 
-@interface DUViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate> {
+@interface DUViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate, UIAlertViewDelegate> {
     
     
     IBOutlet UILabel *usernameLabel;
