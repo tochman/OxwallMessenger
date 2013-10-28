@@ -6,20 +6,20 @@
 //  Copyright (c) 2013 Underplot ltd. All rights reserved.
 //
 
-#import "ConversationsViewController.h"
+#import "MemberViewController.h"
 #import "Constants.h"
 #import "JSONModelLib.h"
 #import "ConversationFeed.h"
 #import "HUD.h"
 #import "Lockbox.h"
 
-@interface ConversationsViewController () {
+@interface MemberViewController () {
     ConversationFeed* _feed;
 }
 
 @end
 
-@implementation ConversationsViewController
+@implementation MemberViewController
 NSString *SITE;
 NSString *BASE_URL;
 

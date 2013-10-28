@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ConversationsViewController : UITableViewController
+@interface MemberViewController : UITableViewController
 
 
 @property (strong, nonatomic) NSString *userid;
