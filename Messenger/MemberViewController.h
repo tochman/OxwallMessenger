@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MemberViewController : UITableViewController
 
+@interface MemberViewController : UIViewController
 
 @property (strong, nonatomic) NSString *userid;
 @end

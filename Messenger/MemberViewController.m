@@ -30,7 +30,9 @@ NSString *BASE_URL;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    userid = [Lockbox stringForKey:@"userid"];
+    
+    userid = @"1";
+    //userid = [Lockbox stringForKey:@"userid"];
     
     //Setting the site information
     SITE = [Constants getSiteName];
@@ -59,7 +61,7 @@ NSString *BASE_URL;
                                                
                                                NSLog(@"Loaded %@", _feed.conversations);
                                                NSLog(@"Userid %@", userid);
-                                               [self.tableView reloadData];
+                                               //[self.tableView reloadData];
                                                
                                            }];
 }
@@ -94,7 +96,7 @@ NSString *BASE_URL;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+//[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 
 [self performSegueWithIdentifier:@"getmessage" sender:self];
     
