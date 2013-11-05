@@ -20,13 +20,18 @@
 #import "SWTableViewCell.h"
 #import "OMHTTPCalls.h"
 #import "NewsfeedTableViewController.h"
+#import "NewsfeedCell.h"
+#import "SearchViewController.h"
 
 @interface DUViewController (){
     ConversationFeed* _feed;
     ConversationsModel* conversation;
     
+    
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *profileView;
+
 @end
 
 @implementation DUViewController
@@ -76,9 +81,13 @@ NSString *BASE_URL;
     
     
     //Newsfeed subview
+    
     NewsfeedTableViewController *newsfeed = [[NewsfeedTableViewController alloc]init];
-    [self.profileView addSubview:newsfeed.view];
-    //self.profileView.view = newsfeed.view;
+    [self.profileView addSubview:newsfeed.tableView];
+
+    
+    
+    
     
     //Setting the Site Information
     SITE = [Constants getSiteName];
@@ -240,6 +249,8 @@ NSString *BASE_URL;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   
+    
     conversation = _feed.conversations[indexPath.row];
     static NSString *identifier = @"ConversationCell";
     SWTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:identifier];

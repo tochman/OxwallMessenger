@@ -213,6 +213,7 @@
 		E9CF643918112DD40011692C /* red_dot_small.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CF643818112DD40011692C /* red_dot_small.png */; };
 		E9D93B6618263E36006C7833 /* NewsfeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D93B6518263E36006C7833 /* NewsfeedTableViewController.m */; };
 		E9EBCE1F17F16EC900629DB0 /* UsersFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EBCE1E17F16EC900629DB0 /* UsersFeed.m */; };
+		E9F123201828DEC2004B1BB0 /* NewsfeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1231F1828DEC2004B1BB0 /* NewsfeedCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -534,6 +535,8 @@
 		E9D93B6518263E36006C7833 /* NewsfeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsfeedTableViewController.m; path = Messenger/NewsfeedTableViewController.m; sourceTree = SOURCE_ROOT; };
 		E9EBCE1D17F16EC900629DB0 /* UsersFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UsersFeed.h; path = Messenger/UsersFeed.h; sourceTree = "<group>"; };
 		E9EBCE1E17F16EC900629DB0 /* UsersFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsersFeed.m; path = Messenger/UsersFeed.m; sourceTree = "<group>"; };
+		E9F1231E1828DEC2004B1BB0 /* NewsfeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsfeedCell.h; path = Messenger/NewsfeedCell.h; sourceTree = SOURCE_ROOT; };
+		E9F1231F1828DEC2004B1BB0 /* NewsfeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsfeedCell.m; path = Messenger/NewsfeedCell.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -629,6 +632,8 @@
 				E9330D6C180E99DA00BB5AE0 /* MessageCountObserver.m */,
 				E9D93B6418263E36006C7833 /* NewsfeedTableViewController.h */,
 				E9D93B6518263E36006C7833 /* NewsfeedTableViewController.m */,
+				E9F1231E1828DEC2004B1BB0 /* NewsfeedCell.h */,
+				E9F1231F1828DEC2004B1BB0 /* NewsfeedCell.m */,
 			);
 			name = Messenger;
 			path = JSON_HelloWorld;
@@ -1373,6 +1378,7 @@
 				E988C43917E6FDEF0053296C /* UITabBar+NUI.m in Sources */,
 				E988C43A17E6FDEF0053296C /* UITabBarItem+NUI.m in Sources */,
 				E9445BAF1817872500C11E56 /* UIButton+JSMessagesView.m in Sources */,
+				E9F123201828DEC2004B1BB0 /* NewsfeedCell.m in Sources */,
 				E988C43B17E6FDEF0053296C /* UITableView+NUI.m in Sources */,
 				E988C43C17E6FDEF0053296C /* UITableViewCell+NUI.m in Sources */,
 				E988C43D17E6FDEF0053296C /* UITextField+NUI.m in Sources */,

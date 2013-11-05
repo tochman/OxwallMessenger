@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MessageCountObserver.h"
 #import "SWTableViewCell.h"
+#import "NewsfeedTableViewController.h"
 
 
 @interface DUViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate, UIAlertViewDelegate> {
@@ -26,6 +27,10 @@
     
     IBOutlet UITableView *tableView;
     
+    IBOutlet UITableView *profileView;
+    
+   
+    
     NSTimer *timer1;
     
     NSMutableArray *avatarImageUrls;
@@ -41,7 +46,7 @@
 @property (strong, nonatomic) NSURL *avatarURL;
 @property (strong, nonatomic) IBOutlet UIImageView *convAvatar;
 
-@property (strong, nonatomic) IBOutlet UIView *profileView;
+//@property (strong, nonatomic) IBOutlet UIView *profileView;
 @property (strong, nonatomic) NSString *userid;
 @property (strong, nonatomic) UIImage *senderAvatar;
 @property (strong, nonatomic)  IBOutlet UIButton * ConversationButton;

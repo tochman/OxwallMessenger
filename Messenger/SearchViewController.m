@@ -66,6 +66,8 @@
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 70;
     
+
+    
     
     [self getFeed:@""];
 }
