@@ -19,6 +19,7 @@
 #import "Lockbox.h"
 #import "SWTableViewCell.h"
 #import "OMHTTPCalls.h"
+#import "NewsfeedTableViewController.h"
 
 @interface DUViewController (){
     ConversationFeed* _feed;
@@ -74,6 +75,11 @@ NSString *BASE_URL;
     self.tableView.allowsSelection = NO; // We essentially implement our own selection
     
     
+    //Newsfeed subview
+    NewsfeedTableViewController *newsfeed = [[NewsfeedTableViewController alloc]init];
+    [self.profileView addSubview:newsfeed.view];
+    //self.profileView.view = newsfeed.view;
+    
     //Setting the Site Information
     SITE = [Constants getSiteName];
     BASE_URL = [Constants getBaseUrl];
@@ -88,6 +94,7 @@ NSString *BASE_URL;
     conversatinbutton.hidden = NO;
     [self.profileView setHidden:YES];
     
+    
     // Title
     self.title = realname;
     [self.navigationItem setHidesBackButton:YES];
@@ -98,9 +105,10 @@ NSString *BASE_URL;
     
     
     //Profile view
-    [self.profileView addSubview:membersinceLabel];
-    [self.profileView addSubview:presentationTextview];
-    [self.profileView addSubview:sexLabel];
+    //[self.profileView addSubview:membersinceLabel];
+    //[self.profileView addSubview:presentationTextview];
+    //[self.profileView addSubview:sexLabel];
+    
     
     
     
